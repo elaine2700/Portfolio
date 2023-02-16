@@ -161,11 +161,24 @@ img.bordered{
     padding: 10px;
     max-width: 100px;
 }
+    li > .clickable{
+        display: block;
+    }
+
+    .clickable:visited{
+        background-color: #F9F5E7;
+        color:#164F60;
+    }
+
     .clickable:hover {
         background-color: #EDDBC7;
     }
 
-.current-selection{
+    .clickable:active {
+        background-color: #A7727D;
+    }
+    
+.clickable.current-selection {
     background-color: #164F60;
     color:#EDDBC7;
 }
@@ -280,8 +293,10 @@ img.bordered{
     font-size: 1.2rem;
     font-weight: 700;
 }
-.main-nav .clickable{
+.main-nav ul{
     list-style: none;
+}
+.main-nav .clickable{
     margin: 10px 0px;
     font-family: 'Fugaz One', cursive;
     max-width: none;
@@ -456,7 +471,6 @@ background: #164F60;
             display: flex;
             justify-content: end;
             z-index: 3;
-            
         }
 
         .main-nav ul{ 
