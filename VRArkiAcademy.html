@@ -16,7 +16,7 @@
         <div class="grid">
             <header class="grid-box" id="personal">
                 <div>
-                    <div class="profile-card">
+                    <div class="profile-card window">
                         <div class="profile-image">
                             <img id="icon-base" src="images/Icon_Base.png">
                             <img id="icon-lens" src="images/Icon_HMD.png">
@@ -28,57 +28,57 @@
                     </div>  
                     <nav class="main-nav">
                         <ul>
-                            <li class="toggle"><a><i class="icon fa fa-bars"></i></a></li>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="projects.html">Projects</a></li>
-                            <li><a href="resume.html">Resume</a></li>
+                            <li class="toggle clickable"><a><i class="icon fa fa-bars"></i></a></li>
+                            <li class="clickable current-selection"><a href="index.html">Home</a></li>
+                            <li class="clickable"><a href="projects.html">Projects</a></li>
+                            <li class="clickable"><a href="resume.html">Resume</a></li>
                         </ul>
                     </nav> 
                 </div>      
             </header>
 
             <main class= "grid-box" id="content">
+                <div class="fit">
+                    <article class="window">
+                        <header class="window-title">
+                            <h1>VR Arki Academy</h1>
+                            <p>A building system where the user can design and create their dream house in Virtual Reality.</p>
+                        </header>
+                            
+                        <section id="about" class="description">
+                            <h2>About</h2>
+                            <p>
+                                A project developed as my final project at Vancouver Film School in the VR/AR Design &amp; Development program.
+                                <br />
+                                This project was developed in Unity Engine.
+                            </p>
+                            <div class ="video">
+                                <iframe src="https://youtube.com/embed/S3NLhjTkV9Q"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope;"
+                                        allowfullscreen></iframe>
+                            </div>
+                            <h3>Target</h3>
+                            <p>
+                                To people that shows interest in architecture, interior design or others that are planning to redecorate
+                                their current houses.
+                            </p>
+                            <h3>Problem / Solution</h3>
+                            <p>
+                                It is often a problem for some people to get a sense of scale of the space they are designing in.
+                                It is not the same to say 20 by 20 metres than to be a space of 20 by 20 metres.
+                                This tool helps to understand the 3d space, for architecture students it is one of the fundamental skills
+                                they need to develop to keep evolving their design skills
+                            </p>
+                            <hr />
+                        </section>
+                    </article>
+                </div>
                 
-                <article class="description">
-                    <header>
-                        <h1>VR Arki Academy</h1>
-                        <p>A building system where the user can design and create their dream house in Virtual Reality.</p>
-                    </header>
-                        
-                    <section id="about">
-                        <h2>About</h2>
-                        <p>
-                            A project developed as my final project at Vancouver Film School in the VR/AR Design &amp; Development program.
-                            <br />
-                            This project was developed in Unity Engine.
-                        </p>
-                        <div class ="video">
-                            <iframe src="https://youtube.com/embed/S3NLhjTkV9Q"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope;"
-                                    allowfullscreen></iframe>
-                        </div>
-                        <h3>Target</h3>
-                        <p>
-                            To people that shows interest in architecture, interior design or others that are planning to redecorate
-                            their current houses.
-                        </p>
-                        <h3>Problem / Solution</h3>
-                        <p>
-                            It is often a problem for some people to get a sense of scale of the space they are designing in.
-                            It is not the same to say 20 by 20 metres than to be a space of 20 by 20 metres.
-                            This tool helps to understand the 3d space, for architecture students it is one of the fundamental skills
-                            they need to develop to keep evolving their design skills
-                        </p>
-                        <hr />
-                    </section>
-
-
-                </article>
             </main>
 
             <footer class="grid-box" id="contact">
-                <div>
+                <div class="window">
                     <ul class="social-media">
                         <li><a href="https://www.linkedin.com/in/elaine-serrano-echeverria/" class="fa-brands fa-linkedin"></a></li>
                         <li><a href="https://github.com/elaine2700" class="fa-brands fa-github"></a></li>
@@ -89,8 +89,7 @@
                         <li>Last Updated on February, 2023</li>
                         <li>Designed & coded from Scratch</li>
                     </ul>
-                </div>
-                
+                </div>    
             </footer>
         </div>
     </body>

@@ -3,6 +3,15 @@
     padding: 0;
     border: 0;
     box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    color:#164F60;
+}
+
+button{
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+    appearance: none;
+    text-transform: uppercase;
 }
 
 html {
@@ -42,6 +51,7 @@ a:active{
 
 div{
     margin: 0;
+    padding: 0;
 }
 
 body{
@@ -64,7 +74,6 @@ body{
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 80% 1fr;
-    grid-gap: 20px;
 }
 
 #personal {
@@ -74,17 +83,13 @@ body{
     justify-content: center;
     margin-left: 20px;
     display: flex;
+    z-index: 2;
 }
 
 #content { 
     grid-column: 5/span 8;
     grid-row: 1/span 2;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 #contact {
@@ -100,6 +105,42 @@ body{
 }
 
 /* General Styling*/
+.tall{
+    min-height: 500px;
+}
+
+.vertical-align {
+    position: relative;
+}
+.vertical-align-element {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    height: min-content;
+}
+
+.fit{
+    width: 100%;
+    padding: 30px;
+}
+
+.thumbnail-fitter{
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+}
+
+.bordered{
+    border: 2px solid #164F60;
+}
+
+img.bordered{
+    width: 100%;
+    height: auto;
+}
+
 .window{
     border: 2px solid #164F60;
     box-shadow: 3px 5px #164F60;
@@ -113,27 +154,70 @@ body{
         padding: 0.25rem;
     }
 
-    .medium{
-        width: 300px;
-        min-height: 150px;
-        min-width: 200px;
-        flex:50%;
-    }
-
 .clickable{
     border: 2px solid #164F60;
     background-color: #F9F5E7;
     text-align: center;
     padding: 10px;
+    max-width: 100px;
+}
+    .clickable:hover {
+        background-color: #EDDBC7;
+    }
+
+.current-selection{
+    background-color: #164F60;
+    color:#EDDBC7;
 }
 
-.tag{
-    background-color: #164F60;
-    color: #F9F5E7;
-    list-style: none;
-    display: inline-block;
-    padding: 0.4rem;
-    margin: 2px;
+.three-columns{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap:5px;
+    padding: 5px;
+    font-size: 0.8em;
+}
+
+    .tag{
+        background-color: #164F60;
+        color: #F9F5E7;
+        list-style: none;
+        padding: 0.4rem;
+    }
+
+.section-title{
+    padding: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    color:#F9F5E7;
+}
+
+.centered {
+    width: fit-content;
+    margin: auto;
+}
+
+.button .centered{
+    align-items: center;
+}
+
+.space{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+ 
+.even-columns{
+    display: grid;
+    grid-template-columns: 
+        repeat( auto-fit, minmax(250px, 1fr));
+    gap: 10px;
 }
 
 /* personal card */
@@ -192,52 +276,25 @@ body{
     }
 
 /* Nav Menu*/
-.main-nav li{
+.main-nav{
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+.main-nav .clickable{
     list-style: none;
     margin: 10px 0px;
     font-family: 'Fugaz One', cursive;
+    max-width: none;
 }
 
 .toggle {
     display: none;
 }
 
-/* projects thumbnails */
-
-.thumbnail {
-    min-width: 300px;
-    max-width: 500px;
-    flex: 40%;
-    margin: 10px;
-    height: 200px;
-    border-radius: 20px;
-    border: 1.5px solid #A7727D;
-    overflow: hidden;
-    text-align: center;
-    box-shadow: 0px 5px #A7727D;
-}
-
-.thumbnail div {
-    border-bottom: inherit;
-    height: 150px;
-    overflow: hidden;
-    
-}
-    .thumbnail div img{
-        width: 100%;
-        height: auto;
-    }
-
-.thumbnail h1 {
-    padding: 10px;
-    font-size: 1.1rem;
-}
-
 /* Contact section */
 #contact div{
     border-radius: 20px;
     padding: 10px;
-    border: 1.5px solid #EDDBC7;
     width: 100%;
     max-width: 300px;
 }
@@ -256,11 +313,9 @@ body{
     font-size: 0.8rem;
 }
 
-/* content pages */
+/* Projects large description */
 .description {
-    width: 100%;
     margin: 20px;
-    overflow: hidden;
 }
     .description h1{
         padding: 7px 0px;
@@ -277,58 +332,41 @@ body{
         padding: 5px 0px;
         font-size: 1rem;
     }
-    .description header {
-        border-bottom: inherit;
-        background-color: #EDDBC7;
-        padding: 20px;
-    }
-        .description section{
-            padding: 20px;
-        }
 
     .description ul {
-        list-style: none;
-        margin-left: 20px;
+        /*list-style: none;*/
+        margin-left: 50px;
     }
+    /*
     .description ul li::before{
         color: #A7727D;
         content: "\2022";
         display: inline-block;
         width: 1.2em;
         margin-left: -1em;
-    }
-
-.fit{
-    width: 100%;
-}
-
-.columns{
-    display: flex;
-    margin: 50px;
-    justify-content: space-between;
-}
+    }*/
 
 .presentation{
     text-align: center;
     min-width: 400px;
-    margin: 50px;
     padding: 50px;
+    min-height: 500px;
 }
-    .presentation > h1{
+    .presentation h1{
         font-size: 4rem;
         text-transform: uppercase;
         line-height: 1;
         color:#1F6D8C;
     }
 
-    .presentation > h2{
+    .presentation h2{
         font-size: 1.2rem;
         font-family: 'Lato', sans-serif;
         line-height: 1;
         margin: auto;
         max-width: 300px;
     }
-    .presentation > h3{
+    .presentation h3{
         font-size: 1.2rem;
         font-family: 'Lato', sans-serif;
         max-width: 300px;
@@ -361,6 +399,29 @@ div.video{
         max-width: 800px;
     }
 
+/*Scrollbar settings*/
+/* width */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #F9F5E7; 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #164F60; 
+}
 
 @media screen and (max-width: 900px) {
     .grid{
@@ -394,11 +455,14 @@ div.video{
             width: 50%;
             display: flex;
             justify-content: end;
+            z-index: 3;
+            
         }
 
         .main-nav ul{ 
             display: flex;
             justify-content: space-between;
+            gap:10px;
         }
 
         .main-nav ul > li {
@@ -445,9 +509,7 @@ div.video{
 }
 
 /* Mainly changes for the nav */
-@media screen and (max-width: 650px){
-
-
+@media screen and (max-width: 690px){
     /* menu Hidden */
     .main-nav{
         align-items: center;
@@ -457,7 +519,7 @@ div.video{
         height: fit-content;
     }
 
-    .main-nav ul li {
+    .main-nav ul > li {
         display: none;
         margin: 0;
         padding-left:20px;
@@ -477,10 +539,6 @@ div.video{
         position: absolute;
         right: auto;
         top: 10px;
-        background-color: #A7727D;
-        border-radius: 10px;
-        border: 1.5px solid #EDDBC7;
-        box-shadow: 0px 10px;
     }
         .main-nav.display .toggle{
             display:block;
@@ -498,4 +556,9 @@ div.video{
         min-width: 100px;
         margin: 10px 0px;
     }
+
+    .three-columns, .even-columns{
+        grid-template-columns: 1fr;
+    }
+
 }

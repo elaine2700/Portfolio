@@ -17,27 +17,38 @@
 
     <body>
         <div class="grid">
-            <div class="grid-box" id="personal">
-              <div class="profile-card">
-                <div class="profile-image">
-                    <img src="../images/Andre.png">
-                </div>
-                <div class="name">
-                    <h1><a href="../index.html">Elaine Serrano</a></h1>
-                    <h2>VR Developer & Designer</h2>
-                </div>   
-            </div>     
-            </div>
+          <header class="grid-box" id="personal">
+            <div>
+                <div class="profile-card window">
+                    <div class="profile-image">
+                        <img id="icon-base" src="images/Icon_Base.png">
+                        <img id="icon-lens" src="images/Icon_HMD.png">
+                    </div>
+                    <div class="name">
+                        <h1>Elaine Serrano</h1>
+                        <h2>VR Developer & Designer</h2>
+                    </div> 
+                </div>  
+                <nav class="main-nav">
+                    <ul>
+                        <li class="toggle clickable"><a><i class="icon fa fa-bars"></i></a></li>
+                        <li class="clickable current-selection"><a href="../index.html">Home</a></li>
+                        <li class="clickable"><a href="../projects.html">Projects</a></li>
+                        <li class="clickable"><a href="../resume.html">Resume</a></li>
+                    </ul>
+                </nav> 
+            </div>      
+        </header>
 
-            <div class= "grid-box" id="content">
-                
-                <article class="main">
-                    <header>
+            <main class= "grid-box" id="content">
+                <div class="fit">
+                  <article class="window">
+                    <header class="window-title">
                         <h2>Model Viewer</h2>
                         <p>A tool to display the breakdown of an specific 3d model</p>
                     </header>
                         
-                    <section id="about">
+                    <section id="about" class="description">
                         <h3>About</h3>
                         <p>
                             With this model viewer the user can move, rotate, and highlight an individual part.
@@ -72,10 +83,10 @@
                             Middle Mouse Button: Move all model. 
                         </p>
                     </section>
-
-
                 </article>
-            </div>
+                </div>
+                
+              </main>
 
             <footer class="grid-box" id="contact">
                 <div>

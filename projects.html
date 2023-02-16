@@ -17,7 +17,7 @@
         <div class="grid">
             <header class="grid-box" id="personal">
                 <div>
-                    <div class="profile-card">
+                    <div class="profile-card window">
                         <div class="profile-image">
                             <img id="icon-base" src="images/Icon_Base.png">
                             <img id="icon-lens" src="images/Icon_HMD.png">
@@ -29,50 +29,89 @@
                     </div>  
                     <nav class="main-nav">
                         <ul>
-                            <li class="toggle"><a><i class="icon fa fa-bars"></i></a></li>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="projects.html">Projects</a></li>
-                            <li><a href="resume.html">Resume</a></li>
+                            <li class="toggle clickable"><a><i class="icon fa fa-bars"></i></a></li>
+                            <li class="clickable current-selection"><a href="index.html">Home</a></li>
+                            <li class="clickable"><a href="projects.html">Projects</a></li>
+                            <li class="clickable"><a href="resume.html">Resume</a></li>
                         </ul>
                     </nav> 
                 </div>      
             </header>
 
             <main class= "grid-box" id="content">
-                <div class="thumbnail">
-                    <div>
-                        <img src="images/ArkiAcademy_Banner.jpg" alt="VR Arki Academy thumbnail">
+                <section>
+                    <header>
+                        <h1 class="section-title">Projects</h1>
+                    </header>
+                </section>
+                <div class="even-columns fit">
+                    <div class="window">
+                        <h4 class="window-title">Arki Academy</h4>
+                        <div class="thumbnail-fitter">
+                            <img class="bordered" src="images/ArkiAcademy_Banner.jpg">
+                            <ul class="tags bordered">
+                                <li class="tag">VR</li>
+                                <li class="tag">Unity</li>
+                                <li class="tag">C#</li>
+                            </ul>
+                            <button class="centered clickable" onclick='window.location.href = "VRArkiAcademy.html"'>More</button>
+                        </div>
                     </div>
-                    <h1><a href="VRArkiAcademy.html">VR Arki Academy</a></h1>
-                </div>
-                <div class="thumbnail">
-                    <div>
-                        <img src="images/VOY_banner.jpg" alt="Visions of Yesterday thumbnail">
+
+                    <div class="window">
+                        <h4 class="window-title">Visions of Yesterday</h4>
+                        <div class="thumbnail-fitter">
+                            <img class="bordered" src="images/VOY_banner.jpg">
+                            <ul class="tags bordered">
+                                <li class="tag">VR</li>
+                                <li class="tag">Unity</li>
+                                <li class="tag">C#</li>
+                            </ul>
+                            <button class="centered clickable" onclick='window.location.href = "VisionsOfYesterday.html"'>More</button>
+                        </div>
                     </div>
-                    <h1><a href="VisionsOfYesterday.html">Visions of Yesterday</a></h1>
-                </div>
-                <div class="thumbnail">
-                    <div>
-                        <img src="images/Bike_Viewer.png" alt="Model viewer thumbnail">
+
+                    <div class="window">
+                        <h4 class="window-title">Model Viewer</h4>
+                        <div class="thumbnail-fitter">
+                            <img class="bordered" src="images/Bike_Viewer.png">
+                            <ul class="tags bordered">
+                                <li class="tag">Unity</li>
+                                <li class="tag">C#</li>
+                            </ul>
+                            <button class="centered clickable" onclick='window.location.href = "Model Viewer/index.html"'>More</button>
+                        </div>
                     </div>
-                    <h1><a href="Model Viewer/index.html">Model Viewer</a></h1>
-                </div>
-                <div class="thumbnail">
-                    <div>
-                        <img src="images/RubeGoldbergMachine_Banner.jpg" alt="Rube Goldberg Machine thumbnail">
+
+                    <div class="window">
+                        <h4 class="window-title">Rube Goldberg Machine</h4>
+                        <div class="thumbnail-fitter">
+                            <img class="bordered" src="images/RubeGoldbergMachine_Banner.jpg">
+                            <ul class="tags bordered">
+                                <li class="tag">VR</li>
+                                <li class="tag">Unreal</li>
+                                <li class="tag">Blueprints</li>
+                            </ul>
+                            <button class="centered clickable" onclick='window.location.href = "RubeGoldbergMachine.html"'>More</button>
+                        </div>
                     </div>
-                    <h1><a href="RubeGoldbergMachine.html">Rube Goldberg Machine</a></h1>
-                </div>
-                <div class="thumbnail">
-                    <div>
-                        <img src="images/CPP_Banner.png" alt="C++ projects thumbnail">
+
+                    <div class="window">
+                        <h4 class="window-title">Minigames</h4>
+                        <div class="thumbnail-fitter">
+                            <img class="bordered" src="images/CPP_Banner.png">
+                            <ul class="tags bordered">
+                                <li class="tag">C++</li>
+                            </ul>
+                            <button class="centered clickable" onclick='window.location.href = "Minigames.html"'>More</button>
+                        </div>
                     </div>
-                    <h1><a href="Minigames.html">Minigames</a></h1>
+
                 </div>
             </main>
 
             <footer class="grid-box" id="contact">
-                <div>
+                <div class="window">
                     <ul class="social-media">
                         <li><a href="https://www.linkedin.com/in/elaine-serrano-echeverria/" class="fa-brands fa-linkedin"></a></li>
                         <li><a href="https://github.com/elaine2700" class="fa-brands fa-github"></a></li>

@@ -16,7 +16,7 @@
         <div class="grid">
             <header class="grid-box" id="personal">
                 <div>
-                    <div class="profile-card">
+                    <div class="profile-card window">
                         <div class="profile-image">
                             <img id="icon-base" src="images/Icon_Base.png">
                             <img id="icon-lens" src="images/Icon_HMD.png">
@@ -28,63 +28,63 @@
                     </div>  
                     <nav class="main-nav">
                         <ul>
-                            <li class="toggle"><a><i class="icon fa fa-bars"></i></a></li>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="projects.html">Projects</a></li>
-                            <li><a href="resume.html">Resume</a></li>
+                            <li class="toggle clickable"><a><i class="icon fa fa-bars"></i></a></li>
+                            <li class="clickable current-selection"><a href="index.html">Home</a></li>
+                            <li class="clickable"><a href="projects.html">Projects</a></li>
+                            <li class="clickable"><a href="resume.html">Resume</a></li>
                         </ul>
                     </nav> 
                 </div>      
             </header>
 
-            <div class= "grid-box" id="content">
+            <main class= "grid-box" id="content">
+                <div class="fit">
+                    <article class="window">
+                        <header class="window-title">
+                            <h1>Rube Goldberg Machine</h1>
+                            <p>A machine that completes a single task in a complicated way.
+                            <br />
+                            The task for my machine is to open a box full of cookies.
+                            </p>
+                        </header>
+                            
+                        <section id="about" class="description">
+                            <h2>About</h2>
+                            <p>
+                                A project developed as my final project at Vancouver Film School in the VR/AR Design &amp; Development program.
+                                <br />
+                                This project was developed in Unity Engine.
+                            </p>
+                            <div class="video">
+                                <video controls loop autoplay muted>
+                                    <source src="videos/RubeGoldbergMachine.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <p>
+                                This project was made for an assignment at Vancouver Film School. The task consisted in
+                                designing a Rube Goldberg Machine in Unreal Engine, using for the most part Physics simulation
+                                with the minimum amount of Blueprints.
+                                <br />
+                                A Rube Goldberg Machine does a simple tasks in a complicated way by combining multiple objects
+                                to create a chain reaction. These machines are fun to watch when they are working, so I designed
+                                mine to do a fun task, which was to open a box full of cookies.
+                            </p>
+                            <h3>Characteristics</h3>
+                            <ul>
+                                <li>Developed in Unreal Engine 4</li>
+                                <li>Start Date: April 7th, 2022</li>
+                                <li>Final Date: April 21st, 2022</li>
+                                <li>Assets from Quixel Bridge</li>
+                            </ul>
+    
+                        </section>
+                    </article>
+                </div>
                 
-                <article class="description">
-                    <header>
-                        <h1>Rube Goldberg Machine</h1>
-                        <p>A machine that completes a single task in a complicated way.
-                        <br />
-						The task for my machine is to open a box full of cookies.
-                        </p>
-                    </header>
-                        
-                    <section id="about">
-                        <h2>About</h2>
-                        <p>
-                            A project developed as my final project at Vancouver Film School in the VR/AR Design &amp; Development program.
-                            <br />
-                            This project was developed in Unity Engine.
-                        </p>
-                        <div class="video">
-                            <video controls loop autoplay muted>
-                                <source src="videos/RubeGoldbergMachine.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <p>
-                            This project was made for an assignment at Vancouver Film School. The task consisted in
-                            designing a Rube Goldberg Machine in Unreal Engine, using for the most part Physics simulation
-                            with the minimum amount of Blueprints.
-                            <br />
-                            A Rube Goldberg Machine does a simple tasks in a complicated way by combining multiple objects
-                            to create a chain reaction. These machines are fun to watch when they are working, so I designed
-                            mine to do a fun task, which was to open a box full of cookies.
-                        </p>
-                        <h3>Characteristics</h3>
-                        <ul>
-                            <li>Developed in Unreal Engine 4</li>
-                            <li>Start Date: April 7th, 2022</li>
-                            <li>Final Date: April 21st, 2022</li>
-                            <li>Assets from Quixel Bridge</li>
-                        </ul>
-
-                    </section>
-
-
-                </article>
-            </div>
+            </main>
 
             <footer class="grid-box" id="contact">
-                <div>
+                <div class="window">
                     <ul class="social-media">
                         <li><a href="https://www.linkedin.com/in/elaine-serrano-echeverria/" class="fa-brands fa-linkedin"></a></li>
                         <li><a href="https://github.com/elaine2700" class="fa-brands fa-github"></a></li>
@@ -95,8 +95,7 @@
                         <li>Last Updated on February, 2023</li>
                         <li>Designed & coded from Scratch</li>
                     </ul>
-                </div>
-                
+                </div>    
             </footer>
         </div>
     </body>

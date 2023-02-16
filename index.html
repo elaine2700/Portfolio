@@ -30,7 +30,7 @@
                     <nav class="main-nav">
                         <ul>
                             <li class="toggle clickable"><a><i class="icon fa fa-bars"></i></a></li>
-                            <li class="clickable"><a href="index.html">Home</a></li>
+                            <li class="clickable current-selection"><a href="index.html">Home</a></li>
                             <li class="clickable"><a href="projects.html">Projects</a></li>
                             <li class="clickable"><a href="resume.html">Resume</a></li>
                         </ul>
@@ -40,20 +40,25 @@
 
             <main class= "grid-box" id="content">
                 <article id="about" class="fit">
-                    <header class="presentation window">
-                        <h1>Hello,</h1>
-                        <h2 class="accent">I am Elaine.
-                            <br>
-                            XR Developer &amp; Designer. </h2>
-                        <h3>
-                            I am passionate about creating immersive and interactive experiences.  
-                        </h3>              
+                    <header class="presentation window vertical-align">
+                        <div class="vertical-align-element inner centered">
+                            <h1>Hello,</h1>
+                            <h2 class="accent">I am Elaine.
+                                <br>
+                                XR Developer &amp; Designer. </h2>
+                            <h3>
+                                I am passionate about creating immersive and interactive experiences.  
+                            </h3> 
+                        </div>
+                                     
                     </header>
+
                     <section id="skills">
-                        <div class="columns">
-                            <div class="window medium">
+                        <h1 class="section-title">Skills</h1>
+                        <div class="three-columns">
+                            <div class="window">
                                 <h4 class="window-title">Virtual Reality</h4>
-                                <ul>
+                                <ul class="tags">
                                     <li class="tag">Unity</li>
                                     <li class="tag">C#</li>
                                     <li class="tag">Unreal</li>
@@ -61,26 +66,26 @@
                                     <li class="tag">Blueprints</li>
                                 </ul>
                             </div>
-                            <div class="window medium">
+                            <div class="window">
                                 <h4 class="window-title">Front End  </h4>
-                                <ul>
+                                <ul class="tags">
                                     <li class="tag">HTML</li>
                                     <li class="tag">CSS</li>
                                     <li class="tag">JS</li>
                                     <li class="tag">Node</li>
                                 </ul>
                             </div>
-                            <div class="window medium">
+                            <div class="window">
                                 <h4 class="window-title">Design</h4>
-                                <ul>
+                                <ul class="tags">
                                     <li class="tag">Photoshop</li>
                                     <li class="tag">Illustrator</li>
                                     <li class="tag">After Effects</li>
                                 </ul>
                             </div>
-                            <div class="window medium">
+                            <div class="window">
                                 <h4 class="window-title">Design</h4>
-                                <ul>
+                                <ul class="tags">
                                     <li class="tag">Photoshop</li>
                                     <li class="tag">Illustrator</li>
                                     <li class="tag">After Effects</li>
@@ -90,6 +95,51 @@
                     </section>
 
                     <section id="projects">
+                        <h1 class="section-title">Projects</h1>
+                        <div class="three-columns">
+                            <div class="window">
+                                <h4 class="window-title">Vr Arki Academy</h4>
+                                <div class="thumbnail-fitter">
+                                    <img class="bordered" src="images/ArkiAcademy_Banner.jpg">
+                                    <ul class="tags bordered">
+                                        <li class="tag">VR</li>
+                                        <li class="tag">Unity</li>
+                                        <li class="tag">C#</li>
+                                    </ul>
+                                    <button class="centered clickable" onclick='window.location.href = "VRArkiAcademy.html"'>More</button>
+                                </div>
+                                
+                            </div>
+                            <div class="window">
+                                <h4 class="window-title">Visions of Yesterday</h4>
+                                <div class="thumbnail-fitter">
+                                    <img class="bordered" src="images/VOY_banner.jpg">
+                                    <ul class="tags bordered">
+                                        <li class="tag">VR</li>
+                                        <li class="tag">Unity</li>
+                                        <li class="tag">C#</li>
+                                    </ul>
+                                    <button class="centered clickable" onclick='window.location.href = "VisionsOfYesterday.html"'>More</button>
+                                </div>
+                                
+                            </div>
+                            <div class="window">
+                                <h4 class="window-title">Model Viewer</h4>
+                                <div class="thumbnail-fitter">
+                                    <img class="bordered" src="images/Bike_Viewer.png">
+                                    <ul class="tags bordered">
+                                        <li class="tag">Unity</li>
+                                        <li class="tag">C#</li>
+                                    </ul>
+                                    <button class="centered clickable" onclick='window.location.href = "Model Viewer/index.html"'>More</button>
+                                </div>                               
+                            </div>
+                        </div>
+
+                        <div class="space centered">
+                            <button class="centered clickable" onclick='window.location.href = "projects.html"'>All projects</button>
+                        </div>
+                        
 
                     </section>
                      

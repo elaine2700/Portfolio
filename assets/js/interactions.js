@@ -5,7 +5,7 @@ let toogleMenuButton = document.querySelector('.toggle');
 function toggleMenu() {
     let x = document.querySelector(".main-nav");
     if(x.className == "main-nav")
-        x.className += " display";
+        x.className += " display window";
     else
         x.className = "main-nav";
 

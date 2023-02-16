@@ -16,7 +16,7 @@
         <div class="grid">
             <header class="grid-box" id="personal">
                 <div>
-                    <div class="profile-card">
+                    <div class="profile-card window">
                         <div class="profile-image">
                             <img id="icon-base" src="images/Icon_Base.png">
                             <img id="icon-lens" src="images/Icon_HMD.png">
@@ -28,98 +28,100 @@
                     </div>  
                     <nav class="main-nav">
                         <ul>
-                            <li class="toggle"><a><i class="icon fa fa-bars"></i></a></li>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="projects.html">Projects</a></li>
-                            <li><a href="resume.html">Resume</a></li>
+                            <li class="toggle clickable"><a><i class="icon fa fa-bars"></i></a></li>
+                            <li class="clickable current-selection"><a href="index.html">Home</a></li>
+                            <li class="clickable"><a href="projects.html">Projects</a></li>
+                            <li class="clickable"><a href="resume.html">Resume</a></li>
                         </ul>
                     </nav> 
                 </div>      
             </header>
 
             <main class= "grid-box" id="content">
-                
-                <article class="description">
-                    <header>
-                        <h1>Minigames</h1>
-                        <p>Multiple C++ Minigames, developed raylib library.</p>
-                    </header>
+                <div class="fit">
+                    <article class="window">
+                        <header class="window-title">
+                            <h1>Minigames</h1>
+                            <p>Multiple C++ Minigames, developed raylib library.</p>
+                        </header>
+                            
+                        <section id="about" class="description">
+                            <h2>About</h2>
+                            <p>
+                                Minigames developed while taking the course:
+                                <a href="https://www.gamedev.tv/p/cpp-fundamentals/?coupon_code=HOORAY" target="_blank" rel="noopener noreferrer">
+                                C++ Fundamentals: Game Programming For Beginners.</a> 
+                                The course explained basic C++ syntax: variables, methods, loops, classes, inheritance, pointers.
+                                It also, mentioned how to use external libraries, such as Raylib,
+                                and how to work with Vectors.
+                            </p>
+    
+                            <h3>Collision</h3>
+                            <div class="video">
+                                <iframe src="https://www.youtube.com/embed/csgBwuQ0lcA" 
+                                title="YouTube video player" frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                            </div>
                         
-                    <section id="about">
-                        <h2>About</h2>
-                        <p>
-                            Minigames developed while taking the course:
-                            <a href="https://www.gamedev.tv/p/cpp-fundamentals/?coupon_code=HOORAY" target="_blank" rel="noopener noreferrer">
-                            C++ Fundamentals: Game Programming For Beginners.</a> 
-                            The course explained basic C++ syntax: variables, methods, loops, classes, inheritance, pointers.
-                            It also, mentioned how to use external libraries, such as Raylib,
-                            and how to work with Vectors.
-                        </p>
+                            <p>
+                                This was the introductory project. The user can move the square left and right with the
+                                A and D keys. When there is a collision with the circle, the game is over.
+                                <ul>
+                                    <li>This section of the course focused on how to use external libraries.</li>
+                                    <li>First concepts of programming, like data types and variables.</li>
+                                    <li>Covered how to use the functions from the raylib library to draw basic shapes, 
+                                        and move them around the screen, while also checking for collisions.</li>
+                                </ul>
+                            </p>
+    
+                            <h3>Jumping</h3>
+                            <div class="video">
+                                <iframe src="https://www.youtube.com/embed/OnahwA957HM" 
+                                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                            </div>
+                            <p>
+                                In this game, the character has to jump through an array of hazards, when it
+                                arrives at the finish line, the user win, but if they collide with a hazard,
+                                the game is over.
+                                <ul>
+                                    <li>The course introduced animation concepts, how to import
+                                    sprite sheets, and how to animate them an be frame-rate independant.</li>
+                                    <li>Worked with Custom Data Types (structs), and arrays.</li>
+                                    <li>Created a win-lose situation.</li>
+                                </ul>
+                            </p>
+    
+                            <h3>Classy Clash</h3>
+                            <div class="video">
+                                <iframe src="https://www.youtube.com/embed/vN2WeivVOwc" 
+                                title="YouTube video player" frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                            </div>
+                            <p>
+                                In this game, the character is chased by two enemies, the user has to use the WASD keys
+                                to control the character around the world, and attack the monsters to destroy them.
+                                <ul>
+                                    <li>Used object oriented programming.</li>
+                                    <li>Used class inheritance.</li>
+                                    <li>Learned about pointers.</li>
+                                    <li>Used virtual functions to override in child class.</li>
+                                    <li>Implemented a basic health system.</li>
+                                </ul>
+                            </p>
+                               
+                        </section>
+    
+    
+                    </article>
 
-                        <h3>Collision</h3>
-                        <div class="video">
-                            <iframe src="https://www.youtube.com/embed/csgBwuQ0lcA" 
-                            title="YouTube video player" frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen></iframe>
-                        </div>
-                    
-                        <p>
-                            This was the introductory project. The user can move the square left and right with the
-                            A and D keys. When there is a collision with the circle, the game is over.
-                            <ul>
-                                <li>This section of the course focused on how to use external libraries.</li>
-                                <li>First concepts of programming, like data types and variables.</li>
-                                <li>Covered how to use the functions from the raylib library to draw basic shapes, 
-                                    and move them around the screen, while also checking for collisions.</li>
-                            </ul>
-                        </p>
-
-                        <h3>Jumping</h3>
-                        <div class="video">
-                            <iframe src="https://www.youtube.com/embed/OnahwA957HM" 
-                            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen></iframe>
-                        </div>
-                        <p>
-                            In this game, the character has to jump through an array of hazards, when it
-                            arrives at the finish line, the user win, but if they collide with a hazard,
-                            the game is over.
-                            <ul>
-                                <li>The course introduced animation concepts, how to import
-                                sprite sheets, and how to animate them an be frame-rate independant.</li>
-                                <li>Worked with Custom Data Types (structs), and arrays.</li>
-                                <li>Created a win-lose situation.</li>
-                            </ul>
-                        </p>
-
-                        <h3>Classy Clash</h3>
-                        <div class="video">
-                            <iframe src="https://www.youtube.com/embed/vN2WeivVOwc" 
-                            title="YouTube video player" frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen></iframe>
-                        </div>
-                        <p>
-                            In this game, the character is chased by two enemies, the user has to use the WASD keys
-                            to control the character around the world, and attack the monsters to destroy them.
-                            <ul>
-                                <li>Used object oriented programming.</li>
-                                <li>Used class inheritance.</li>
-                                <li>Learned about pointers.</li>
-                                <li>Used virtual functions to override in child class.</li>
-                                <li>Implemented a basic health system.</li>
-                            </ul>
-                        </p>
-                           
-                    </section>
-
-
-                </article>
+                </div>
             </main>
 
             <footer class="grid-box" id="contact">
-                <div>
+                <div class="window">
                     <ul class="social-media">
                         <li><a href="https://www.linkedin.com/in/elaine-serrano-echeverria/" class="fa-brands fa-linkedin"></a></li>
                         <li><a href="https://github.com/elaine2700" class="fa-brands fa-github"></a></li>
@@ -130,8 +132,7 @@
                         <li>Last Updated on February, 2023</li>
                         <li>Designed & coded from Scratch</li>
                     </ul>
-                </div>
-                
+                </div>    
             </footer>
         </div>
     </body>
