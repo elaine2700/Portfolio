@@ -9,7 +9,7 @@ html {
     font-size: 16px;
     height: 100%;
     font-family: 'Lato', sans-serif;
-    color:#F9F5E7;
+    color:#164F60;
     background-color:#A7727D;
 }
 
@@ -23,7 +23,7 @@ p{
 
 /* HyperLink settings */
 a {
-    color:black;
+    color:#164F60;
     text-decoration: none;
 }
 
@@ -32,11 +32,11 @@ a:visited{
 }
 
 a:hover{
-    color:#EDDBC7;
+    color:#A7727D;
 }
 
 a:active{
-    color:#F9F5E7;
+    color:#EDDBC7;
     text-decoration: #F9F5E7 underline;
 }
 
@@ -85,7 +85,6 @@ body{
     justify-content: center;
     align-items: center;
     overflow: scroll;
-    background-color: #F9F5E7;
 }
 
 #contact {
@@ -100,6 +99,43 @@ body{
     padding-bottom: 20px;
 }
 
+/* General Styling*/
+.window{
+    border: 2px solid #164F60;
+    box-shadow: 3px 5px #164F60;
+    border-radius: 20px;
+    background-color: #F9F5E7;
+    overflow: hidden;
+}
+    .window > .window-title{
+        border-bottom: 2px solid #164F60;
+        text-align: center;
+        padding: 0.25rem;
+    }
+
+    .medium{
+        width: 300px;
+        min-height: 150px;
+        min-width: 200px;
+        flex:50%;
+    }
+
+.clickable{
+    border: 2px solid #164F60;
+    background-color: #F9F5E7;
+    text-align: center;
+    padding: 10px;
+}
+
+.tag{
+    background-color: #164F60;
+    color: #F9F5E7;
+    list-style: none;
+    display: inline-block;
+    padding: 0.4rem;
+    margin: 2px;
+}
+
 /* personal card */
 #personal > div{
     display: block;
@@ -109,8 +145,6 @@ body{
 
 .profile-card {
     display: block;
-    border: 1.5px solid #EDDBC7;
-    border-radius: 20px;
     overflow: hidden;
 }
 
@@ -118,11 +152,12 @@ body{
     overflow: hidden;
     height: 180px;
     position: relative;
-    width: 100%;
+    width: auto;
     max-width: 1080px;
 }
+
     .profile-image img{
-        width: 100%;
+        width: auto;
         max-width: 200px;
         aspect-ratio: 1 / 1;
         position: absolute;
@@ -134,9 +169,7 @@ body{
     width: auto;
     padding: 10px;
     height: auto;
-    color:#F9F5E7;
-    border-top:1.5px solid #EDDBC7;
-    width: 500px;
+    border-top:1.5px solid #164F60;
     overflow: hidden;
 }
 
@@ -162,28 +195,7 @@ body{
 .main-nav li{
     list-style: none;
     margin: 10px 0px;
-    border-radius: 10px;
-    border: 1.5px solid #EDDBC7;
-    padding: 10px;
-    text-align: center;
-    box-shadow: 0px 5px #EDDBC7;
     font-family: 'Fugaz One', cursive;
-}
-
-.main-nav a {
-    color:#EDDBC7;
-}
-
-.main-nav a:visited{
-    color:#EDDBC7
-}
-
-.main-nav a:hover{
-    color:#F9F5E7;
-}
-
-.main-nav a:active{
-    text-decoration: #F9F5E7 underline;
 }
 
 .toggle {
@@ -246,13 +258,9 @@ body{
 
 /* content pages */
 .description {
-    border-radius: 20px;
-    border: 1.5px solid #A7727D;
     width: 100%;
     margin: 20px;
     overflow: hidden;
-    color: black;
-    box-shadow: 0px 5px #A7727D;
 }
     .description h1{
         padding: 7px 0px;
@@ -290,33 +298,48 @@ body{
         margin-left: -1em;
     }
 
+.fit{
+    width: 100%;
+}
+
+.columns{
+    display: flex;
+    margin: 50px;
+    justify-content: space-between;
+}
+
 .presentation{
     text-align: center;
-    max-width: 500px;
+    min-width: 400px;
+    margin: 50px;
+    padding: 50px;
 }
-    h1.presentation{
+    .presentation > h1{
         font-size: 4rem;
-        padding: 0;
         text-transform: uppercase;
-        text-align: center;
         line-height: 1;
         color:#1F6D8C;
     }
-    div h2.presentation{
-        max-width: 250px;
-    }
-    h2.presentation {
+
+    .presentation > h2{
         font-size: 1.2rem;
         font-family: 'Lato', sans-serif;
-        text-transform: uppercase;
-        padding: 0;
         line-height: 1;
         margin: auto;
+        max-width: 300px;
     }
-    h3.presentation {
+    .presentation > h3{
         font-size: 1.2rem;
         font-family: 'Lato', sans-serif;
+        max-width: 300px;
+        margin: auto;
     }
+
+.accent{
+    background-color: #164F60;
+    color:#F9F5E7;
+    padding: 10px;
+}
 
 /* Video */
 div.video{
@@ -363,7 +386,6 @@ div.video{
         .profile-card {
             height: 100%;
             display: flex;
-            width: 50%;
             min-width: 250px;
             justify-content: space-evenly;
         }
@@ -424,9 +446,7 @@ div.video{
 
 /* Mainly changes for the nav */
 @media screen and (max-width: 650px){
-    .profile-card{
-        width: 85%;
-    }
+
 
     /* menu Hidden */
     .main-nav{
