@@ -70,6 +70,9 @@ body{
 .grid {
     width: 100vw;
     height: 100vh;
+    width: 100dvw;
+    height: 100dvh;
+   
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -101,8 +104,11 @@ body{
     flex-wrap: wrap;
     align-content: end;
     justify-content: center;
-    padding-bottom: 20px;
+    z-index: 2;
 }
+    #contact > div{
+        margin-bottom: 20px;
+    }
 
 /* General Styling*/
 .tall{
@@ -233,11 +239,14 @@ img.bordered{
     gap: 10px;
 }
 
+.hide{
+    display: none !important;
+}
+
 /* personal card */
 #personal > div{
     display: block;
-    width: 100%;
-    max-width: 300px;
+    min-width: 300px;
 }
 
 .profile-card {
@@ -363,7 +372,7 @@ img.bordered{
 
 .presentation{
     text-align: center;
-    min-width: 400px;
+    min-width: 250px;
     padding: 50px;
     min-height: 500px;
 }
@@ -414,9 +423,52 @@ div.video{
         max-width: 800px;
     }
 
+/* Toggle on - off */
+input[type=checkbox]{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+  
+.switch {
+    cursor: pointer;
+    width: 50px;
+    height: 30px;
+    background: #F9F5E7;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+    border: 2px solid #164F60;
+}
+
+/* The circle */
+.switch:after {
+    content: '';
+    position: absolute;
+    top: 2.5px;
+    left: 2.5px;
+    width: 20px;
+    height: 20px;
+    background: #164F60;
+    border-radius: 90px;
+    transition: 0.3s;
+  }
+  
+input:checked + label.switch {
+    background-color: #164F60;
+}
+  
+input:checked + label.switch:after {
+    left: calc(100% - 2.5px);
+    transform: translateX(-100%);
+    background-color: #F9F5E7;
+}
+  
+label.switch:active:after {
+    width: 30px;
+}
+
 /*Scrollbar settings*/
-/* width */
-/* width */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -435,13 +487,44 @@ div.video{
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-background: #164F60; 
+    background: #164F60; 
+}
+
+/*Slider Stats*/
+
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 75px; /* Full-width */
+    height: 30px; /* Specified height */
+    background: #F9F5E7; /* Grey background */
+    outline: none; /* Remove outline */
+    border: 2px solid #164F60;
+    border-radius: 15px;
+}
+  
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 20px; /* Set a specific slider handle width */
+    height: 20px; /* Slider handle height */
+    background: #164F60; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 12.5px;
+}
+  
+.slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #04AA6D; /* Green background */
+    cursor: pointer; /* Cursor on hover */
 }
 
 @media screen and (max-width: 900px) {
     .grid{
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 10% 4fr 1fr;
+        grid-template-rows: 5rem 1fr 8.6rem;
     }
     
     #personal{
@@ -449,14 +532,15 @@ background: #164F60;
         grid-row: 1;
         margin-top: 10px;
         margin-right: 20px;
-        height: 100%;
-        display: flex;
+        display: block;
         justify-content: center;
     }
         #personal > div {
             max-width: none;
             height: 100%;
             display: flex;
+            justify-content: space-between;
+            min-width: auto;
         }
 
         .profile-card {
@@ -467,7 +551,6 @@ background: #164F60;
         }
 
         .main-nav{
-            width: 50%;
             display: flex;
             justify-content: end;
             z-index: 3;
@@ -475,7 +558,6 @@ background: #164F60;
 
         .main-nav ul{ 
             display: flex;
-            justify-content: space-between;
             gap:10px;
         }
 
@@ -536,8 +618,6 @@ background: #164F60;
     .main-nav ul > li {
         display: none;
         margin: 0;
-        padding-left:20px;
-        padding-right: 20px;
     }
     .main-nav .toggle{
         display:block;
@@ -548,10 +628,10 @@ background: #164F60;
     When user clicks the class changes its name*/
     .main-nav.display{
         display: block;
-        width: 95%;
+        width: calc(100% - 20px);
         height: auto;
         position: absolute;
-        right: auto;
+        left: 10px;
         top: 10px;
     }
         .main-nav.display .toggle{
@@ -575,4 +655,32 @@ background: #164F60;
         grid-template-columns: 1fr;
     }
 
+    .vertical-align-element{
+        width: min-content;
+    }
+
+}
+
+@media screen and (max-width: 350px) {
+    #about{
+        padding: 10px;
+    }
+
+    .presentation{
+        padding: 20px;
+    }
+
+    .section-title{
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /*Hide Elaine and Title*/
+    .name{
+        display: none;
+    }
+    .profile-card{
+        min-width: 70px;
+    }
+    
 }

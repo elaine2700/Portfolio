@@ -34,7 +34,7 @@
                             <li class="toggle"><a class="clickable"><i class="icon fa fa-bars"></i></a></li>
                             <li><a class="clickable current-selection" href="index.html">Home</a></li>
                             <li><a class="clickable" href="projects.html">Projects</a></li>
-                            <li><a class="clickable" href="resume.html">Resume</a></li>
+                            <li class="hide"><a class="clickable" href="resume.html">Resume</a></li>
                         </ul>
                     </nav> 
                 </div>      
@@ -73,16 +73,6 @@
                                 <ul class="tags">
                                     <li class="tag">HTML</li>
                                     <li class="tag">CSS</li>
-                                    <li class="tag">JS</li>
-                                    <li class="tag">Node</li>
-                                </ul>
-                            </div>
-                            <div class="window">
-                                <h4 class="window-title">Design</h4>
-                                <ul class="tags">
-                                    <li class="tag">Photoshop</li>
-                                    <li class="tag">Illustrator</li>
-                                    <li class="tag">After Effects</li>
                                 </ul>
                             </div>
                             <div class="window">
@@ -146,6 +136,18 @@
                     </section>
                      
                 </article>
+                <div class="hide">
+                    <div>
+                        <span>VR</span>
+                        <input id="VR-Toggle" type="checkbox"/>
+                        <label class="switch" for="VR-Toggle"></label>
+                    </div>
+                    <div class="slidecontainer">
+                        <label for="theme-slider">Theme</label>
+                        <input type="range" min="1" max="3" value="2" class="slider" id="theme-slider">
+                    </div>
+                </div>
+                
             </main>
 
             <footer class="grid-box" id="contact">
@@ -162,6 +164,7 @@
                     </ul>
                 </div>    
             </footer>
+
         </div>
 
         <script src="assets/js/interactions.js"></script>
