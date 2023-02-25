@@ -20,7 +20,12 @@
                     <div class="profile-card window">
                         <div class="profile-image">
                             <img id="icon-base" src="images/Icon_Base.png">
-                            <img id="icon-lens" src="images/Icon_HMD.png">
+                            <img id="icon-lens" class="invisible transition-right" src="images/Icon_HMD.png">
+                            <div id="VR-checkbox">
+                                <span>VR</span>
+                                <input id="VR-Toggle" type="checkbox"/>
+                                <label class="switch" for="VR-Toggle"></label>
+                            </div>
                         </div>
                         <div class="name">
                             <h1>Elaine Serrano</h1>
@@ -118,7 +123,7 @@
                     </ul>
                     <ul class="page-info">
                         <li>&copy;2023 Elaine Serrano</li>
-                        <li>Contact me at <span class="bold">easerrano.e@gmail.com</span></li>
+                        <li>Contact me at <span class="bold"><a href="mailto:contact@elaineserrano.com">contact@elaineserrano.com</a></span></li>
                         <li>Last Updated on February, 2023</li>
                         <li>Designed & coded from Scratch</li>
                     </ul>

@@ -24,13 +24,13 @@ toogleMenuButton.onclick = toggleMenu;
 const vrCheckbox = document.getElementById("VR-Toggle");
 
 function ClickVRCheckbox(){
-    let lensImage = document.getElementById("icon-lens");
+    const lensImage = document.getElementById("icon-lens");
 
     if(vrCheckbox.checked == true){
-        lensImage.className = "";
+        lensImage.className = "visible transition-normalState";
     }
     else{
-        lensImage.className = "hide";
+        lensImage.className = "invisible transition-right";
     }
 }
 

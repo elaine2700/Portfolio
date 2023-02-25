@@ -160,6 +160,8 @@ img.bordered{
         padding: 0.25rem;
     }
 
+/* Buttons */
+
 .clickable{
     border: 2px solid #164F60;
     background-color: #F9F5E7;
@@ -169,6 +171,7 @@ img.bordered{
 }
     li > .clickable{
         display: block;
+        transition-duration: 0.5s;
     }
 
     .clickable:visited{
@@ -178,10 +181,12 @@ img.bordered{
 
     .clickable:hover {
         background-color: #EDDBC7;
+        transition-duration: 0.7s;
     }
 
     .clickable:active {
         background-color: #A7727D;
+        transition-duration: 0.5s;
     }
     
 .clickable.current-selection {
@@ -239,8 +244,29 @@ img.bordered{
     gap: 10px;
 }
 
-.hide{
-    display: none !important;
+.hide{ 
+    display: none;
+}
+
+/* Transition settings */
+.transition-right{
+    position: relative;
+    transform: translateX(4rem);
+    transition: 0.5s;
+}
+
+.transition-normalState{
+    position: relative;
+    transform: translateX(0px);
+    transition: 0.5s;
+}
+
+.invisible{
+    opacity: 0;
+}
+
+.visible{
+    opacity: 1;
 }
 
 /* personal card */
@@ -277,7 +303,7 @@ img.bordered{
         right: 0.5rem;
         text-align: center;
     }
-    
+
 .profile-card .name{
     width: auto;
     padding: 10px;
@@ -365,17 +391,8 @@ img.bordered{
     }
 
     .description ul {
-        /*list-style: none;*/
         margin-left: 50px;
     }
-    /*
-    .description ul li::before{
-        color: #A7727D;
-        content: "\2022";
-        display: inline-block;
-        width: 1.2em;
-        margin-left: -1em;
-    }*/
 
 .presentation{
     text-align: center;
@@ -594,6 +611,10 @@ label.switch:active:after {
             .profile-card h2 {
                 font-size: 0.8rem;
             }
+
+        #VR-checkbox{
+            display: none;
+        }
         
     #content{
         grid-column: 1/span 4;
