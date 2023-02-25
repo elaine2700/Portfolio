@@ -18,3 +18,20 @@ function toggleMenu() {
 }
 
 toogleMenuButton.onclick = toggleMenu;
+
+// VR Checkbox
+
+const vrCheckbox = document.getElementById("VR-Toggle");
+
+function ClickVRCheckbox(){
+    let lensImage = document.getElementById("icon-lens");
+
+    if(vrCheckbox.checked == true){
+        lensImage.className = "";
+    }
+    else{
+        lensImage.className = "hide";
+    }
+}
+
+vrCheckbox.onclick = ClickVRCheckbox;
