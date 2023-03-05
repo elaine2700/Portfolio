@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link type="text/css" rel="stylesheet" href="../assets/css/style.css"/>
     <link type="text/css" rel="stylesheet" href="../assets/css/all.min.css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="../images/Icon_Complete.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Lato&display=swap" rel="stylesheet">
 
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
 
@@ -52,6 +53,15 @@
                 <h2>Model Viewer</h2>
                 <p>A tool to display the breakdown of an specific 3d model</p>
             </header>
+
+            <section class="space-top">
+              <div class="centered">
+                  <a class="clickable wide" href="https://github.com/elaine2700/3d-Model-Viewer"
+                  target="_blank" rel="noopener">View Code
+                  <span class="fa-brands fa-github"></span>
+                  </a>
+              </div>
+            </section>
                 
             <section id="about" class="description">
                 <h3>About</h3>
@@ -60,33 +70,36 @@
                     It will show a label with the part name.
                     The tool has three view types: Shaded, Xray, and transparent.
                 </p>
+
                 <div>
                   <div id="unity-container" class="unity-desktop">
-                      <canvas id="unity-canvas"></canvas>
-                      <div id="unity-loading-bar">
-                        <div id="unity-logo"></div>
-                        <div id="unity-progress-bar-empty">
-                          <div id="unity-progress-bar-full"></div>
-                        </div>
+                    <canvas id="unity-canvas"></canvas>
+                    <div id="unity-loading-bar">
+                      <div id="unity-logo"></div>
+                      <div id="unity-progress-bar-empty">
+                        <div id="unity-progress-bar-full"></div>
                       </div>
-                      <div id="unity-warning"> </div>
-                      <div id="unity-footer">
-                        <div id="unity-webgl-logo"></div>
-                        <div id="unity-fullscreen-button"></div>
-                        <div id="unity-build-title">Model Viewer</div>
-                      </div>
+                    </div>
+                    <div id="unity-warning"> </div>
+                    <div id="unity-footer">
+                      <div id="unity-webgl-logo"></div>
+                      <div id="unity-fullscreen-button"></div>
+                      <div id="unity-build-title">Model Viewer</div>
+                    </div>
                   </div>
                 </div>
-                <p>
-                    <br>
-                    Input:
-                    <br>
-                    Left Click: Select and move an individual part.
-                    <br>
-                    Right Click: Rotate all model.
-                    <br>
-                    Middle Mouse Button: Move all model. 
-                </p>
+
+                <div>
+                  <h4>Input:</h4>
+                  <p>
+                      Left Click: Select and move an individual part.
+                      <br>
+                      Right Click: Rotate all model.
+                      <br>
+                      Middle Mouse Button: Move all model. 
+                  </p>
+                </div>  
+
             </section>
           </article>
         </div>  

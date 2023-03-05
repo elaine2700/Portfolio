@@ -34,6 +34,7 @@ p{
 a {
     color:#164F60;
     text-decoration: none;
+    display: block;
 }
 
 a:visited{
@@ -192,6 +193,10 @@ img.bordered{
 .clickable.current-selection {
     background-color: #164F60;
     color:#EDDBC7;
+}
+
+.clickable.wide{
+    max-width: 200px;
 }
 
 .three-columns{
@@ -371,6 +376,10 @@ img.bordered{
 }
 
 /* Projects large description */
+.space-top{
+    margin-top: 1rem;
+}
+
 .description {
     margin: 20px;
 }
