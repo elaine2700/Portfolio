@@ -66,6 +66,10 @@ body{
     font-weight: 700;
 }
 
+li.simple{
+    list-style: none;
+}
+
 /* grid settings */
 
 .grid {
@@ -555,9 +559,11 @@ label.switch:active:after {
 }
 
 @media screen and (max-width: 900px) {
+
     .grid{
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: 5rem 1fr 8.6rem;
+        height: auto;
     }
     
     #personal{
