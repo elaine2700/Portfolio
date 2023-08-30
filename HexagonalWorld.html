@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ElaineSerrano</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link type="text/css" rel="stylesheet" href="assets/css/style.css"/>
+        <link type="text/css" rel="stylesheet" href="assets/css/all.min.css"/>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Lato&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" type="image/x-icon" href="images/Icon_Complete.png">
+    </head>
+
+    <body>
+        <div class="grid">
+            <header class="grid-box" id="personal">
+                <div>
+                    <div class="profile-card window">
+                        <div class="profile-image">
+                            <img id="icon-base" src="images/Icon_Base.png">
+                            <img id="icon-lens" class="invisible transition-right" src="images/Icon_HMD.png">
+                            <div id="VR-checkbox">
+                                <span>VR</span>
+                                <input id="VR-Toggle" type="checkbox"/>
+                                <label class="switch" for="VR-Toggle"></label>
+                            </div>
+                        </div>
+                        <div class="name">
+                            <h1>Elaine Serrano</h1>
+                            <h2>VR Developer & Designer</h2>
+                        </div> 
+                    </div>  
+                    <nav class="main-nav">
+                        <ul>
+                            <li class="toggle"><a class="clickable"><i class="icon fa fa-bars"></i></a></li>
+                            <li><a class="clickable" href="index.html">Home</a></li>
+                            <li><a class="clickable" href="projects.html">Projects</a></li>
+                            <li class="hide"><a class="clickable" href="resume.html">Resume</a></li>
+                        </ul>
+                    </nav> 
+                </div>      
+            </header>
+
+            <main class= "grid-box" id="content">
+                <div class="fit">
+                    <article class="window">
+                        <header class="window-title">
+                            <h1>Hexagonal Procedural World</h1>
+                            <p>A tool to create a Procedural world with hexagons</p>
+                        </header>
+                        <section class="space-top">
+                            <div class="centered">
+                                <a class="clickable wide" href="https://github.com/elaine2700/Hexagonal_World" 
+                                target="_blank" rel="noopener">View Code
+                                <span class="fa-brands fa-github"></span>
+                                </a>
+                            </div>
+                        </section>
+
+                        <section id="about" class="description">
+                            <h2>About</h2>
+                            <p>
+                                A hexagonal procedural world created with Unity Engine.
+                            </p>
+                            <div class ="video">
+                                <iframe src="https://www.youtube.com/embed/US76BYYP_ZM?si=WN92F8UNRroh0vbm" 
+                                title="YouTube video player" frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                            <h3>Description</h3>
+                            <p>
+                                A while back a saw a tutorial on how to make a world like this in Blender 
+                                using the Geometry Nodes system, and I thought it would be a good exercise to 
+                                recreate it with Unity.
+                            </p>
+                               
+                            <h4>Height</h4>
+                            <p>
+                                This tool creates the hexagon mesh and then changes its location to create 
+                                a hexagonal grid.
+                                Before drawing the mesh, the height is decided with the help of the Mathf.PerlinNoise
+                                function that Unity provides, giving as arguments the hexagon's position.
+                            </p>
+
+                            <h4>Mask</h4>
+                            <p>
+                                An important aspect of the world is the overall shape as a hexagon, so before generating
+                                the grid, the script spawns a big hexagon that will sorround the grid. And, before spawning
+                                every object I generated a ray to check if the position is inside the hexagon mask.
+                            </p>
+
+                            <h4>Materials</h4>
+                            <p>
+                                To select a material for the hexagon, the script compares the height along the maximum height
+                                and with a lerp function, it maps the value with the index of a material list.
+
+                                Later, for the trees, the script compares the height in percentage and checks if it is 
+                                between the set range.
+                            </p>
+                            
+                            <hr />
+                        </section>
+                    </article>
+                </div>
+                
+            </main>
+
+            <footer class="grid-box" id="contact">
+                <div class="window">
+                    <ul class="social-media">
+                        <li><a href="https://www.linkedin.com/in/elaine-serrano-echeverria/" class="fa-brands fa-linkedin" target="_blank" rel="noopener"></a></li>
+                        <li><a href="https://github.com/elaine2700" class="fa-brands fa-github" target="_blank" rel="noopener"></a></li>
+                    </ul>
+                    <ul class="page-info">
+                        <li>&copy;2023 Elaine Serrano</li>
+                        <li>Contact me at <span class="bold"><a href="mailto:contact@elaineserrano.com">contact@elaineserrano.com</a></span></li>
+                        <li>Last Updated on February, 2023</li>
+                        <li>Designed & coded from Scratch</li>
+                    </ul>
+                </div>    
+            </footer>
+        </div>
+
+        <script src="assets/js/interactions.js"></script>
+        
+    </body>
+</html>
