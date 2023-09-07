@@ -4,7 +4,7 @@
     border: 0;
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
-    color:#164F60;
+    color:#F9F5E7;
 }
 
 button{
@@ -18,8 +18,8 @@ html {
     font-size: 16px;
     height: 100%;
     font-family: 'Lato', sans-serif;
-    color:#164F60;
-    background-color:#A7727D;
+    color:#F9F5E7;
+    background-color:#54475E;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -32,21 +32,21 @@ p{
 
 /* HyperLink settings */
 a {
-    color:#164F60;
+    color:#3C5133;
     text-decoration: none;
     display: block;
 }
 
 a:visited{
-    color:rgb(61, 61, 61);
+    color:#3C5133;
 }
 
 a:hover{
-    color:#A7727D;
+    color:#F9F5E7;
 }
 
 a:active{
-    color:#EDDBC7;
+    color:#472E5C;
     text-decoration: #F9F5E7 underline;
 }
 
@@ -144,7 +144,7 @@ li.simple{
 }
 
 .bordered{
-    border: 2px solid #164F60;
+    border: 2px solid #472E5C;
 }
 
 img.bordered{
@@ -153,14 +153,14 @@ img.bordered{
 }
 
 .window{
-    border: 2px solid #164F60;
-    box-shadow: 3px 5px #164F60;
+    border: 2px solid #472E5C;
+    box-shadow: 3px 5px #472E5C;
     border-radius: 20px;
-    background-color: #F9F5E7;
+    background-color: #9078A2;
     overflow: hidden;
 }
     .window > .window-title{
-        border-bottom: 2px solid #164F60;
+        border-bottom: 2px solid #472E5C;
         text-align: center;
         padding: 0.25rem;
     }
@@ -168,8 +168,9 @@ img.bordered{
 /* Buttons */
 
 .clickable{
-    border: 2px solid #164F60;
-    background-color: #F9F5E7;
+    border: 2px solid #472E5C;
+    background-color: #9078A2;
+    color:#F9F5E7;
     text-align: center;
     padding: 10px;
     max-width: 100px;
@@ -180,23 +181,23 @@ img.bordered{
     }
 
     .clickable:visited{
-        background-color: #F9F5E7;
-        color:#164F60;
+        background-color: #9781AA;
+        color:#F9F5E7;
     }
 
     .clickable:hover {
-        background-color: #EDDBC7;
+        background-color: #537247;
         transition-duration: 0.7s;
     }
 
     .clickable:active {
-        background-color: #A7727D;
+        background-color: #472E5C;
         transition-duration: 0.5s;
     }
     
 .clickable.current-selection {
-    background-color: #164F60;
-    color:#EDDBC7;
+    background-color: #54475E;
+    color:#F9F5E7;
 }
 
 .clickable.wide{
@@ -218,7 +219,7 @@ img.bordered{
 }
 
     .tag{
-        background-color: #164F60;
+        background-color: #3C5133;
         color: #F9F5E7;
         list-style: none;
         padding: 0.4rem;
@@ -317,7 +318,7 @@ img.bordered{
     width: auto;
     padding: 10px;
     height: auto;
-    border-top:1.5px solid #164F60;
+    border-top:1.5px solid #472E5C;
     overflow: hidden;
 }
 
@@ -416,8 +417,7 @@ img.bordered{
     .presentation h1{
         font-size: 4rem;
         text-transform: uppercase;
-        line-height: 1;
-        color:#1F6D8C;
+        line-height: 1;    
     }
 
     .presentation h2{
@@ -435,7 +435,7 @@ img.bordered{
     }
 
 .accent{
-    background-color: #164F60;
+    background-color: #3C5133;
     color:#F9F5E7;
     padding: 10px;
 }
@@ -471,11 +471,11 @@ input[type=checkbox]{
     cursor: pointer;
     width: 50px;
     height: 30px;
-    background: #F9F5E7;
+    background: #9078A2;
     display: block;
     border-radius: 100px;
     position: relative;
-    border: 2px solid #164F60;
+    border: 2px solid #472E5C;
 }
 
 /* The circle */
@@ -486,13 +486,13 @@ input[type=checkbox]{
     left: 2.5px;
     width: 20px;
     height: 20px;
-    background: #164F60;
+    background: #3C5133;
     border-radius: 90px;
     transition: 0.3s;
   }
   
 input:checked + label.switch {
-    background-color: #164F60;
+    background-color: #3C5133;
 }
   
 input:checked + label.switch:after {
@@ -524,38 +524,7 @@ label.switch:active:after {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #164F60; 
-}
-
-/*Slider Stats*/
-
-.slider {
-    -webkit-appearance: none;  /* Override default CSS styles */
-    appearance: none;
-    width: 75px; /* Full-width */
-    height: 30px; /* Specified height */
-    background: #F9F5E7; /* Grey background */
-    outline: none; /* Remove outline */
-    border: 2px solid #164F60;
-    border-radius: 15px;
-}
-  
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    width: 20px; /* Set a specific slider handle width */
-    height: 20px; /* Slider handle height */
-    background: #164F60; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-    border-radius: 12.5px;
-}
-  
-.slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
+    background: #472E5C; 
 }
 
 @media screen and (max-width: 900px) {
@@ -617,7 +586,7 @@ label.switch:active:after {
             }
 
         .profile-card .name{
-            border-left: 2px solid;
+            border-left: 2px solid #472E5C;
             border-top: 0;
         }
             .profile-card h1 {
@@ -693,6 +662,9 @@ label.switch:active:after {
         min-width: 100px;
         margin: 10px 0px;
     }
+        .main-nav.display ul > li.hide{
+            display: none;
+        }
 
     .three-columns, .even-columns{
         grid-template-columns: 1fr;
@@ -727,3 +699,5 @@ label.switch:active:after {
     }
     
 }
+
+
