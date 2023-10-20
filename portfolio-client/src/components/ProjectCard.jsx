@@ -2,8 +2,8 @@
 const ProjectCard = ({project}) => {
     return (
         <div className="even-columns fit">
-            <div className="window">
-                <h4 className="window-title">{project.title}</h4>
+            <div className="frame">
+                <h4 className="frame-title">{project.title}</h4>
                 <div className="thumbnail-fitter">
                     <img className="bordered" src={project.image}/>  
                     <ul className="tags bordered">
