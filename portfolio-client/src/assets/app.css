@@ -97,6 +97,16 @@ li.simple{
     grid-column: 3;
     grid-row: 1 / span 1;
 }
+#content-title > header {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    padding-top: 1.5em;
+    align-items:baseline;
+}
+#content-title h1{
+    align-self: center;
+}
 
 #content { 
     grid-column: 3;
@@ -571,19 +581,6 @@ label.switch:active:after {
     height: 25px; /* Slider handle height */
     background: #04AA6D; /* Green background */
     cursor: pointer; /* Cursor on hover */
-}
-
-.back-button{
-    margin: 2px;
-    padding: 0 5px 0 5px;
-    display: flex;
-    gap: 4px;
-    background-color: transparent;
-    color:#164F60;
-    border:0;
-}
-.back-button:hover{
-    background-color: #A7727D;
 }
 
 @media screen and (max-width: 900px) {

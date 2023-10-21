@@ -1,5 +1,6 @@
 import React from 'react'
 import {CaretLeftFill} from 'react-bootstrap-icons'
+import './Buttons.css'
 
 const BackButton = () => {
   return (
@@ -8,7 +9,6 @@ const BackButton = () => {
             <CaretLeftFill/>
             <p>Back</p>
         </button>
-        
     </div>
   )
 }

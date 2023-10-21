@@ -1,0 +1,17 @@
+button.back-button{
+    margin: 2px;
+    padding: 0;
+    display: flex;
+    background-color: transparent;
+    color:#164F60;
+    border:0;
+}
+button.back-button > *{
+    padding: 0;
+}
+
+button.back-button:hover{
+    text-decoration: underline;
+    color: #A7727D;
+}
+
