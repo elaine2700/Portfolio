@@ -11,11 +11,13 @@ const Projects = () => {
 
             <section id='content' className='window'>
                 <div>
-                    {
-                        projectsData.map((project) => (
-                            <ProjectCard key={project.id} project={project} />
-                        ))
-                    }
+                    <div className="even-columns fit">
+                        {
+                            projectsData.map((project) => (
+                                <ProjectCard key={project.id} project={project} />
+                            ))
+                        }
+                    </div>
                 </div>
 
             </section>

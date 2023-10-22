@@ -35,14 +35,18 @@ a {
     color:#164F60;
     text-decoration: none;
     display: block;
+    font-weight: bold;
 }
 
 a:visited{
-    color:rgb(61, 61, 61);
+    color:#164F60;
+
 }
 
 a:hover{
-    color:#A7727D;
+    text-decoration: underline;
+    background-color: #F9F5E7;
+    border-radius: 0.25em;
 }
 
 a:active{
@@ -81,12 +85,12 @@ li.simple{
     margin: auto auto;
     display: grid;
     grid-template-columns: 5em 300px 1fr 5em;
-    grid-template-rows: 6em 1fr 8em;
+    grid-template-rows: 5em 1fr 9em;
 }
 
 #personal {
     grid-column: 2;
-    grid-row: 1/span 2;
+    grid-row: 2;
     align-items: start;
     justify-content: center;
     display: flex;
@@ -94,18 +98,16 @@ li.simple{
 }
 
 #content-title{
-    grid-column: 3;
+    grid-column: 2/span2;
     grid-row: 1 / span 1;
 }
+
 #content-title > header {
     display: flex;
     justify-content: space-between;
     height: 100%;
-    padding-top: 1.5em;
+    padding-top: 1em;
     align-items:baseline;
-}
-#content-title h1{
-    align-self: center;
 }
 
 #content { 
@@ -113,17 +115,23 @@ li.simple{
     grid-row: 2/span 2;
     overflow-y: scroll;
 }
-    #content header{
-        background-color: #EDDBC7;
-    }
 
-    .section-title{
-        padding-bottom: 0.5em;
-        text-align: center;
-        text-transform: uppercase;
-        font-size: 2rem;
-        color:#164F60;
-    }
+.title{
+    padding-top: 3em;
+    padding-bottom: 0.5em;
+    text-align: center;
+    font-size: 2rem;
+    
+}
+
+.section-title{
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2rem;
+    color:#164F60;
+}
 
 #contact {
     grid-column: 2;
@@ -176,20 +184,24 @@ img.bordered{
 
 .window{
     border: 2px solid #164F60;
-    box-shadow: 3px 5px #164F60;
     border-radius: 20px;
-    background-color: #F9F5E7;
 }
 
-.frame{
-    border-radius: 20px;
-    overflow: hidden;
-    border: 2px solid #164F60;
+.shadow{
+    box-shadow: 3px 5px #164F60;
 }
-    .frame > .frame-title{
-        border-bottom: 2px solid #164F60;
-        text-align: center;
-    }
+.window.h-small {
+    min-height: 80px;
+}
+
+.window-title{
+    text-align: center;
+}
+
+.frame-title{
+    border-bottom: 2px solid #164F60;
+    text-align: center;
+}
 
 .bg-pink{
     background-color: #A7727D;
@@ -202,7 +214,7 @@ img.bordered{
 
 .clickable{
     border: 2px solid #164F60;
-    background-color: #F9F5E7;
+    background-color: transparent;
     text-align: center;
     padding: 10px;
     max-width: 100px;
@@ -213,7 +225,6 @@ img.bordered{
     }
 
     .clickable:visited{
-        background-color: #F9F5E7;
         color:#164F60;
     }
 
@@ -435,8 +446,7 @@ img.bordered{
 .presentation{
     text-align: center;
     min-width: 250px;
-    padding: 50px;
-    min-height: 500px;
+    min-height: 300px;
 }
     .presentation h1{
         font-size: 4rem;
@@ -458,6 +468,11 @@ img.bordered{
         max-width: 300px;
         margin: auto;
     }
+
+.padding-sides-medium{
+    padding-left: 30px;
+    padding-right: 30px;
+}
 
 .accent{
     background-color: #164F60;
