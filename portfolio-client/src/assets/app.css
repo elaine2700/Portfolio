@@ -1,10 +1,18 @@
+:root{
+    --blue:#90ACC6;
+    --purple: #867190;
+    --brightPink: #F573A1;
+    --pastelPink: #EFA2C2;
+    --salmon: #FFBACD;
+}
+
 * {
     margin: 0;
     padding: 0;
     border: 0;
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
-    color:#164F60;
+    color: white;
 }
 
 button{
@@ -18,9 +26,10 @@ html {
     font-size: 16px;
     height: 100%;
     font-family: 'Lato', sans-serif;
-    color:#164F60;
-    background-color:#A7727D;
+    background-color: var(--purple);
+    background: linear-gradient(180deg, var(--purple) 65%, var(--pastelPink) 100%);
 }
+
 
 h1,h2,h3,h4,h5,h6{
     font-family: 'Fugaz One', cursive;
@@ -32,26 +41,24 @@ p{
 
 /* HyperLink settings */
 a {
-    color:#164F60;
-    text-decoration: none;
+    color: white;
     display: block;
     font-weight: bold;
 }
 
 a:visited{
-    color:#164F60;
-
+    color:var(--blue);
 }
 
 a:hover{
     text-decoration: underline;
-    background-color: #F9F5E7;
+    background-color: var(--blue);
     border-radius: 0.25em;
 }
 
 a:active{
-    color:#EDDBC7;
-    text-decoration: #F9F5E7 underline;
+    color:var(--blue);
+    text-decoration: var(--blue) underline;
 }
 
 div{
@@ -94,7 +101,6 @@ li.simple{
     align-items: start;
     justify-content: center;
     display: flex;
-    background-color: #A7727D;
 }
 
 #content-title{
@@ -114,14 +120,15 @@ li.simple{
     grid-column: 3;
     grid-row: 2/span 2;
     overflow-y: scroll;
+    
 }
 
 .title{
-    padding-top: 3em;
+    padding-top: 1em;
     padding-bottom: 0.5em;
     text-align: center;
     font-size: 2rem;
-    
+    color: var(--blue);
 }
 
 .section-title{
@@ -130,7 +137,7 @@ li.simple{
     text-align: center;
     text-transform: uppercase;
     font-size: 2rem;
-    color:#164F60;
+    color: var(--pastelPink);
 }
 
 #contact {
@@ -142,7 +149,6 @@ li.simple{
     align-content: end;
     justify-content: center;
     z-index: 2;
-    background-color: #A7727D;
 }
 
 /* General Styling*/
@@ -174,7 +180,7 @@ li.simple{
 }
 
 .bordered{
-    border: 2px solid #164F60;
+    border: 2px solid var(--blue);
 }
 
 img.bordered{
@@ -183,13 +189,14 @@ img.bordered{
 }
 
 .window{
-    border: 2px solid #164F60;
+    /*border: 3px solid white;*/
     border-radius: 20px;
 }
 
 .shadow{
-    box-shadow: 3px 5px #164F60;
+    box-shadow: 5px 5px 20px rgb(65, 62, 78);
 }
+
 .window.h-small {
     min-height: 80px;
 }
@@ -199,25 +206,35 @@ img.bordered{
 }
 
 .frame-title{
-    border-bottom: 2px solid #164F60;
+    border-bottom: 2px solid var(--blue);
     text-align: center;
 }
 
-.bg-pink{
-    background-color: #A7727D;
+.bg-main{
+    background-color: var(--pastelPink);
 }
-.bg-cream{
-    background-color: #F9F5E7;
+
+.bg-secondary{
+    background-color: var(--blue);
+}
+
+.card{
+    box-shadow: 5px 5px 20px rgb(65, 62, 78);
+}
+
+.card:hover{
+    box-shadow: inset 2px 2px 8px rgb(65, 62, 78);
 }
   
 /* Buttons */
 
 .clickable{
-    border: 2px solid #164F60;
-    background-color: transparent;
+    /*border: 2px solid var(--pastelPink);*/
+    background-color: var(--pastelPink);
     text-align: center;
     padding: 10px;
     max-width: 100px;
+    border-radius: 5px;
 }
     li > .clickable{
         display: block;
@@ -225,11 +242,11 @@ img.bordered{
     }
 
     .clickable:visited{
-        color:#164F60;
+        color:var(--purple);
     }
 
     .clickable:hover {
-        background-color: #EDDBC7;
+        background-color: var(--blue);
         transition-duration: 0.7s;
     }
 
@@ -239,13 +256,24 @@ img.bordered{
     }
     
 .clickable.current-selection {
-    background-color: #164F60;
+    background-color: var(--brightPink);
     color:#EDDBC7;
 }
 
 .clickable.wide{
     max-width: 200px;
 }
+
+.clickable.outline{
+    border: 2px solid var(--pastelPink);
+    background-color: transparent;
+    color: var(--pastelPink);
+}
+    .clickable.outline:hover{
+        background-color: var(--blue);
+        border-color: var(--blue);
+        color: white;
+    }
 
 .three-columns{
     display: grid;
@@ -262,8 +290,8 @@ img.bordered{
 }
 
     .tag{
-        background-color: #164F60;
-        color: #F9F5E7;
+        background-color: var(--pastelPink);
+        color: white;
         list-style: none;
         padding: 0.4rem;
     }
@@ -296,13 +324,13 @@ img.bordered{
 /* Transition settings */
 .transition-right{
     position: relative;
-    transform: translateX(4rem);
+    transform: translateX(4rem) scale(0.74);
     transition: 0.5s;
 }
 
 .transition-normalState{
     position: relative;
-    transform: translateX(0px);
+    transform: translateX(0px) scale(0.74);
     transition: 0.5s;
 }
 
@@ -315,6 +343,7 @@ img.bordered{
 }
 
 /* personal card */
+
 #personal > div{
     display: block;
     width: 100%;
@@ -354,19 +383,24 @@ img.bordered{
     width: auto;
     padding: 10px;
     height: auto;
-    border-top:1.5px solid #164F60;
+    border-top:1.5px solid var(--blue);
     overflow: hidden;
+}
+
+.name h1,h2{
+    color: var(--blue);
 }
 
 .name h1{
     font-weight: bold;
     font-size: 1.5rem;
+    
 }
     .name h1 a{
-        color:#F9F5E7
+        color: var(--blue);
     }
     .name h1 a:visited{
-        color:#F9F5E7;
+        color:white;
     }    
     .name h1 a:hover{
         color:black;
@@ -452,7 +486,7 @@ img.bordered{
         font-size: 4rem;
         text-transform: uppercase;
         line-height: 1;
-        color:#1F6D8C;
+        color:var(--blue);
     }
 
     .presentation h2{
@@ -475,8 +509,8 @@ img.bordered{
 }
 
 .accent{
-    background-color: #164F60;
-    color:#F9F5E7;
+    background-color: var(--pastelPink);
+    color:white;
     padding: 10px;
 }
 
@@ -511,34 +545,33 @@ input[type=checkbox]{
     cursor: pointer;
     width: 50px;
     height: 30px;
-    background: #F9F5E7;
+    background: var(--pastelPink);
     display: block;
     border-radius: 100px;
     position: relative;
-    border: 2px solid #164F60;
 }
 
 /* The circle */
 .switch:after {
     content: '';
     position: absolute;
-    top: 2.5px;
-    left: 2.5px;
+    top: 5px;
+    left: 5px;
     width: 20px;
     height: 20px;
-    background: #164F60;
+    background: var(--blue);
     border-radius: 90px;
     transition: 0.3s;
   }
   
 input:checked + label.switch {
-    background-color: #164F60;
+    background-color: var(--blue);
 }
   
 input:checked + label.switch:after {
-    left: calc(100% - 2.5px);
+    left: calc(100% - 5px);
     transform: translateX(-100%);
-    background-color: #F9F5E7;
+    background-color: var(--pastelPink);
 }
   
 label.switch:active:after {
@@ -558,13 +591,13 @@ label.switch:active:after {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #164F60; 
+    background: var(--blue);
     border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #A7727D;
+    background: var(--salmon);
 }
 
 /*Slider Stats*/
@@ -574,9 +607,9 @@ label.switch:active:after {
     appearance: none;
     width: 75px; /* Full-width */
     height: 30px; /* Specified height */
-    background: #F9F5E7; /* Grey background */
+    background: white; /* Grey background */
     outline: none; /* Remove outline */
-    border: 2px solid #164F60;
+    border: 2px solid var(--blue);
     border-radius: 15px;
 }
   
@@ -586,7 +619,7 @@ label.switch:active:after {
     appearance: none;
     width: 20px; /* Set a specific slider handle width */
     height: 20px; /* Slider handle height */
-    background: #164F60; /* Green background */
+    background: var(--blue); /* Green background */
     cursor: pointer; /* Cursor on hover */
     border-radius: 12.5px;
 }
@@ -594,7 +627,7 @@ label.switch:active:after {
 .slider::-moz-range-thumb {
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
+    background: var(--blue); /* Green background */
     cursor: pointer; /* Cursor on hover */
 }
 

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const ProjectCard = ({project}) => {
     return (
-        <div className="window shadow">
+        <div className="window card">
             <h4 className="frame-title">{project.title}</h4>
             <div className="thumbnail-fitter">
                 <img className="bordered" src={project.image}/>  

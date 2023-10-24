@@ -18,8 +18,8 @@ const ProfileCard = () => {
     return (
         <div className="profile-card window">
             <div className="profile-image">
-                <img id="icon-base" src="/src/assets/images/Icon_Base.png" />
-                <img id="icon-lens" className="invisible transition-right" src="src/assets/images/Icon_HMD.png" />
+                <img id="icon-base" src="/src/assets/images/Head.svg" />
+                <img id="icon-lens" className="invisible transition-right" src="src/assets/images/Lens.svg" />
                 <div id="VR-checkbox">
                     <span>VR</span>
                     <input 

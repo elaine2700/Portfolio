@@ -9,7 +9,7 @@ const Projects = () => {
         <>
             <TitlePage pageName={"Projects"} />
 
-            <section id='content' className='window'>
+            <section id='content' className='window bg-cream shadow'>
                 <div>
                     <div className="even-columns fit">
                         {

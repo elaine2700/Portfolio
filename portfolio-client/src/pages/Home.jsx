@@ -44,7 +44,7 @@ const Home = () => {
                         <div className="three-columns">
                             {
                                 skills.map((skill, index) => (
-                                    <div key={index} className="window h-small">
+                                    <div key={index} className="window shadow h-small">
                                         <h4 className="window-title">{skill.type}</h4>
                                         <ul className="tags">
                                             {

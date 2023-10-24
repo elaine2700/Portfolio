@@ -12,13 +12,13 @@ const NavSection = () => {
                 <li className="toggle">
                   <a className="clickable"><i className="icon fa fa-bars"></i></a></li>
                 <li>
-                  <Link to='/' className='clickable'>Home</Link>
+                  <Link to='/' className='clickable outline'>Home</Link>
                   </li>
                 <li>
-                  <Link to='/projects' className='clickable'>Projects</Link>
+                  <Link to='/projects' className='clickable outline'>Projects</Link>
                 </li>
                 <li>
-                  <Link to='/resume' className='clickable'>Resume</Link>
+                  <Link to='/resume' className='clickable outline'>Resume</Link>
                   </li>
               </ul>
             </nav>

@@ -16,7 +16,7 @@ const ProjectDetail = () => {
 
                 <section className="space-top">
                     <div className="centered">
-                        <a className="clickable wide" href={projectData.linkCode}
+                        <a className="clickable outline wide" href={projectData.linkCode}
                             target="_blank" rel="noopener">View Code <Github/>
                         </a>
                     </div>
