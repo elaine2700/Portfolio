@@ -33,6 +33,7 @@ html {
 
 h1,h2,h3,h4,h5,h6{
     font-family: 'Fugaz One', cursive;
+    color: var(--blue);
 }
 
 p{
@@ -223,7 +224,7 @@ img.bordered{
 }
 
 .card:hover{
-    box-shadow: inset 2px 2px 8px rgb(65, 62, 78);
+    box-shadow: 2px 2px 8px rgb(45, 42, 60);
 }
   
 /* Buttons */
@@ -387,10 +388,6 @@ img.bordered{
     overflow: hidden;
 }
 
-.name h1,h2{
-    color: var(--blue);
-}
-
 .name h1{
     font-weight: bold;
     font-size: 1.5rem;
@@ -513,6 +510,18 @@ img.bordered{
     color:white;
     padding: 10px;
 }
+
+/* Filter Buttons */
+.filter-btns{
+    display: flex;
+    margin-left: 1em;
+    margin-top: 0.25em;
+    margin-right: 1em;
+}
+    .filter-btns > *{
+        margin-left: 0.5em;
+        min-width: 50px;
+    }
 
 /* Video */
 div.video{

@@ -1,9 +1,30 @@
 import TitlePage from "../components/TitlePage"
 import projects from "../data/projects"
 import { Github } from "react-bootstrap-icons";
+import { useSearchParams, useNavigate } from "react-router-dom";
+import { useState , useEffect} from "react";
 
 const ProjectDetail = () => {
-    const projectData = projects[0];
+    const navigate = useNavigate();
+    // ?project=1
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [projectData, setProjectData] = useState([]);
+
+    useEffect(()=>{
+        findProject(searchParams.get('project'));
+    }, [])
+    
+
+    const findProject = (idParam) =>{
+        if(Number(idParam) >= projects.length){
+            navigate('/notFound')
+            //setSearchParams({});
+            return console.log('Hello');
+        }
+            
+        const found = projects.find((item) => item.id === Number(idParam));
+        setProjectData(found);
+    };
 
     return (
         <>
@@ -24,10 +45,13 @@ const ProjectDetail = () => {
 
                 <section id="about" className="description">
                     <div className="video">
-                        <iframe
+                        {
+                           /* <iframe
                             src="https://drive.google.com/file/d/1Ii90RVWKaRMNgyTDOj1oRKF_dF0z7kIf/preview"
                             allow="autoplay">
-                        </iframe>
+                        </iframe>*/
+                        }
+                        
                     </div>
                     <h3>Characteristics</h3>
                     <ul>
