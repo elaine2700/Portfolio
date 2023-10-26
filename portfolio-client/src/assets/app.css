@@ -27,6 +27,9 @@ html {
     height: 100%;
     font-family: 'Lato', sans-serif;
     background-color: var(--purple);
+}
+
+body{
     background: linear-gradient(180deg, var(--purple) 65%, var(--pastelPink) 100%);
 }
 
@@ -81,6 +84,7 @@ body{
 li.simple{
     list-style: none;
 }
+
 
 /* grid settings */
 
@@ -644,15 +648,15 @@ label.switch:active:after {
 
     .grid{
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 5rem 1fr 8.6rem;
-        height: auto;
+        grid-template-rows: 5.5rem 5rem 1fr 8.6rem;
+        height: 100%;
+        width: calc(100vw - 30px);
     }
     
     #personal{
         grid-column: 1/span 4;
         grid-row: 1;
         margin-top: 10px;
-        margin-right: 20px;
         display: block;
         justify-content: center;
     }
@@ -699,7 +703,7 @@ label.switch:active:after {
             }
 
         .profile-card .name{
-            border-left: 2px solid;
+            border-left: 2px solid var(--blue);
             border-top: 0;
         }
             .profile-card h1 {
@@ -712,16 +716,21 @@ label.switch:active:after {
         #VR-checkbox{
             display: none;
         }
+
+    #content-title{
+        grid-row: 2;
+    }
         
     #content{
         grid-column: 1/span 4;
-        grid-row: 2;
+        grid-row: 3;
+        height: auto;
+        overflow: visible;
     }
 
     #contact{
         grid-column: 1/span 4;
-        grid-row: 3;
-        margin-right: 20px;
+        grid-row: 4;
     }
         #contact div{
             max-width: none;
@@ -732,11 +741,17 @@ label.switch:active:after {
 /* Mainly changes for the nav */
 @media screen and (max-width: 690px){
     /* menu Hidden */
+    .main-nav .toggle{
+        display:block;
+        min-width: auto;
+        align-self: center;
+        
+    }
     .main-nav{
         align-items: center;
     }
 
-    .main-nav ul{
+    .main-nav > ul{
         height: fit-content;
     }
 
@@ -744,10 +759,7 @@ label.switch:active:after {
         display: none;
         margin: 0;
     }
-    .main-nav .toggle{
-        display:block;
-        min-width: auto;
-    }
+
 
     /* With toggle  interaction. 
     When user clicks the class changes its name*/
@@ -755,14 +767,18 @@ label.switch:active:after {
         display: block;
         width: calc(100% - 20px);
         height: auto;
-        position: absolute;
+        position:fixed;
         left: 10px;
         top: 10px;
+        background-color: var(--pastelPink);
     }
+    .main-nav .outline{
+        border-color: var(--purple);
+        color: var(--purple);
+    }
+    
         .main-nav.display .toggle{
             display:block;
-            border: 0;
-            box-shadow: 0 0;
         }
 
     .main-nav.display ul{ 
