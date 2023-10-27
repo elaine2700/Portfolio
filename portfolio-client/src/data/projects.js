@@ -40,16 +40,16 @@ const projects = [
     },
     {
         id: 3,
-        title: "To do list App",
-        image: "/assets/images/ToDo-list_thumbnail.png",
+        title: "Focus Food",
+        image: "/assets/images/RecipeFinder.png",
         projectType: "Web",
-        tools: ["React"],
-        programmingLanguages: ["HTML", "CSS", "JS"],
-        description: "A simple tool to make a list of tasks.",
-        linkCode: "https://github.com/elaine2700/todo-list",
-        live: "https://portfolio.elaineserrano.com/to-do-list",
+        tools: ['React', 'Flask'],
+        programmingLanguages: ["HTML", "CSS"],
+        description: "Project developed for the -Women Who Code Hackathon for Social Good 2023- ",
+        linkCode: "https://github.com/Idealyinfamous/super-brain-project",
+        live: "",
         trailer: "",
-        content: ""
+        content: '/assets/Content/FocusFood.md'
     },
     {
         id: 4,
@@ -107,18 +107,17 @@ const projects = [
     },
     {
         id: 8,
-        title: "Focus Food",
-        image: "/assets/images/RecipeFinder.png",
+        title: "To do list App",
+        image: "/assets/images/ToDo-list_thumbnail.png",
         projectType: "Web",
-        tools: ['React', 'Flask'],
-        programmingLanguages: ["HTML", "CSS"],
-        description: "Project developed for the -Women Who Code Hackathon for Social Good 2023- ",
-        linkCode: "https://github.com/Idealyinfamous/super-brain-project",
-        live: "",
+        tools: ["React"],
+        programmingLanguages: ["HTML", "CSS", "JS"],
+        description: "A simple tool to make a list of tasks.",
+        linkCode: "https://github.com/elaine2700/todo-list",
+        live: "https://portfolio.elaineserrano.com/to-do-list",
         trailer: "",
-        content: '/assets/Content/FocusFood.md'
+        content: ""
     },
-    
 
 ]
 export default projects
