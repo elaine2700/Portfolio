@@ -9,8 +9,8 @@ const projects = [
         description: "A building system where the user can design and create their dream house in Virtual Reality.",
         linkCode: "https://github.com/elaine2700/VR_ArchiAcademy",
         live: null,
-        trailer: "https://youtu.be/S3NLhjTkV9Q",
-        content: ".txt"
+        trailer: "S3NLhjTkV9Q?si=oMxRshWUIqkft5ze",
+        content: "/src/data/Projects Content/VRARkiAcademy.md"
     },
     {
         id: 1,
@@ -22,8 +22,8 @@ const projects = [
         description: "A tool to create a Procedural world with hexagons.",
         linkCode: "https://github.com/elaine2700/Hexagonal_World",
         live: null,
-        trailer: "https://youtu.be/US76BYYP_ZM",
-        content: ".txt"
+        trailer: 'US76BYYP_ZM?si=k3Dr0CE4kS5Yusp1',
+        content: "/src/data/Projects Content/HexWorld.md"
     },
     {
         id: 2,
@@ -35,8 +35,8 @@ const projects = [
         description: "A tool to display the breakdown of an specific 3d model",
         linkCode: "https://github.com/elaine2700/3d-Model-Viewer",
         live: null,
-        trailer: "https://youtu.be/US76BYYP_ZM",
-        content: ".txt"
+        trailer: "",
+        content: ""
     },
     {
         id: 3,
@@ -46,10 +46,10 @@ const projects = [
         tools: ["React"],
         programmingLanguages: ["HTML", "CSS", "JS"],
         description: "A simple tool to make a list of tasks.",
-        linkCode: "https://github.com/elaine2700/Hexagonal_World",
+        linkCode: "https://github.com/elaine2700/todo-list",
         live: "https://portfolio.elaineserrano.com/to-do-list",
-        trailer: "https://youtu.be/US76BYYP_ZM",
-        content: ".txt"
+        trailer: "",
+        content: ""
     },
     {
         id: 4,
@@ -61,8 +61,9 @@ const projects = [
         description: "A Virtual Reality narrative where the user will experience dementia symptoms.",
         linkCode: "https://github.com/JorgeLeonS/DementiaProject",
         live: "https://portfolio.elaineserrano.com/to-do-list",
-        trailer: "",
-        content: ".txt"
+        trailer: "cTC7mPqpGU8?si=UQ7ZhPdvj9Dh3xN5",
+        infoAvailable: "fullDescription",
+        content: "/src/data/Projects Content/VisionsOfYesterday.md"
     },
     {
         id: 5,
@@ -75,7 +76,8 @@ const projects = [
         linkCode: "https://github.com/elaine2700/movielibrary",
         live: "https://portfolio.elaineserrano.com/movielibrary",
         trailer: "",
-        content: ".txt"
+        infoAvailable: "cardOnly",
+        content: ""
     },
     {
         id: 6,
@@ -86,9 +88,9 @@ const projects = [
         programmingLanguages: [],
         description: "A machine that completes a single task in a complicated way. The task for my machine is to open a box full of cookies.",
         linkCode: "",
-        live: "",
-        trailer: "",
-        content: ".txt"
+        live: null,
+        trailer: "B8rQNaGdGaQ?si=5wXCQaH1pGeuIJ6I",
+        content: "/src/data/Projects Content/RubeGoldbergMachine.md"
     },
     {
         id: 7,
@@ -98,10 +100,23 @@ const projects = [
         tools: [],
         programmingLanguages: ["HTML", "CSS"],
         description: "Website Design",
-        linkCode: "https://www.artistmodeon.com/",
-        live: "https://github.com/elaine2700/ArtistModeOn_website",
+        linkCode: "https://github.com/elaine2700/ArtistModeOn_website",
+        live: "www.artistmodeon.com",
         trailer: "",
-        content: ".txt"
+        content: ''
+    },
+    {
+        id: 8,
+        title: "Focus Food",
+        image: "/src/assets/images/RecipeFinder.png",
+        projectType: "Web",
+        tools: ['React', 'Flask'],
+        programmingLanguages: ["HTML", "CSS"],
+        description: "Project developed for the -Women Who Code Hackathon for Social Good 2023- ",
+        linkCode: "https://github.com/Idealyinfamous/super-brain-project",
+        live: "",
+        trailer: "",
+        content: '/src/data/Projects Content/FocusFood.md'
     },
     
 

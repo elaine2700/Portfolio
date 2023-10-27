@@ -1,95 +1,91 @@
-import TitlePage from "../components/TitlePage"
-import projects from "../data/projects"
-import { Github } from "react-bootstrap-icons";
+import React, { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import { useState , useEffect} from "react";
+import Markdown from 'react-markdown';
+
+import YoutubeEmbedVideo from "../components/YoutubeEmbedVideo";
+import TitlePage from "../components/TitlePage";
+import projects from "../data/projects";
+
+import { Github } from "react-bootstrap-icons";
 
 const ProjectDetail = () => {
+    const projectList = projects;
+
     const navigate = useNavigate();
     // ?project=1
+    const [projectData, setProjectData] = useState({});
     const [searchParams, setSearchParams] = useSearchParams();
-    const [projectData, setProjectData] = useState([]);
-
-    useEffect(()=>{
-        findProject(searchParams.get('project'));
-    }, [])
     
+    const [content, setContent] = useState();
 
-    const findProject = (idParam) =>{
-        if(Number(idParam) >= projects.length){
+    const findProject = (idParam) => {
+        if (Number(idParam) >= projectList.length) {
             navigate('/notFound')
-            //setSearchParams({});
             return console.log('Hello');
         }
-            
-        const found = projects.find((item) => item.id === Number(idParam));
+        const found = projectList.find((item) => item.id === Number(idParam));
         setProjectData(found);
     };
 
+    const fetchData = () =>{
+        setTimeout(()=>{
+            fetch(projectData.content)
+            .then((res) => {
+                return res.text()
+            })
+            .then((text) => {
+                return setContent(text)
+            })
+            .catch(err => console.log(err))
+        }, 100)
+    }
+
+    useEffect(() => {
+        findProject(searchParams.get('project')); 
+    }, []);
+
+    fetchData();
+
     return (
         <>
+
             <TitlePage pageName={"Projects"}></TitlePage>
             <section id='content' className='window shadow bg-cream'>
-                <header className="frame-title">
-                    <h1>{projectData.title}</h1>
-                    <p>{projectData.description}</p>
-                </header>
+            {
+                content ?
+                    (
+                        <div className="markdown">
+                            <header className="frame-title">
+                                <h1>{projectData.title}</h1>
+                                <p>{projectData.description}</p>
+                            </header>
 
-                <section className="space-top">
-                    <div className="centered">
-                        <a className="clickable outline wide" href={projectData.linkCode}
-                            target="_blank" rel="noopener">View Code <Github/>
-                        </a>
-                    </div>
-                </section>
+                            <section className="space-top">
+                                <div className="centered">
+                                    <a className="clickable outline wide" href={projectData.linkCode}
+                                        target="_blank" rel="noopener noreferrer">View Code <Github />
+                                    </a>
+                                </div>
+                            </section>
 
-                <section id="about" className="description">
-                    <div className="video">
-                        {
-                           /* <iframe
-                            src="https://drive.google.com/file/d/1Ii90RVWKaRMNgyTDOj1oRKF_dF0z7kIf/preview"
-                            allow="autoplay">
-                        </iframe>*/
-                        }
-                        
-                    </div>
-                    <h3>Characteristics</h3>
-                    <ul>
-                        <li>Developed in Unity</li>
-                        <li>Start Date: May 3d, 2022</li>
-                        <li>Final Date: August 12th, 2022</li>
-                        <li>Project type: Proof of Concept</li>
-                    </ul>
-                    <h2>About</h2>
-                    <p>
-                        Visions of Yesterday is an empathy based Virtual Reality application,
-                        created to teach users the trials and tribulations associated with dementia.
-                        <br />
-                        The intended audience for this project are as follows: dementia care workers,
-                        dementia stricken families, and those interested in how VR can teach empathy.
-                    </p>
-                    
-                    <h2>Vision</h2>
-                    <p>
-                        This project can help teach our potential audience valuable lessons about dementia,
-                        through the use of empathy. The vision of the project is to demonstrate that simple tasks,
-                        such as finding one's toothbrush, can be almost insurmountable when one has dementia.
-                        <br />
-                        The user is situated in a house with a caretaker to assist them. The goal of this
-                        experience is to generate awareness and empathy for those with dementia by focusing on
-                        the visual impairments associated with this disorder.
-                    </p>
-                    
-                    <h3>Team</h3>
-                    <ul>
-                        <li>Anthony Fusio. 3d Artist</li>
-                        <li>Elaine Serrano. Developer, Technical Artist</li>
-                        <li>Jorge Leon. Lead Developer</li>
-                        <li>William Livingston. Level Designer, Narrative designer</li>
-                    </ul>
+                            <section id="about" className="description">
+                                {
+                                    projectData.trailer ?
+                                        <YoutubeEmbedVideo embedId={projectData.trailer} /> :
+                                        <div></div>
+                                }
 
-                </section>
+                                <Markdown children={content}/>
+
+                            </section>
+                        </div>
+                    ) :
+                    (
+                        <div>Loading...</div>
+                    )
+            }
             </section>
+
         </>
     )
 }

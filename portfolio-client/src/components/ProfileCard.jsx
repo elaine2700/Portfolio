@@ -32,7 +32,7 @@ const ProfileCard = () => {
             </div>
             <div className="name">
                 <h1>Elaine Serrano</h1>
-                <h2>Developer & Designer</h2>
+                <h2>XR Developer & Designer</h2>
             </div>
         </div>
     )

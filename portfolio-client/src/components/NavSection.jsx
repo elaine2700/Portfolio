@@ -5,19 +5,21 @@ import {List, X} from 'react-bootstrap-icons'
 
 const NavSection = () => {
 
-  const [popMenu, setPopMenu] = useState(true);
+  const [popMenu, setPopMenu] = useState(false);
   const [navBarClass, setNavBarClass] = useState('main-nav');
-  const [toggleClass, setToggleClas] = useState('toggle');
+  const [toggleClass, setToggleClas] = useState('toggle clickable');
 
   const toggleMenu = () => {
     setPopMenu(!popMenu);
     if(popMenu){
-      setNavBarClass('main-nav display window')
-      setToggleClas('toggle clickable outline')
-    }  
-    else {
       setNavBarClass('main-nav')
       setToggleClas('toggle clickable')
+    }  
+    else {
+      
+
+      setNavBarClass('main-nav display window')
+      setToggleClas('toggle clickable outline')
     }
       
       
@@ -33,7 +35,7 @@ const NavSection = () => {
                 <li className={toggleClass}>
                 <a  onClick={toggleMenu}>
                 {
-                  popMenu ? <List/> : <X/>
+                  !popMenu ? <List/> : <X/>
                 }
               </a>
                 </li>
