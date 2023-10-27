@@ -2,7 +2,7 @@ const projects = [
     {
         id: 0,
         title: "VR Arki Academy",
-        image: "/src/assets/images/ArkiAcademy_Banner.jpg",
+        image: "/assets/images/ArkiAcademy_Banner.jpg",
         projectType: "VR-AR",
         tools: ["Unity"],
         programmingLanguages: ["C#"],
@@ -10,12 +10,12 @@ const projects = [
         linkCode: "https://github.com/elaine2700/VR_ArchiAcademy",
         live: null,
         trailer: "S3NLhjTkV9Q?si=oMxRshWUIqkft5ze",
-        content: "/src/data/Projects Content/VRARkiAcademy.md"
+        content: "/assets/Content/VRArkiAcademy.md"
     },
     {
         id: 1,
         title: "Hexagonal Procedural World",
-        image: "/src/assets/images/Procedural_World.png",
+        image: "/assets/images/Procedural_World.png",
         projectType: "Tool",
         tools: ["Unity"],
         programmingLanguages: ["C#"],
@@ -23,12 +23,12 @@ const projects = [
         linkCode: "https://github.com/elaine2700/Hexagonal_World",
         live: null,
         trailer: 'US76BYYP_ZM?si=k3Dr0CE4kS5Yusp1',
-        content: "/src/data/Projects Content/HexWorld.md"
+        content: "/assets/Content/HexWorld.md"
     },
     {
         id: 2,
         title: "Model Viewer",
-        image: "/src/assets/images/Bike_Viewer.png",
+        image: "/assets/images/Bike_Viewer.png",
         projectType: "Web",
         tools: ["Unity"],
         programmingLanguages: ["C#"],
@@ -41,7 +41,7 @@ const projects = [
     {
         id: 3,
         title: "To do list App",
-        image: "/src/assets/images/ToDo-List_thumbnail.png",
+        image: "/assets/images/ToDo-list_thumbnail.png",
         projectType: "Web",
         tools: ["React"],
         programmingLanguages: ["HTML", "CSS", "JS"],
@@ -54,7 +54,7 @@ const projects = [
     {
         id: 4,
         title: "Visions of Yesterday",
-        image: "/src/assets/images/VOY_banner.jpg",
+        image: "/assets/images/VOY_banner.jpg",
         projectType: "VR-AR",
         tools: ["Unity"],
         programmingLanguages: ["C#"],
@@ -63,12 +63,12 @@ const projects = [
         live: "https://portfolio.elaineserrano.com/to-do-list",
         trailer: "cTC7mPqpGU8?si=UQ7ZhPdvj9Dh3xN5",
         infoAvailable: "fullDescription",
-        content: "/src/data/Projects Content/VisionsOfYesterday.md"
+        content: "/assets/Content/VisionsOfYesterday.md"
     },
     {
         id: 5,
         title: "Movie Library",
-        image: "/src/assets/images/movielibrary_thumbnail.png",
+        image: "/assets/images/movielibrary_thumbnail.png",
         projectType: "Web",
         tools: ["React"],
         programmingLanguages: ["HTML", "CSS", "JS"],
@@ -82,7 +82,7 @@ const projects = [
     {
         id: 6,
         title: "Rube Goldberg Machine",
-        image: "/src/assets/images/RubeGoldbergMachine_Banner.jpg",
+        image: "/assets/images/RubeGoldbergMachine_Banner.jpg",
         projectType: "VR-AR",
         tools: ["Unreal", "Blueprints"],
         programmingLanguages: [],
@@ -90,12 +90,12 @@ const projects = [
         linkCode: "",
         live: null,
         trailer: "B8rQNaGdGaQ?si=5wXCQaH1pGeuIJ6I",
-        content: "/src/data/Projects Content/RubeGoldbergMachine.md"
+        content: "/assets/Content/RubeGoldbergMachine.md"
     },
     {
         id: 7,
         title: "Artist Mode On Website",
-        image: "/src/assets/images/artistmodeon_thumbnail.png",
+        image: "/assets/images/artistmodeon_thumbnail.png",
         projectType: "Web",
         tools: [],
         programmingLanguages: ["HTML", "CSS"],
@@ -108,7 +108,7 @@ const projects = [
     {
         id: 8,
         title: "Focus Food",
-        image: "/src/assets/images/RecipeFinder.png",
+        image: "/assets/images/RecipeFinder.png",
         projectType: "Web",
         tools: ['React', 'Flask'],
         programmingLanguages: ["HTML", "CSS"],
@@ -116,7 +116,7 @@ const projects = [
         linkCode: "https://github.com/Idealyinfamous/super-brain-project",
         live: "",
         trailer: "",
-        content: '/src/data/Projects Content/FocusFood.md'
+        content: '/assets/Content/FocusFood.md'
     },
     
 

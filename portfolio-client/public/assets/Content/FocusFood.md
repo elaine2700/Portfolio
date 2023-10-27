@@ -23,17 +23,17 @@ We wanted to design a site to address ADHD Decision paralysis,  Dietary/Allergy 
 
 ### Wire Framing
 
-![Wire Frame 1](src/assets/images/W1-80.jpg)
-![Wire Frame 2](src/assets/images/W2-80.jpg)
-![Wire Frame 3](src/assets/images/W3-80.jpg)
-![Wire Frame 4](src/assets/images/W4-80.jpg)
+![Wire Frame 1](/assets/images/W1-80.jpg)
+![Wire Frame 2](/assets/images/W2-80.jpg)
+![Wire Frame 3](/assets/images/W3-80.jpg)
+![Wire Frame 4](/assets/images/W4-80.jpg)
 
 ### Design Details
 
-![Design Details](src/assets/images/Design-80.jpg)
+![Design Details](/assets/images/Design-80.jpg)
 
 ## The final Product: FOCUS FOOD
-![Focus Food Site screenshot](src/assets/images/RecipeFinder.png)
+![Focus Food Site screenshot](/assets/images/RecipeFinder.png)
 
 ## What We Learned
 * Learned to created a complete web-app connecting front end with back end
