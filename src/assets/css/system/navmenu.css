@@ -1,0 +1,16 @@
+.main-nav{
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+.main-nav ul{
+    list-style: none;
+}
+.main-nav .clickable{
+    margin: 10px 0px;
+    font-family: 'Fugaz One', cursive;
+    max-width: none;
+}
+
+.toggle {
+    display: none;
+}

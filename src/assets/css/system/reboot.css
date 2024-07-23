@@ -1,0 +1,24 @@
+*, ::after, ::before{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+button{
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+    appearance: none;
+    text-transform: uppercase;
+}
+
+html {
+    font-size: 16px;
+    height: auto;
+    font-family: 'Lato', sans-serif;
+    background-color: var(--purple);
+    background: linear-gradient(180deg, var(--purple) 65%, var(--pastelPink) 100%);
+    background-size: cover;
+    min-height: 100vh;
+}  

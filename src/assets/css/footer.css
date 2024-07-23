@@ -1,0 +1,9 @@
+.social-media li{
+    font-size: 1rem;
+    display: inline-block;
+    padding-right: 0.2em;
+}
+
+.page-info{
+    font-size: 0.8rem;
+}
