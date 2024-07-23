@@ -1,4 +1,5 @@
-
+node_modules
+_site
 assets/.DS_Store
 images/.DS_Store
 .DS_Store
