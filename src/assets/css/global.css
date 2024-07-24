@@ -1,19 +1,33 @@
 @import url('system/reboot.css');
 @import url('system/colors.css');
+@import url('system/text.css');
+@import url('system/spacing.css');
 @import url('system/navmenu.css');
 
 /*Layout*/
 html {
     font-size: 16px;
     height: auto;
-    font-family: 'Lato', sans-serif;
-    background-color: var(--purple);
-    background: linear-gradient(180deg, var(--purple) 65%, var(--pastelPink) 100%);
+    font-family: var(--font-family-default);
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
     background-size: cover;
     min-height: 100vh;
 }
 
+body{
+    padding: var(--spacing-xxl);
+}
+
+.content-wrapper{
+    margin-left: calc(var(--sidemenu-width) + var(--spacing));
+    border-radius: var(--border-radius-default);
+    box-shadow: var(--shadow-small);
+    min-height: calc(100vh - (2 * var(--spacing-xxl)));
+}
+
+/*Typography*/
 h1,h2,h3,h4,h5,h6{
-    font-family: 'Fugaz One', cursive;
-    color: var(--blue);
+    font-family: var(--font-family-headers);
+    color: var(--color-text-secondary);
 }

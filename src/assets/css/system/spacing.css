@@ -1,0 +1,15 @@
+:root{
+    /*Spacing*/
+    --spacing-xxs: 0.25rem;
+    --spacing-xs: 0.5rem;
+    --spacing-s: 0.75rem;
+    --spacing: 1rem;
+    --spacing-l: 1.25rem;
+    --spacing-xl: 1.5rem;
+    --spacing-xxl: 2rem;
+    /*Borders*/
+    --border-radius-default: var(--spacing-xs);
+
+    --sidemenu-width: 15rem;
+}
+

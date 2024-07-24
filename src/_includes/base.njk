@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Elaine Serrano | {{title}}</title>
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!--CSS-->
     <link rel="stylesheet" href="/assets/css/global.css"/>
     <link rel="stylesheet" href="/assets/css/footer.css"/>
     {% for filePath in cssFiles %}
@@ -11,34 +16,38 @@
     {% endfor %}
 </head>
 <body>
-    <header>
-        <nav class="main-nav">
-            <ul>
-                <li class="clickable"><a href="/">Home</a></li>
-                <li class="clickable"><a href="/projects">Projects</a></li>
-                <li class="clickable"><a href="/resume">Resume</a></li>
+    <div class="side-menu-container">
+        <header class="main-menu">
+            <div class="profile-card">
+                <div class="profile-picture-container">Profile Image</div>
+                <p>Elaine Serrano</p>
+                <p>XR Developer & Designer</p>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-group">
+                    <li><a class="nav-item" href="/">Home</a></li>
+                    <li><a class="nav-item" href="/projects">Projects</a></li>
+                    <li><a class="nav-item" href="/resume">Resume</a></li>
+                </ul>
+            </nav>
+        </header>
+        <footer id="contact" class='footer'>   
+            <ul class="social-media">
+                <li><a href="https://www.linkedin.com/in/elaine-serrano-echeverria/">Github</a></li>
+                <li><a href="https://github.com/elaine2700">LInkedIn</a></li>
             </ul>
-        </nav>
-    </header>
-    <main>
+            <ul class="page-info">
+                <li>&copy;202 Elaine Serrano</li>
+                <li>Contact me at <span class="bold"><a href="mailto:contact@elaineserrano.com">contact@elaineserrano.com</a></span></li>
+                <li>Last Updated on October, 2023</li>
+                <li>Designed & coded from Scratch</li>
+            </ul>
+        </footer>
+    </div>
+    
+    <main class="content-wrapper">
         {{content | safe}}
     </main>
-    <footer id="contact" class='window shadow'>
-        <div>
-            <div class="footer">
-                <ul class="social-media">
-                    <li><a href="https://www.linkedin.com/in/elaine-serrano-echeverria/">Github</a></li>
-                    <li><a href="https://github.com/elaine2700">LInkedIn</a></li>
-                </ul>
-                <ul class="page-info">
-                    <li>&copy;2023 Elaine Serrano</li>
-                    <li>Contact me at <span class="bold"><a href="mailto:contact@elaineserrano.com">contact@elaineserrano.com</a></span></li>
-                    <li>Last Updated on October, 2023</li>
-                    <li>Designed & coded from Scratch</li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-    
+
 </body>
 </html>

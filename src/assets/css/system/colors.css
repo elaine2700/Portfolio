@@ -1,7 +1,28 @@
 :root{
     --blue:#90ACC6;
     --purple: #867190;
+    --purple-dark: #3b3140;
     --brightPink: #F573A1;
     --pastelPink: #EFA2C2;
     --salmon: #FFBACD;
-}
+    --gray-dark: #1e1c21;
+    --base-white: #ffffff;
+    --base-black: #000000;
+
+    /*BG*/
+    --color-bg: var(--purple-dark);
+    --color-text-primary: var(--base-white);
+    --color-text-secondary: var(--purple);
+
+    /*Border*/
+    --color-border-primary: var(--purple);
+
+    /*Colors*/
+    --color-surface-primary: var(--purple-dark);
+    --color-surface-secondary: var(--purple);
+    --color-shadow: var(--gray-dark);
+
+    /*Shadows*/
+    --shadow-small: 5px 5px 20px var(--color-shadow);
+    
+}   

@@ -1,14 +1,49 @@
-.main-nav{
-    font-size: 1.2rem;
+.side-menu-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - (2 * var(--spacing-xxl)));
+    position: fixed;
+    gap: var(--spacing-xs);
+}
+.main-menu{
+    border-radius: var(--spacing-xs);
+    width: var(--sidemenu-width);
+    padding: var(--spacing-xs);
+    box-shadow: var(--shadow-small);
+    flex-grow: 1;
+}
+.profile-card{
+    width: 100%;
+    margin-bottom: var(--spacing-xs);
+}
+.profile-card > .profile-picture-container{
+    width: 100%;
+    aspect-ratio: 1/1;
+    max-height: 150px;
+    height: auto;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--color-border-primary);
+}
+.profile-card p {
+    padding-bottom: var(--spacing-xxs);
+}
+
+.nav-group{
     font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xxs);
 }
-.main-nav ul{
-    list-style: none;
-}
-.main-nav .clickable{
-    margin: 10px 0px;
+.nav-item{
     font-family: 'Fugaz One', cursive;
-    max-width: none;
+    padding: var(--spacing-xxs);
+    border: 2px solid var(--color-border-primary);
+    color: var(--color-text-secondary);
+    text-align: center;
+}
+.nav-item:hover{
+    color: var(--color-text-primary);
 }
 
 .toggle {

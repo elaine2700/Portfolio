@@ -4,6 +4,15 @@
     border: 0;
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
+    text-decoration: none;
+}
+
+a, button{
+    display: block;
+}
+
+ul{
+    list-style: none;
 }
 
 button{
