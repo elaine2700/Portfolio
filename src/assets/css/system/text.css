@@ -2,3 +2,9 @@
     --font-family-default: 'Lato', sans-serif;
     --font-family-headers: 'Fugaz One', cursive;
 }
+
+/*Headers*/
+h1,h2,h3,h4,h5,h6{
+    font-family: var(--font-family-headers);
+    color: var(--color-text-secondary);
+}

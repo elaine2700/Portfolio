@@ -25,9 +25,3 @@ body{
     box-shadow: var(--shadow-small);
     min-height: calc(100vh - (2 * var(--spacing-xxl)));
 }
-
-/*Typography*/
-h1,h2,h3,h4,h5,h6{
-    font-family: var(--font-family-headers);
-    color: var(--color-text-secondary);
-}
