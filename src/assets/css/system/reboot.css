@@ -13,12 +13,3 @@ button{
     text-transform: uppercase;
 }
 
-html {
-    font-size: 16px;
-    height: auto;
-    font-family: 'Lato', sans-serif;
-    background-color: var(--purple);
-    background: linear-gradient(180deg, var(--purple) 65%, var(--pastelPink) 100%);
-    background-size: cover;
-    min-height: 100vh;
-}  
