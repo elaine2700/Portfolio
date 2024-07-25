@@ -1,19 +1,52 @@
 :root{
     /*Spacing*/
-    --spacing-xxs: 0.25rem;
-    --spacing-xs: 0.5rem;
-    --spacing-s: 0.75rem;
-    --spacing: 1rem;
-    --spacing-l: 1.25rem;
-    --spacing-xl: 1.5rem;
-    --spacing-xxl: 2rem;
+    --spacing-xxs: 0.1rem;
+    --spacing-xs: 0.25rem;
+    --spacing-s: 0.5rem;
+    --spacing: 0.75rem;
+    --spacing-l: 1rem;
+    --spacing-xl: 1.25rem;
+    --spacing-xxl: 1.5rem;
     /*Borders*/
     --border-radius-default: var(--spacing-xs);
     --border-width-light: 1px;
     --border-width-default: 2px;
     --border-widht-strong: 3px;
 
+    /*Border radius*/
+    --border-radius-default: var(--spacing);
+    --border-radius-small: var(--spacing-s);
+    --border-radius-large: var(--spacing-l);
+
     /*Lateral Menu*/
     --sidemenu-width: 15rem;
+}
+
+/*Padding Top*/
+.padding-top-xxs{
+    padding-top: var(--spacing-xxs);
+}
+.padding-top-xs{
+    padding-top: var(--spacing-xs);
+}
+.padding-top-s{
+    padding-top: var(--spacing-s);
+}
+.padding-top-m{
+    padding-top: var(--spacing);
+}
+.padding-top-l{
+    padding-top: var(--spacing-l);
+}
+.padding-top-xl{
+    padding-top: var(--spacing-xl);
+}
+.padding-top-xxl{
+    padding-top: var(--spacing-xxl);
+}
+
+/*Margin*/
+.margin-auto{
+    margin: 0 auto;
 }
 

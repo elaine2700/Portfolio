@@ -1,9 +1,10 @@
 .tag-group{
     display: flex;
-    gap: var(--spacing-xxs);
+    gap: var(--spacing-xs);
     flex-wrap: wrap;
 }
 .tag{
     background-color: var(--color-surface-secondary);
-    padding: var(--spacing-xxs);
+    color: var(--color-text-secondary);
+    padding: var(--spacing-xxs) var(--spacing-s);
 }

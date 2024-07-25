@@ -1,0 +1,22 @@
+.projects__page{
+    padding-left: var(--spacing-xxl);
+    padding-right: var(--spacing-xxl);
+    padding-top: var(--spacing);
+    
+}
+.projects__filterbar{
+    display: flex;
+    gap: var(--spacing-xs);
+    padding: var(--spacing);
+    position: sticky;
+    top: 1rem;
+    border-radius: var(--border-radius-small);
+    background-color: var(--color-surface-primary);
+}
+.projects__section{
+    padding-top: var(--spacing-l);
+    padding-bottom: var(--spacing-l);
+}
+.section_test{
+    height: 100vh;
+}

@@ -1,3 +1,44 @@
 .button{
-    border: 1px solid red;
+    --button-padding-x: var(--spacing-s);
+    --button-padding-y: var(--spacing-s);
+    --button-border-radius: var(--border-radius-default);
+    --button-color-bg: var(--color-surface-primary);
+    --button-color-bg-hover: var(--color-surface-tertiary);
+    --button-color: var(--color-text-secondary);
+    --button-color-hover: var(--color-text-primary);
+    border-radius: var(--button-border-radius);
+    padding: var(--button-padding-y) var(--button-padding-x);
+    background-color: var(--button-color-bg);
+    color: var(--button-color);
+    width: max-content;
 }
+.button:visited{
+    background-color: var(--button-color-bg);
+    color: var(--button-color);
+}
+.button:hover{
+    background-color: var(--button-color-bg-hover);
+    color: var(--button-color-hover);
+}
+
+.button-s{
+    --button-border-radius: var(--border-radius-small);
+    --button-padding-x: var(--spacing-xs);
+    --button-padding-y: var(--spacing-xs);
+}
+.button-l{
+    --button-border-radius: var(--border-radius-large);
+    --button-padding-x: var(--spacing-l);
+    --button-padding-y: var(--spacing-l);
+}
+
+.button.secondary{
+    --button-color-bg: var(--color-surface-tertiary);
+    --button-color: var(--color-text-tertiary);
+    --button-color-bg-hover: var(--color-surface-secondary);
+    --button-color-hover: var(--color-text-primary);
+}
+
+/* Secondary */
+/* Destructive */
+/* Ghost */

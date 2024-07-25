@@ -2,6 +2,7 @@
     display: flex;
 }
 
+/*Gap*/
 .gap-xxs{
     gap: var(--spacing-xxs);
 }
@@ -22,4 +23,8 @@
 }
 .gap-xxl{
     gap: var(--spacing-xxl);
+}
+/*Justify Content*/
+.justify-content-center{
+    justify-content: center;
 }

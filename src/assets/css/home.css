@@ -2,6 +2,10 @@
     padding-left: var(--spacing-xxl);
     padding-right: var(--spacing-xxl);
 }
+.home__section{
+    padding-top: var(--spacing-l);
+    padding-bottom: var(--spacing-l);
+}
 .home_hero{
     text-align: center;
     padding-top: 5rem;
@@ -19,6 +23,6 @@
 }
 .home_hero_person{
     padding: var(--spacing);
-    background-color: var(--color-surface-secondary);
+    background-color: var(--color-surface-primary);
 }
 

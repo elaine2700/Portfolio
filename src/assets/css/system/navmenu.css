@@ -4,14 +4,17 @@
     justify-content: space-between;
     height: calc(100vh - (2 * var(--spacing-xxl)));
     position: fixed;
-    gap: var(--spacing-xs);
+    gap: var(--spacing-s);
+    --menu-color-bg: var(--color-surface-primary);
+    --menu-border-radius: var(--border-radius-default);
 }
 .main-menu{
-    border-radius: var(--spacing-xs);
+    border-radius: var(--menu-border-radius);
     width: var(--sidemenu-width);
     padding: var(--spacing-xs);
     box-shadow: var(--shadow-small);
     flex-grow: 1;
+    background-color: var(--menu-color-bg);
 }
 .profile-card{
     width: 100%;

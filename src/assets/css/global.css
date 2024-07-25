@@ -7,37 +7,3 @@
 @import url('system/card.css');
 @import url('system/tags.css');
 @import url('system/buttons.css');
-
-/*Layout*/
-html {
-    font-size: 16px;
-    height: auto;
-    font-family: var(--font-family-default);
-    background-color: var(--color-bg);
-    color: var(--color-text-primary);
-    background-size: cover;
-    min-height: 100vh;
-}
-
-body{
-    padding: var(--spacing-xxl);
-}
-
-a{
-    color: var(--color-link-default);
-}
-
-    a:hover{
-        color: var(--color-link-hover);
-    }
-    a:active{
-        color: var(--color-link-active);
-    }
-    a:visited{
-        color: var(--color-link-visited);
-    }
-
-.content-wrapper{
-    margin-left: calc(var(--sidemenu-width) + var(--spacing));
-    min-height: calc(100vh - (2 * var(--spacing-xxl)));
-}

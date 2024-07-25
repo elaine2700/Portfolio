@@ -1,6 +1,6 @@
 :root{
     --blue:#90ACC6;
-    --purple: #867190;
+    --purple: #64526b;
     --purple-dark: #3b3140;
     --purple-light: #caabd8;
     --brightPink: #F573A1;
@@ -10,12 +10,12 @@
     --base-white: #ffffff;
     --base-black: #000000;
 
-    /*BG*/
-    --color-bg: var(--purple-dark);
+    
 
     /*Text*/
     --color-text-primary: var(--base-white);
-    --color-text-secondary: var(--purple);
+    --color-text-secondary: var(--purple-light);
+    --color-text-tertiary: var(--purple);
 
     /*Links*/
     --color-link-default: var(--purple-light);
@@ -29,9 +29,17 @@
     /*Colors*/
     --color-surface-primary: var(--purple-dark);
     --color-surface-secondary: var(--purple);
-    --color-shadow: var(--gray-dark);
+    --color-surface-tertiary: var(--purple-light);
+    --color-surface-primary-translucent: #3b31409f;
+    
+    /*BG*/
+    --color-bg: var(--color-surface-secondary);
 
     /*Shadows*/
-    --shadow-small: 5px 5px 20px var(--color-shadow);
-    
-}   
+    --color-shadow: var(--purple-dark);
+    --shadow-small: 5px 5px 10px var(--color-shadow);
+}
+
+.bg-primary{
+    background-color: var(--color-surface-primary);
+}
