@@ -1,3 +1,7 @@
+.home__page{
+    padding-left: var(--spacing-xxl);
+    padding-right: var(--spacing-xxl);
+}
 .home_hero{
     text-align: center;
     padding-top: 5rem;

@@ -9,7 +9,11 @@
     --spacing-xxl: 2rem;
     /*Borders*/
     --border-radius-default: var(--spacing-xs);
+    --border-width-light: 1px;
+    --border-width-default: 2px;
+    --border-widht-strong: 3px;
 
+    /*Lateral Menu*/
     --sidemenu-width: 15rem;
 }
 

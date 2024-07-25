@@ -1,0 +1,9 @@
+.tag-group{
+    display: flex;
+    gap: var(--spacing-xxs);
+    flex-wrap: wrap;
+}
+.tag{
+    background-color: var(--color-surface-secondary);
+    padding: var(--spacing-xxs);
+}

@@ -1,8 +1,12 @@
 @import url('system/reboot.css');
 @import url('system/colors.css');
 @import url('system/text.css');
-@import url('system/spacing.css');
+@import url('system/variables.css');
 @import url('system/navmenu.css');
+@import url('system/flex.css');
+@import url('system/card.css');
+@import url('system/tags.css');
+@import url('system/buttons.css');
 
 /*Layout*/
 html {
@@ -19,9 +23,21 @@ body{
     padding: var(--spacing-xxl);
 }
 
+a{
+    color: var(--color-link-default);
+}
+
+    a:hover{
+        color: var(--color-link-hover);
+    }
+    a:active{
+        color: var(--color-link-active);
+    }
+    a:visited{
+        color: var(--color-link-visited);
+    }
+
 .content-wrapper{
     margin-left: calc(var(--sidemenu-width) + var(--spacing));
-    border-radius: var(--border-radius-default);
-    box-shadow: var(--shadow-small);
     min-height: calc(100vh - (2 * var(--spacing-xxl)));
 }

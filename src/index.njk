@@ -3,7 +3,7 @@ layout: base
 title: "Home"
 cssFiles: ["/assets/css/home.css"]
 ---
-<article>
+<article class="card home__page">
     <header class="home_hero">
         <p class="home_hero_hello">Hello,</p>
         <div class="home_hero_description">
@@ -17,37 +17,40 @@ cssFiles: ["/assets/css/home.css"]
         
     </header>
     <section>
-        <h1>Skills</h1>
-        <div>
-            <h2>Skill Type 1</h2>
-            <ul>
-                <li>Skill 1</li>
-                <li>Skill 2</li>
-                <li>Skill 3</li>
-            </ul>
+        <h1 class="text-center">Skills</h1>
+        <div class="flex-group">
+            <div class="card">
+                <h2 class="card-title">Skill Type 1</h2>
+                <ul class="card-content tag-group">
+                    <li class="tag">Skill 1</li>
+                    <li class="tag">Skill 2</li>
+                    <li class="tag">Skill 3</li>
+                </ul>
+            </div>
         </div>
     </section>
     <section>
-        <h1>Projects</h1>
-        <div>
-            <h2>Project Title</h2>
-            <div>
-                <img src="" alt="Project thumbnail"/>
-                <ul class="tags">
-                    <li class="tag">Tag 1</li>
-                    <li class="tag">Tag 2</li>
-                    <li class="tag">Tag 3</li>
-                </ul>
-                <div>
-                    <a href="#">More</a>
-                    <a href="#">Live</a>
-                    <a href="#">Code</a>
-                </div>
-            </div>  
+        <h1 class="text-center">Projects</h1>
+        <div class="flex-group">
+            <div class="card">
+                <h2 class="card-title">Project Title</h2>
+                <div class="card-content">
+                    <img src="" alt="Project thumbnail"/>
+                    <ul class="tag-group">
+                        <li class="tag">Tag 1</li>
+                        <li class="tag">Tag 2</li>
+                        <li class="tag">Tag 3</li>
+                    </ul>
+                    <div class="flex-group gap-xxs">
+                        <a href="#" class="button">More</a>
+                        <a href="#" class="button">Live</a>
+                        <a href="#" class="button">Code</a>
+                    </div>
+                </div>  
+            </div>
         </div>
-        
-        <div>
-            <a href="#">See All Projects</a>
+        <div class="text-center">
+            <a class="button" href="#">See All Projects</a>
         </div>
     </section>
 </article>

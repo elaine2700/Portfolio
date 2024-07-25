@@ -2,6 +2,7 @@
     --blue:#90ACC6;
     --purple: #867190;
     --purple-dark: #3b3140;
+    --purple-light: #caabd8;
     --brightPink: #F573A1;
     --pastelPink: #EFA2C2;
     --salmon: #FFBACD;
@@ -11,8 +12,16 @@
 
     /*BG*/
     --color-bg: var(--purple-dark);
+
+    /*Text*/
     --color-text-primary: var(--base-white);
     --color-text-secondary: var(--purple);
+
+    /*Links*/
+    --color-link-default: var(--purple-light);
+    --color-link-hover: var(--base-white);
+    --color-link-active: var(--base-white);
+    --color-link-visited: var(--purple-light);
 
     /*Border*/
     --color-border-primary: var(--purple);
