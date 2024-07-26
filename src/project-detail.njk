@@ -1,25 +1,44 @@
 ---
-layout: base
+layout: "layouts/base"
 title: "Project"
+cssFiles: ["/assets/css/project-detail.css"]
+pagination:
+    data: projects
+    size: 1
+    alias: project
+permalink: "projects/{{project.id}}/index.html"
 ---
-<header>
-    <h1>{{Projects}}</h1>
+<header class="text-center">
+    <h1>Projects</h1>
 </header>
-<article>
-    <header>
-        <h2>Project Title</h2>
-        <p>Project description</p>
+<article class="card">
+    <header class="projectdetail__header">
+        <h2 class="projectdetail__title">{{project.title}}</h2>
+        <p class="projectdetail__description">{{project.description}}</p>
     </header>
-    <section>
-        <div>
-            <a>View Code</a>
-        </div>
-    </section>
-    <section>
-        <div>Video</div>
-        <div>
-            Content with md
-        </div>
-    </section>
+    <div class="projectdetail__body">
+        <section class="projectdetail__section">
+            <ul class="tag-group">
+                {% for tool in project.tools %}
+                <li class="tag dark">{{tool}}</li>
+                {% endfor %}
+                {% for language in project.programmingLanguages %}
+                <li class="tag dark">{{language}}</li>
+                {% endfor %}
+            </ul>
+            <div>
+                <a class="button margin-auto" href="{{project.linkCode}}" target="_blank">View Code</a>
+            </div>
+        </section class="projectdetail__section">
+        {% if project.trailer %}
+        <section class="projectdetail__video">
+            <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/{{project.trailer}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+        {% endif %}
+        <section class="projectdetail__section">
+            md content
+        </section>
+    </div>
+    
 
 </article>

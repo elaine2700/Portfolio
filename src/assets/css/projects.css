@@ -16,6 +16,8 @@
 .projects__section{
     padding-top: var(--spacing-l);
     padding-bottom: var(--spacing-l);
+    display: flex;
+    flex-wrap: wrap;
 }
 .section_test{
     height: 100vh;

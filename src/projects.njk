@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: "layouts/base"
 title: "Projects"
 cssFiles: ["/assets/css/projects.css"]
 ---
@@ -15,23 +15,33 @@ cssFiles: ["/assets/css/projects.css"]
         <button class="button secondary button-s">All</button>
     </div>
     <section class="projects__section">
-        <div class="flex-group">
-            <div class="card bg-primary">
-                <h2 class="card-title">Project Title</h2>
-                <div class="card-content">
-                    <img src="" alt="Project thumbnail"/>
-                    <ul class="tag-group">
-                        <li class="tag">Tag 1</li>
-                        <li class="tag">Tag 2</li>
-                        <li class="tag">Tag 3</li>
-                    </ul>
-                    <div class="flex-group gap-xs padding-top-s justify-content-center">
-                        <a class="button secondary button-s" href="#">More</a>
-                        <a class="button secondary button-s" href="#">Live</a>
-                        <a class="button secondary button-s" href="#">Code</a>
-                    </div>
+        {% for project in projects %}
+        <div class="card bg-primary">
+            <h2 class="card-title">{{project.title}}</h2>
+            <div class="card-content">
+                <img src="" alt="Project thumbnail"/>
+                <ul class="tag-group">
+                    {% for tool in project.tools %}
+                    <li class="tag">{{tool}}</li>
+                    {% endfor %}
+                    {% for language in project.programmingLanguages %}
+                    <li class="tag">{{language}}</li>
+                    {% endfor %}
+                </ul>
+                <div class="flex-group gap-xs padding-top-s justify-content-center">
+                    {% if project.content  %}
+                    <a class="button secondary button-s" href="/projects/{{project.id}}">More</a>
+                    {% endif %}
+                    {% if project.live %}
+                    <a class="button secondary button-s" href="{{project.live}}">Live</a>
+                    {% endif %}
+                    {% if project.linkCode %}
+                    <a class="button secondary button-s" href="{{project.linkCode}}">Code</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
+        {% endfor %}
+        
     </section>
 </article>

@@ -4,7 +4,12 @@
     flex-wrap: wrap;
 }
 .tag{
-    background-color: var(--color-surface-secondary);
+    --tag-color-bg: var(--color-surface-secondary);
+    background-color: var(--tag-color-bg);
     color: var(--color-text-secondary);
     padding: var(--spacing-xxs) var(--spacing-s);
+}
+
+.tag.dark{
+    --tag-color-bg: var(--color-surface-primary)
 }
