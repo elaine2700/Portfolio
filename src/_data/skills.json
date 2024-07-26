@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Virtual Reality",
+        "skillList": ["Unity", "C#", "Unreal", "Blueprints", "C++"]
+    },
+    {
+        "name": "Web",
+        "skillList":["HTML", "CSS", "React", "Express.js", "Node.js"]
+    },
+    {
+        "name": "Design",
+        "skillList": ["UI", "Photoshop", "Illustrator", "After Effects"]
+    }
+]

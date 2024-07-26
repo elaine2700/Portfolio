@@ -15,17 +15,17 @@ permalink: "projects/{{project.id}}/index.html"
     <header class="projectdetail__header">
         <h2 class="projectdetail__title">{{project.title}}</h2>
         <p class="projectdetail__description">{{project.description}}</p>
+        <ul class="tag-group">
+            {% for tool in project.tools %}
+            <li class="tag dark">{{tool}}</li>
+            {% endfor %}
+            {% for language in project.programmingLanguages %}
+            <li class="tag dark">{{language}}</li>
+            {% endfor %}
+        </ul>
     </header>
     <div class="projectdetail__body">
         <section class="projectdetail__section">
-            <ul class="tag-group">
-                {% for tool in project.tools %}
-                <li class="tag dark">{{tool}}</li>
-                {% endfor %}
-                {% for language in project.programmingLanguages %}
-                <li class="tag dark">{{language}}</li>
-                {% endfor %}
-            </ul>
             <div>
                 <a class="button margin-auto" href="{{project.linkCode}}" target="_blank">View Code</a>
             </div>
@@ -36,9 +36,11 @@ permalink: "projects/{{project.id}}/index.html"
         </section>
         {% endif %}
         <section class="projectdetail__section">
-            md content
+            {% if project.content %}
+            <div class="projectdetail_projectcontent">
+                {% renderFile "./src/_includes/projects/" + project.content %}
+            </div>
+            {% endif %}
         </section>
     </div>
-    
-
 </article>
