@@ -8,5 +8,5 @@
     font-size: 1rem;
 }
 .card-content{
-    padding: var(--spacing-xs);
+    padding: var(--spacing-s);
 }

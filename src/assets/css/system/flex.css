@@ -2,6 +2,10 @@
     display: flex;
 }
 
+.flex-grow-1{
+    flex-grow: 1;
+}
+
 /*Gap*/
 .gap-xxs{
     gap: var(--spacing-xxs);
