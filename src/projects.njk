@@ -2,12 +2,13 @@
 layout: "layouts/base"
 title: "Projects"
 cssFiles: ["/assets/css/projects.css"]
+jsFiles: ["/assets/js/projects.js"]
 ---
 <header class="text-center">
     <h1>{{title}}</h1>
 </header>
 <article class="card projects__page">
-    <div class="projects__filterbar">
+    <div id="filterBar" class="projects__filterbar">
         <p>Filter</p>
         <button class="button secondary button-s">VR</button>
         <button class="button secondary button-s">Web</button>
@@ -16,11 +17,12 @@ cssFiles: ["/assets/css/projects.css"]
     </div>
     <section class="projects__section">
         {% for project in projects %}
-        <div class="card bg-primary">
+        <div class="d-project card bg-primary">
             <h2 class="card-title">{{project.title}}</h2>
             <div class="card-content">
                 <img class="fit" src={{project.image}} alt="Project thumbnail"/>
                 <ul class="tag-group">
+                    <li class="d-projectType tag">{{project.projectType}}</li>
                     {% for tool in project.tools %}
                     <li class="tag">{{tool}}</li>
                     {% endfor %}

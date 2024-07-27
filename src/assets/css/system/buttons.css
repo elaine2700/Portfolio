@@ -35,7 +35,7 @@
 .button.secondary{
     --button-color-bg: var(--color-surface-tertiary);
     --button-color: var(--color-text-tertiary);
-    --button-color-bg-hover: var(--color-surface-secondary);
+    --button-color-bg-hover: var(--gray-dark);
     --button-color-hover: var(--color-text-primary);
 }
 

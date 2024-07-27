@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="/assets/css/layout.css"/>
     <link rel="stylesheet" href="/assets/css/global.css"/>
     <link rel="stylesheet" href="/assets/css/footer.css"/>
-    {% for filePath in cssFiles %}
-        <link rel="stylesheet" href={{filePath}}/>
+    {% for css in cssFiles %}
+        <link rel="stylesheet" href={{css}} />
     {% endfor %}
 </head>
 <body>
@@ -50,5 +50,8 @@
         {{content | safe}}
     </main>
 
+    {% for js in jsFiles %}
+    <script src={{js}}></script>
+    {% endfor %}
 </body>
 </html>
