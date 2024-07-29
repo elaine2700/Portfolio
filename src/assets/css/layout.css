@@ -31,3 +31,7 @@ a{
     margin-left: calc(var(--sidemenu-width) + var(--spacing));
     min-height: calc(100vh - (2 * var(--spacing-xxl)));
 }
+
+.hidden{
+    display: none;
+}
