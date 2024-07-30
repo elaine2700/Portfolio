@@ -45,7 +45,11 @@
 }
 .profile-picture-container .lens{
     top: 45%;
+    transition-duration: 0.5s;
 }
+    .lens.invisible{
+        transform: translate(5rem);
+    }
 .profile-card p {
     font-family: var(--font-family-headers);
     padding-bottom: var(--spacing-xxs);
@@ -118,4 +122,8 @@ input:checked + label.switch:after {
   
 label.switch:active:after {
     width: 30px;
+}
+
+.invisible{
+    opacity: 0;
 }
