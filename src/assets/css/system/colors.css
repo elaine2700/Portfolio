@@ -24,7 +24,8 @@
     --color-link-visited: var(--purple-light);
 
     /*Border*/
-    --color-border-primary: var(--color-surface-primary);
+    --color-border-primary: var(--color-surface-secondary);
+    --color-border-secondary: var(--color-surface-primary);
 
     /*Colors*/
     --color-surface-primary: var(--purple-dark);

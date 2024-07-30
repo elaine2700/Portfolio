@@ -1,9 +1,12 @@
 @import url('system/reboot.css');
 @import url('system/colors.css');
+@import url('system/spacing.css');
+@import url('system/general.css');
 @import url('system/text.css');
-@import url('system/variables.css');
+@import url('system/borders.css');
 @import url('system/navmenu.css');
 @import url('system/flex.css');
+@import url('system/grid.css');
 @import url('system/card.css');
 @import url('system/tags.css');
 @import url('system/buttons.css');

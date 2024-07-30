@@ -19,17 +19,40 @@
 .profile-card{
     width: 100%;
     margin-bottom: var(--spacing-xs);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-s);
+    margin-bottom: var(--spacing-s);
 }
 .profile-card > .profile-picture-container{
-    width: 100%;
-    aspect-ratio: 1/1;
-    max-height: 150px;
-    height: auto;
-    margin: 0 auto;
-    border-bottom: 1px solid var(--color-border-primary);
+    overflow: hidden;
+    height: 180px;
+    position: relative;
+    width: auto;
+    max-width: 1080px;
+    border-bottom: var(--border-width-default) solid var(--color-border-primary);
+}
+.profile-picture-container > img{
+    position: absolute;
+    width: auto;
+    max-width: 200px;
+    aspect-ratio: 1 / 1;
+    left: 10%;
+}
+
+.profile-picture-container .head{
+    top: 10%;
+}
+.profile-picture-container .lens{
+    top: 45%;
 }
 .profile-card p {
+    font-family: var(--font-family-headers);
     padding-bottom: var(--spacing-xxs);
+}
+.profile-card-name {
+    font-size: 1.25rem;
+    font-weight: 600;
 }
 
 .nav-group{
@@ -39,8 +62,7 @@
     gap: var(--spacing-xxs);
 }
 .nav-item{
-    font-family: 'Fugaz One', cursive;
-    padding: var(--spacing-xxs);
+    padding: var(--spacing-xs);
     border: 2px solid var(--color-border-primary);
     color: var(--color-text-secondary);
     text-align: center;
@@ -49,6 +71,51 @@
     color: var(--color-text-primary);
 }
 
+/* to Hide menu on small screens */
 .toggle {
     display: none;
+}
+
+/* Style checkbox Toggle on - off */
+input[type=checkbox]{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+  
+.switch {
+    cursor: pointer;
+    width: 50px;
+    height: 30px;
+    background: var(--color-surface-secondary);
+    display: block;
+    border-radius: 100px;
+    position: relative;
+}
+
+/* The circle */
+.switch:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--color-surface-primary);
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+/*On*/
+input:checked + label.switch {
+    background-color: var(--color-surface-tertiary);
+}
+  
+input:checked + label.switch:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+  
+label.switch:active:after {
+    width: 30px;
 }

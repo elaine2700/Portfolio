@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Elaine Serrano | {{title}}</title>
     <!--Fonts-->
+    <!--
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    -->
     <!--CSS-->
     <link rel="stylesheet" href="/assets/css/layout.css"/>
     <link rel="stylesheet" href="/assets/css/global.css"/>
@@ -20,9 +22,22 @@
     <div class="side-menu-container">
         <header class="main-menu">
             <div class="profile-card">
-                <div class="profile-picture-container">Profile Image</div>
-                <p>Elaine Serrano</p>
-                <p>XR Developer & Designer</p>
+                <div class="profile-picture-container">
+                    <img class="head" src="/assets/images/Head.svg"/>
+                    <img class="lens" src="/assets/images/Lens.svg"/>
+                    <div class="flex-group justify-content-right">
+                        <div>
+                            <input id="toggle"
+                            type="checkbox"
+                            checked/>
+                            <label class="switch" for="toggle"></label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p class="profile-card-name">Elaine Serrano</p>
+                    <p>XR Developer & Designer</p>
+                </div>
             </div>
             <nav class="main-nav">
                 <ul class="nav-group">

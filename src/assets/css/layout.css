@@ -1,3 +1,8 @@
+:root{
+    /*Lateral Menu*/
+    --sidemenu-width: 15rem;
+}
+
 /*Layout*/
 html {
     font-size: 16px;
@@ -13,25 +18,7 @@ body{
     padding: var(--spacing-xxl);
 }
 
-a{
-    color: var(--color-link-default);
-}
-
-    a:hover{
-        color: var(--color-link-hover);
-    }
-    a:active{
-        color: var(--color-link-active);
-    }
-    a:visited{
-        color: var(--color-link-visited);
-    }
-
 .content-wrapper{
     margin-left: calc(var(--sidemenu-width) + var(--spacing));
     min-height: calc(100vh - (2 * var(--spacing-xxl)));
-}
-
-.hidden{
-    display: none;
 }
