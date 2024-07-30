@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
-    
     const projects = document.querySelectorAll(".d-project");
-    // For each button in filter bar, use filter word to select through category
-    // for all project cards.
-    
 
     // add event to buttons
     const filterBar = document.getElementById("filterBar");
@@ -11,15 +7,20 @@ document.addEventListener("DOMContentLoaded", function(){
     for (const button of buttons) {
         const filterLabel = button.innerHTML;
         button.addEventListener("click", function(){
-            console.log(`${filterLabel} button`);
             filterProjects(filterLabel, projects);
         })
     }
 })
 
+function ResetFilter(projects){
+    for (const project of projects) {
+        project.classList.remove("hidden");
+    }
+}
+
 function filterProjects(filterKey, projects){
+    ResetFilter(projects);
     if(filterKey === "All"){
-        console.log("reset");
         return;
     }
     for (const project of projects) {
@@ -27,6 +28,5 @@ function filterProjects(filterKey, projects){
         if(filterKey !== projectCategory.innerHTML){
             project.classList.add("hidden");
         }
-        console.log(projectCategory);
     }
 }
