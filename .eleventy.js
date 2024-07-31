@@ -1,4 +1,6 @@
 const {EleventyRenderPlugin} = require("@11ty/eleventy");
+const dotenv = require('dotenv');
+dotenv.config();
 
 module.exports = function(eleventyConfig){
     eleventyConfig.addPassthroughCopy("src/assets");
@@ -9,7 +11,7 @@ module.exports = function(eleventyConfig){
         dir:{
             input: 'src',
             includes: '_includes',
-            output: 'public',
+            output: process.env.SITE_DIR,
             data: "_data"
         },
         templateFormats: ['md', 'njk', 'html'],
