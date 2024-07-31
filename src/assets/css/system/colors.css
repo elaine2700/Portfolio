@@ -10,12 +10,12 @@
     --base-white: #ffffff;
     --base-black: #000000;
 
-    
-
     /*Text*/
     --color-text-primary: var(--base-white);
     --color-text-secondary: var(--purple-light);
     --color-text-tertiary: var(--purple);
+    --color-text-dark: var(--base-black);
+    --color-text-light: var(--base-white);
 
     /*Links*/
     --color-link-default: var(--purple-light);
@@ -31,6 +31,7 @@
     --color-surface-primary: var(--purple-dark);
     --color-surface-secondary: var(--purple);
     --color-surface-tertiary: var(--purple-light);
+    --color-surface-dark: var(--gray-dark);
     --color-surface-primary-translucent: #3b31409f;
     
     /*BG*/

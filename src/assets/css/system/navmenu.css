@@ -73,6 +73,11 @@
 }
 .nav-item:hover{
     color: var(--color-text-primary);
+    background-color: var(--color-surface-dark);
+}
+.nav-item.active{
+    background-color: var(--color-surface-dark);
+    color: var(--color-text-primary);
 }
 
 /* to Hide menu on small screens */

@@ -38,11 +38,18 @@
         <button id="menuToggle" type="button" class="button button-l button-icon toggle">
             <i class="bi bi-list"></i>
         </button>
+        {% 
+            set navItems = [
+            { 'name': 'Home', 'url': '/' },
+            { 'name': 'Projects', 'url': '/projects/' }] 
+        %}
         <nav class="main-nav">
             <ul class="nav-group">
-                <li><a class="nav-item" href="/">Home</a></li>
-                <li><a class="nav-item" href="/projects">Projects</a></li>
-                <li><a class="nav-item" href="/resume">Resume</a></li>
+                {% for item in navItems %}
+                <li>
+                    <a class="nav-item {% if page.url == item.url %}active{% endif %}" href="{{ item.url }}">{{ item.name }}</a>
+                </li>
+                {% endfor %}
             </ul>
         </nav>
     </header>
