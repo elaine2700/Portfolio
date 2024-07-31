@@ -1,0 +1,47 @@
+:root{
+    --blue:#90ACC6;
+    --purple: #64526b;
+    --purple-dark: #3b3140;
+    --purple-light: #caabd8;
+    --brightPink: #F573A1;
+    --pastelPink: #EFA2C2;
+    --salmon: #FFBACD;
+    --gray-dark: #1e1c21;
+    --base-white: #ffffff;
+    --base-black: #000000;
+
+    /*Text*/
+    --color-text-primary: var(--base-white);
+    --color-text-secondary: var(--purple-light);
+    --color-text-tertiary: var(--purple);
+    --color-text-dark: var(--base-black);
+    --color-text-light: var(--base-white);
+
+    /*Links*/
+    --color-link-default: var(--purple-light);
+    --color-link-hover: var(--base-white);
+    --color-link-active: var(--base-white);
+    --color-link-visited: var(--purple-light);
+
+    /*Border*/
+    --color-border-primary: var(--color-surface-secondary);
+    --color-border-secondary: var(--color-surface-primary);
+
+    /*Colors*/
+    --color-surface-primary: var(--purple-dark);
+    --color-surface-secondary: var(--purple);
+    --color-surface-tertiary: var(--purple-light);
+    --color-surface-dark: var(--gray-dark);
+    --color-surface-primary-translucent: #3b31409f;
+    
+    /*BG*/
+    --color-bg: var(--color-surface-secondary);
+
+    /*Shadows*/
+    --color-shadow: var(--purple-dark);
+    --shadow-small: 5px 5px 10px var(--color-shadow);
+}
+
+.bg-primary{
+    background-color: var(--color-surface-primary);
+}

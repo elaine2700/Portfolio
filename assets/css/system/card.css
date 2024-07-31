@@ -1,0 +1,12 @@
+.card{
+    box-shadow: var(--shadow-small);
+    border-radius: var(--spacing-s);
+}
+.card-title{
+    padding: var(--spacing-xs) var(--spacing-s);
+    border-bottom: var(--border-width-default) solid;
+    font-size: 1rem;
+}
+.card-content{
+    padding: var(--spacing-s);
+}

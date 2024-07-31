@@ -1,0 +1,37 @@
+:root{
+    --spacing-xxs: 0.1rem;
+    --spacing-xs: 0.25rem;
+    --spacing-s: 0.5rem;
+    --spacing: 0.75rem;
+    --spacing-l: 1rem;
+    --spacing-xl: 1.25rem;
+    --spacing-xxl: 1.5rem;
+}
+
+/*Padding Top*/
+.padding-top-xxs{
+    padding-top: var(--spacing-xxs);
+}
+.padding-top-xs{
+    padding-top: var(--spacing-xs);
+}
+.padding-top-s{
+    padding-top: var(--spacing-s);
+}
+.padding-top-m{
+    padding-top: var(--spacing);
+}
+.padding-top-l{
+    padding-top: var(--spacing-l);
+}
+.padding-top-xl{
+    padding-top: var(--spacing-xl);
+}
+.padding-top-xxl{
+    padding-top: var(--spacing-xxl);
+}
+
+/*Margin*/
+.margin-auto{
+    margin: 0 auto;
+}

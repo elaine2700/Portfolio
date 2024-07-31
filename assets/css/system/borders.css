@@ -1,0 +1,12 @@
+:root{
+    /*Borders*/
+    --border-radius-default: var(--spacing-xs);
+    --border-width-light: 1px;
+    --border-width-default: 2px;
+    --border-widht-strong: 3px;
+
+    /*Border radius*/
+    --border-radius-default: var(--spacing);
+    --border-radius-small: var(--spacing-s);
+    --border-radius-large: var(--spacing-l);
+}

@@ -1,0 +1,40 @@
+.flex-group{
+    display: flex;
+}
+
+.flex-grow-1{
+    flex-grow: 1;
+}
+
+/*Gap*/
+.gap-xxs{
+    gap: var(--spacing-xxs);
+}
+.gap-xs{
+    gap: var(--spacing-xs);
+}
+.gap-s{
+    gap: var(--spacing-s);
+}
+.gap-m{
+    gap: var(--spacing);
+}
+.gap-l{
+    gap: var(--spacing-l);
+}
+.gap-xl{
+    gap: var(--spacing-xl);
+}
+.gap-xxl{
+    gap: var(--spacing-xxl);
+}
+/*Justify Content*/
+.justify-content-center{
+    justify-content: center;
+}
+.justify-content-right{
+    justify-content: end;
+}
+.justify-content-left{
+    justify-content: flex-start;
+}

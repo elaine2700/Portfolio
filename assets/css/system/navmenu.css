@@ -1,0 +1,221 @@
+.main-menu{
+    --menu-color-bg: var(--color-surface-primary);
+    --menu-border-radius: var(--border-radius-default);
+    --roughHeight: calc(100vh - (2.5 * var(--spacing-xxl)));
+    background-color: var(--menu-color-bg);
+    height: calc(var(--roughHeight) - 120px);
+    border-radius: var(--menu-border-radius);
+    width: var(--sidemenu-width);
+    position: fixed;
+    box-shadow: var(--shadow-small);
+    padding: var(--spacing-s);
+    justify-content: space-between;
+}
+.profile-card{
+    margin-bottom: var(--spacing-xs);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-s);
+    margin-bottom: var(--spacing-s);
+}
+.profile-picture-container{
+    overflow: hidden;
+    height: 180px;
+    position: relative;
+    width: auto;
+    max-width: 1080px;
+    border-bottom: var(--border-width-default) solid var(--color-border-primary);
+}
+.profile-picture-container > img{
+    position: absolute;
+    width: auto;
+    max-width: 200px;
+    aspect-ratio: 1 / 1;
+    left: 10%;
+}
+
+.profile-picture-container .head{
+    top: 10%;
+}
+.profile-picture-container .lens{
+    top: 45%;
+    transition-duration: 0.5s;
+}
+    .lens.invisible{
+        transform: translate(5rem);
+    }
+.profile-card p {
+    font-family: var(--font-family-headers);
+    padding-bottom: var(--spacing-xxs);
+}
+.profile-card-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+.actions{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: var(--spacing-s);
+    margin-right: var(--spacing-s);
+}
+
+.nav-group{
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xxs);
+}
+.nav-item{
+    padding: var(--spacing-xs);
+    border: 2px solid var(--color-border-primary);
+    color: var(--color-text-secondary);
+    text-align: center;
+}
+.nav-item:hover{
+    color: var(--color-text-primary);
+    background-color: var(--color-surface-dark);
+}
+.nav-item.active{
+    background-color: var(--color-surface-dark);
+    color: var(--color-text-primary);
+}
+
+/* to Hide menu on small screens */
+.toggle{
+    display: none;
+}
+
+/* Style checkbox Toggle on - off */
+input[type=checkbox]{
+    height: 0;
+    width: 0;
+    display: none;
+}
+  
+.switch {
+    cursor: pointer;
+    width: 50px;
+    height: 30px;
+    background: var(--color-surface-secondary);
+    display: block;
+    border-radius: 100px;
+    position: relative;
+}
+
+/* The circle */
+.switch:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--color-surface-primary);
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+/*On*/
+input:checked + label.switch {
+    background-color: var(--color-surface-tertiary);
+}
+  
+input:checked + label.switch:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+  
+label.switch:active:after {
+    width: 30px;
+}
+
+.invisible{
+    opacity: 0;
+}
+
+/* Media screen sizes
+640
+768
+1024
+1280
+1400
+*/
+
+
+@media only screen and (max-width: 1024px) {
+    .main-menu{
+        position: sticky;
+        display: flex;
+        flex-direction: row;
+        height: auto;
+        width: 100%;
+        top: var(--spacing-xxl);
+    }
+    .profile-card{
+        flex-direction: row;
+        margin-bottom: 0;
+        min-width: max-content;
+    }
+    .profile-card .name{
+        min-width: max-content;
+    }
+    .main-nav{
+        display: flex;
+        align-items: center;
+    }
+    .nav-group{
+        flex-direction: row;
+        align-items: center;
+        gap: var(--spacing);
+    }
+    .profile-picture-container .actions{
+        display: none;
+    }
+    .profile-picture-container{
+        width: 100%;
+        min-width: 3.5rem;
+        height: auto;
+        min-height: 3.5rem;
+        border-bottom: 0;
+        border-right: var(--border-width-default) solid var(--color-border-primary);
+        display: block;
+    }
+    
+    .profile-picture-container img{
+        position: static;
+        display: block;
+        width: auto;
+        height: 100%;
+    }
+    .profile-picture-container .lens{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .main-menu{
+        flex-wrap: wrap;
+        z-index: 1;
+    }
+    .main-nav{
+        width: 100%;
+    }
+    .toggle{
+        display: block;
+    }
+    .nav-group{
+        display: flex;
+        margin-top: var(--spacing-s);
+        flex-direction: column;
+        top: var(--spacing-xxl);
+        right: var(--spacing-xxl);
+        width: 100%;
+    }
+    .nav-group.close{
+        display: none;
+    }
+    .nav-group > *{
+        width: 100%;
+    }
+}
+

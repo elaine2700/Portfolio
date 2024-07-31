@@ -1,0 +1,32 @@
+:root{
+    /*Lateral Menu*/
+    --sidemenu-width: 15rem;
+}
+
+/*Layout*/
+html {
+    font-size: 16px;
+    height: auto;
+    font-family: var(--font-family-default);
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    background-size: cover;
+    min-height: 100vh;
+}
+
+body{
+    padding: var(--spacing-xxl);
+    min-height: 541px;
+}
+
+.content-wrapper{
+    margin-left: calc(var(--sidemenu-width) + var(--spacing));
+    min-height: calc(100vh - (2 * var(--spacing-xxl)));
+}
+
+@media only screen and (max-width: 1024px) {
+    .content-wrapper{
+        margin-top: var(--spacing-l);
+        margin-left: 0;
+    }
+}

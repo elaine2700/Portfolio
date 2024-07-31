@@ -1,0 +1,28 @@
+.home__page{
+    padding-left: var(--spacing-xxl);
+    padding-right: var(--spacing-xxl);
+}
+.home__section{
+    padding-top: var(--spacing-l);
+    padding-bottom: var(--spacing-l);
+}
+.home_hero{
+    text-align: center;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+.home_hero_hello{
+    font-size: 4rem;
+    font-family: var(--font-family-headers);
+    text-transform: uppercase;
+}
+.home_hero_description{
+    width: 50%;
+    margin: 0 auto;
+    font-size: 1.25rem;
+}
+.home_hero_person{
+    padding: var(--spacing);
+    background-color: var(--color-surface-primary);
+}
+

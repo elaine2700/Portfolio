@@ -1,0 +1,24 @@
+.footer{
+    font-size: 0.8rem;
+    box-shadow: var(--shadow-small);
+    padding: var(--spacing);
+    border-radius: var(--border-radius-default);
+    color: var(--color-text-tertiary);
+    background-color: var(--color-surface-primary);
+    position: fixed;
+    bottom: var(--spacing-xxl);
+    width: var(--sidemenu-width);
+}
+.social-media li{
+    display: inline-block;
+    padding-right: 0.2em;
+}
+
+@media only screen and (max-width: 1024px) {
+    .footer{
+        position: static;
+        width: 100%;
+        margin-top: var(--spacing-l);
+    }
+}
+

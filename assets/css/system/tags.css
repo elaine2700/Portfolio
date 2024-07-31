@@ -1,0 +1,15 @@
+.tag-group{
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+}
+.tag{
+    --tag-color-bg: var(--color-surface-secondary);
+    background-color: var(--tag-color-bg);
+    color: var(--color-text-secondary);
+    padding: var(--spacing-xxs) var(--spacing-s);
+}
+
+.tag.dark{
+    --tag-color-bg: var(--color-surface-primary)
+}

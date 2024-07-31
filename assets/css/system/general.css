@@ -1,0 +1,17 @@
+a{
+    color: var(--color-link-default);
+}
+
+    a:hover{
+        color: var(--color-link-hover);
+    }
+    a:active{
+        color: var(--color-link-active);
+    }
+    a:visited{
+        color: var(--color-link-visited);
+    }
+
+.hidden{
+    display: none;
+}
