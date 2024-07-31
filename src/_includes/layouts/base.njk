@@ -23,13 +23,10 @@
                 <div class="profile-picture-container">
                     <img class="head" src="/assets/images/Head.svg"/>
                     <img class="lens invisible" src="/assets/images/Lens.svg"/>
-                    <div class="flex-group justify-content-right">
-                        <div>
-                            <input id="toggle"
-                            type="checkbox"
-                            />
-                            <label class="switch" for="toggle"></label>
-                        </div>
+                    <div class="actions justify-content-right">
+                        <input id="toggle"
+                        type="checkbox"/>
+                        <label class="switch" for="toggle"></label>
                     </div>
                 </div>
                 <div>
@@ -45,23 +42,25 @@
                 </ul>
             </nav>
         </header>
-        <footer id="contact" class='footer'>   
-            <ul class="social-media">
-                <li><a href="https://www.linkedin.com/in/elaine-serrano-echeverria/">Github</a></li>
-                <li><a href="https://github.com/elaine2700">LInkedIn</a></li>
-            </ul>
-            <ul class="page-info">
-                <li>&copy;2024 Elaine Serrano</li>
-                <li>Contact me at <span class="bold"><a href="mailto:contact@elaineserrano.com">contact@elaineserrano.com</a></span></li>
-                <li>Last Updated on October, 2023</li>
-                <li>Designed & coded from Scratch</li>
-            </ul>
-        </footer>
+        
     </div>
     
     <main class="content-wrapper">
         {{content | safe}}
     </main>
+
+    <footer id="contact" class='footer'>   
+        <ul class="social-media">
+            <li><a href="https://www.linkedin.com/in/elaine-serrano-echeverria/">Github</a></li>
+            <li><a href="https://github.com/elaine2700">LinkedIn</a></li>
+        </ul>
+        <ul class="page-info">
+            <li>&copy;2024 Elaine Serrano</li>
+            <li>Contact me at <span class="bold"><a href="mailto:contact@elaineserrano.com">contact@elaineserrano.com</a></span></li>
+            <li>Last Updated on October, 2023</li>
+            <li>Designed & coded from Scratch</li>
+        </ul>
+    </footer>
 
     <script src="/assets/js/profileToggle.js"></script>
     {% for js in jsFiles %}

@@ -2,9 +2,12 @@
     font-size: 0.8rem;
     box-shadow: var(--shadow-small);
     padding: var(--spacing);
-    border-radius: var(--menu-border-radius);
+    border-radius: var(--border-radius-default);
     color: var(--color-text-tertiary);
-    background-color: var(--menu-color-bg);
+    background-color: var(--color-surface-primary);
+    position: fixed;
+    bottom: var(--spacing-xxl);
+    width: var(--sidemenu-width);
 }
 .social-media li{
     display: inline-block;

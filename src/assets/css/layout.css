@@ -16,6 +16,7 @@ html {
 
 body{
     padding: var(--spacing-xxl);
+    min-height: 541px;
 }
 
 .content-wrapper{
