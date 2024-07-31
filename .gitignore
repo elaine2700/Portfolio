@@ -1,6 +1,5 @@
 node_modules
-_site
-public
+
 assets/.DS_Store
 images/.DS_Store
 

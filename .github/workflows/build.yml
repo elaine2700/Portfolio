@@ -2,12 +2,13 @@ name: Build PR
 
 on:
   pull_request:
-    branches: ['main']
+    branches: 
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    environment: github-pages
     strategy:
       matrix:
         node-version: ['20']
