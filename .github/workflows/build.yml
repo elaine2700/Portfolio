@@ -25,7 +25,14 @@ jobs:
       - name: Install packages
         run: npm ci
 
+      - name: Check vars
+        run: |
+          echo "repository variable : $VAR"
+          echo "hello"
+        env: 
+          VAR: ${{ vars.SITE_DIR }}
+
       - name: Run npm build
         run: npm run build
         env:
-          SITE_DIR: ${{vars.SITE_DIR}}
+          SITE_DIR: ${{ vars.SITE_DIR }}
