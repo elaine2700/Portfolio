@@ -1,24 +1,17 @@
-.side-menu-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    --roughHeight: calc(100vh - (2.5 * var(--spacing-xxl)));
-    height: calc(var(--roughHeight) - 120px);
-    position: fixed;
-    gap: var(--spacing-s);
+.main-menu{
     --menu-color-bg: var(--color-surface-primary);
     --menu-border-radius: var(--border-radius-default);
-}
-.main-menu{
+    --roughHeight: calc(100vh - (2.5 * var(--spacing-xxl)));
+    background-color: var(--menu-color-bg);
+    height: calc(var(--roughHeight) - 120px);
     border-radius: var(--menu-border-radius);
     width: var(--sidemenu-width);
-    padding: var(--spacing-xs);
+    position: fixed;
     box-shadow: var(--shadow-small);
-    flex-grow: 1;
-    background-color: var(--menu-color-bg);
+    padding: var(--spacing-s);
+    justify-content: space-between;
 }
 .profile-card{
-    width: 100%;
     margin-bottom: var(--spacing-xs);
     display: flex;
     flex-direction: column;
@@ -83,7 +76,7 @@
 }
 
 /* to Hide menu on small screens */
-.toggle {
+.toggle{
     display: none;
 }
 
@@ -145,30 +138,39 @@ label.switch:active:after {
 
 
 @media only screen and (max-width: 1024px) {
-    .side-menu-container{
-        position: static;
+    .main-menu{
+        position: sticky;
+        display: flex;
         flex-direction: row;
         height: auto;
-    }
-    .main-menu{
-        display: flex;
-        padding: var(--spacing-s);
+        width: 100%;
+        top: var(--spacing-xxl);
     }
     .profile-card{
         flex-direction: row;
         margin-bottom: 0;
+        min-width: max-content;
+    }
+    .profile-card .name{
+        min-width: max-content;
+    }
+    .main-nav{
+        display: flex;
+        align-items: center;
     }
     .nav-group{
         flex-direction: row;
+        align-items: center;
+        gap: var(--spacing);
     }
     .profile-picture-container .actions{
         display: none;
     }
     .profile-picture-container{
         width: 100%;
-        max-width: 5rem;
+        min-width: 3.5rem;
         height: auto;
-        max-height: 3rem;
+        min-height: 3.5rem;
         border-bottom: 0;
         border-right: var(--border-width-default) solid var(--color-border-primary);
         display: block;
@@ -177,10 +179,39 @@ label.switch:active:after {
     .profile-picture-container img{
         position: static;
         display: block;
-        width: 100%;
+        width: auto;
+        height: 100%;
     }
     .profile-picture-container .lens{
         display: none;
     }
-    
 }
+
+@media only screen and (max-width: 768px){
+    .main-menu{
+        flex-wrap: wrap;
+    }
+    .main-nav{
+        width: 100%;
+    }
+    .toggle{
+        display: block;
+    }
+    .nav-group{
+        display: none;
+        margin-top: var(--spacing-s);
+        display: none;
+        flex-direction: column;
+        z-index: 1;
+        top: var(--spacing-xxl);
+        right: var(--spacing-xxl);
+        width: 100%;
+    }
+    .nav-group.visible{
+        display: flex;
+    }
+    .nav-group > *{
+        width: 100%;
+    }
+}
+

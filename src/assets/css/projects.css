@@ -2,7 +2,6 @@
     padding-left: var(--spacing-xxl);
     padding-right: var(--spacing-xxl);
     padding-top: var(--spacing);
-    
 }
 .projects__filterbar{
     display: flex;
@@ -16,10 +15,17 @@
 .projects__section{
     padding-top: var(--spacing-l);
     padding-bottom: var(--spacing-l);
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 
+        repeat( auto-fit, minmax(250px, 1fr));
     gap: var(--spacing-s);
 }
 .section_test{
     height: 100vh;
+}
+
+@media only screen and (max-width: 1024px) {
+    .projects__filterbar{
+        top: 7rem;
+    }
 }
