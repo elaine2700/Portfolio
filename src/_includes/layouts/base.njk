@@ -25,7 +25,7 @@
                 <img class="head" src="/assets/images/Head.svg"/>
                 <img class="lens invisible" src="/assets/images/Lens.svg"/>
                 <div class="actions justify-content-right">
-                    <input id="toggle"
+                    <input id="profileToggle"
                     type="checkbox"/>
                     <label class="switch" for="toggle"></label>
                 </div>
@@ -35,11 +35,11 @@
                 <p>XR Developer & Designer</p>
             </div>
         </div>
-        <button type="button" class="button button-l button-icon toggle">
+        <button id="menuToggle" type="button" class="button button-l button-icon toggle">
             <i class="bi bi-list"></i>
         </button>
         <nav class="main-nav">
-            <ul class="nav-group visible">
+            <ul class="nav-group">
                 <li><a class="nav-item" href="/">Home</a></li>
                 <li><a class="nav-item" href="/projects">Projects</a></li>
                 <li><a class="nav-item" href="/resume">Resume</a></li>
@@ -65,6 +65,7 @@
     </footer>
 
     <script src="/assets/js/profileToggle.js"></script>
+    <script src="/assets/js/menu.js"></script>
     {% for js in jsFiles %}
     <script src={{js}}></script>
     {% endfor %}

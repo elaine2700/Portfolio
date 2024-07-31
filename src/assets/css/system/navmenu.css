@@ -198,17 +198,16 @@ label.switch:active:after {
         display: block;
     }
     .nav-group{
-        display: none;
+        display: flex;
         margin-top: var(--spacing-s);
-        display: none;
         flex-direction: column;
         z-index: 1;
         top: var(--spacing-xxl);
         right: var(--spacing-xxl);
         width: 100%;
     }
-    .nav-group.visible{
-        display: flex;
+    .nav-group.close{
+        display: none;
     }
     .nav-group > *{
         width: 100%;

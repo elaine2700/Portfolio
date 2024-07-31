@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
-    const profileToggle = document.getElementById("toggle");
+    const profileToggle = document.getElementById("profileToggle");
     const lensImg = document.querySelector(".lens");
     profileToggle.addEventListener("change", function(){
         console.log("hello");
