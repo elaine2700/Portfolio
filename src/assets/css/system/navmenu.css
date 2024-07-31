@@ -190,6 +190,7 @@ label.switch:active:after {
 @media only screen and (max-width: 768px){
     .main-menu{
         flex-wrap: wrap;
+        z-index: 1;
     }
     .main-nav{
         width: 100%;
@@ -201,7 +202,6 @@ label.switch:active:after {
         display: flex;
         margin-top: var(--spacing-s);
         flex-direction: column;
-        z-index: 1;
         top: var(--spacing-xxl);
         right: var(--spacing-xxl);
         width: 100%;
