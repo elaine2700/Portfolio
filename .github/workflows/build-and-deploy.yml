@@ -2,12 +2,12 @@ name: Build and Deploy
 
 on:
   push:
-    branches: ['main']
+    branches: 
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: ['20']
@@ -33,5 +33,6 @@ jobs:
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN}}
           publish_dir: ./public
+          publish_branch: gh-pages
