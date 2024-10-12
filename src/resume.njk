@@ -6,46 +6,81 @@ cssFiles: ["/assets/css/resume.css"]
 <header class="text-center">
     <h1>{{title}}</h1>
 </header>
-<article class="card resume__page">
-    <section class="resume__section">
-        <h2 class="resume__section__header">Experience</h2>
-        {% for experience in work_experience %}
-        <div key={{experience.id}} class="experience">
-            <div class="experience__details">
-                <div class="flex-group gap-s">
-                    <p class="position">{{experience.position}}</p>
-                    <span>|</span>
-                    <p class="company">{{experience.company}}</p>
+<div class="card">
+    <article class="resume__page">
+        <section class="resume__section">
+            <h2 class="resume__section__header">Experience</h2>
+            {% for experience in work_experience %}
+            <div key={{experience.id}} class="experience">
+                <div class="experience__details">
+                    <div class="flex-group gap-s">
+                        <p class="position">{{experience.position}}</p>
+                        <span>|</span>
+                        <p class="company">{{experience.company}}</p>
+                    </div>
+                    <div class="year">{{experience.start_date | getYear }}</div>
                 </div>
-                <div class="year">{{experience.start_date | getYear }}</div>
+                <ul class="experience__description">
+                    {% for description in experience.description %}
+                    <li>{{description}}</li>
+                    {% endfor %}
+                </ul>
             </div>
-            <ul class="experience__description">
-                {% for description in experience.description %}
-                <li>{{description}}</li>
+            {% endfor %}
+
+            <p class="margin-top-l">
+                For more details, visit my <span><a href="https://www.linkedin.com/in/elaine-serrano-echeverria/" target="_blank">LinkedIn profile</a></span>
+            </p>    
+        </section>
+
+        <section class="resume__section">
+            <h2 class="resume__section__header">Skills</h2>
+            <div class="grid-columns-auto gap-s">
+                {% for skillgroup in skills %}
+                <div class="card bg-primary">
+                    <p class="card-title">{{skillgroup.name}}</p>
+                    <div class="card-content">
+                        <ul class="tag-group">
+                            {% for skill in skillgroup.skillList %}
+                            <li class="tag">{{skill}}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    
+                </div> 
                 {% endfor %}
-            </ul>
-        </div>
-        {% endfor %}
+            </div>
+                
+            
+        </section>
 
-        <p class="margin-top-l">
-            For more details, visit my <span><a href="https://www.linkedin.com/in/elaine-serrano-echeverria/" target="_blank">LinkedIn profile</a></span>
-        </p>    
-    </section>
+        <section class="resume__section">
+            <h2 class="resume__section__header">Education</h2>
+            <div>
+                {% for item in education %}
+                <div class="education__details">
+                    <div>
+                        <div class="education__school">{{item.school}}</div>
+                        <div class="education__career">{{item.career}}</div>
+                    </div>
+                    <div class="education__date">
+                        <p>
+                            {{item.start_date | getYear }}
+                            <span>|</span>
+                            {{item.end_date | getYear}}
+                        </p>
+                    </div>
+                </div>
+                    
+                <ul class="education__description">
+                    {% for description in item.description %}
+                    <li>{{description}}</li>
+                    {% endfor %}
+                </ul>
+                {% endfor %}
+            </div>
+        </section>
 
-    <section class="resume__section">
-        <h2 class="resume__section__header">Skills</h2>
-        <!--TODO Consider reusing json file-->
-         
-    </section>
+    </article>
+</div>
 
-    <section class="resume__section">
-        <h2 class="resume__section__header">Education</h2>
-    </section>
-
-    <section class="resume__section">
-        <h2 class="resume__section__header">More</h2>
-        <div>Programming Languages</div>
-         
-    </section>
-
-</article>

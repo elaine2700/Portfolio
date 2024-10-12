@@ -1,3 +1,9 @@
+.resume__page{
+    max-width: 75rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .resume__section{
     padding: var(--spacing);
 }
@@ -17,5 +23,18 @@
 
 .experience__description{
     margin-top: var(--spacing-s);
+    color: var(--color-text-secondary);
+}
+
+.education__details{
+    margin-top: var(--spacing);
+    display: flex;
+    gap: var(--spacing-s);
+    font-weight: bold;
+    font-size: var(--fs-4);
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.education__description{
     color: var(--color-text-secondary);
 }

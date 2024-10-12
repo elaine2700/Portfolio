@@ -1,0 +1,15 @@
+[
+    {
+        "id":1,
+        "school":"Vancouver Community College and Vancouver Film School",
+        "career":"Virtual and Augmented Reality Design and Development",
+        "degree": "Diploma",
+        "start_date":"2021-09-01 00:00:00",
+        "end_date": "2022-12-01 00:00:00",
+        "description":[
+            "Completed two major virtual reality projects with Unity Engine, including VR locomotion systems and haptic feedback integration",
+            "Gained project management skills to deliver tasks on time and collaborate effectively",
+            "Collaborated with other developers, gaining insight in many aspects of a virtual reality project."
+        ]
+    }
+]

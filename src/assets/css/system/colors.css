@@ -45,3 +45,9 @@
 .bg-primary{
     background-color: var(--color-surface-primary);
 }
+.bg-secondary{
+    background-color: var(--color-surface-secondary);
+}
+.bg-tertiary{
+    background-color: var(--color-surface-tertiary);
+}
