@@ -11,6 +11,13 @@
     padding: var(--spacing-s);
     justify-content: space-between;
 }
+.main-menu li{
+    list-style: none;
+    margin: 0;
+}
+.main-menu a{
+    display: block;
+}
 .profile-card{
     margin-bottom: var(--spacing-xs);
     display: flex;

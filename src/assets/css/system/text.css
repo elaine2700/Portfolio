@@ -1,6 +1,12 @@
 :root{
     --font-family-default: 'Lato', sans-serif;
     --font-family-headers: 'Fugaz One', cursive;
+    --fs-1: 0.5rem;
+    --fs-2: 0.75rem;
+    --fs-3: 1rem;
+    --fs-4: 1.1rem;
+    --fs-5: 1.2rem;
+    --fs-6: 1.4rem;
 }
 
 /*Headers*/
@@ -27,6 +33,7 @@ h5{
 h6{
     font-size: 1.1rem;
 }
+
 
 /*Text Alignment*/
 .text-center{

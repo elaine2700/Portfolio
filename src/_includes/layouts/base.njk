@@ -32,16 +32,19 @@
             </div>
             <div class="name">
                 <p class="profile-card-name">Elaine Serrano</p>
-                <p>XR Developer & Designer</p>
+                <p>XR Developer &amp; Designer</p>
             </div>
         </div>
         <button id="menuToggle" type="button" class="button button-l button-icon toggle">
             <i class="bi bi-list"></i>
         </button>
         {% 
-            set navItems = [
-            { 'name': 'Home', 'url': '/' },
-            { 'name': 'Projects', 'url': '/projects/' }] 
+            set navItems = 
+            [
+                { 'name': 'Home', 'url': '/' },
+                { 'name': 'Projects', 'url': '/projects/' },
+                {'name': 'Resume', 'url': '/resume/'}
+            ] 
         %}
         <nav class="main-nav">
             <ul class="nav-group">

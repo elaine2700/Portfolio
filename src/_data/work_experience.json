@@ -1,0 +1,42 @@
+[  
+    {
+        "id": 1,
+        "company": "Impact VR",
+        "location": "Vancouver, BC",
+        "position":"Virtual Reality Developer",
+        "start_date":"2022-06-01 00:00:00",
+        "end_date": "2022-12-01 00:00:00",
+        "description":[
+            "Initiated the development of an interactive 360 video viewer with video controllers, improving the user experience.",
+            "Imported characters assets and integrated their animation files to the application, adding a dynamism to the scene environment",
+            "Tested and documented errors to improve the application responsiveness."
+        ]
+    },
+    {
+        "id": 2,
+        "company": "Curiosity Killed The King",
+        "location": "Vancouver, BC",
+        "position":"XR Developer",
+        "start_date":"2023-03-01 00:00:00",
+        "end_date": "2023-12-01 00:00:00",
+        "description":[
+            "Designed and developed a system to create an interactive storytelling virtual reality application, incorporating coroutines, delegates, and events within Unity’s tools and workflows.",
+            "Collaborated with developers to integrate 3d characters animations, modified shaders and added particle effects, resulting in a boost in visual appeal and overall project quality.",
+            "Prototyped virtual reality applications compatible with Meta Quest experimental features, such as the Meta Scene Model, for integration into existing projects.",
+            "Contributed innovative ideas and insights during daily stand-up meetings to improve application mechanics and user experiences."
+        ]
+    },
+    {
+        "id": 3,
+        "company": "Khasm Labs",
+        "location": "Merida, Mexico",
+        "position":"Fullstack Developer",
+        "start_date":"2024-02-01 00:00:00",
+        "end_date": null,
+        "description":[
+            "Maintain MVC app.",
+            "Work with Blazor components",
+            "Maintain database"
+        ]
+    }
+]

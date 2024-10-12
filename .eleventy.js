@@ -7,6 +7,11 @@ module.exports = function(eleventyConfig){
     
     eleventyConfig.addPlugin(EleventyRenderPlugin);
 
+    eleventyConfig.addFilter("getYear", (dateString) => {
+        const date = new Date(dateString);
+        return date.getFullYear();
+    });
+
     return {
         dir:{
             input: 'src',

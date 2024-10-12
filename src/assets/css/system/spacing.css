@@ -35,3 +35,24 @@
 .margin-auto{
     margin: 0 auto;
 }
+.margin-top-xxs{
+    margin-top: var(--spacing-xxs);
+}
+.margin-top-xs{
+    margin-top: var(--spacing-xs);
+}
+.margin-top-s{
+    margin-top: var(--spacing-s);
+}
+.margin-top-m{
+    margin-top: var(--spacing);
+}
+.margin-top-l{
+    margin-top: var(--spacing-l);
+}
+.margin-top-xl{
+    margin-top: var(--spacing-xl);
+}
+.margin-top-xxl{
+    margin-top: var(--spacing-xxl);
+}

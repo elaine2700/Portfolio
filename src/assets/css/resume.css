@@ -1,0 +1,21 @@
+.resume__section{
+    padding: var(--spacing);
+}
+
+.experience__details{
+    margin-top: var(--spacing);
+    display: flex;
+    gap: var(--spacing-s);
+    font-weight: bold;
+    font-size: var(--fs-4);
+    align-items: center;
+    justify-content: space-between;
+}
+    .experience__details .position, .experience__details .company{
+        color: var(--color-text-primary);
+    }
+
+.experience__description{
+    margin-top: var(--spacing-s);
+    color: var(--color-text-secondary);
+}
