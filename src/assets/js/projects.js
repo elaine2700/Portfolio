@@ -1,32 +1,40 @@
-document.addEventListener("DOMContentLoaded", function(){
-    const projects = document.querySelectorAll(".d-project");
-
-    // add event to buttons
+document.addEventListener("DOMContentLoaded", function () {
+    const projects = document.querySelectorAll(".project-card");
     const filterBar = document.getElementById("filterBar");
-    const buttons = filterBar.querySelectorAll(".button");
-    for (const button of buttons) {
-        const filterLabel = button.innerHTML;
-        button.addEventListener("click", function(){
-            filterProjects(filterLabel, projects);
-        })
-    }
-})
 
-function ResetFilter(projects){
-    for (const project of projects) {
-        project.classList.remove("hidden");
-    }
-}
+    if (!filterBar) return;
 
-function filterProjects(filterKey, projects){
-    ResetFilter(projects);
-    if(filterKey === "All"){
-        return;
-    }
-    for (const project of projects) {
-        const projectCategory = project.querySelector(".d-projectType");
-        if(filterKey !== projectCategory.innerHTML){
+    const buttons = filterBar.querySelectorAll(".filter-btn");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", function () {
+            // Remove active class from all buttons
+            buttons.forEach(btn => btn.classList.remove("active"));
+            // Add active class to clicked button
+            this.classList.add("active");
+
+            const filterValue = this.textContent.trim();
+            filterProjects(filterValue, projects);
+        });
+    });
+});
+
+function filterProjects(filterKey, projects) {
+    projects.forEach(project => {
+        if (filterKey === "ALL") {
+            project.classList.remove("hidden");
+            return;
+        }
+
+        const projectTypeBadge = project.querySelector(".project-type-badge");
+        const projectType = projectTypeBadge ? projectTypeBadge.textContent.trim() : "";
+
+        // Case-insensitive comparison or exact match depending on requirements.
+        // The buttons are uppercase, assuming text in badge might vary or be same.
+        if (projectType.toUpperCase() === filterKey.toUpperCase()) {
+            project.classList.remove("hidden");
+        } else {
             project.classList.add("hidden");
         }
-    }
+    });
 }

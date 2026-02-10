@@ -1,21 +1,24 @@
-.tag-group{
+.tag-group {
     display: flex;
     gap: var(--spacing-xs);
     flex-wrap: wrap;
 }
-ul.tag-group{
+
+ul.tag-group {
     list-style: none;
 }
-.tag{
-    --tag-color-bg: var(--color-surface-secondary);
+
+.tag {
+    --tag-color-bg: var(--accent-green);
     background-color: var(--tag-color-bg);
-    color: var(--color-text-secondary);
+    color: white;
     padding: var(--spacing-xxs) var(--spacing-s);
 }
-li.tag{
+
+li.tag {
     margin: 0;
 }
 
-.tag.dark{
+.tag.dark {
     --tag-color-bg: var(--color-surface-primary)
 }
