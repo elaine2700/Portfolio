@@ -7,8 +7,7 @@
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-    <!--Icons-->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!--CSS-->
     <link rel="stylesheet" href="/assets/css/layout.css"/>
@@ -17,228 +16,186 @@
     
         <link rel="stylesheet" href=/assets/css/home.css />
     
+    <style>
+        /* Temporary inline styles for nav to ensure immediate visual feedback, will move to css later */
+        .top-nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-start;
+            gap: 2rem;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            font-family: var(--font-family-headers);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+        }
+        .top-nav a {
+            text-decoration: none;
+            color: var(--color-text-primary);
+            position: relative;
+        }
+        .top-nav a.active::after {
+            content: '>';
+            position: absolute;
+            left: -15px;
+        }
+        .top-nav a:hover {
+            text-decoration: underline;
+        }
+        
+        
+    </style>
 </head>
 <body>
-    <header class="main-menu">
-        <div class="profile-card">
-            <div class="profile-picture-container">
-                <img class="head" src="/assets/images/Head.svg"/>
-                <img class="lens invisible" src="/assets/images/Lens.svg"/>
-                <div class="actions justify-content-right">
-                    <input id="profileToggle"
-                    type="checkbox"/>
-                    <label class="switch" for="toggle"></label>
-                </div>
-            </div>
-            <div class="name">
-                <p class="profile-card-name">Elaine Serrano</p>
-                <p>XR Developer & Designer</p>
-            </div>
-        </div>
-        <button id="menuToggle" type="button" class="button button-l button-icon toggle">
-            <i class="bi bi-list"></i>
-        </button>
+    
+    <nav class="top-nav">
         
-        <nav class="main-nav">
-            <ul class="nav-group">
-                
-                <li>
-                    <a class="nav-item active" href="/">Home</a>
-                </li>
-                
-                <li>
-                    <a class="nav-item " href="/projects/">Projects</a>
-                </li>
-                
-            </ul>
-        </nav>
-    </header>
+            <a class="nav-item active" href="/">Home</a>
+        
+            <a class="nav-item " href="/projects/">Projects</a>
+        
+    </nav>
     
     <main class="content-wrapper">
-        <article class="card home__page">
+        <article class="home__page">
     <header class="home_hero">
-        <p class="home_hero_hello">Hello,</p>
-        <div class="home_hero_description">
-            <p class="home_hero_person">
-                I am Elaine.
-                <br/>
-                Developer &amp; Designer.
+        <h1 class="hero-title">HELLO, I AM ELAINE</h1>
+        <div class="hero-description">
+            <p>
+                A passionate web designer creating sophisticated, immersive digital experiences that blend aesthetics with functionality.
             </p>
-            <p>I am passionate about creating immersive and interactive experiences.</p>
         </div>
+        <div class="hero-divider"></div>
     </header>
-    <section class="home__section">
-        <h1 class="text-center">Skills</h1>
-        <div class="grid-columns-auto gap-s">
-            
-            <div class="card bg-primary">
-                <h2 class="card-title">Virtual Reality</h2>
-                <ul class="card-content tag-group">
-                    
-                    <li class="tag">Unity</li>
-                    
-                    <li class="tag">C#</li>
-                    
-                    <li class="tag">Unreal</li>
-                    
-                    <li class="tag">Blueprints</li>
-                    
-                    <li class="tag">C++</li>
-                      
-                </ul>
-            </div>
-            
-            <div class="card bg-primary">
-                <h2 class="card-title">Web</h2>
-                <ul class="card-content tag-group">
-                    
-                    <li class="tag">HTML</li>
-                    
-                    <li class="tag">CSS</li>
-                    
-                    <li class="tag">React</li>
-                    
-                    <li class="tag">Express.js</li>
-                    
-                    <li class="tag">Node.js</li>
-                      
-                </ul>
-            </div>
-            
-            <div class="card bg-primary">
-                <h2 class="card-title">Design</h2>
-                <ul class="card-content tag-group">
-                    
-                    <li class="tag">UI</li>
-                    
-                    <li class="tag">Photoshop</li>
-                    
-                    <li class="tag">Illustrator</li>
-                    
-                    <li class="tag">After Effects</li>
-                      
-                </ul>
-            </div>
-            
-        </div>
-    </section>
-    <section class="home__section">
-        <h1 class="text-center padding-top-xl">Projects</h1>
-        <div class="grid-columns-auto gap-s">
-            
-            
-            
-            <div class="card bg-primary flex-grow-1">
-                <h2 class="card-title">VR Arki Academy</h2>
-                <div class="card-content">
-                    <img class="fit" src=/assets/images/ArkiAcademy_Banner.jpg alt="Project thumbnail"/>
-                    <ul class="tag-group">
-                        
-                        <li class="tag dark">Unity</li>
-                        
-                        
-                        <li class="tag dark">C#</li>
-                        
-                    </ul>
-                    <div class="flex-group gap-xs padding-top-s justify-content-center">
-                        
-                        <a class="button secondary button-s" href="/projects/0">More</a>
-                        
-                        
-                        
-                        <a class="button secondary button-s" href="https://github.com/elaine2700/VR_ArchiAcademy">Code</a>
-                        
+
+    <div class="home-content-grid">
+        <!-- Skills Section -->
+        <section class="skills-section">
+            <h2 class="section-title">01/ SKILLS</h2>
+            <div class="skills-list">
+                <div class="skill-category">
+                    <h3>WEB DEVELOPMENT</h3>
+                    <div class="skill-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>React</span>
+                        <span>Express.js</span>
+                        <span>Node.js</span>
                     </div>
-                </div>  
-            </div>
-            
-            
-            
-            <div class="card bg-primary flex-grow-1">
-                <h2 class="card-title">Hexagonal Procedural World</h2>
-                <div class="card-content">
-                    <img class="fit" src=/assets/images/Procedural_World.png alt="Project thumbnail"/>
-                    <ul class="tag-group">
-                        
-                        <li class="tag dark">Unity</li>
-                        
-                        
-                        <li class="tag dark">C#</li>
-                        
-                    </ul>
-                    <div class="flex-group gap-xs padding-top-s justify-content-center">
-                        
-                        <a class="button secondary button-s" href="/projects/1">More</a>
-                        
-                        
-                        
-                        <a class="button secondary button-s" href="https://github.com/elaine2700/Hexagonal_World">Code</a>
-                        
+                </div>
+                
+                <div class="skill-category">
+                    <h3>DESIGN</h3>
+                    <div class="skill-tags">
+                        <span>UI/UX</span>
+                        <span>Photoshop</span>
+                        <span>Illustrator</span>
+                        <span>After Effects</span>
                     </div>
-                </div>  
-            </div>
-            
-            
-            
-            <div class="card bg-primary flex-grow-1">
-                <h2 class="card-title">Model Viewer</h2>
-                <div class="card-content">
-                    <img class="fit" src=/assets/images/Bike_Viewer.png alt="Project thumbnail"/>
-                    <ul class="tag-group">
-                        
-                        <li class="tag dark">Unity</li>
-                        
-                        
-                        <li class="tag dark">C#</li>
-                        
-                    </ul>
-                    <div class="flex-group gap-xs padding-top-s justify-content-center">
-                        
-                        
-                        
-                        <a class="button secondary button-s" href="https://github.com/elaine2700/3d-Model-Viewer">Code</a>
-                        
+                </div>
+                
+                <div class="skill-category">
+                    <h3>XR DEVELOPMENT</h3>
+                    <div class="skill-tags">
+                        <span>Unity</span>
+                        <span>C#</span>
+                        <span>Unreal</span>
+                        <span>Blueprints</span>
                     </div>
-                </div>  
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Works Section -->
+        <section class="works-section">
+            <h2 class="section-title">02/ SELECTED WORKS</h2>
+            <div class="selected-works-list">
+                
+                
+                
+                <div class="work-item">
+                    <div class="work-image-container">
+                        <img src="/assets/images/ArkiAcademy_Banner.jpg" alt="VR Arki Academy thumbnail">
+                    </div>
+                    <div class="work-info">
+                        <h3 class="work-title">VR Arki Academy</h3>
+                        
+                        <span class="work-tech">Unity</span>
+                        
+                        <p class="work-description">A building system where the user can design and create their dream house in Virtual Reality.</p>
+                    </div>
+                </div>
+                
+                
+                
+                <div class="work-item">
+                    <div class="work-image-container">
+                        <img src="/assets/images/Procedural_World.png" alt="Hexagonal Procedural World thumbnail">
+                    </div>
+                    <div class="work-info">
+                        <h3 class="work-title">Hexagonal Procedural World</h3>
+                        
+                        <span class="work-tech">Unity</span>
+                        
+                        <p class="work-description">A tool to create a Procedural world with hexagons.</p>
+                    </div>
+                </div>
+                
+                
+                
+                <div class="work-item">
+                    <div class="work-image-container">
+                        <img src="/assets/images/Bike_Viewer.png" alt="Model Viewer thumbnail">
+                    </div>
+                    <div class="work-info">
+                        <h3 class="work-title">Model Viewer</h3>
+                        
+                        <span class="work-tech">Unity</span>
+                        
+                        <p class="work-description">A tool to display the breakdown of an specific 3d model</p>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
             </div>
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        </div>
-        <div class="padding-top-xl">
-            <a class="button button-l margin-auto" href="/projects">See All Projects</a>
-        </div>
-    </section>
+            <div style="margin-top: 4rem; text-align: right;">
+                 <a class="button" href="/projects">VIEW ALL PROJECTS -></a>
+            </div>
+        </section>
+    </div>
 </article>
 
     </main>
 
     <footer id="contact" class='footer'>   
-        <ul class="social-media">
-            <li><a href="https://www.linkedin.com/in/elaine-serrano-echeverria/">LinkedIn</a></li>
-            <li><a href="https://github.com/elaine2700">Github</a></li>
-        </ul>
-        <ul class="page-info">
-            <li>&copy;2024 Elaine Serrano</li>
-            <li>Contact me at <span class="bold"><a href="mailto:contact@elaineserrano.com">contact@elaineserrano.com</a></span></li>
-            <li>Last Updated on October, 2023</li>
-            <li>Designed & coded from Scratch</li>
-        </ul>
+        <div class="footer-left">
+            <p>&copy; 2026 ELAINE SERRANO</p>
+        </div>
+        <div class="footer-right">
+            <p>CONTACT:</p>
+            <p>
+                <a href="https://www.linkedin.com/in/elaine-serrano-echeverria/">LinkedIn</a>
+                &nbsp;
+                <a href="https://github.com/elaine2700">Github</a>
+            </p>
+        </div>
     </footer>
 
-    <script src="/assets/js/profileToggle.js"></script>
-    <script src="/assets/js/menu.js"></script>
     
 </body>
 </html>

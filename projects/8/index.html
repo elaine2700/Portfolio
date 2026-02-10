@@ -7,8 +7,7 @@
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-    <!--Icons-->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!--CSS-->
     <link rel="stylesheet" href="/assets/css/layout.css"/>
@@ -17,93 +16,104 @@
     
         <link rel="stylesheet" href=/assets/css/project-detail.css />
     
+    <style>
+        /* Temporary inline styles for nav to ensure immediate visual feedback, will move to css later */
+        .top-nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-start;
+            gap: 2rem;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            font-family: var(--font-family-headers);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+        }
+        .top-nav a {
+            text-decoration: none;
+            color: var(--color-text-primary);
+            position: relative;
+        }
+        .top-nav a.active::after {
+            content: '>';
+            position: absolute;
+            left: -15px;
+        }
+        .top-nav a:hover {
+            text-decoration: underline;
+        }
+        
+        
+    </style>
 </head>
 <body>
-    <header class="main-menu">
-        <div class="profile-card">
-            <div class="profile-picture-container">
-                <img class="head" src="/assets/images/Head.svg"/>
-                <img class="lens invisible" src="/assets/images/Lens.svg"/>
-                <div class="actions justify-content-right">
-                    <input id="profileToggle"
-                    type="checkbox"/>
-                    <label class="switch" for="toggle"></label>
-                </div>
-            </div>
-            <div class="name">
-                <p class="profile-card-name">Elaine Serrano</p>
-                <p>XR Developer & Designer</p>
-            </div>
-        </div>
-        <button id="menuToggle" type="button" class="button button-l button-icon toggle">
-            <i class="bi bi-list"></i>
-        </button>
+    
+    <nav class="top-nav">
         
-        <nav class="main-nav">
-            <ul class="nav-group">
-                
-                <li>
-                    <a class="nav-item " href="/">Home</a>
-                </li>
-                
-                <li>
-                    <a class="nav-item " href="/projects/">Projects</a>
-                </li>
-                
-            </ul>
-        </nav>
-    </header>
+            <a class="nav-item " href="/">Home</a>
+        
+            <a class="nav-item " href="/projects/">Projects</a>
+        
+    </nav>
     
     <main class="content-wrapper">
-        <header class="text-center">
-    <h1>Projects</h1>
-</header>
-<article class="card">
-    <header class="projectdetail__header">
-        <h2 class="projectdetail__title">To do list App</h2>
-        <p class="projectdetail__description">A simple tool to make a list of tasks.</p>
-        <ul class="tag-group">
-            
-            <li class="tag dark">React</li>
-            
-            
-            <li class="tag dark">HTML</li>
-            
-            <li class="tag dark">CSS</li>
-            
-            <li class="tag dark">JS</li>
-            
-        </ul>
-    </header>
-    <div class="projectdetail__body">
-        <section class="projectdetail__section">
-            <div>
-                <a class="button margin-auto" href="https://github.com/elaine2700/todo-list" target="_blank">View Code</a>
-            </div>
-        </section class="projectdetail__section">
+        <article class="project-detail__page">
+    <header class="project-header">
+        <h1 class="project-title-large">To do list App</h1>
+        <p class="project-subtitle">A simple tool to make a list of tasks.</p>
         
-        <section class="projectdetail__section">
+        <div class="project-meta">
+            <div class="meta-group tag-group">
+                
+                <span class="tag">React</span>
+                
+                
+                <span class="tag">HTML</span>
+                
+                <span class="tag">CSS</span>
+                
+                <span class="tag">JS</span>
+                
+            </div>
             
-        </section>
+            <div class="project-buttons">
+                 
+                <a class="button action-btn" href="https://github.com/elaine2700/todo-list" target="_blank">CODE VIEW CODE</a>
+                
+            </div>
+        </div>
+    </header>
+
+    
+
+    <div class="project-content-grid">
+        <div class="content-left">
+            <section class="detail-section">
+                <div class="detail-body">
+                    
+                </div>
+            </section>
+        </div>
     </div>
 </article>
     </main>
 
     <footer id="contact" class='footer'>   
-        <ul class="social-media">
-            <li><a href="https://www.linkedin.com/in/elaine-serrano-echeverria/">LinkedIn</a></li>
-            <li><a href="https://github.com/elaine2700">Github</a></li>
-        </ul>
-        <ul class="page-info">
-            <li>&copy;2024 Elaine Serrano</li>
-            <li>Contact me at <span class="bold"><a href="mailto:contact@elaineserrano.com">contact@elaineserrano.com</a></span></li>
-            <li>Last Updated on October, 2023</li>
-            <li>Designed & coded from Scratch</li>
-        </ul>
+        <div class="footer-left">
+            <p>&copy; 2026 ELAINE SERRANO</p>
+        </div>
+        <div class="footer-right">
+            <p>CONTACT:</p>
+            <p>
+                <a href="https://www.linkedin.com/in/elaine-serrano-echeverria/">LinkedIn</a>
+                &nbsp;
+                <a href="https://github.com/elaine2700">Github</a>
+            </p>
+        </div>
     </footer>
 
-    <script src="/assets/js/profileToggle.js"></script>
-    <script src="/assets/js/menu.js"></script>
     
 </body>
 </html>

@@ -7,8 +7,7 @@
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-    <!--Icons-->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!--CSS-->
     <link rel="stylesheet" href="/assets/css/layout.css"/>
@@ -17,312 +16,372 @@
     
         <link rel="stylesheet" href=/assets/css/projects.css />
     
+    <style>
+        /* Temporary inline styles for nav to ensure immediate visual feedback, will move to css later */
+        .top-nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-start;
+            gap: 2rem;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            font-family: var(--font-family-headers);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+        }
+        .top-nav a {
+            text-decoration: none;
+            color: var(--color-text-primary);
+            position: relative;
+        }
+        .top-nav a.active::after {
+            content: '>';
+            position: absolute;
+            left: -15px;
+        }
+        .top-nav a:hover {
+            text-decoration: underline;
+        }
+        
+        
+    </style>
 </head>
 <body>
-    <header class="main-menu">
-        <div class="profile-card">
-            <div class="profile-picture-container">
-                <img class="head" src="/assets/images/Head.svg"/>
-                <img class="lens invisible" src="/assets/images/Lens.svg"/>
-                <div class="actions justify-content-right">
-                    <input id="profileToggle"
-                    type="checkbox"/>
-                    <label class="switch" for="toggle"></label>
-                </div>
-            </div>
-            <div class="name">
-                <p class="profile-card-name">Elaine Serrano</p>
-                <p>XR Developer & Designer</p>
-            </div>
-        </div>
-        <button id="menuToggle" type="button" class="button button-l button-icon toggle">
-            <i class="bi bi-list"></i>
-        </button>
+    
+    <nav class="top-nav">
         
-        <nav class="main-nav">
-            <ul class="nav-group">
-                
-                <li>
-                    <a class="nav-item " href="/">Home</a>
-                </li>
-                
-                <li>
-                    <a class="nav-item active" href="/projects/">Projects</a>
-                </li>
-                
-            </ul>
-        </nav>
-    </header>
+            <a class="nav-item " href="/">Home</a>
+        
+            <a class="nav-item active" href="/projects/">Projects</a>
+        
+    </nav>
     
     <main class="content-wrapper">
-        <header class="text-center">
-    <h1>Projects</h1>
-</header>
-<article class="card projects__page">
+        <article class="projects__page">
+
     <div id="filterBar" class="projects__filterbar">
-        <p>Filter</p>
-        <button class="button secondary button-s">VR-AR</button>
-        <button class="button secondary button-s">Web</button>
-        <button class="button secondary button-s">Tool</button>
-        <button class="button secondary button-s">All</button>
+        <span class="filter-label">FILTER:</span>
+        <div class="filter-group">
+            <button class="button filter-btn active">ALL</button>
+            <button class="button filter-btn">VR-AR</button>
+            <button class="button filter-btn">WEB</button>
+            <button class="button filter-btn">TOOL</button>
+        </div>
     </div>
+    
+    <div class="projects-divider"></div>
+
     <section class="projects__section">
-        
-        <div class="d-project card bg-primary">
-            <h2 class="card-title">VR Arki Academy</h2>
-            <div class="card-content">
-                <img class="fit" src=/assets/images/ArkiAcademy_Banner.jpg alt="Project thumbnail"/>
-                <ul class="tag-group">
-                    <li class="d-projectType tag">VR-AR</li>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/assets/images/ArkiAcademy_Banner.jpg" alt="VR Arki Academy thumbnail" class="thumbnail"/>
                     
-                    <li class="tag">Unity</li>
+                    <span class="project-type-badge">VR-AR</span>
+                    
+                </div>
+                
+                <div class="project-card-header">
+                    <h2 class="project-title">VR Arki Academy</h2>
+                    <!-- Optional: Right aligned element or duplicate badge if needed -->
+                </div>
+
+                <div class="tag-group">
+                   
+                    <span class="tag">Unity</span>
+                    
+                </div>
+                
+                <div class="project-description">
+                    <p>A building system where the user can design and create their dream house in Virtual Reality.</p> <!-- Assuming description exists in frontmatter/data -->
+                </div>
+
+                <div class="project-actions">
+                    
+                    <a class="button secondary" href="/projects/0">MORE</a>
                     
                     
-                    <li class="tag">C#</li>
-                    
-                </ul>
-                <div class="flex-group gap-xs padding-top-s justify-content-center">
-                    
-                    <a class="button secondary button-s" href="/projects/0">More</a>
-                    
-                    
-                    
-                    <a class="button secondary button-s" href="https://github.com/elaine2700/VR_ArchiAcademy">Code</a>
+                    <a class="button secondary" href="https://github.com/elaine2700/VR_ArchiAcademy">CODE</a>
                     
                 </div>
             </div>
-        </div>
-        
-        <div class="d-project card bg-primary">
-            <h2 class="card-title">Hexagonal Procedural World</h2>
-            <div class="card-content">
-                <img class="fit" src=/assets/images/Procedural_World.png alt="Project thumbnail"/>
-                <ul class="tag-group">
-                    <li class="d-projectType tag">Tool</li>
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/assets/images/Procedural_World.png" alt="Hexagonal Procedural World thumbnail" class="thumbnail"/>
                     
-                    <li class="tag">Unity</li>
+                    <span class="project-type-badge">Tool</span>
+                    
+                </div>
+                
+                <div class="project-card-header">
+                    <h2 class="project-title">Hexagonal Procedural World</h2>
+                    <!-- Optional: Right aligned element or duplicate badge if needed -->
+                </div>
+
+                <div class="tag-group">
+                   
+                    <span class="tag">Unity</span>
+                    
+                </div>
+                
+                <div class="project-description">
+                    <p>A tool to create a Procedural world with hexagons.</p> <!-- Assuming description exists in frontmatter/data -->
+                </div>
+
+                <div class="project-actions">
+                    
+                    <a class="button secondary" href="/projects/1">MORE</a>
                     
                     
-                    <li class="tag">C#</li>
-                    
-                </ul>
-                <div class="flex-group gap-xs padding-top-s justify-content-center">
-                    
-                    <a class="button secondary button-s" href="/projects/1">More</a>
-                    
-                    
-                    
-                    <a class="button secondary button-s" href="https://github.com/elaine2700/Hexagonal_World">Code</a>
+                    <a class="button secondary" href="https://github.com/elaine2700/Hexagonal_World">CODE</a>
                     
                 </div>
             </div>
-        </div>
-        
-        <div class="d-project card bg-primary">
-            <h2 class="card-title">Model Viewer</h2>
-            <div class="card-content">
-                <img class="fit" src=/assets/images/Bike_Viewer.png alt="Project thumbnail"/>
-                <ul class="tag-group">
-                    <li class="d-projectType tag">Web</li>
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/assets/images/Bike_Viewer.png" alt="Model Viewer thumbnail" class="thumbnail"/>
                     
-                    <li class="tag">Unity</li>
+                    <span class="project-type-badge">Web</span>
+                    
+                </div>
+                
+                <div class="project-card-header">
+                    <h2 class="project-title">Model Viewer</h2>
+                    <!-- Optional: Right aligned element or duplicate badge if needed -->
+                </div>
+
+                <div class="tag-group">
+                   
+                    <span class="tag">Unity</span>
+                    
+                </div>
+                
+                <div class="project-description">
+                    <p>A tool to display the breakdown of an specific 3d model</p> <!-- Assuming description exists in frontmatter/data -->
+                </div>
+
+                <div class="project-actions">
                     
                     
-                    <li class="tag">C#</li>
-                    
-                </ul>
-                <div class="flex-group gap-xs padding-top-s justify-content-center">
-                    
-                    
-                    
-                    <a class="button secondary button-s" href="https://github.com/elaine2700/3d-Model-Viewer">Code</a>
+                    <a class="button secondary" href="https://github.com/elaine2700/3d-Model-Viewer">CODE</a>
                     
                 </div>
             </div>
-        </div>
-        
-        <div class="d-project card bg-primary">
-            <h2 class="card-title">Focus Food</h2>
-            <div class="card-content">
-                <img class="fit" src=/assets/images/RecipeFinder.png alt="Project thumbnail"/>
-                <ul class="tag-group">
-                    <li class="d-projectType tag">Web</li>
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/assets/images/RecipeFinder.png" alt="Focus Food thumbnail" class="thumbnail"/>
                     
-                    <li class="tag">React</li>
+                    <span class="project-type-badge">Web</span>
                     
-                    <li class="tag">Flask</li>
+                </div>
+                
+                <div class="project-card-header">
+                    <h2 class="project-title">Focus Food</h2>
+                    <!-- Optional: Right aligned element or duplicate badge if needed -->
+                </div>
+
+                <div class="tag-group">
+                   
+                    <span class="tag">React</span>
+                    
+                    <span class="tag">Flask</span>
+                    
+                </div>
+                
+                <div class="project-description">
+                    <p>Project developed for the -Women Who Code Hackathon for Social Good 2023- </p> <!-- Assuming description exists in frontmatter/data -->
+                </div>
+
+                <div class="project-actions">
+                    
+                    <a class="button secondary" href="/projects/3">MORE</a>
                     
                     
-                    <li class="tag">HTML</li>
-                    
-                    <li class="tag">CSS</li>
-                    
-                </ul>
-                <div class="flex-group gap-xs padding-top-s justify-content-center">
-                    
-                    <a class="button secondary button-s" href="/projects/3">More</a>
-                    
-                    
-                    
-                    <a class="button secondary button-s" href="https://github.com/Idealyinfamous/super-brain-project">Code</a>
+                    <a class="button secondary" href="https://github.com/Idealyinfamous/super-brain-project">CODE</a>
                     
                 </div>
             </div>
-        </div>
-        
-        <div class="d-project card bg-primary">
-            <h2 class="card-title">Visions of Yesterday</h2>
-            <div class="card-content">
-                <img class="fit" src=/assets/images/VOY_banner.jpg alt="Project thumbnail"/>
-                <ul class="tag-group">
-                    <li class="d-projectType tag">VR-AR</li>
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/assets/images/VOY_banner.jpg" alt="Visions of Yesterday thumbnail" class="thumbnail"/>
                     
-                    <li class="tag">Unity</li>
+                    <span class="project-type-badge">VR-AR</span>
+                    
+                </div>
+                
+                <div class="project-card-header">
+                    <h2 class="project-title">Visions of Yesterday</h2>
+                    <!-- Optional: Right aligned element or duplicate badge if needed -->
+                </div>
+
+                <div class="tag-group">
+                   
+                    <span class="tag">Unity</span>
+                    
+                </div>
+                
+                <div class="project-description">
+                    <p>A Virtual Reality narrative where the user will experience dementia symptoms.</p> <!-- Assuming description exists in frontmatter/data -->
+                </div>
+
+                <div class="project-actions">
+                    
+                    <a class="button secondary" href="/projects/4">MORE</a>
                     
                     
-                    <li class="tag">C#</li>
-                    
-                </ul>
-                <div class="flex-group gap-xs padding-top-s justify-content-center">
-                    
-                    <a class="button secondary button-s" href="/projects/4">More</a>
-                    
-                    
-                    <a class="button secondary button-s" href="https://portfolio.elaineserrano.com/to-do-list">Live</a>
-                    
-                    
-                    <a class="button secondary button-s" href="https://github.com/JorgeLeonS/DementiaProject">Code</a>
+                    <a class="button secondary" href="https://github.com/JorgeLeonS/DementiaProject">CODE</a>
                     
                 </div>
             </div>
-        </div>
-        
-        <div class="d-project card bg-primary">
-            <h2 class="card-title">Movie Library</h2>
-            <div class="card-content">
-                <img class="fit" src=/assets/images/movielibrary_thumbnail.png alt="Project thumbnail"/>
-                <ul class="tag-group">
-                    <li class="d-projectType tag">Web</li>
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/assets/images/movielibrary_thumbnail.png" alt="Movie Library thumbnail" class="thumbnail"/>
                     
-                    <li class="tag">React</li>
+                    <span class="project-type-badge">Web</span>
+                    
+                </div>
+                
+                <div class="project-card-header">
+                    <h2 class="project-title">Movie Library</h2>
+                    <!-- Optional: Right aligned element or duplicate badge if needed -->
+                </div>
+
+                <div class="tag-group">
+                   
+                    <span class="tag">React</span>
+                    
+                </div>
+                
+                <div class="project-description">
+                    <p>Type the name of a movie and get the movie information</p> <!-- Assuming description exists in frontmatter/data -->
+                </div>
+
+                <div class="project-actions">
                     
                     
-                    <li class="tag">HTML</li>
-                    
-                    <li class="tag">CSS</li>
-                    
-                    <li class="tag">JS</li>
-                    
-                </ul>
-                <div class="flex-group gap-xs padding-top-s justify-content-center">
-                    
-                    
-                    <a class="button secondary button-s" href="https://portfolio.elaineserrano.com/movielibrary">Live</a>
-                    
-                    
-                    <a class="button secondary button-s" href="https://github.com/elaine2700/movielibrary">Code</a>
+                    <a class="button secondary" href="https://github.com/elaine2700/movielibrary">CODE</a>
                     
                 </div>
             </div>
-        </div>
-        
-        <div class="d-project card bg-primary">
-            <h2 class="card-title">Rube Goldberg Machine</h2>
-            <div class="card-content">
-                <img class="fit" src=/assets/images/RubeGoldbergMachine_Banner.jpg alt="Project thumbnail"/>
-                <ul class="tag-group">
-                    <li class="d-projectType tag">VR-AR</li>
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/assets/images/RubeGoldbergMachine_Banner.jpg" alt="Rube Goldberg Machine thumbnail" class="thumbnail"/>
                     
-                    <li class="tag">Unreal</li>
+                    <span class="project-type-badge">VR-AR</span>
                     
-                    <li class="tag">Blueprints</li>
+                </div>
+                
+                <div class="project-card-header">
+                    <h2 class="project-title">Rube Goldberg Machine</h2>
+                    <!-- Optional: Right aligned element or duplicate badge if needed -->
+                </div>
+
+                <div class="tag-group">
+                   
+                    <span class="tag">Unreal</span>
                     
+                    <span class="tag">Blueprints</span>
                     
-                </ul>
-                <div class="flex-group gap-xs padding-top-s justify-content-center">
+                </div>
+                
+                <div class="project-description">
+                    <p>A machine that completes a single task in a complicated way. The task for my machine is to open a box full of cookies.</p> <!-- Assuming description exists in frontmatter/data -->
+                </div>
+
+                <div class="project-actions">
                     
-                    <a class="button secondary button-s" href="/projects/6">More</a>
-                    
+                    <a class="button secondary" href="/projects/6">MORE</a>
                     
                     
                 </div>
             </div>
-        </div>
-        
-        <div class="d-project card bg-primary">
-            <h2 class="card-title">Artist Mode On Website</h2>
-            <div class="card-content">
-                <img class="fit" src=/assets/images/artistmodeon_thumbnail.png alt="Project thumbnail"/>
-                <ul class="tag-group">
-                    <li class="d-projectType tag">Web</li>
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/assets/images/artistmodeon_thumbnail.png" alt="Artist Mode On Website thumbnail" class="thumbnail"/>
                     
+                    <span class="project-type-badge">Web</span>
                     
-                    <li class="tag">HTML</li>
+                </div>
+                
+                <div class="project-card-header">
+                    <h2 class="project-title">Artist Mode On Website</h2>
+                    <!-- Optional: Right aligned element or duplicate badge if needed -->
+                </div>
+
+                <div class="tag-group">
+                   
+                </div>
+                
+                <div class="project-description">
+                    <p>Website Design</p> <!-- Assuming description exists in frontmatter/data -->
+                </div>
+
+                <div class="project-actions">
                     
-                    <li class="tag">CSS</li>
-                    
-                </ul>
-                <div class="flex-group gap-xs padding-top-s justify-content-center">
-                    
-                    
-                    <a class="button secondary button-s" href="https://www.artistmodeon.com">Live</a>
-                    
-                    
-                    <a class="button secondary button-s" href="https://github.com/elaine2700/ArtistModeOn_website">Code</a>
                     
                 </div>
             </div>
-        </div>
-        
-        <div class="d-project card bg-primary">
-            <h2 class="card-title">To do list App</h2>
-            <div class="card-content">
-                <img class="fit" src=/assets/images/ToDo-list_thumbnail.png alt="Project thumbnail"/>
-                <ul class="tag-group">
-                    <li class="d-projectType tag">Web</li>
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/assets/images/ToDo-list_thumbnail.png" alt="To do list App thumbnail" class="thumbnail"/>
                     
-                    <li class="tag">React</li>
+                    <span class="project-type-badge">Web</span>
+                    
+                </div>
+                
+                <div class="project-card-header">
+                    <h2 class="project-title">To do list App</h2>
+                    <!-- Optional: Right aligned element or duplicate badge if needed -->
+                </div>
+
+                <div class="tag-group">
+                   
+                    <span class="tag">React</span>
+                    
+                </div>
+                
+                <div class="project-description">
+                    <p>A simple tool to make a list of tasks.</p> <!-- Assuming description exists in frontmatter/data -->
+                </div>
+
+                <div class="project-actions">
                     
                     
-                    <li class="tag">HTML</li>
-                    
-                    <li class="tag">CSS</li>
-                    
-                    <li class="tag">JS</li>
-                    
-                </ul>
-                <div class="flex-group gap-xs padding-top-s justify-content-center">
-                    
-                    
-                    <a class="button secondary button-s" href="https://portfolio.elaineserrano.com/to-do-list">Live</a>
-                    
-                    
-                    <a class="button secondary button-s" href="https://github.com/elaine2700/todo-list">Code</a>
+                    <a class="button secondary" href="https://github.com/elaine2700/todo-list">CODE</a>
                     
                 </div>
             </div>
+            
         </div>
-        
-        
     </section>
 </article>
     </main>
 
     <footer id="contact" class='footer'>   
-        <ul class="social-media">
-            <li><a href="https://www.linkedin.com/in/elaine-serrano-echeverria/">LinkedIn</a></li>
-            <li><a href="https://github.com/elaine2700">Github</a></li>
-        </ul>
-        <ul class="page-info">
-            <li>&copy;2024 Elaine Serrano</li>
-            <li>Contact me at <span class="bold"><a href="mailto:contact@elaineserrano.com">contact@elaineserrano.com</a></span></li>
-            <li>Last Updated on October, 2023</li>
-            <li>Designed & coded from Scratch</li>
-        </ul>
+        <div class="footer-left">
+            <p>&copy; 2026 ELAINE SERRANO</p>
+        </div>
+        <div class="footer-right">
+            <p>CONTACT:</p>
+            <p>
+                <a href="https://www.linkedin.com/in/elaine-serrano-echeverria/">LinkedIn</a>
+                &nbsp;
+                <a href="https://github.com/elaine2700">Github</a>
+            </p>
+        </div>
     </footer>
 
-    <script src="/assets/js/profileToggle.js"></script>
-    <script src="/assets/js/menu.js"></script>
     
     <script src=/assets/js/projects.js></script>
     
