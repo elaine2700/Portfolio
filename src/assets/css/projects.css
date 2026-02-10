@@ -85,3 +85,7 @@
         flex-wrap: wrap;
     }
 }
+
+.hidden {
+    display: none !important;
+}
