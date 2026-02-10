@@ -1,47 +1,61 @@
-:root{
-    --blue:#90ACC6;
-    --purple: #64526b;
-    --purple-dark: #3b3140;
-    --purple-light: #caabd8;
-    --brightPink: #F573A1;
-    --pastelPink: #EFA2C2;
-    --salmon: #FFBACD;
-    --gray-dark: #1e1c21;
+:root {
+    /* Palette from image */
+    --beige-bg: #EAEBD7;
+    /* Approximate beige from screenshot */
+    --text-dark: #1A1A1A;
+    /* Near black */
+    --text-gray: #4A4A4A;
+    --accent-gray: #D0D0D0;
+    /* For dividers/lines */
+
     --base-white: #ffffff;
     --base-black: #000000;
+    --bg-color: #d8d7c1;
+    --text-color: #1a1a1a;
+    --accent-green: #8ca68e;
+    --accent-blue: #8ea8b5;
 
     /*Text*/
-    --color-text-primary: var(--base-white);
-    --color-text-secondary: var(--purple-light);
-    --color-text-tertiary: var(--purple);
+    --color-text-primary: var(--text-dark);
+    --color-text-secondary: var(--text-dark);
+    --color-text-tertiary: var(--text-gray);
     --color-text-dark: var(--base-black);
     --color-text-light: var(--base-white);
 
     /*Links*/
-    --color-link-default: var(--purple-light);
-    --color-link-hover: var(--base-white);
-    --color-link-active: var(--base-white);
-    --color-link-visited: var(--purple-light);
+    --color-link-default: var(--text-dark);
+    --color-link-hover: var(--text-gray);
+    --color-link-active: var(--base-black);
+    --color-link-visited: var(--text-dark);
 
     /*Border*/
-    --color-border-primary: var(--color-surface-secondary);
-    --color-border-secondary: var(--color-surface-primary);
+    --color-border-primary: var(--text-dark);
+    --color-border-secondary: var(--accent-gray);
 
     /*Colors*/
-    --color-surface-primary: var(--purple-dark);
-    --color-surface-secondary: var(--purple);
-    --color-surface-tertiary: var(--purple-light);
-    --color-surface-dark: var(--gray-dark);
-    --color-surface-primary-translucent: #3b31409f;
-    
+    --color-surface-primary: var(--beige-bg);
+    --color-surface-secondary: var(--beige-bg);
+    --color-surface-tertiary: #D8D9C5;
+    /* Slightly darker beige for accents if needed */
+    --color-surface-dark: var(--text-dark);
+    --color-surface-primary-translucent: #EAEBD79f;
+
     /*BG*/
-    --color-bg: var(--color-surface-secondary);
+    --color-bg: var(--beige-bg);
 
     /*Shadows*/
-    --color-shadow: var(--purple-dark);
-    --shadow-small: 5px 5px 10px var(--color-shadow);
+    --color-shadow: rgba(0, 0, 0, 0.1);
+    --shadow-small: 2px 2px 5px var(--color-shadow);
 }
 
-.bg-primary{
+.bg-primary {
     background-color: var(--color-surface-primary);
+}
+
+.bg-secondary {
+    background-color: var(--color-surface-secondary);
+}
+
+.bg-tertiary {
+    background-color: var(--color-surface-tertiary);
 }

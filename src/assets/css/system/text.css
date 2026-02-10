@@ -1,34 +1,56 @@
-:root{
-    --font-family-default: 'Lato', sans-serif;
-    --font-family-headers: 'Fugaz One', cursive;
+:root {
+    --font-family-default: "JetBrains Mono", monospace;
+    /* Monospace/Typewriter look */
+    --font-family-headers: "JetBrains Mono", monospace;
+    /* Blocky look, or generic fallback */
+    --fs-1: 0.75rem;
+    --fs-2: 0.875rem;
+    --fs-3: 1rem;
+    --fs-4: 1.25rem;
+    --fs-5: 1.5rem;
+    --fs-6: 2rem;
 }
 
 /*Headers*/
-h1,h2,h3,h4,h5,h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-family-headers);
-    color: var(--color-text-secondary);
+    font-weight: 800;
+    color: var(--color-text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
-h1{
+h1 {
     font-size: 2rem;
 }
-h2{
+
+h2 {
     font-size: 1.8rem;
 }
-h3{
+
+h3 {
     font-size: 1.6rem;
 }
-h4{
+
+h4 {
     font-size: 1.4rem;
 }
-h5{
+
+h5 {
     font-size: 1.2rem;
 }
-h6{
+
+h6 {
     font-size: 1.1rem;
 }
 
+
 /*Text Alignment*/
-.text-center{
+.text-center {
     text-align: center;
 }

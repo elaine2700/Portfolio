@@ -8,7 +8,7 @@
         "programmingLanguages": ["C#"],
         "description": "A building system where the user can design and create their dream house in Virtual Reality.",
         "linkCode": "https://github.com/elaine2700/VR_ArchiAcademy",
-        "live": null,
+        "live": "",
         "trailer": "S3NLhjTkV9Q?si=oMxRshWUIqkft5ze",
         "content": "VRArkiAcademy.md"
     },
@@ -21,7 +21,7 @@
         "programmingLanguages": ["C#"],
         "description": "A tool to create a Procedural world with hexagons.",
         "linkCode": "https://github.com/elaine2700/Hexagonal_World",
-        "live": null,
+        "live": "",
         "trailer": "US76BYYP_ZM?si=k3Dr0CE4kS5Yusp1",
         "content": "HexWorld.md"
     },
@@ -60,7 +60,7 @@
         "programmingLanguages": ["C#"],
         "description": "A Virtual Reality narrative where the user will experience dementia symptoms.",
         "linkCode": "https://github.com/JorgeLeonS/DementiaProject",
-        "live": "https://portfolio.elaineserrano.com/to-do-list",
+        "live": "",
         "trailer": "cTC7mPqpGU8?si=UQ7ZhPdvj9Dh3xN5",
         "infoAvailable": "fullDescription",
         "content": "VisionsOfYesterday.md"
@@ -74,7 +74,7 @@
         "programmingLanguages": ["HTML", "CSS", "JS"],
         "description": "Type the name of a movie and get the movie information",
         "linkCode": "https://github.com/elaine2700/movielibrary",
-        "live": "https://portfolio.elaineserrano.com/movielibrary",
+        "live": "",
         "trailer": "",
         "infoAvailable": "cardOnly",
         "content": ""
@@ -88,7 +88,7 @@
         "programmingLanguages": [],
         "description": "A machine that completes a single task in a complicated way. The task for my machine is to open a box full of cookies.",
         "linkCode": "",
-        "live": null,
+        "live": "",
         "trailer": "B8rQNaGdGaQ?si=5wXCQaH1pGeuIJ6I",
         "content": "RubeGoldbergMachine.md"
     },
@@ -100,7 +100,7 @@
         "tools": [],
         "programmingLanguages": ["HTML", "CSS"],
         "description": "Website Design",
-        "linkCode": "https://github.com/elaine2700/ArtistModeOn_website",
+        "linkCode": "",
         "live": "https://www.artistmodeon.com",
         "trailer": "",
         "content": ""
@@ -114,7 +114,7 @@
         "programmingLanguages": ["HTML", "CSS", "JS"],
         "description": "A simple tool to make a list of tasks.",
         "linkCode": "https://github.com/elaine2700/todo-list",
-        "live": "https://portfolio.elaineserrano.com/to-do-list",
+        "live": "",
         "trailer": "",
         "content": ""
     }

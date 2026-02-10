@@ -8,39 +8,47 @@ pagination:
     alias: project
 permalink: "projects/{{project.id}}/index.html"
 ---
-<header class="text-center">
-    <h1>Projects</h1>
-</header>
-<article class="card">
-    <header class="projectdetail__header">
-        <h2 class="projectdetail__title">{{project.title}}</h2>
-        <p class="projectdetail__description">{{project.description}}</p>
-        <ul class="tag-group">
-            {% for tool in project.tools %}
-            <li class="tag dark">{{tool}}</li>
-            {% endfor %}
-            {% for language in project.programmingLanguages %}
-            <li class="tag dark">{{language}}</li>
-            {% endfor %}
-        </ul>
+<article class="project-detail__page">
+    <header class="project-header">
+        <h1 class="project-title-large">{{project.title}}</h1>
+        <p class="project-subtitle">{{project.description}}</p>
+        
+        <div class="project-meta">
+            <div class="meta-group tag-group">
+                {% for tool in project.tools %}
+                <span class="tag">{{tool}}</span>
+                {% endfor %}
+                {% for language in project.programmingLanguages %}
+                <span class="tag">{{language}}</span>
+                {% endfor %}
+            </div>
+            
+            <div class="project-buttons">
+                 {% if project.linkCode %}
+                <a class="button action-btn" href="{{project.linkCode}}" target="_blank">CODE VIEW CODE</a>
+                {% endif %}
+            </div>
+        </div>
     </header>
-    <div class="projectdetail__body">
-        <section class="projectdetail__section">
-            <div>
-                <a class="button margin-auto" href="{{project.linkCode}}" target="_blank">View Code</a>
-            </div>
-        </section class="projectdetail__section">
-        {% if project.trailer %}
-        <section class="projectdetail__video">
-            <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/{{project.trailer}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </section>
-        {% endif %}
-        <section class="projectdetail__section">
-            {% if project.content %}
-            <div class="projectdetail_projectcontent">
-                {% renderFile "./src/_includes/projects/" + project.content %}
-            </div>
-            {% endif %}
-        </section>
+
+    {% if project.trailer %}
+    <section class="project-media">
+        <div class="video-container">
+            <iframe class="video" width="100%" height="100%" src="https://www.youtube.com/embed/{{project.trailer}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <p class="media-caption">Project Demo Video</p>
+    </section>
+    {% endif %}
+
+    <div class="project-content-grid">
+        <div class="content-left">
+            <section class="detail-section">
+                <div class="detail-body">
+                    {% if project.content %}
+                        {% renderFile "./src/_includes/projects/" + project.content %}
+                    {% endif %}
+                </div>
+            </section>
+        </div>
     </div>
 </article>
