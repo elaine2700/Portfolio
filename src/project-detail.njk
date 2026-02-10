@@ -8,39 +8,68 @@ pagination:
     alias: project
 permalink: "projects/{{project.id}}/index.html"
 ---
-<header class="text-center">
-    <h1>Projects</h1>
-</header>
-<article class="card">
-    <header class="projectdetail__header">
-        <h2 class="projectdetail__title">{{project.title}}</h2>
-        <p class="projectdetail__description">{{project.description}}</p>
-        <ul class="tag-group">
-            {% for tool in project.tools %}
-            <li class="tag dark">{{tool}}</li>
-            {% endfor %}
-            {% for language in project.programmingLanguages %}
-            <li class="tag dark">{{language}}</li>
-            {% endfor %}
-        </ul>
+<article class="project-detail__page">
+    <header class="project-header">
+        <h1 class="project-title-large">{{project.title}}</h1>
+        <p class="project-subtitle">{{project.description}}</p>
+        
+        <div class="project-meta">
+            <div class="meta-group tag-group">
+                {% for tool in project.tools %}
+                <span class="tag">{{tool}}</span>
+                {% endfor %}
+                {% for language in project.programmingLanguages %}
+                <span class="tag">{{language}}</span>
+                {% endfor %}
+            </div>
+            
+            <div class="project-buttons">
+                 {% if project.linkCode %}
+                <a class="button action-btn" href="{{project.linkCode}}" target="_blank">CODE VIEW CODE</a>
+                {% endif %}
+            </div>
+        </div>
     </header>
-    <div class="projectdetail__body">
-        <section class="projectdetail__section">
-            <div>
-                <a class="button margin-auto" href="{{project.linkCode}}" target="_blank">View Code</a>
-            </div>
-        </section class="projectdetail__section">
-        {% if project.trailer %}
-        <section class="projectdetail__video">
-            <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/{{project.trailer}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </section>
-        {% endif %}
-        <section class="projectdetail__section">
-            {% if project.content %}
-            <div class="projectdetail_projectcontent">
-                {% renderFile "./src/_includes/projects/" + project.content %}
-            </div>
-            {% endif %}
-        </section>
+
+    {% if project.trailer %}
+    <section class="project-media">
+        <div class="video-container">
+            <iframe class="video" width="100%" height="100%" src="https://www.youtube.com/embed/{{project.trailer}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <p class="media-caption">Project Demo Video</p>
+    </section>
+    {% endif %}
+
+    <div class="project-content-grid">
+        <div class="content-left">
+            <section class="detail-section">
+                <h3 class="detail-heading">01 / ABOUT</h3>
+                <div class="detail-body">
+                    {% if project.content %}
+                        {% renderFile "./src/_includes/projects/" + project.content %}
+                    {% else %}
+                        <p>A project developed as my final project at Vancouver Film School in the VR/AR Design & Development program. This project was meticulously developed in the Unity Engine to push the boundaries of spatial design tools.</p>
+                        <p>The core concept revolves around democratizing architectural visualization, allowing users without CAD experience to intuitively construct and experience spaces at a 1:1 scale before a single brick is laid.</p>
+                    {% endif %}
+                </div>
+            </section>
+        </div>
+        
+        <div class="content-right">
+             <section class="detail-section">
+                <h3 class="detail-heading">02 / TARGET AUDIENCE</h3>
+                <div class="detail-body">
+                    <p>To people that show interest in architecture, interior design, or homeowners planning to redecorate their current living spaces. It serves both educational purposes for students and practical visualization for renovation enthusiasts.</p>
+                </div>
+            </section>
+            
+            <section class="detail-section">
+                <h3 class="detail-heading">03 / PROBLEM & SOLUTION</h3>
+                <div class="detail-body">
+                    <p><strong>Problem:</strong> It is often a problem for some people to get a true sense of scale of the space they are designing in. It is not the same to say "20 by 20 metres" than to be physically present in a space of 20 by 20 metres.</p>
+                    <p><strong>Solution:</strong> This tool helps to understand 3D space. For architecture students, it is one of the fundamental skills they need to develop to keep evolving their design skills. By placing the user inside their creation, scale becomes an experience rather than a calculation.</p>
+                </div>
+            </section>
+        </div>
     </div>
 </article>
