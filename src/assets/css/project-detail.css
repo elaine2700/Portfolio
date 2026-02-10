@@ -89,13 +89,7 @@
 }
 
 /* CONTENT GRID */
-.project-content-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    border-top: 1px solid var(--accent-blue);
-    padding-top: 3rem;
-}
+
 
 .detail-section {
     margin-bottom: 3rem;
@@ -121,6 +115,22 @@
 
 .detail-body p {
     margin-bottom: 1rem;
+}
+
+.detail-body img {
+    width: 100%;
+    height: auto;
+}
+
+.detail-body h1,
+.detail-body h2,
+.detail-body h3,
+.detail-body h4,
+.detail-body h5,
+.detail-body h6 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--accent-blue);
 }
 
 /* Responsive */

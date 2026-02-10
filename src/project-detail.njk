@@ -43,31 +43,10 @@ permalink: "projects/{{project.id}}/index.html"
     <div class="project-content-grid">
         <div class="content-left">
             <section class="detail-section">
-                <h3 class="detail-heading">01 / ABOUT</h3>
                 <div class="detail-body">
                     {% if project.content %}
                         {% renderFile "./src/_includes/projects/" + project.content %}
-                    {% else %}
-                        <p>A project developed as my final project at Vancouver Film School in the VR/AR Design & Development program. This project was meticulously developed in the Unity Engine to push the boundaries of spatial design tools.</p>
-                        <p>The core concept revolves around democratizing architectural visualization, allowing users without CAD experience to intuitively construct and experience spaces at a 1:1 scale before a single brick is laid.</p>
                     {% endif %}
-                </div>
-            </section>
-        </div>
-        
-        <div class="content-right">
-             <section class="detail-section">
-                <h3 class="detail-heading">02 / TARGET AUDIENCE</h3>
-                <div class="detail-body">
-                    <p>To people that show interest in architecture, interior design, or homeowners planning to redecorate their current living spaces. It serves both educational purposes for students and practical visualization for renovation enthusiasts.</p>
-                </div>
-            </section>
-            
-            <section class="detail-section">
-                <h3 class="detail-heading">03 / PROBLEM & SOLUTION</h3>
-                <div class="detail-body">
-                    <p><strong>Problem:</strong> It is often a problem for some people to get a true sense of scale of the space they are designing in. It is not the same to say "20 by 20 metres" than to be physically present in a space of 20 by 20 metres.</p>
-                    <p><strong>Solution:</strong> This tool helps to understand 3D space. For architecture students, it is one of the fundamental skills they need to develop to keep evolving their design skills. By placing the user inside their creation, scale becomes an experience rather than a calculation.</p>
                 </div>
             </section>
         </div>
