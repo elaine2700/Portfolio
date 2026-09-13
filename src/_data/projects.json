@@ -117,5 +117,44 @@
         "live": "",
         "trailer": "",
         "content": ""
+    },
+    {
+        "id": 9,
+        "title": "Markdown Task Manager",
+        "image": "/assets/images/task_manager_kanban.png",
+        "projectType": "Tool",
+        "tools": ["SvelteKit", "Svelte 5", "Vite", "Docker"],
+        "programmingLanguages": ["TypeScript", "CSS", "HTML"],
+        "description": "A privacy-first, file-based task management system with a reactive Kanban interface built with SvelteKit.",
+        "linkCode": "https://github.com/elaine2700/task-manager",
+        "live": "",
+        "trailer": "",
+        "content": "TaskManager.md"
+    },
+    {
+        "id": 10,
+        "title": "Diagram Markdown Visualizer",
+        "image": "/assets/images/diagram_markdown_demo.png",
+        "projectType": "Tool",
+        "tools": ["D3.js", "Remark", "Svelte 5", "Changesets"],
+        "programmingLanguages": ["TypeScript", "SVG"],
+        "description": "A modular TypeScript and Svelte toolkit that parses Markdown document hierarchies into interactive SVG diagrams.",
+        "linkCode": "https://github.com/elaine2700/diagram-markdown-visualizer",
+        "live": "",
+        "trailer": "",
+        "content": "DiagramMarkdownVisualizer.md"
+    },
+    {
+        "id": 11,
+        "title": "Yearly Timeline Obsidian Plugin",
+        "image": "/assets/images/obsidian_timeline_view.png",
+        "projectType": "Tool",
+        "tools": ["Obsidian API", "Svelte 5", "esbuild"],
+        "programmingLanguages": ["TypeScript", "CSS"],
+        "description": "An Obsidian plugin providing an intuitive vertical timeline to track and visualize notes and projects across an entire year.",
+        "linkCode": "https://github.com/elaine2700/yearly-timeline-obsidian-plugin",
+        "live": "",
+        "trailer": "",
+        "content": "YearlyTimelineObsidian.md"
     }
 ]
