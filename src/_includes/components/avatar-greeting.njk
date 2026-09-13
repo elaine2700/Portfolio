@@ -1,0 +1,80 @@
+<div class="avatar-hero-card" id="avatarHeroCard">
+    <!-- Corner crosshairs for retro-technical architectural framing -->
+    <div class="corner-mark top-left">+</div>
+    <div class="corner-mark top-right">+</div>
+    <div class="corner-mark bottom-left">+</div>
+    <div class="corner-mark bottom-right">+</div>
+
+    <!-- Metadata HUD header -->
+    <div class="avatar-card-header">
+        <span class="avatar-sys-id"><span class="status-pulse-dot"></span> UNIT_01 // AVATAR</span>
+        <span class="avatar-tech-coord">SYS: ACTIVE</span>
+    </div>
+
+    <!-- Interactive Speech Bubble -->
+    <div class="avatar-speech-bubble" id="avatarSpeechBubble" title="Click to talk!">
+        <div class="speech-bubble-tag">00/ GREETING</div>
+        <div class="speech-bubble-content">
+            <span class="greeting-message" id="avatarGreetingText">HELLO, WORLD! I'M ELAINE 👋</span><span class="blinking-cursor">_</span>
+        </div>
+        <div class="speech-bubble-hint">[CLICK TO INTERACT]</div>
+        <div class="speech-bubble-tail"></div>
+    </div>
+
+    <!-- Avatar SVG Enclosure -->
+    <div class="avatar-svg-wrapper">
+        <img src="/assets/images/avatar-greeting.svg" alt="Animated waving avatar of Elaine saying hello" class="avatar-greeting-img" width="340" height="390" />
+    </div>
+
+    <!-- Bottom Status Bar -->
+    <div class="avatar-card-footer">
+        <span class="avatar-status-text">XR & CREATIVE DEV // WAVING</span>
+        <button type="button" class="avatar-action-pill" id="avatarWaveBtn">WAVE BACK 👋</button>
+    </div>
+</div>
+
+<script>
+(function() {
+    const speechBubble = document.getElementById('avatarSpeechBubble');
+    const greetingText = document.getElementById('avatarGreetingText');
+    const waveBtn = document.getElementById('avatarWaveBtn');
+    const avatarCard = document.getElementById('avatarHeroCard');
+
+    const messages = [
+        "HELLO, WORLD! I'M ELAINE 👋",
+        "WELCOME TO MY PORTFOLIO!",
+        "CREATING IMMERSIVE XR & WEB EXPERIENCES",
+        "EXPLORING THE BOUNDARIES OF 3D & INTERACTION",
+        "GLAD YOU'RE HERE! TAKE A LOOK AROUND ✨"
+    ];
+
+    let messageIndex = 0;
+
+    function cycleGreeting() {
+        messageIndex = (messageIndex + 1) % messages.length;
+        if (greetingText) {
+            greetingText.style.opacity = '0';
+            setTimeout(function() {
+                greetingText.textContent = messages[messageIndex];
+                greetingText.style.opacity = '1';
+            }, 180);
+        }
+    }
+
+    if (speechBubble) {
+        speechBubble.addEventListener('click', cycleGreeting);
+    }
+    if (waveBtn) {
+        waveBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            cycleGreeting();
+        });
+    }
+    if (avatarCard) {
+        avatarCard.addEventListener('click', function(e) {
+            if (e.target.closest('a') || e.target.closest('button')) return;
+            cycleGreeting();
+        });
+    }
+})();
+</script>

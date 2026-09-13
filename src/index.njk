@@ -5,23 +5,64 @@ cssFiles: ["/assets/css/home.css"]
 projectsCards: []
 ---
 <article class="home__page">
+    <!-- HERO SECTION (Retro-Technical Monospace Editorial Stage) -->
     <header class="home_hero">
-        <h1 class="hero-title">HELLO, I AM ELAINE</h1>
-        <div class="hero-description">
-            <p>
-                A passionate web designer creating sophisticated, immersive digital experiences that blend aesthetics with functionality.
-            </p>
+        <div class="hero-stage-grid">
+            <!-- Left: Typographic Editorial Dossier -->
+            <div class="hero-intro-column">
+                <div class="hero-sys-status">
+                    <span class="status-pulse-dot"></span>
+                    <span class="sys-status-text">SYS_STATUS: ONLINE // ELAINE SERRANO // 2026</span>
+                </div>
+                
+                <h1 class="hero-title">HELLO, I AM ELAINE</h1>
+
+                <div class="hero-role-group">
+                    <span class="hero-role-pill">XR DEVELOPER</span>
+                    <span class="hero-role-pill">CREATIVE CODER</span>
+                    <span class="hero-role-pill">UI/UX ARCHITECT</span>
+                </div>
+
+                <div class="hero-description">
+                    <p>
+                        A passionate web designer and XR developer crafting immersive digital environments and tactile web systems that blend precision engineering with playful, utilitarian aesthetics.
+                    </p>
+                </div>
+
+                <div class="hero-cta-group">
+                    <a class="button action-btn" href="#selected-works">EXPLORE WORKS ↓</a>
+                    <a class="button secondary" href="/projects/">ARCHIVE →</a>
+                </div>
+            </div>
+
+            <!-- Right: Interactive Avatar Stage -->
+            <div class="hero-avatar-column">
+                {% include "components/avatar-greeting.njk" %}
+            </div>
         </div>
-        <div class="hero-divider"></div>
+
+        <!-- Architectural Section Divider -->
+        <div class="hero-divider-wrapper">
+            <div class="hero-divider"></div>
+            <div class="hero-divider-meta">INDEX: 00 // OVERVIEW</div>
+        </div>
     </header>
 
+    <!-- CONTENT GRID (01/ SKILLS + 02/ SELECTED WORKS) -->
     <div class="home-content-grid">
-        <!-- Skills Section -->
+        <!-- 01/ Skills Section -->
         <section class="skills-section">
-            <h2 class="section-title">01/ SKILLS</h2>
+            <div class="section-title-wrap">
+                <h2 class="section-title">01/ SKILLS</h2>
+                <span class="section-badge">CAPABILITIES</span>
+            </div>
+            
             <div class="skills-list">
-                <div class="skill-category">
-                    <h3>WEB DEVELOPMENT</h3>
+                <div class="skill-category-card">
+                    <div class="skill-cat-header">
+                        <span class="cat-num">01.1</span>
+                        <h3>WEB DEVELOPMENT</h3>
+                    </div>
                     <div class="skill-tags">
                         <span>HTML</span>
                         <span>CSS</span>
@@ -31,8 +72,11 @@ projectsCards: []
                     </div>
                 </div>
                 
-                <div class="skill-category">
-                    <h3>DESIGN</h3>
+                <div class="skill-category-card">
+                    <div class="skill-cat-header">
+                        <span class="cat-num">01.2</span>
+                        <h3>DESIGN</h3>
+                    </div>
                     <div class="skill-tags">
                         <span>UI/UX</span>
                         <span>Photoshop</span>
@@ -41,8 +85,11 @@ projectsCards: []
                     </div>
                 </div>
                 
-                <div class="skill-category">
-                    <h3>XR DEVELOPMENT</h3>
+                <div class="skill-category-card">
+                    <div class="skill-cat-header">
+                        <span class="cat-num">01.3</span>
+                        <h3>XR DEVELOPMENT</h3>
+                    </div>
                     <div class="skill-tags">
                         <span>Unity</span>
                         <span>C#</span>
@@ -53,31 +100,48 @@ projectsCards: []
             </div>
         </section>
 
-        <!-- Selected Works Section -->
-        <section class="works-section">
-            <h2 class="section-title">02/ SELECTED WORKS</h2>
+        <!-- 02/ Selected Works Section -->
+        <section class="works-section" id="selected-works">
+            <div class="section-title-wrap">
+                <h2 class="section-title">02/ SELECTED WORKS</h2>
+                <span class="section-badge">DOSSIER</span>
+            </div>
+
             <div class="selected-works-list">
                 {% set selectedIds = [0, 1, 2] %}
                 {% for project in projects %}
-                {% if project.id in selectedIds  %}
-                <div class="work-item">
+                {% if project.id in selectedIds %}
+                <a class="work-item-card" href="/projects/{{project.id}}/" title="Open {{project.title}} dossier">
                     <div class="work-image-container">
-                        <img src="{{project.image}}" alt="{{project.title}} thumbnail">
+                        <img src="{{project.image}}" alt="{{project.title}} thumbnail" loading="lazy">
+                        <span class="work-index-badge">0{{loop.index}}</span>
                     </div>
                     <div class="work-info">
-                        <h3 class="work-title">{{project.title}}</h3>
-                        {% for tool in project.tools %}
-                        <span class="work-tech">{{tool}}</span>
-                        {% endfor %}
+                        <div class="work-title-row">
+                            <h3 class="work-title">{{project.title}}</h3>
+                            <span class="work-nav-arrow">↗</span>
+                        </div>
+                        <div class="work-meta-row">
+                            {% if project.projectType %}
+                            <span class="tag">{{project.projectType}}</span>
+                            {% endif %}
+                            {% for tool in project.tools %}
+                            <span class="work-tech">{{tool}}</span>
+                            {% endfor %}
+                            {% for lang in project.programmingLanguages %}
+                            <span class="work-tech lang">{{lang}}</span>
+                            {% endfor %}
+                        </div>
                         <p class="work-description">{{project.description}}</p>
+                        <span class="work-dossier-link">VIEW PROJECT DOSSIER →</span>
                     </div>
-                </div>
+                </a>
                 {% endif %}
                 {% endfor %}
             </div>
             
-            <div style="margin-top: 4rem; text-align: right;">
-                 <a class="button" href="/projects">VIEW ALL PROJECTS -></a>
+            <div class="works-archive-cta">
+                 <a class="button action-btn" href="/projects/">VIEW ALL PROJECTS ({{projects.length}}) →</a>
             </div>
         </section>
     </div>
