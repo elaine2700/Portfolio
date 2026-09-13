@@ -1,0 +1,128 @@
+<article class="projects__page">
+    <!-- Editorial Section Header strictly following DESIGN.md -->
+    <header class="projects__header">
+        <div class="projects__index">01 / SELECTED WORKS & REPOSITORY</div>
+        <h1 class="projects__title">PROJECT ARCHIVE</h1>
+        <p class="projects__subtitle">
+            A curated collection of spatial computing (VR/AR) simulations, procedural tools, interactive web applications, and developer experiments.
+        </p>
+        <div class="projects__header-divider"></div>
+    </header>
+
+    <!-- Command & Filter Bar -->
+    <div class="projects__command-bar">
+        <div id="filterBar" class="projects__filterbar" role="toolbar" aria-label="Project category filters">
+            <div class="filter-lead">
+                <span class="filter-indicator" aria-hidden="true"></span>
+                <span class="filter-label">FILTER:</span>
+            </div>
+            <div class="filter-group">
+                <button class="button filter-btn active" data-filter="ALL" aria-pressed="true">
+                    ALL <span class="filter-badge" data-count-for="ALL">{{ projects.length }}</span>
+                </button>
+                <button class="button filter-btn" data-filter="VR-AR" aria-pressed="false">
+                    VR-AR <span class="filter-badge" data-count-for="VR-AR">3</span>
+                </button>
+                <button class="button filter-btn" data-filter="WEB" aria-pressed="false">
+                    WEB <span class="filter-badge" data-count-for="WEB">5</span>
+                </button>
+                <button class="button filter-btn" data-filter="TOOL" aria-pressed="false">
+                    TOOL <span class="filter-badge" data-count-for="TOOL">1</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="projects__status-strip">
+            <span class="status-indicator-dot"></span>
+            <span class="status-text" id="projectCountDisplay">SHOWING {{ projects.length }} / {{ projects.length }} PROJECTS</span>
+        </div>
+    </div>
+
+    <!-- Projects Grid Section -->
+    <section class="projects__section" aria-label="Project cards catalog">
+        <div class="projects-grid" id="projectsGrid">
+            {% for project in projects %}
+            <article class="project-card" data-category="{{ project.projectType | upper }}" data-id="{{ project.id }}">
+                <!-- Card Architectural Topbar / Metadata Strip -->
+                <div class="card-meta-bar">
+                    <span class="card-meta-id">PRJ-0{{ loop.index }}</span>
+                    {% if project.projectType %}
+                    <span class="project-type-badge type-{{ project.projectType | lower }}">{{ project.projectType }}</span>
+                    {% endif %}
+                </div>
+
+                <!-- Media Frame with 16:9 Aspect Ratio -->
+                <div class="project-image-frame">
+                    <img src="{{ project.image }}" alt="{{ project.title }} thumbnail" class="project-thumbnail" loading="lazy"/>
+                    {% if project.trailer %}
+                    <div class="video-indicator-badge" title="Demo video available">
+                        <span class="play-icon">&#9654;</span> DEMO VIDEO
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="project-card-header">
+                        <h2 class="project-title">{{ project.title }}</h2>
+                    </div>
+
+                    <!-- Tags & Technology Taxonomy -->
+                    <div class="project-taxonomies">
+                        {% if project.tools and project.tools.length > 0 %}
+                        <div class="tag-group tools-group">
+                            {% for tool in project.tools %}
+                            <span class="tag-badge tag-tool">{{ tool }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        {% if project.programmingLanguages and project.programmingLanguages.length > 0 %}
+                        <div class="tag-group languages-group">
+                            {% for lang in project.programmingLanguages %}
+                            <span class="tag-badge tag-lang">{{ lang }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- Description -->
+                    <div class="project-description">
+                        <p>{{ project.description }}</p>
+                    </div>
+
+                    <!-- Action Footer with Tactile CTAs -->
+                    <div class="project-actions">
+                        <a class="action-btn action-primary open-dossier-trigger" href="/projects/{{ project.id }}/" data-project-id="{{ project.id }}">
+                            MORE <span class="btn-arrow">&rarr;</span>
+                        </a>
+                        {% if project.linkCode %}
+                        <a class="action-btn action-secondary" href="{{ project.linkCode }}" target="_blank" rel="noopener noreferrer">
+                            CODE <span class="btn-arrow">&nearr;</span>
+                        </a>
+                        {% endif %}
+                        {% if project.live %}
+                        <a class="action-btn action-accent" href="{{ project.live }}" target="_blank" rel="noopener noreferrer">
+                            LIVE <span class="btn-arrow">&nearr;</span>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+
+        <!-- Empty Filter State -->
+        <div id="emptyProjectsState" class="projects-empty-state hidden">
+            <div class="empty-state-box">
+                <div class="empty-state-code">// NULL_FILTER_MATCH</div>
+                <h3 class="empty-state-title">No Projects Found</h3>
+                <p class="empty-state-text">No project entries match the current filter selection.</p>
+                <button id="resetFilterBtn" class="empty-state-reset-btn">RESET TO ALL PROJECTS</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Dossier Modal Component (URL Synchronized) -->
+    {% include "components/project-modal.njk" %}
+</article>
