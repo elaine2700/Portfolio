@@ -1,61 +1,8 @@
 ---
 layout: "layouts/base"
 title: "Projects"
-cssFiles: ["/assets/css/projects.css"]
+cssFiles: ["/assets/css/projects.css", "/assets/css/project-detail.css"]
 jsFiles: ["/assets/js/projects.js"]
-
-// TODO: Make filter bar to work.
 ---
-<article class="projects__page">
-
-    <div id="filterBar" class="projects__filterbar">
-        <span class="filter-label">FILTER:</span>
-        <div class="filter-group">
-            <button class="button filter-btn active">ALL</button>
-            <button class="button filter-btn">VR-AR</button>
-            <button class="button filter-btn">WEB</button>
-            <button class="button filter-btn">TOOL</button>
-        </div>
-    </div>
-    
-    <div class="projects-divider"></div>
-
-    <section class="projects__section">
-        <div class="projects-grid">
-            {% for project in projects %}
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="{{project.image}}" alt="{{project.title}} thumbnail" class="thumbnail"/>
-                    {% if project.projectType %}
-                    <span class="project-type-badge">{{project.projectType}}</span>
-                    {% endif %}
-                </div>
-                
-                <div class="project-card-header">
-                    <h2 class="project-title">{{project.title}}</h2>
-                    <!-- Optional: Right aligned element or duplicate badge if needed -->
-                </div>
-
-                <div class="tag-group">
-                   {% for tool in project.tools %}
-                    <span class="tag">{{tool}}</span>
-                    {% endfor %}
-                </div>
-                
-                <div class="project-description">
-                    <p>{{project.description}}</p> <!-- Assuming description exists in frontmatter/data -->
-                </div>
-
-                <div class="project-actions">
-                    {% if project.content  %}
-                    <a class="button secondary" href="/projects/{{project.id}}">MORE</a>
-                    {% endif %}
-                    {% if project.linkCode %}
-                    <a class="button secondary" href="{{project.linkCode}}">CODE</a>
-                    {% endif %}
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </section>
-</article>
+{% set initialProjectId = null %}
+{% include "components/projects-catalog.njk" %}
