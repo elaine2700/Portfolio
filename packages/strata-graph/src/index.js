@@ -25,7 +25,10 @@ function compileGraph({ input, output }) {
     if (!fs.existsSync(outDir)) {
       fs.mkdirSync(outDir, { recursive: true });
     }
-    fs.writeFileSync(resolvedOutput, JSON.stringify(graphData, null, 2), 'utf8');
+    const newContent = JSON.stringify(graphData, null, 2);
+    if (!fs.existsSync(resolvedOutput) || fs.readFileSync(resolvedOutput, 'utf8') !== newContent) {
+      fs.writeFileSync(resolvedOutput, newContent, 'utf8');
+    }
   }
 
   return graphData;

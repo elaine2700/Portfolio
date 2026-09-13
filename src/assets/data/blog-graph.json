@@ -1,10 +1,10 @@
 {
   "meta": {
     "version": "1.0.0",
-    "generatedAt": "2026-09-13T04:56:03.782Z",
+    "generatedAt": "2026-09-13T05:51:51.167Z",
     "rootPath": "/",
     "totalArticles": 5,
-    "totalFolders": 3
+    "totalFolders": 4
   },
   "root": {
     "path": "/",
@@ -160,9 +160,9 @@
           "targetPath": "/design/colors",
           "thumbnail": "/assets/images/blog/thumb-colors.svg",
           "description": "Harmonious palettes, contrast ratios, and tactile paper tones.",
-          "itemCount": 2,
+          "itemCount": 3,
           "totalArticles": 2,
-          "subfolderCount": 0,
+          "subfolderCount": 1,
           "articleCount": 2,
           "color": null,
           "order": 3
@@ -243,10 +243,24 @@
           "path": "/design/colors"
         }
       ],
-      "itemCount": 2,
-      "subfolderCount": 0,
+      "itemCount": 3,
+      "subfolderCount": 1,
       "articleCount": 2,
       "nodes": [
+        {
+          "id": "folder:design:colors:typography",
+          "type": "folder",
+          "title": "Typography",
+          "targetPath": "/design/colors/typography",
+          "thumbnail": null,
+          "description": "",
+          "itemCount": 0,
+          "totalArticles": 0,
+          "subfolderCount": 0,
+          "articleCount": 0,
+          "color": null,
+          "order": 999
+        },
         {
           "id": "article:design/colors/best-palette",
           "type": "article",
@@ -284,6 +298,12 @@
       ],
       "links": [
         {
+          "source": "folder:design:colors:typography",
+          "target": "article:design/colors/best-palette",
+          "distance": 120,
+          "strength": 0.7
+        },
+        {
           "source": "article:design/colors/best-palette",
           "target": "article:design/colors/autumn-colors",
           "distance": 120,
@@ -291,11 +311,41 @@
         },
         {
           "source": "article:design/colors/autumn-colors",
-          "target": "article:design/colors/best-palette",
+          "target": "folder:design:colors:typography",
           "distance": 120,
           "strength": 0.7
         }
       ]
+    },
+    "/design/colors/typography": {
+      "path": "/design/colors/typography",
+      "parentPath": "/design/colors",
+      "title": "Typography",
+      "description": "",
+      "thumbnail": null,
+      "breadcrumbs": [
+        {
+          "title": "ROOT",
+          "path": "/"
+        },
+        {
+          "title": "DESIGN",
+          "path": "/design"
+        },
+        {
+          "title": "COLORS",
+          "path": "/design/colors"
+        },
+        {
+          "title": "TYPOGRAPHY",
+          "path": "/design/colors/typography"
+        }
+      ],
+      "itemCount": 0,
+      "subfolderCount": 0,
+      "articleCount": 0,
+      "nodes": [],
+      "links": []
     }
   },
   "articles": {

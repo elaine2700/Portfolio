@@ -12,11 +12,44 @@ jsFiles:
   <div class="blog-section-index">01/ KNOWLEDGE GRAPH &amp; ARTICLES</div>
   <h1 class="blog-title">Hierarchical Garden</h1>
   <p class="blog-description">
-    An interactive force-directed graph with hierarchical zoom levels. Click folder nodes to drill down into subdirectories, click article nodes to open the reading modal, or use the breadcrumbs above the canvas to navigate back up.
+    An interactive force-directed graph with hierarchical zoom levels, featuring an accessible classic directory navigation for small screens and older browsers.
   </p>
 </header>
 
-<section class="blog-graph-section">
+<noscript>
+  <div class="blog-fallback-banner">
+    <span class="blog-fallback-pill">NO-JS FALLBACK ACTIVE</span>
+    <span>JavaScript is disabled. Classic directory navigation is active with full article reader.</span>
+  </div>
+  <style>
+    .blog-view-bar { display: none !important; }
+    #blog-graph-view { display: none !important; }
+    #blog-classic-view { display: block !important; }
+  </style>
+</noscript>
+
+<!-- View Switcher & Status Bar -->
+<div class="blog-view-bar" id="blog-view-bar">
+  <div class="blog-view-switcher" role="tablist" aria-label="Blog View Mode">
+    <button type="button" class="view-switch-btn active" id="btn-view-graph" role="tab" aria-selected="true" aria-controls="blog-graph-view">
+      <span class="view-btn-icon">&#x25C8;</span>
+      <span class="view-btn-label">GRAPH VIEW</span>
+      <span class="view-btn-tech">[CANVAS 2D]</span>
+    </button>
+    <button type="button" class="view-switch-btn" id="btn-view-classic" role="tab" aria-selected="false" aria-controls="blog-classic-view">
+      <span class="view-btn-icon">&#x2630;</span>
+      <span class="view-btn-label">CLASSIC VIEW</span>
+      <span class="view-btn-tech">[DIRECTORY]</span>
+    </button>
+  </div>
+  <div class="blog-view-status" id="blog-view-status" aria-live="polite">
+    <span class="status-indicator"></span>
+    <span class="status-text" id="status-text">[MODE: INTERACTIVE GRAPH]</span>
+  </div>
+</div>
+
+<!-- Mode 1: Interactive Force-Directed Canvas Graph -->
+<section class="blog-view-pane blog-graph-section" id="blog-graph-view" role="tabpanel" aria-labelledby="btn-view-graph">
   <div id="strata-graph-container">
     <!-- Strata-Graph Canvas Mount Point -->
   </div>
@@ -41,23 +74,249 @@ jsFiles:
   </div>
 </section>
 
-<script>
-  function initGraph() {
-    if (typeof StrataGraph !== 'undefined') {
-      if (!window.blogGraph) {
-        window.blogGraph = new StrataGraph({
-          container: '#strata-graph-container',
-          dataUrl: '/assets/data/blog-graph.json'
-        });
-      }
-    } else {
-      setTimeout(initGraph, 50);
-    }
-  }
+<!-- Mode 2: Classic Fallback Navigation & Editorial Directory View -->
+<section class="blog-view-pane blog-classic-section" id="blog-classic-view" role="tabpanel" aria-labelledby="btn-view-classic">
+  <div class="classic-terminal-bar">
+    <span class="term-prompt">&gt;</span>
+    <span class="term-cmd">tree /content/blog --classic-nav</span>
+    <span class="term-count">[{{ blogData.articleList.length }} ARTICLES &bull; {{ blogData.folderList.length }} DIRECTORIES]</span>
+  </div>
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initGraph);
-  } else {
-    initGraph();
-  }
+  <!-- Category / Folder Navigation Tabs -->
+  <nav class="classic-category-nav" aria-label="Directory Folders">
+    <div class="category-nav-label">DIRECTORY FILTER:</div>
+    <div class="category-nav-tabs" id="classic-category-tabs">
+      <button type="button" class="category-tab-btn active" data-folder="all">
+        <span class="cat-marker">&gt;</span> ALL <span class="cat-count">({{ blogData.articleList.length }})</span>
+      </button>
+      {% for folder in blogData.folderList %}
+      <button type="button" class="category-tab-btn" data-folder="{{ folder.path }}">
+        <span class="cat-marker">&gt;</span> {{ folder.path }} <span class="cat-count">({{ folder.articleCount }})</span>
+      </button>
+      {% endfor %}
+    </div>
+  </nav>
+
+  <!-- Active Directory Info Box -->
+  <div class="classic-directory-info" id="classic-directory-info">
+    <div class="dir-info-header">
+      <span class="dir-info-badge">ACTIVE SCOPE</span>
+      <span class="dir-info-path" id="dir-active-path">ALL DIRECTORIES</span>
+    </div>
+    <p class="dir-info-desc" id="dir-active-desc">
+      Viewing all compiled articles across the knowledge base. Select a specific directory above to filter by topic, or browse articles below.
+    </p>
+  </div>
+
+  <!-- Articles List -->
+  <div class="classic-articles-list" id="classic-articles-list">
+    {% for article in blogData.articleList %}
+    <article class="classic-article-card" data-folder="{{ article.folderPath }}" id="{{ article.id | replace(':', '-') | replace('/', '-') }}">
+      <header class="classic-card-header">
+        <div class="classic-meta-left">
+          <span class="classic-folder-badge">DIR: {{ article.folderPath }}</span>
+          <time class="classic-article-date" datetime="{{ article.date }}">{{ article.date }}</time>
+          <span class="classic-reading-time">&bull; {{ article.readingTime }}</span>
+        </div>
+        <div class="classic-meta-right">
+          <span class="classic-words-badge">{{ article.wordCount }} words</span>
+        </div>
+      </header>
+
+      <h2 class="classic-article-title">{{ article.title }}</h2>
+      
+      <p class="classic-article-summary">{{ article.summary }}</p>
+
+      {% if article.tags and article.tags.length > 0 %}
+      <div class="classic-tags-list">
+        {% for tag in article.tags %}
+        <span class="classic-tag-item">#{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <!-- Accessible Native Disclosure Reader (Works 100% without JS) -->
+      <details class="classic-article-details">
+        <summary class="classic-read-toggle">
+          <span class="toggle-icon">&gt;</span>
+          <span class="toggle-text">READ FULL ARTICLE</span>
+          <span class="toggle-hint">[PRESS TO EXPAND INLINE READER]</span>
+        </summary>
+        <div class="classic-article-body">
+          <div class="article-body-inner">
+            {{ article.htmlContent | safe }}
+          </div>
+        </div>
+      </details>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<script>
+  (function() {
+    // 1. Detection and View State Management
+    const viewGraphBtn = document.getElementById('btn-view-graph');
+    const viewClassicBtn = document.getElementById('btn-view-classic');
+    const graphSection = document.getElementById('blog-graph-view');
+    const classicSection = document.getElementById('blog-classic-view');
+    const statusText = document.getElementById('status-text');
+    const statusIndicator = document.querySelector('.status-indicator');
+
+    function checkCanvasSupport() {
+      try {
+        const c = document.createElement('canvas');
+        return !!(c.getContext && c.getContext('2d'));
+      } catch (e) {
+        return false;
+      }
+    }
+
+    const hasCanvas = checkCanvasSupport();
+    const isSmallScreen = window.innerWidth <= 768;
+    const storedView = localStorage.getItem('strata_blog_view');
+
+    let currentView = 'graph';
+
+    if (!hasCanvas) {
+      currentView = 'classic';
+      if (viewGraphBtn) {
+        viewGraphBtn.disabled = true;
+        viewGraphBtn.title = 'Canvas 2D is unsupported in this browser';
+        viewGraphBtn.classList.add('disabled');
+      }
+    } else if (storedView) {
+      currentView = storedView;
+    } else if (isSmallScreen) {
+      // Small screens automatically fallback to classic navigation
+      currentView = 'classic';
+    }
+
+    function setView(viewMode, reason) {
+      currentView = viewMode;
+      try {
+        localStorage.setItem('strata_blog_view', viewMode);
+      } catch (e) {}
+
+      if (viewMode === 'graph' && hasCanvas) {
+        graphSection.style.display = 'block';
+        classicSection.style.display = 'none';
+        viewGraphBtn.classList.add('active');
+        viewGraphBtn.setAttribute('aria-selected', 'true');
+        viewClassicBtn.classList.remove('active');
+        viewClassicBtn.setAttribute('aria-selected', 'false');
+
+        if (statusText) {
+          statusText.textContent = reason || '[MODE: INTERACTIVE GRAPH (CANVAS 2D)]';
+        }
+        if (statusIndicator) {
+          statusIndicator.className = 'status-indicator graph-active';
+        }
+
+        initGraph();
+      } else {
+        graphSection.style.display = 'none';
+        classicSection.style.display = 'block';
+        viewClassicBtn.classList.add('active');
+        viewClassicBtn.setAttribute('aria-selected', 'true');
+        if (viewGraphBtn) {
+          viewGraphBtn.classList.remove('active');
+          viewGraphBtn.setAttribute('aria-selected', 'false');
+        }
+
+        if (statusText) {
+          let label = '[MODE: CLASSIC DIRECTORY NAVIGATION]';
+          if (!hasCanvas) {
+            label = '[FALLBACK: CANVAS 2D NOT DETECTED • CLASSIC NAVIGATION ACTIVE]';
+          } else if (isSmallScreen && !storedView) {
+            label = '[FALLBACK: SMALL SCREEN DETECTED • CLASSIC NAVIGATION ACTIVE]';
+          }
+          statusText.textContent = label;
+        }
+        if (statusIndicator) {
+          statusIndicator.className = 'status-indicator classic-active';
+        }
+      }
+    }
+
+    if (viewGraphBtn) {
+      viewGraphBtn.addEventListener('click', function() {
+        if (hasCanvas) {
+          setView('graph');
+        }
+      });
+    }
+
+    if (viewClassicBtn) {
+      viewClassicBtn.addEventListener('click', function() {
+        setView('classic');
+      });
+    }
+
+    // Initial view activation
+    setView(currentView);
+
+    // 2. StrataGraph Canvas Loader
+    function initGraph() {
+      if (!hasCanvas) return;
+      if (typeof StrataGraph !== 'undefined') {
+        if (!window.blogGraph) {
+          window.blogGraph = new StrataGraph({
+            container: '#strata-graph-container',
+            dataUrl: '/assets/data/blog-graph.json'
+          });
+        }
+      } else {
+        setTimeout(initGraph, 50);
+      }
+    }
+
+    // 3. Classic Directory Filtering
+    const categoryTabs = document.querySelectorAll('.category-tab-btn');
+    const articleCards = document.querySelectorAll('.classic-article-card');
+    const dirActivePath = document.getElementById('dir-active-path');
+    const dirActiveDesc = document.getElementById('dir-active-desc');
+
+    const folderDescriptions = {
+      'all': 'Viewing all compiled articles across the knowledge base. Select a specific directory above to filter by topic, or browse articles below.',
+      '/': 'Root Directory: Foundational articles, general field notes, and life updates.',
+      '/design': 'Design Directory: Principles, UI/UX aesthetics, color theory, typography, and structural hierarchy.',
+      '/design/colors': 'Colors Subdirectory: Harmonious palettes, contrast ratios, and tactile paper tones.'
+    };
+
+    categoryTabs.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const folder = this.getAttribute('data-folder');
+        
+        categoryTabs.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        if (dirActivePath) {
+          dirActivePath.textContent = folder === 'all' ? 'ALL DIRECTORIES' : folder;
+        }
+        if (dirActiveDesc) {
+          dirActiveDesc.textContent = folderDescriptions[folder] || `Viewing articles in ${folder}`;
+        }
+
+        articleCards.forEach(function(card) {
+          const cardFolder = card.getAttribute('data-folder');
+          if (folder === 'all' || cardFolder === folder) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Viewport resize auto-switch if no user preference
+    window.addEventListener('resize', function() {
+      if (!localStorage.getItem('strata_blog_view')) {
+        if (window.innerWidth <= 768 && currentView !== 'classic') {
+          setView('classic', '[FALLBACK: MOBILE VIEWPORT DETECTED]');
+        }
+      }
+    });
+
+  })();
 </script>

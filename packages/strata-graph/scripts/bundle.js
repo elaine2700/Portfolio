@@ -41,7 +41,20 @@ async function bundle() {
   fs.copyFileSync(path.resolve(distDir, 'strata-graph.js'), path.resolve(hostAssetsDir, 'strata-graph.js'));
   fs.copyFileSync(path.resolve(distDir, 'strata-graph.css'), path.resolve(hostAssetsDir, 'strata-graph.css'));
 
-  console.log('✔ strata-graph client bundled successfully to dist/ and src/assets/strata-graph/');
+  // Also copy to src/assets/js/strata-graph and src/assets/css
+  const hostJsDir = path.resolve(__dirname, '../../../src/assets/js/strata-graph');
+  if (!fs.existsSync(hostJsDir)) {
+    fs.mkdirSync(hostJsDir, { recursive: true });
+  }
+  fs.copyFileSync(path.resolve(distDir, 'strata-graph.esm.js'), path.resolve(hostJsDir, 'strata-graph.js'));
+
+  const hostCssDir = path.resolve(__dirname, '../../../src/assets/css');
+  if (!fs.existsSync(hostCssDir)) {
+    fs.mkdirSync(hostCssDir, { recursive: true });
+  }
+  fs.copyFileSync(path.resolve(distDir, 'strata-graph.css'), path.resolve(hostCssDir, 'strata-graph.css'));
+
+  console.log('✔ strata-graph client bundled successfully to dist/, src/assets/strata-graph/, and src/assets/{js,css}/');
 }
 
 bundle().catch(err => {

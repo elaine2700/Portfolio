@@ -17,6 +17,7 @@ module.exports = function(eleventyConfig){
         }
     });
 
+    eleventyConfig.watchIgnores.add("src/assets/data/blog-graph.json");
     eleventyConfig.addWatchTarget("src/content/blog/");
     eleventyConfig.addPassthroughCopy("src/assets");
     
