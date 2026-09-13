@@ -37,8 +37,15 @@
         stroke-linejoin: round;
         fill: none;
       }
-      .avatar-skin-fill {
-        fill: var(--avatar-skin, #FFFDF8);
+      .avatar-skin-fill,
+      .avatar-hand-fill {
+        fill: var(--accent-blue, #8EA8B5);
+      }
+      .avatar-ripple-line {
+        stroke: var(--accent-blue, #8EA8B5);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
       }
       .avatar-ground-shadow {
         fill: rgba(26, 26, 26, 0.07);
@@ -145,8 +152,8 @@
 
       <!-- Motion ripples in air -->
       <g class="avatar-sparkle">
-        <path class="avatar-stroke-line" d="M890,580 C915,605 925,640 915,670" stroke-width="9" opacity="0.7" />
-        <path class="avatar-stroke-line" d="M918,555 C952,590 962,640 948,685" stroke-width="9" opacity="0.5" />
+        <path class="avatar-ripple-line" d="M890,580 C915,605 925,640 915,670" stroke-width="12" opacity="0.85" />
+        <path class="avatar-ripple-line" d="M918,555 C952,590 962,640 948,685" stroke-width="12" opacity="0.6" />
       </g>
     </g>
   </g>
