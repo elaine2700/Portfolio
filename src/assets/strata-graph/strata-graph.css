@@ -1,0 +1,520 @@
+/**
+ * Strata-Graph Core Styles
+ * Framework-agnostic CSS custom properties and layout rules.
+ */
+
+:root {
+  /* Canvas & Viewport */
+  --sg-canvas-bg: #EAEBD7;
+  --sg-canvas-height: 620px;
+  --sg-canvas-border: 2px solid #1A1A1A;
+  --sg-canvas-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+
+  /* Nodes */
+  --sg-node-folder-radius: 42px;
+  --sg-node-article-radius: 34px;
+  --sg-node-border-color: #1A1A1A;
+  --sg-node-border-width: 2px;
+  --sg-node-folder-border-color: #8EA8B5;
+  --sg-node-folder-border-width: 3px;
+  --sg-node-hover-ring: rgba(140, 166, 142, 0.6);
+  --sg-node-bg-fallback: #D8D9C5;
+
+  /* Badges & Pills */
+  --sg-badge-bg: #8CA68E;
+  --sg-badge-text: #FFFFFF;
+  --sg-badge-font: 'JetBrains Mono', monospace;
+  --sg-badge-size: 10px;
+
+  /* Links & Connections */
+  --sg-link-color: rgba(26, 26, 26, 0.25);
+  --sg-link-active-color: #8EA8B5;
+  --sg-link-width: 1.5px;
+
+  /* Typography & Labels */
+  --sg-label-font: 'JetBrains Mono', monospace, sans-serif;
+  --sg-label-color: #1A1A1A;
+  --sg-label-size: 11px;
+  --sg-label-bg: rgba(234, 235, 215, 0.92);
+  --sg-label-border: 1px solid rgba(26, 26, 26, 0.2);
+
+  /* Breadcrumb Navigation */
+  --sg-breadcrumb-bg: #EAEBD7;
+  --sg-breadcrumb-border: 1px solid #1A1A1A;
+  --sg-breadcrumb-text: #1A1A1A;
+  --sg-breadcrumb-active: #8CA68E;
+  --sg-breadcrumb-hover: #8EA8B5;
+
+  /* Controls UI */
+  --sg-control-bg: #EAEBD7;
+  --sg-control-text: #1A1A1A;
+  --sg-control-border: 1px solid #1A1A1A;
+  --sg-control-hover-bg: #D8D9C5;
+}
+
+/* Container */
+.strata-graph-wrapper {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--sg-label-font);
+  user-select: none;
+}
+
+/* Header & Breadcrumb Bar */
+.strata-graph-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--sg-node-border-color);
+  background: var(--sg-breadcrumb-bg);
+}
+
+.strata-graph-breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.strata-graph-crumb {
+  background: transparent;
+  border: 1px solid var(--sg-breadcrumb-text);
+  color: var(--sg-breadcrumb-text);
+  padding: 0.25rem 0.6rem;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-transform: uppercase;
+}
+
+.strata-graph-crumb:hover {
+  background: var(--sg-breadcrumb-hover);
+  color: #FFFFFF;
+  border-color: var(--sg-breadcrumb-hover);
+}
+
+.strata-graph-crumb.active {
+  background: var(--sg-breadcrumb-active);
+  color: #FFFFFF;
+  border-color: var(--sg-breadcrumb-active);
+  cursor: default;
+}
+
+.strata-graph-separator {
+  color: var(--sg-breadcrumb-text);
+  opacity: 0.6;
+}
+
+.strata-graph-level-meta {
+  font-size: 0.75rem;
+  color: #4A4A4A;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.strata-graph-count-pill {
+  background: #1A1A1A;
+  color: #EAEBD7;
+  padding: 0.15rem 0.45rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+/* Viewport & Canvas */
+.strata-graph-viewport {
+  position: relative;
+  width: 100%;
+  height: var(--sg-canvas-height);
+  border: var(--sg-canvas-border);
+  background: var(--sg-canvas-bg);
+  box-shadow: var(--sg-canvas-shadow);
+  overflow: hidden;
+}
+
+.strata-graph-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+.strata-graph-canvas.is-dragging {
+  cursor: grabbing;
+}
+
+.strata-graph-canvas.is-hovering {
+  cursor: pointer;
+}
+
+/* Floating Controls Overlay */
+.strata-graph-controls {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  z-index: 10;
+}
+
+.strata-graph-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sg-control-bg);
+  border: var(--sg-control-border);
+  color: var(--sg-control-text);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.15s ease;
+}
+
+.strata-graph-btn:hover {
+  background: var(--sg-control-hover-bg);
+  transform: translateY(-1px);
+}
+
+.strata-graph-btn:active {
+  transform: translateY(0);
+}
+
+/* Floating Legend / Hint */
+.strata-graph-hint {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background: rgba(234, 235, 215, 0.9);
+  border: 1px solid rgba(26, 26, 26, 0.3);
+  padding: 0.3rem 0.6rem;
+  font-size: 0.7rem;
+  color: #4A4A4A;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.strata-graph-hint-item {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.strata-graph-hint-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.strata-graph-hint-dot.folder {
+  background: var(--sg-node-folder-border-color);
+  border: 1px solid #1A1A1A;
+}
+
+.strata-graph-hint-dot.article {
+  background: var(--sg-node-border-color);
+  border: 1px solid #1A1A1A;
+}
+
+
+/**
+ * Strata-Graph Reading Modal Styles
+ * Retro-Technical Monospace Editorial Reader
+ */
+
+:root {
+  --sg-modal-backdrop: rgba(10, 10, 10, 0.65);
+  --sg-modal-bg: #EAEBD7;
+  --sg-modal-border: 2px solid #1A1A1A;
+  --sg-modal-text: #1A1A1A;
+  --sg-modal-muted: #4A4A4A;
+  --sg-modal-accent: #8EA8B5;
+  --sg-modal-accent-green: #8CA68E;
+  --sg-modal-max-width: 820px;
+  --sg-modal-shadow: 6px 6px 0px #1A1A1A;
+}
+
+/* Modal Overlay */
+.sg-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--sg-modal-backdrop);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.sg-modal-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal Window Container */
+.sg-modal-container {
+  background: var(--sg-modal-bg);
+  border: var(--sg-modal-border);
+  box-shadow: var(--sg-modal-shadow);
+  max-width: var(--sg-modal-max-width);
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transform: translateY(16px) scale(0.98);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.sg-modal-overlay.is-active .sg-modal-container {
+  transform: translateY(0) scale(1);
+}
+
+/* Modal Top Bar */
+.sg-modal-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+  border-bottom: 2px solid #1A1A1A;
+  background: #D8D9C5;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.sg-modal-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--sg-modal-muted);
+  text-transform: uppercase;
+}
+
+.sg-modal-close-btn {
+  background: transparent;
+  border: 1px solid #1A1A1A;
+  color: #1A1A1A;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.15s ease;
+}
+
+.sg-modal-close-btn:hover {
+  background: #1A1A1A;
+  color: #EAEBD7;
+}
+
+.sg-modal-close-key {
+  font-size: 0.65rem;
+  opacity: 0.75;
+  border: 1px solid currentColor;
+  padding: 0 0.25rem;
+  border-radius: 2px;
+}
+
+/* Modal Scrollable Content Area */
+.sg-modal-body {
+  overflow-y: auto;
+  padding: 2rem;
+  color: var(--sg-modal-text);
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1.65;
+  scrollbar-width: thin;
+  scrollbar-color: #1A1A1A #D8D9C5;
+}
+
+.sg-modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sg-modal-body::-webkit-scrollbar-track {
+  background: #D8D9C5;
+}
+
+.sg-modal-body::-webkit-scrollbar-thumb {
+  background: #1A1A1A;
+}
+
+/* Article Hero Header */
+.sg-article-hero {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.25);
+  padding-bottom: 1.25rem;
+}
+
+.sg-article-meta-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.75rem;
+  color: var(--sg-modal-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.sg-article-meta-line span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.sg-article-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
+  color: #1A1A1A;
+}
+
+.sg-article-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.sg-article-tag {
+  background: var(--sg-modal-accent-green);
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.sg-article-hero-img {
+  width: 100%;
+  max-height: 340px;
+  object-fit: cover;
+  border: 1px solid #1A1A1A;
+  margin-top: 1.25rem;
+  display: block;
+}
+
+/* Rendered Markdown Typography */
+.sg-article-content {
+  font-size: 0.95rem;
+}
+
+.sg-article-content h1,
+.sg-article-content h2,
+.sg-article-content h3,
+.sg-article-content h4 {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #1A1A1A;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.sg-article-content h2 {
+  font-size: 1.4rem;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.2);
+  padding-bottom: 0.4rem;
+}
+
+.sg-article-content h3 {
+  font-size: 1.15rem;
+}
+
+.sg-article-content p {
+  margin: 1rem 0;
+}
+
+.sg-article-content a {
+  color: #1A1A1A;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 700;
+}
+
+.sg-article-content a:hover {
+  color: var(--sg-modal-accent);
+}
+
+.sg-article-content blockquote {
+  border-left: 3px solid var(--sg-modal-accent);
+  margin: 1.5rem 0;
+  padding: 0.5rem 1rem;
+  background: rgba(142, 168, 181, 0.1);
+  color: #333333;
+  font-style: italic;
+}
+
+.sg-article-content code {
+  font-family: inherit;
+  background: #D8D9C5;
+  padding: 0.15rem 0.35rem;
+  font-size: 0.88em;
+  border: 1px solid rgba(26, 26, 26, 0.2);
+}
+
+.sg-article-content pre {
+  background: #1A1A1A;
+  color: #EAEBD7;
+  padding: 1.25rem;
+  overflow-x: auto;
+  border: 1px solid #1A1A1A;
+  margin: 1.5rem 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.sg-article-content pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  border: none;
+}
+
+.sg-article-content ul,
+.sg-article-content ol {
+  margin: 1rem 0 1rem 1.5rem;
+  padding: 0;
+}
+
+.sg-article-content li {
+  margin-bottom: 0.4rem;
+}
+
+.sg-article-content img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #1A1A1A;
+  margin: 1.5rem 0;
+}

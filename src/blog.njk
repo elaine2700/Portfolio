@@ -1,0 +1,63 @@
+---
+layout: layouts/base.njk
+title: "Blog & Knowledge Graph"
+cssFiles:
+  - "/assets/strata-graph/strata-graph.css"
+  - "/assets/css/blog.css"
+jsFiles:
+  - "/assets/strata-graph/strata-graph.js"
+---
+
+<header class="blog-header">
+  <div class="blog-section-index">01/ KNOWLEDGE GRAPH &amp; ARTICLES</div>
+  <h1 class="blog-title">Hierarchical Garden</h1>
+  <p class="blog-description">
+    An interactive force-directed graph with hierarchical zoom levels. Click folder nodes to drill down into subdirectories, click article nodes to open the reading modal, or use the breadcrumbs above the canvas to navigate back up.
+  </p>
+</header>
+
+<section class="blog-graph-section">
+  <div id="strata-graph-container">
+    <!-- Strata-Graph Canvas Mount Point -->
+  </div>
+
+  <div class="blog-instructions-card">
+    <div class="blog-instruction-item">
+      <span class="blog-instruction-pill">CLICK FOLDER</span>
+      <span>Drills down into subcategory with animated zoom</span>
+    </div>
+    <div class="blog-instruction-item">
+      <span class="blog-instruction-pill">CLICK ARTICLE</span>
+      <span>Opens editorial article reader modal</span>
+    </div>
+    <div class="blog-instruction-item">
+      <span class="blog-instruction-pill">DRAG &amp; PAN</span>
+      <span>Freely reposition nodes or pan camera</span>
+    </div>
+    <div class="blog-instruction-item">
+      <span class="blog-instruction-pill">WHEEL</span>
+      <span>Zoom camera in/out around cursor</span>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initGraph() {
+    if (typeof StrataGraph !== 'undefined') {
+      if (!window.blogGraph) {
+        window.blogGraph = new StrataGraph({
+          container: '#strata-graph-container',
+          dataUrl: '/assets/data/blog-graph.json'
+        });
+      }
+    } else {
+      setTimeout(initGraph, 50);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGraph);
+  } else {
+    initGraph();
+  }
+</script>

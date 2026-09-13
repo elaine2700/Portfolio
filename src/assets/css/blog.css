@@ -1,0 +1,131 @@
+/**
+ * Portfolio Blog Styling Overrides
+ * Strictly aligned with DESIGN.md (Retro-Technical Monospace Editorial)
+ */
+
+/* Override strata-graph package CSS variables with portfolio design tokens */
+:root {
+  /* Canvas & Viewport */
+  --sg-canvas-bg: var(--beige-bg, #EAEBD7);
+  --sg-canvas-height: 640px;
+  --sg-canvas-border: var(--border-width-default, 2px) solid var(--text-dark, #1A1A1A);
+  --sg-canvas-shadow: 3px 3px 0px var(--text-dark, #1A1A1A);
+
+  /* Nodes */
+  --sg-node-folder-radius: 44px;
+  --sg-node-article-radius: 36px;
+  --sg-node-border-color: var(--text-dark, #1A1A1A);
+  --sg-node-border-width: 2px;
+  --sg-node-folder-border-color: var(--accent-blue, #8EA8B5);
+  --sg-node-folder-border-width: 3px;
+  --sg-node-hover-ring: rgba(140, 166, 142, 0.55);
+
+  /* Badges & Pills */
+  --sg-badge-bg: var(--accent-green, #8CA68E);
+  --sg-badge-text: var(--base-white, #FFFFFF);
+  --sg-badge-font: var(--font-family-mono, 'JetBrains Mono', monospace);
+
+  /* Breadcrumbs */
+  --sg-breadcrumb-bg: var(--beige-bg, #EAEBD7);
+  --sg-breadcrumb-border: 1px solid var(--text-dark, #1A1A1A);
+  --sg-breadcrumb-text: var(--text-dark, #1A1A1A);
+  --sg-breadcrumb-active: var(--accent-green, #8CA68E);
+  --sg-breadcrumb-hover: var(--accent-blue, #8EA8B5);
+
+  /* Controls */
+  --sg-control-bg: var(--beige-bg, #EAEBD7);
+  --sg-control-text: var(--text-dark, #1A1A1A);
+  --sg-control-border: 1px solid var(--text-dark, #1A1A1A);
+  --sg-control-hover-bg: var(--color-surface-tertiary, #D8D9C5);
+
+  /* Reading Modal */
+  --sg-modal-bg: var(--beige-bg, #EAEBD7);
+  --sg-modal-border: 2px solid var(--text-dark, #1A1A1A);
+  --sg-modal-text: var(--text-dark, #1A1A1A);
+  --sg-modal-muted: var(--text-gray, #4A4A4A);
+  --sg-modal-accent: var(--accent-blue, #8EA8B5);
+  --sg-modal-accent-green: var(--accent-green, #8CA68E);
+  --sg-modal-shadow: 6px 6px 0px var(--text-dark, #1A1A1A);
+}
+
+/* Page Layout */
+.blog-header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--text-dark, #1A1A1A);
+  padding-bottom: 1.5rem;
+}
+
+.blog-section-index {
+  font-family: var(--font-family-headers, 'JetBrains Mono', monospace);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--accent-blue, #8EA8B5);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.blog-title {
+  font-family: var(--font-family-headers, 'JetBrains Mono', monospace);
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 0.8rem 0;
+  color: var(--text-dark, #1A1A1A);
+  line-height: 1.1;
+}
+
+.blog-description {
+  font-family: var(--font-family-headers, 'JetBrains Mono', monospace);
+  font-size: 0.95rem;
+  color: var(--text-gray, #4A4A4A);
+  max-width: 750px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.blog-graph-section {
+  margin-bottom: 3.5rem;
+}
+
+/* Instructions card below graph */
+.blog-instructions-card {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--text-dark, #1A1A1A);
+  background: rgba(216, 217, 197, 0.4);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-family: var(--font-family-mono, 'JetBrains Mono', monospace);
+  font-size: 0.8rem;
+  color: var(--text-gray, #4A4A4A);
+}
+
+.blog-instruction-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.blog-instruction-pill {
+  background: var(--text-dark, #1A1A1A);
+  color: var(--beige-bg, #EAEBD7);
+  font-weight: 800;
+  font-size: 0.7rem;
+  padding: 0.15rem 0.45rem;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --sg-canvas-height: 480px;
+    --sg-node-folder-radius: 38px;
+    --sg-node-article-radius: 30px;
+  }
+  .blog-title {
+    font-size: 1.8rem;
+  }
+}

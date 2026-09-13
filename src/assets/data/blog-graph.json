@@ -1,0 +1,393 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "generatedAt": "2026-09-13T04:56:03.782Z",
+    "rootPath": "/",
+    "totalArticles": 5,
+    "totalFolders": 3
+  },
+  "root": {
+    "path": "/",
+    "parentPath": null,
+    "title": "Knowledge Graph",
+    "description": "An interactive graph exploring software craftsmanship, technical aesthetics, game development, and design systems.",
+    "thumbnail": "/assets/images/blog/thumb-root.svg",
+    "breadcrumbs": [
+      {
+        "title": "ROOT",
+        "path": "/"
+      }
+    ],
+    "itemCount": 2,
+    "subfolderCount": 1,
+    "articleCount": 1,
+    "nodes": [
+      {
+        "id": "folder:design",
+        "type": "folder",
+        "title": "Design",
+        "targetPath": "/design",
+        "thumbnail": "/assets/images/blog/thumb-design.svg",
+        "description": "Principles, UI/UX aesthetics, color theory, typography, and structural hierarchy.",
+        "itemCount": 3,
+        "totalArticles": 4,
+        "subfolderCount": 1,
+        "articleCount": 2,
+        "color": null,
+        "order": 1
+      },
+      {
+        "id": "article:weekend-recap",
+        "type": "article",
+        "title": "What I Did This Weekend",
+        "articleId": "article:weekend-recap",
+        "path": "/weekend-recap",
+        "thumbnail": "/assets/images/blog/thumb-weekend.svg",
+        "summary": "Reflections on building physical synthesizers, mechanical keyboards, and experimenting with canvas rendering loops.",
+        "tags": [
+          "Life",
+          "Notes",
+          "Productivity"
+        ],
+        "date": "2026-09-12",
+        "readingTime": "2 min read",
+        "order": 2
+      }
+    ],
+    "links": [
+      {
+        "source": "folder:design",
+        "target": "article:weekend-recap",
+        "distance": 120,
+        "strength": 0.7
+      },
+      {
+        "source": "article:weekend-recap",
+        "target": "folder:design",
+        "distance": 120,
+        "strength": 0.7
+      }
+    ]
+  },
+  "levels": {
+    "/": {
+      "path": "/",
+      "parentPath": null,
+      "title": "Knowledge Graph",
+      "description": "An interactive graph exploring software craftsmanship, technical aesthetics, game development, and design systems.",
+      "thumbnail": "/assets/images/blog/thumb-root.svg",
+      "breadcrumbs": [
+        {
+          "title": "ROOT",
+          "path": "/"
+        }
+      ],
+      "itemCount": 2,
+      "subfolderCount": 1,
+      "articleCount": 1,
+      "nodes": [
+        {
+          "id": "folder:design",
+          "type": "folder",
+          "title": "Design",
+          "targetPath": "/design",
+          "thumbnail": "/assets/images/blog/thumb-design.svg",
+          "description": "Principles, UI/UX aesthetics, color theory, typography, and structural hierarchy.",
+          "itemCount": 3,
+          "totalArticles": 4,
+          "subfolderCount": 1,
+          "articleCount": 2,
+          "color": null,
+          "order": 1
+        },
+        {
+          "id": "article:weekend-recap",
+          "type": "article",
+          "title": "What I Did This Weekend",
+          "articleId": "article:weekend-recap",
+          "path": "/weekend-recap",
+          "thumbnail": "/assets/images/blog/thumb-weekend.svg",
+          "summary": "Reflections on building physical synthesizers, mechanical keyboards, and experimenting with canvas rendering loops.",
+          "tags": [
+            "Life",
+            "Notes",
+            "Productivity"
+          ],
+          "date": "2026-09-12",
+          "readingTime": "2 min read",
+          "order": 2
+        }
+      ],
+      "links": [
+        {
+          "source": "folder:design",
+          "target": "article:weekend-recap",
+          "distance": 120,
+          "strength": 0.7
+        },
+        {
+          "source": "article:weekend-recap",
+          "target": "folder:design",
+          "distance": 120,
+          "strength": 0.7
+        }
+      ]
+    },
+    "/design": {
+      "path": "/design",
+      "parentPath": "/",
+      "title": "Design",
+      "description": "Principles, UI/UX aesthetics, color theory, typography, and structural hierarchy.",
+      "thumbnail": "/assets/images/blog/thumb-design.svg",
+      "breadcrumbs": [
+        {
+          "title": "ROOT",
+          "path": "/"
+        },
+        {
+          "title": "DESIGN",
+          "path": "/design"
+        }
+      ],
+      "itemCount": 3,
+      "subfolderCount": 1,
+      "articleCount": 2,
+      "nodes": [
+        {
+          "id": "folder:design:colors",
+          "type": "folder",
+          "title": "Colors",
+          "targetPath": "/design/colors",
+          "thumbnail": "/assets/images/blog/thumb-colors.svg",
+          "description": "Harmonious palettes, contrast ratios, and tactile paper tones.",
+          "itemCount": 2,
+          "totalArticles": 2,
+          "subfolderCount": 0,
+          "articleCount": 2,
+          "color": null,
+          "order": 3
+        },
+        {
+          "id": "article:design/how-to-design-a-webpage",
+          "type": "article",
+          "title": "How to Design a Webpage",
+          "articleId": "article:design/how-to-design-a-webpage",
+          "path": "/design/how-to-design-a-webpage",
+          "thumbnail": "/assets/images/blog/thumb-webpage.svg",
+          "summary": "A practical guide to visual hierarchy, typographic scales, and utilitarian editorial layouts.",
+          "tags": [
+            "UI",
+            "UX",
+            "WebDesign"
+          ],
+          "date": "2026-09-10",
+          "readingTime": "2 min read",
+          "order": 1
+        },
+        {
+          "id": "article:design/the-design-of-everyday",
+          "type": "article",
+          "title": "The Design of Everyday Software",
+          "articleId": "article:design/the-design-of-everyday",
+          "path": "/design/the-design-of-everyday",
+          "thumbnail": "/assets/images/blog/thumb-everyday.svg",
+          "summary": "Why mental models and physical affordances remain vital in contemporary graphical user interfaces.",
+          "tags": [
+            "Design",
+            "Affordance",
+            "Architecture"
+          ],
+          "date": "2026-09-08",
+          "readingTime": "1 min read",
+          "order": 2
+        }
+      ],
+      "links": [
+        {
+          "source": "folder:design:colors",
+          "target": "article:design/how-to-design-a-webpage",
+          "distance": 120,
+          "strength": 0.7
+        },
+        {
+          "source": "article:design/how-to-design-a-webpage",
+          "target": "article:design/the-design-of-everyday",
+          "distance": 120,
+          "strength": 0.7
+        },
+        {
+          "source": "article:design/the-design-of-everyday",
+          "target": "folder:design:colors",
+          "distance": 120,
+          "strength": 0.7
+        }
+      ]
+    },
+    "/design/colors": {
+      "path": "/design/colors",
+      "parentPath": "/design",
+      "title": "Colors",
+      "description": "Harmonious palettes, contrast ratios, and tactile paper tones.",
+      "thumbnail": "/assets/images/blog/thumb-colors.svg",
+      "breadcrumbs": [
+        {
+          "title": "ROOT",
+          "path": "/"
+        },
+        {
+          "title": "DESIGN",
+          "path": "/design"
+        },
+        {
+          "title": "COLORS",
+          "path": "/design/colors"
+        }
+      ],
+      "itemCount": 2,
+      "subfolderCount": 0,
+      "articleCount": 2,
+      "nodes": [
+        {
+          "id": "article:design/colors/best-palette",
+          "type": "article",
+          "title": "Best Color Palette for a Webpage",
+          "articleId": "article:design/colors/best-palette",
+          "path": "/design/colors/best-palette",
+          "thumbnail": "/assets/images/blog/thumb-best-palette.svg",
+          "summary": "How to craft restrained, high-contrast palettes that feel warm, organic, and computational.",
+          "tags": [
+            "Color",
+            "Editorial",
+            "WCAG"
+          ],
+          "date": "2026-09-05",
+          "readingTime": "1 min read",
+          "order": 1
+        },
+        {
+          "id": "article:design/colors/autumn-colors",
+          "type": "article",
+          "title": "Autumn Colors in Design Systems",
+          "articleId": "article:design/colors/autumn-colors",
+          "path": "/design/colors/autumn-colors",
+          "thumbnail": "/assets/images/blog/thumb-autumn.svg",
+          "summary": "Extracting tonal mood from late-season foliage and translating it into UI accent tokens.",
+          "tags": [
+            "Color",
+            "Atmosphere",
+            "Palette"
+          ],
+          "date": "2026-09-02",
+          "readingTime": "1 min read",
+          "order": 2
+        }
+      ],
+      "links": [
+        {
+          "source": "article:design/colors/best-palette",
+          "target": "article:design/colors/autumn-colors",
+          "distance": 120,
+          "strength": 0.7
+        },
+        {
+          "source": "article:design/colors/autumn-colors",
+          "target": "article:design/colors/best-palette",
+          "distance": 120,
+          "strength": 0.7
+        }
+      ]
+    }
+  },
+  "articles": {
+    "article:weekend-recap": {
+      "id": "article:weekend-recap",
+      "title": "What I Did This Weekend",
+      "path": "/weekend-recap",
+      "thumbnail": "/assets/images/blog/thumb-weekend.svg",
+      "description": "Reflections on building physical synthesizers, mechanical keyboards, and experimenting with canvas rendering loops.",
+      "summary": "Reflections on building physical synthesizers, mechanical keyboards, and experimenting with canvas rendering loops.",
+      "tags": [
+        "Life",
+        "Notes",
+        "Productivity"
+      ],
+      "date": "2026-09-12",
+      "readingTime": "2 min read",
+      "wordCount": 240,
+      "htmlContent": "<h1>What I Did This Weekend</h1>\n<p>Every few weeks, stepping away from full-stack architecture to build physical tactile objects recalibrates how I think about user experience and software interfaces.</p>\n<h2>1. Physical Tactility vs Digital Flatness</h2>\n<p>We spend countless hours staring at glass and OLED panels. When you interact with physical dials, rotary encoders, or mechanical switches, the mechanical feedback is immediate, unambiguous, and sensory.</p>\n<blockquote>\n<p>The tactile feel of a high-tolerance aluminum dial provides an intuitive sense of precision that software interfaces constantly strive to emulate.</p>\n</blockquote>\n<p>In digital design, this is why subtle micro-animations, physical spring physics, and restrained typography matter. They reintroduce weight and materiality to ephemeral pixels.</p>\n<h2>2. Experiments with Canvas 2D and Force Physics</h2>\n<p>I spent Sunday evening prototyping custom D3-force simulations rendered directly onto an HTML5 Canvas context. Unlike DOM-heavy SVGs that degrade with hundreds of interactive nodes, Canvas renders tens of thousands of primitives at 60 FPS while keeping memory footprints minimal.</p>\n<p>Key takeaways from the experiment:</p>\n<ul>\n<li><strong>Device Pixel Ratio (DPR)</strong>: Always scale the backing store by <code>window.devicePixelRatio</code> to prevent blurry text on high-density Retina displays.</li>\n<li><strong>Velocity Decay</strong>: Setting a moderate velocity decay (<code>0.35</code> to <code>0.4</code>) stabilizes physics oscillations quickly, avoiding chaotic jitter.</li>\n<li><strong>Hit Testing Math</strong>: Simple radial Euclidean distance checks <code>(dx * dx + dy * dy &lt;= r * r)</code> perform orders of magnitude faster than path intersection methods.</li>\n</ul>\n<p>More notes coming soon as this graph engine matures!</p>\n",
+      "folderPath": "/"
+    },
+    "article:design/how-to-design-a-webpage": {
+      "id": "article:design/how-to-design-a-webpage",
+      "title": "How to Design a Webpage",
+      "path": "/design/how-to-design-a-webpage",
+      "thumbnail": "/assets/images/blog/thumb-webpage.svg",
+      "description": "A practical guide to visual hierarchy, typographic scales, and utilitarian editorial layouts.",
+      "summary": "A practical guide to visual hierarchy, typographic scales, and utilitarian editorial layouts.",
+      "tags": [
+        "UI",
+        "UX",
+        "WebDesign"
+      ],
+      "date": "2026-09-10",
+      "readingTime": "2 min read",
+      "wordCount": 208,
+      "htmlContent": "<h1>How to Design a Webpage</h1>\n<p>Good web design is not the accumulation of decorative ornament; it is the deliberate elimination of visual friction so that meaning emerges with unmistakable clarity.</p>\n<h2>1. Establishing Typographic Hierarchy</h2>\n<p>Before choosing colors, borders, or layout frameworks, construct a strict typographic scale. Typography creates 90% of the interface feel.</p>\n<pre><code class=\"language-css\">:root {\n  --fs-hero: 4rem;    /* 64px - Hero Display */\n  --fs-h1:   2rem;    /* 32px - Section Titles */\n  --fs-h2:   1.4rem;  /* 22.4px - Subheaders */\n  --fs-base: 1rem;    /* 16px - Body Copy */\n  --fs-meta: 0.8rem;  /* 12.8px - Technical Indexing */\n}\n</code></pre>\n<h3>The 3 Rules of Editorial Monospace</h3>\n<ol>\n<li><strong>Never allow line lengths over 75 characters</strong>: Restrict prose containers with <code>max-width: 65ch</code> or <code>700px</code>.</li>\n<li><strong>Capitalize technical headers with letter spacing</strong>: Give uppercase monospace headings <code>letter-spacing: 0.05em</code> to enhance scannability.</li>\n<li><strong>Use consistent baseline rhythm</strong>: Align vertical margins to multiples of an 8-point harmonic rhythm.</li>\n</ol>\n<h2>2. Framing and Structural Ink Lines</h2>\n<p>In editorial print and engineering schematics, thin ruled lines partition information cleanly. A 1px or 2px hairline border creates structure without requiring heavy background fills or drop shadows.</p>\n<blockquote>\n<p>“Simplicity is about subtracting the obvious and adding the meaningful.” — John Maeda</p>\n</blockquote>\n<p>Keep interfaces fast, lightweight, and focused.</p>\n",
+      "folderPath": "/design"
+    },
+    "article:design/the-design-of-everyday": {
+      "id": "article:design/the-design-of-everyday",
+      "title": "The Design of Everyday Software",
+      "path": "/design/the-design-of-everyday",
+      "thumbnail": "/assets/images/blog/thumb-everyday.svg",
+      "description": "Why mental models and physical affordances remain vital in contemporary graphical user interfaces.",
+      "summary": "Why mental models and physical affordances remain vital in contemporary graphical user interfaces.",
+      "tags": [
+        "Design",
+        "Affordance",
+        "Architecture"
+      ],
+      "date": "2026-09-08",
+      "readingTime": "1 min read",
+      "wordCount": 146,
+      "htmlContent": "<h1>The Design of Everyday Software</h1>\n<p>In Don Norman’s seminal work <em>The Design of Everyday Things</em>, the concept of <strong>affordance</strong> is central: the qualities of an object that communicate how it can be used.</p>\n<h2>The Loss of Signifiers</h2>\n<p>As software transitioned through skeuomorphism, flat design, and hyper-minimalism, many essential signifiers were discarded:</p>\n<ul>\n<li>Buttons that look identical to inert static labels.</li>\n<li>Hidden gesture-only navigations with zero visual cues.</li>\n<li>Undiscoverable keyboard shortcuts without tooltip affordances.</li>\n</ul>\n<pre><code class=\"language-text\">Physical World:      Door Handle  ──&gt;  Pull\n                     Flat Plate   ──&gt;  Push\n\nDigital World:       Beveled Pill ──&gt;  Clickable\n                     Framed Box   ──&gt;  Interactive Target\n</code></pre>\n<h2>Reintroducing Intentionality</h2>\n<p>When designing modern applications:</p>\n<ul>\n<li><strong>State Feedback</strong>: Ensure hover, active, and focus states are distinct.</li>\n<li><strong>Explicit Markers</strong>: In monospace interfaces, prefix active elements with indicators like <code>&gt;</code> or underline rules.</li>\n<li><strong>Predictable Coordinates</strong>: Maintain consistent spatial orientation so users build muscle memory.</li>\n</ul>\n",
+      "folderPath": "/design"
+    },
+    "article:design/colors/best-palette": {
+      "id": "article:design/colors/best-palette",
+      "title": "Best Color Palette for a Webpage",
+      "path": "/design/colors/best-palette",
+      "thumbnail": "/assets/images/blog/thumb-best-palette.svg",
+      "description": "How to craft restrained, high-contrast palettes that feel warm, organic, and computational.",
+      "summary": "How to craft restrained, high-contrast palettes that feel warm, organic, and computational.",
+      "tags": [
+        "Color",
+        "Editorial",
+        "WCAG"
+      ],
+      "date": "2026-09-05",
+      "readingTime": "1 min read",
+      "wordCount": 176,
+      "htmlContent": "<h1>Best Color Palette for a Webpage</h1>\n<p>The most enduring palettes are rooted in physical printing materials: raw parchment, archival ink, mineral pigments, and patinated textiles.</p>\n<h2>The Retro-Technical Palette Breakdown</h2>\n<p>Rather than harsh <code>#FFFFFF</code> and pure <code>#000000</code>, using nuanced tones softens visual fatigue while maintaining superior contrast.</p>\n<table>\n<thead>\n<tr>\n<th style=\"text-align:left\">Role</th>\n<th style=\"text-align:left\">Color</th>\n<th style=\"text-align:left\">Hex Code</th>\n<th style=\"text-align:left\">Contrast on Background</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align:left\"><strong>Paper Canvas</strong></td>\n<td style=\"text-align:left\">Warm Tactile Beige</td>\n<td style=\"text-align:left\"><code>#EAEBD7</code></td>\n<td style=\"text-align:left\">Baseline (1.0)</td>\n</tr>\n<tr>\n<td style=\"text-align:left\"><strong>Deep Ink</strong></td>\n<td style=\"text-align:left\">Charcoal Black</td>\n<td style=\"text-align:left\"><code>#1A1A1A</code></td>\n<td style=\"text-align:left\">12.3:1 (Exceeds WCAG AAA)</td>\n</tr>\n<tr>\n<td style=\"text-align:left\"><strong>Muted Ink</strong></td>\n<td style=\"text-align:left\">Slate Gray</td>\n<td style=\"text-align:left\"><code>#4A4A4A</code></td>\n<td style=\"text-align:left\">6.6:1 (Exceeds WCAG AA)</td>\n</tr>\n<tr>\n<td style=\"text-align:left\"><strong>Accent Mineral</strong></td>\n<td style=\"text-align:left\">Sage Green</td>\n<td style=\"text-align:left\"><code>#8CA68E</code></td>\n<td style=\"text-align:left\">State Tags &amp; Badges</td>\n</tr>\n<tr>\n<td style=\"text-align:left\"><strong>Accent Steel</strong></td>\n<td style=\"text-align:left\">Denim Slate Blue</td>\n<td style=\"text-align:left\"><code>#8EA8B5</code></td>\n<td style=\"text-align:left\">Dividers &amp; Focus Rings</td>\n</tr>\n</tbody>\n</table>\n<h2>Implementation in Modern CSS</h2>\n<pre><code class=\"language-css\">:root {\n  --canvas-bg: #EAEBD7;\n  --ink-primary: #1A1A1A;\n  --ink-muted: #4A4A4A;\n  --accent-sage: #8CA68E;\n  --accent-slate: #8EA8B5;\n}\n</code></pre>\n<p>By constraining your palette to 2 neutrals and 2 deliberate accents, every color application communicates intention and hierarchy.</p>\n",
+      "folderPath": "/design/colors"
+    },
+    "article:design/colors/autumn-colors": {
+      "id": "article:design/colors/autumn-colors",
+      "title": "Autumn Colors in Design Systems",
+      "path": "/design/colors/autumn-colors",
+      "thumbnail": "/assets/images/blog/thumb-autumn.svg",
+      "description": "Extracting tonal mood from late-season foliage and translating it into UI accent tokens.",
+      "summary": "Extracting tonal mood from late-season foliage and translating it into UI accent tokens.",
+      "tags": [
+        "Color",
+        "Atmosphere",
+        "Palette"
+      ],
+      "date": "2026-09-02",
+      "readingTime": "1 min read",
+      "wordCount": 88,
+      "htmlContent": "<h1>Autumn Colors in Design Systems</h1>\n<p>When temperatures drop and foliage shifts, nature provides the ideal case study in organic desaturation and tonal warmth.</p>\n<h2>Seasonal Hex Palette</h2>\n<ul>\n<li><strong>Ochre Amber</strong>: <code>#C88D4E</code> — Warm highlights and callout badges.</li>\n<li><strong>Burnt Terracotta</strong>: <code>#B05B3B</code> — Alert and warning signals.</li>\n<li><strong>Deep Moss</strong>: <code>#5A6B53</code> — Secondary foliage tones.</li>\n<li><strong>Parchment Mist</strong>: <code>#EDE8D0</code> — Layered card surfaces.</li>\n</ul>\n<h2>Harmonizing with Dark Monospace</h2>\n<p>Pairing these earthy tones with dense JetBrains Mono typography and ink-ruled hairline dividers anchors the seasonal warmth in computational rigor.</p>\n",
+      "folderPath": "/design/colors"
+    }
+  }
+}

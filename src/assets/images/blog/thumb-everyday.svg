@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#EAEBD7"/>
+  <rect x="20" y="20" width="360" height="360" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+  <!-- Door handle & button affordance diagram -->
+  <rect x="80" y="80" width="100" height="200" fill="#D8D9C5" stroke="#1A1A1A" stroke-width="2"/>
+  <circle cx="160" cy="180" r="14" fill="#1A1A1A"/>
+  <!-- Switch pill -->
+  <rect x="220" y="110" width="110" height="60" rx="30" fill="#8CA68E" stroke="#1A1A1A" stroke-width="2"/>
+  <circle cx="295" cy="140" r="22" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2"/>
+  <!-- Crosshairs -->
+  <line x1="220" y1="230" x2="330" y2="230" stroke="#8EA8B5" stroke-width="3"/>
+  <line x1="275" y1="200" x2="275" y2="260" stroke="#8EA8B5" stroke-width="3"/>
+  <text x="200" y="345" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#1A1A1A" text-anchor="middle">AFFORDANCE // UX</text>
+</svg>

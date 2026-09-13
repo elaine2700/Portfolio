@@ -1,0 +1,32 @@
+{
+  "name": "strata-graph",
+  "version": "1.0.0",
+  "description": "Interactive hierarchical force-graph engine with zoom levels and markdown reader",
+  "main": "src/index.js",
+  "bin": {
+    "strata-graph": "./bin/cli.js"
+  },
+  "scripts": {
+    "build:client": "node scripts/bundle.js",
+    "build": "npm run build:client"
+  },
+  "keywords": [
+    "force-graph",
+    "canvas",
+    "hierarchical",
+    "zoom-levels",
+    "d3-force",
+    "blog",
+    "markdown"
+  ],
+  "author": "Elaine Serrano",
+  "license": "MIT",
+  "dependencies": {
+    "d3-force": "^3.0.0",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.1.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}
