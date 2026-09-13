@@ -1,0 +1,186 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "generatedAt": "2026-09-13T06:53:18.126Z",
+    "rootPath": "/",
+    "totalArticles": 0,
+    "totalFolders": 4
+  },
+  "root": {
+    "path": "/",
+    "parentPath": null,
+    "title": "Blog",
+    "description": "",
+    "thumbnail": null,
+    "breadcrumbs": [
+      {
+        "title": "ROOT",
+        "path": "/"
+      }
+    ],
+    "itemCount": 1,
+    "subfolderCount": 1,
+    "articleCount": 0,
+    "nodes": [
+      {
+        "id": "folder:design",
+        "type": "folder",
+        "title": "Design",
+        "targetPath": "/design",
+        "thumbnail": null,
+        "description": "",
+        "itemCount": 1,
+        "totalArticles": 0,
+        "subfolderCount": 1,
+        "articleCount": 0,
+        "color": null,
+        "order": 999
+      }
+    ],
+    "links": []
+  },
+  "levels": {
+    "/": {
+      "path": "/",
+      "parentPath": null,
+      "title": "Blog",
+      "description": "",
+      "thumbnail": null,
+      "breadcrumbs": [
+        {
+          "title": "ROOT",
+          "path": "/"
+        }
+      ],
+      "itemCount": 1,
+      "subfolderCount": 1,
+      "articleCount": 0,
+      "nodes": [
+        {
+          "id": "folder:design",
+          "type": "folder",
+          "title": "Design",
+          "targetPath": "/design",
+          "thumbnail": null,
+          "description": "",
+          "itemCount": 1,
+          "totalArticles": 0,
+          "subfolderCount": 1,
+          "articleCount": 0,
+          "color": null,
+          "order": 999
+        }
+      ],
+      "links": []
+    },
+    "/design": {
+      "path": "/design",
+      "parentPath": "/",
+      "title": "Design",
+      "description": "",
+      "thumbnail": null,
+      "breadcrumbs": [
+        {
+          "title": "ROOT",
+          "path": "/"
+        },
+        {
+          "title": "DESIGN",
+          "path": "/design"
+        }
+      ],
+      "itemCount": 1,
+      "subfolderCount": 1,
+      "articleCount": 0,
+      "nodes": [
+        {
+          "id": "folder:design:colors",
+          "type": "folder",
+          "title": "Colors",
+          "targetPath": "/design/colors",
+          "thumbnail": null,
+          "description": "",
+          "itemCount": 1,
+          "totalArticles": 0,
+          "subfolderCount": 1,
+          "articleCount": 0,
+          "color": null,
+          "order": 999
+        }
+      ],
+      "links": []
+    },
+    "/design/colors": {
+      "path": "/design/colors",
+      "parentPath": "/design",
+      "title": "Colors",
+      "description": "",
+      "thumbnail": null,
+      "breadcrumbs": [
+        {
+          "title": "ROOT",
+          "path": "/"
+        },
+        {
+          "title": "DESIGN",
+          "path": "/design"
+        },
+        {
+          "title": "COLORS",
+          "path": "/design/colors"
+        }
+      ],
+      "itemCount": 1,
+      "subfolderCount": 1,
+      "articleCount": 0,
+      "nodes": [
+        {
+          "id": "folder:design:colors:typography",
+          "type": "folder",
+          "title": "Typography",
+          "targetPath": "/design/colors/typography",
+          "thumbnail": null,
+          "description": "",
+          "itemCount": 0,
+          "totalArticles": 0,
+          "subfolderCount": 0,
+          "articleCount": 0,
+          "color": null,
+          "order": 999
+        }
+      ],
+      "links": []
+    },
+    "/design/colors/typography": {
+      "path": "/design/colors/typography",
+      "parentPath": "/design/colors",
+      "title": "Typography",
+      "description": "",
+      "thumbnail": null,
+      "breadcrumbs": [
+        {
+          "title": "ROOT",
+          "path": "/"
+        },
+        {
+          "title": "DESIGN",
+          "path": "/design"
+        },
+        {
+          "title": "COLORS",
+          "path": "/design/colors"
+        },
+        {
+          "title": "TYPOGRAPHY",
+          "path": "/design/colors/typography"
+        }
+      ],
+      "itemCount": 0,
+      "subfolderCount": 0,
+      "articleCount": 0,
+      "nodes": [],
+      "links": []
+    }
+  },
+  "articles": {}
+}

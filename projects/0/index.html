@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Elaine Serrano | Project</title>
+    <title>Elaine Serrano | Project Dossier</title>
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="/assets/css/layout.css"/>
     <link rel="stylesheet" href="/assets/css/global.css"/>
     <link rel="stylesheet" href="/assets/css/footer.css"/>
+    
+        <link rel="stylesheet" href=/assets/css/projects.css />
     
         <link rel="stylesheet" href=/assets/css/project-detail.css />
     
@@ -59,43 +61,725 @@
     </nav>
     
     <main class="content-wrapper">
-        <article class="project-detail__page">
-    <header class="project-header">
-        <h1 class="project-title-large">VR Arki Academy</h1>
-        <p class="project-subtitle">A building system where the user can design and create their dream house in Virtual Reality.</p>
         
-        <div class="project-meta">
-            <div class="meta-group tag-group">
-                
-                <span class="tag">Unity</span>
-                
-                
-                <span class="tag">C#</span>
-                
-            </div>
-            
-            <div class="project-buttons">
-                 
-                <a class="button action-btn" href="https://github.com/elaine2700/VR_ArchiAcademy" target="_blank">CODE VIEW CODE</a>
-                
-            </div>
-        </div>
+<article class="projects__page">
+    <!-- Editorial Section Header strictly following DESIGN.md -->
+    <header class="projects__header">
+        <div class="projects__index">01 / SELECTED WORKS & REPOSITORY</div>
+        <h1 class="projects__title">PROJECT ARCHIVE</h1>
+        <p class="projects__subtitle">
+            A curated collection of spatial computing (VR/AR) simulations, procedural tools, interactive web applications, and developer experiments.
+        </p>
+        <div class="projects__header-divider"></div>
     </header>
 
-    
-    <section class="project-media">
-        <div class="video-container">
-            <iframe class="video" width="100%" height="100%" src="https://www.youtube.com/embed/S3NLhjTkV9Q?si=oMxRshWUIqkft5ze" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <!-- Command & Filter Bar -->
+    <div class="projects__command-bar">
+        <div id="filterBar" class="projects__filterbar" role="toolbar" aria-label="Project category filters">
+            <div class="filter-lead">
+                <span class="filter-indicator" aria-hidden="true"></span>
+                <span class="filter-label">FILTER:</span>
+            </div>
+            <div class="filter-group">
+                <button class="button filter-btn active" data-filter="ALL" aria-pressed="true">
+                    ALL <span class="filter-badge" data-count-for="ALL">9</span>
+                </button>
+                <button class="button filter-btn" data-filter="VR-AR" aria-pressed="false">
+                    VR-AR <span class="filter-badge" data-count-for="VR-AR">3</span>
+                </button>
+                <button class="button filter-btn" data-filter="WEB" aria-pressed="false">
+                    WEB <span class="filter-badge" data-count-for="WEB">5</span>
+                </button>
+                <button class="button filter-btn" data-filter="TOOL" aria-pressed="false">
+                    TOOL <span class="filter-badge" data-count-for="TOOL">1</span>
+                </button>
+            </div>
         </div>
-        <p class="media-caption">Project Demo Video</p>
-    </section>
-    
 
-    <div class="project-content-grid">
-        <div class="content-left">
-            <section class="detail-section">
-                <div class="detail-body">
+        <div class="projects__status-strip">
+            <span class="status-indicator-dot"></span>
+            <span class="status-text" id="projectCountDisplay">SHOWING 9 / 9 PROJECTS</span>
+        </div>
+    </div>
+
+    <!-- Projects Grid Section -->
+    <section class="projects__section" aria-label="Project cards catalog">
+        <div class="projects-grid" id="projectsGrid">
+            
+            <article class="project-card" data-category="VR-AR" data-id="0">
+                <!-- Card Architectural Topbar / Metadata Strip -->
+                <div class="card-meta-bar">
+                    <span class="card-meta-id">PRJ-01</span>
                     
+                    <span class="project-type-badge type-vr-ar">VR-AR</span>
+                    
+                </div>
+
+                <!-- Media Frame with 16:9 Aspect Ratio -->
+                <div class="project-image-frame">
+                    <img src="/assets/images/ArkiAcademy_Banner.jpg" alt="VR Arki Academy thumbnail" class="project-thumbnail" loading="lazy"/>
+                    
+                    <div class="video-indicator-badge" title="Demo video available">
+                        <span class="play-icon">&#9654;</span> DEMO VIDEO
+                    </div>
+                    
+                </div>
+                
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="project-card-header">
+                        <h2 class="project-title">VR Arki Academy</h2>
+                    </div>
+
+                    <!-- Tags & Technology Taxonomy -->
+                    <div class="project-taxonomies">
+                        
+                        <div class="tag-group tools-group">
+                            
+                            <span class="tag-badge tag-tool">Unity</span>
+                            
+                        </div>
+                        
+
+                        
+                        <div class="tag-group languages-group">
+                            
+                            <span class="tag-badge tag-lang">C#</span>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Description -->
+                    <div class="project-description">
+                        <p>A building system where the user can design and create their dream house in Virtual Reality.</p>
+                    </div>
+
+                    <!-- Action Footer with Tactile CTAs -->
+                    <div class="project-actions">
+                        <a class="action-btn action-primary open-dossier-trigger" href="/projects/0/" data-project-id="0">
+                            MORE <span class="btn-arrow">&rarr;</span>
+                        </a>
+                        
+                        <a class="action-btn action-secondary" href="https://github.com/elaine2700/VR_ArchiAcademy" target="_blank" rel="noopener noreferrer">
+                            CODE <span class="btn-arrow">&nearr;</span>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+            </article>
+            
+            <article class="project-card" data-category="TOOL" data-id="1">
+                <!-- Card Architectural Topbar / Metadata Strip -->
+                <div class="card-meta-bar">
+                    <span class="card-meta-id">PRJ-02</span>
+                    
+                    <span class="project-type-badge type-tool">Tool</span>
+                    
+                </div>
+
+                <!-- Media Frame with 16:9 Aspect Ratio -->
+                <div class="project-image-frame">
+                    <img src="/assets/images/Procedural_World.png" alt="Hexagonal Procedural World thumbnail" class="project-thumbnail" loading="lazy"/>
+                    
+                    <div class="video-indicator-badge" title="Demo video available">
+                        <span class="play-icon">&#9654;</span> DEMO VIDEO
+                    </div>
+                    
+                </div>
+                
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="project-card-header">
+                        <h2 class="project-title">Hexagonal Procedural World</h2>
+                    </div>
+
+                    <!-- Tags & Technology Taxonomy -->
+                    <div class="project-taxonomies">
+                        
+                        <div class="tag-group tools-group">
+                            
+                            <span class="tag-badge tag-tool">Unity</span>
+                            
+                        </div>
+                        
+
+                        
+                        <div class="tag-group languages-group">
+                            
+                            <span class="tag-badge tag-lang">C#</span>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Description -->
+                    <div class="project-description">
+                        <p>A tool to create a Procedural world with hexagons.</p>
+                    </div>
+
+                    <!-- Action Footer with Tactile CTAs -->
+                    <div class="project-actions">
+                        <a class="action-btn action-primary open-dossier-trigger" href="/projects/1/" data-project-id="1">
+                            MORE <span class="btn-arrow">&rarr;</span>
+                        </a>
+                        
+                        <a class="action-btn action-secondary" href="https://github.com/elaine2700/Hexagonal_World" target="_blank" rel="noopener noreferrer">
+                            CODE <span class="btn-arrow">&nearr;</span>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+            </article>
+            
+            <article class="project-card" data-category="WEB" data-id="2">
+                <!-- Card Architectural Topbar / Metadata Strip -->
+                <div class="card-meta-bar">
+                    <span class="card-meta-id">PRJ-03</span>
+                    
+                    <span class="project-type-badge type-web">Web</span>
+                    
+                </div>
+
+                <!-- Media Frame with 16:9 Aspect Ratio -->
+                <div class="project-image-frame">
+                    <img src="/assets/images/Bike_Viewer.png" alt="Model Viewer thumbnail" class="project-thumbnail" loading="lazy"/>
+                    
+                </div>
+                
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="project-card-header">
+                        <h2 class="project-title">Model Viewer</h2>
+                    </div>
+
+                    <!-- Tags & Technology Taxonomy -->
+                    <div class="project-taxonomies">
+                        
+                        <div class="tag-group tools-group">
+                            
+                            <span class="tag-badge tag-tool">Unity</span>
+                            
+                        </div>
+                        
+
+                        
+                        <div class="tag-group languages-group">
+                            
+                            <span class="tag-badge tag-lang">C#</span>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Description -->
+                    <div class="project-description">
+                        <p>A tool to display the breakdown of an specific 3d model</p>
+                    </div>
+
+                    <!-- Action Footer with Tactile CTAs -->
+                    <div class="project-actions">
+                        <a class="action-btn action-primary open-dossier-trigger" href="/projects/2/" data-project-id="2">
+                            MORE <span class="btn-arrow">&rarr;</span>
+                        </a>
+                        
+                        <a class="action-btn action-secondary" href="https://github.com/elaine2700/3d-Model-Viewer" target="_blank" rel="noopener noreferrer">
+                            CODE <span class="btn-arrow">&nearr;</span>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+            </article>
+            
+            <article class="project-card" data-category="WEB" data-id="3">
+                <!-- Card Architectural Topbar / Metadata Strip -->
+                <div class="card-meta-bar">
+                    <span class="card-meta-id">PRJ-04</span>
+                    
+                    <span class="project-type-badge type-web">Web</span>
+                    
+                </div>
+
+                <!-- Media Frame with 16:9 Aspect Ratio -->
+                <div class="project-image-frame">
+                    <img src="/assets/images/RecipeFinder.png" alt="Focus Food thumbnail" class="project-thumbnail" loading="lazy"/>
+                    
+                </div>
+                
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="project-card-header">
+                        <h2 class="project-title">Focus Food</h2>
+                    </div>
+
+                    <!-- Tags & Technology Taxonomy -->
+                    <div class="project-taxonomies">
+                        
+                        <div class="tag-group tools-group">
+                            
+                            <span class="tag-badge tag-tool">React</span>
+                            
+                            <span class="tag-badge tag-tool">Flask</span>
+                            
+                        </div>
+                        
+
+                        
+                        <div class="tag-group languages-group">
+                            
+                            <span class="tag-badge tag-lang">HTML</span>
+                            
+                            <span class="tag-badge tag-lang">CSS</span>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Description -->
+                    <div class="project-description">
+                        <p>Project developed for the -Women Who Code Hackathon for Social Good 2023- </p>
+                    </div>
+
+                    <!-- Action Footer with Tactile CTAs -->
+                    <div class="project-actions">
+                        <a class="action-btn action-primary open-dossier-trigger" href="/projects/3/" data-project-id="3">
+                            MORE <span class="btn-arrow">&rarr;</span>
+                        </a>
+                        
+                        <a class="action-btn action-secondary" href="https://github.com/Idealyinfamous/super-brain-project" target="_blank" rel="noopener noreferrer">
+                            CODE <span class="btn-arrow">&nearr;</span>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+            </article>
+            
+            <article class="project-card" data-category="VR-AR" data-id="4">
+                <!-- Card Architectural Topbar / Metadata Strip -->
+                <div class="card-meta-bar">
+                    <span class="card-meta-id">PRJ-05</span>
+                    
+                    <span class="project-type-badge type-vr-ar">VR-AR</span>
+                    
+                </div>
+
+                <!-- Media Frame with 16:9 Aspect Ratio -->
+                <div class="project-image-frame">
+                    <img src="/assets/images/VOY_banner.jpg" alt="Visions of Yesterday thumbnail" class="project-thumbnail" loading="lazy"/>
+                    
+                    <div class="video-indicator-badge" title="Demo video available">
+                        <span class="play-icon">&#9654;</span> DEMO VIDEO
+                    </div>
+                    
+                </div>
+                
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="project-card-header">
+                        <h2 class="project-title">Visions of Yesterday</h2>
+                    </div>
+
+                    <!-- Tags & Technology Taxonomy -->
+                    <div class="project-taxonomies">
+                        
+                        <div class="tag-group tools-group">
+                            
+                            <span class="tag-badge tag-tool">Unity</span>
+                            
+                        </div>
+                        
+
+                        
+                        <div class="tag-group languages-group">
+                            
+                            <span class="tag-badge tag-lang">C#</span>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Description -->
+                    <div class="project-description">
+                        <p>A Virtual Reality narrative where the user will experience dementia symptoms.</p>
+                    </div>
+
+                    <!-- Action Footer with Tactile CTAs -->
+                    <div class="project-actions">
+                        <a class="action-btn action-primary open-dossier-trigger" href="/projects/4/" data-project-id="4">
+                            MORE <span class="btn-arrow">&rarr;</span>
+                        </a>
+                        
+                        <a class="action-btn action-secondary" href="https://github.com/JorgeLeonS/DementiaProject" target="_blank" rel="noopener noreferrer">
+                            CODE <span class="btn-arrow">&nearr;</span>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+            </article>
+            
+            <article class="project-card" data-category="WEB" data-id="5">
+                <!-- Card Architectural Topbar / Metadata Strip -->
+                <div class="card-meta-bar">
+                    <span class="card-meta-id">PRJ-06</span>
+                    
+                    <span class="project-type-badge type-web">Web</span>
+                    
+                </div>
+
+                <!-- Media Frame with 16:9 Aspect Ratio -->
+                <div class="project-image-frame">
+                    <img src="/assets/images/movielibrary_thumbnail.png" alt="Movie Library thumbnail" class="project-thumbnail" loading="lazy"/>
+                    
+                </div>
+                
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="project-card-header">
+                        <h2 class="project-title">Movie Library</h2>
+                    </div>
+
+                    <!-- Tags & Technology Taxonomy -->
+                    <div class="project-taxonomies">
+                        
+                        <div class="tag-group tools-group">
+                            
+                            <span class="tag-badge tag-tool">React</span>
+                            
+                        </div>
+                        
+
+                        
+                        <div class="tag-group languages-group">
+                            
+                            <span class="tag-badge tag-lang">HTML</span>
+                            
+                            <span class="tag-badge tag-lang">CSS</span>
+                            
+                            <span class="tag-badge tag-lang">JS</span>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Description -->
+                    <div class="project-description">
+                        <p>Type the name of a movie and get the movie information</p>
+                    </div>
+
+                    <!-- Action Footer with Tactile CTAs -->
+                    <div class="project-actions">
+                        <a class="action-btn action-primary open-dossier-trigger" href="/projects/5/" data-project-id="5">
+                            MORE <span class="btn-arrow">&rarr;</span>
+                        </a>
+                        
+                        <a class="action-btn action-secondary" href="https://github.com/elaine2700/movielibrary" target="_blank" rel="noopener noreferrer">
+                            CODE <span class="btn-arrow">&nearr;</span>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+            </article>
+            
+            <article class="project-card" data-category="VR-AR" data-id="6">
+                <!-- Card Architectural Topbar / Metadata Strip -->
+                <div class="card-meta-bar">
+                    <span class="card-meta-id">PRJ-07</span>
+                    
+                    <span class="project-type-badge type-vr-ar">VR-AR</span>
+                    
+                </div>
+
+                <!-- Media Frame with 16:9 Aspect Ratio -->
+                <div class="project-image-frame">
+                    <img src="/assets/images/RubeGoldbergMachine_Banner.jpg" alt="Rube Goldberg Machine thumbnail" class="project-thumbnail" loading="lazy"/>
+                    
+                    <div class="video-indicator-badge" title="Demo video available">
+                        <span class="play-icon">&#9654;</span> DEMO VIDEO
+                    </div>
+                    
+                </div>
+                
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="project-card-header">
+                        <h2 class="project-title">Rube Goldberg Machine</h2>
+                    </div>
+
+                    <!-- Tags & Technology Taxonomy -->
+                    <div class="project-taxonomies">
+                        
+                        <div class="tag-group tools-group">
+                            
+                            <span class="tag-badge tag-tool">Unreal</span>
+                            
+                            <span class="tag-badge tag-tool">Blueprints</span>
+                            
+                        </div>
+                        
+
+                        
+                    </div>
+                    
+                    <!-- Description -->
+                    <div class="project-description">
+                        <p>A machine that completes a single task in a complicated way. The task for my machine is to open a box full of cookies.</p>
+                    </div>
+
+                    <!-- Action Footer with Tactile CTAs -->
+                    <div class="project-actions">
+                        <a class="action-btn action-primary open-dossier-trigger" href="/projects/6/" data-project-id="6">
+                            MORE <span class="btn-arrow">&rarr;</span>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+            </article>
+            
+            <article class="project-card" data-category="WEB" data-id="7">
+                <!-- Card Architectural Topbar / Metadata Strip -->
+                <div class="card-meta-bar">
+                    <span class="card-meta-id">PRJ-08</span>
+                    
+                    <span class="project-type-badge type-web">Web</span>
+                    
+                </div>
+
+                <!-- Media Frame with 16:9 Aspect Ratio -->
+                <div class="project-image-frame">
+                    <img src="/assets/images/artistmodeon_thumbnail.png" alt="Artist Mode On Website thumbnail" class="project-thumbnail" loading="lazy"/>
+                    
+                </div>
+                
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="project-card-header">
+                        <h2 class="project-title">Artist Mode On Website</h2>
+                    </div>
+
+                    <!-- Tags & Technology Taxonomy -->
+                    <div class="project-taxonomies">
+                        
+
+                        
+                        <div class="tag-group languages-group">
+                            
+                            <span class="tag-badge tag-lang">HTML</span>
+                            
+                            <span class="tag-badge tag-lang">CSS</span>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Description -->
+                    <div class="project-description">
+                        <p>Website Design</p>
+                    </div>
+
+                    <!-- Action Footer with Tactile CTAs -->
+                    <div class="project-actions">
+                        <a class="action-btn action-primary open-dossier-trigger" href="/projects/7/" data-project-id="7">
+                            MORE <span class="btn-arrow">&rarr;</span>
+                        </a>
+                        
+                        
+                        <a class="action-btn action-accent" href="https://www.artistmodeon.com" target="_blank" rel="noopener noreferrer">
+                            LIVE <span class="btn-arrow">&nearr;</span>
+                        </a>
+                        
+                    </div>
+                </div>
+            </article>
+            
+            <article class="project-card" data-category="WEB" data-id="8">
+                <!-- Card Architectural Topbar / Metadata Strip -->
+                <div class="card-meta-bar">
+                    <span class="card-meta-id">PRJ-09</span>
+                    
+                    <span class="project-type-badge type-web">Web</span>
+                    
+                </div>
+
+                <!-- Media Frame with 16:9 Aspect Ratio -->
+                <div class="project-image-frame">
+                    <img src="/assets/images/ToDo-list_thumbnail.png" alt="To do list App thumbnail" class="project-thumbnail" loading="lazy"/>
+                    
+                </div>
+                
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="project-card-header">
+                        <h2 class="project-title">To do list App</h2>
+                    </div>
+
+                    <!-- Tags & Technology Taxonomy -->
+                    <div class="project-taxonomies">
+                        
+                        <div class="tag-group tools-group">
+                            
+                            <span class="tag-badge tag-tool">React</span>
+                            
+                        </div>
+                        
+
+                        
+                        <div class="tag-group languages-group">
+                            
+                            <span class="tag-badge tag-lang">HTML</span>
+                            
+                            <span class="tag-badge tag-lang">CSS</span>
+                            
+                            <span class="tag-badge tag-lang">JS</span>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Description -->
+                    <div class="project-description">
+                        <p>A simple tool to make a list of tasks.</p>
+                    </div>
+
+                    <!-- Action Footer with Tactile CTAs -->
+                    <div class="project-actions">
+                        <a class="action-btn action-primary open-dossier-trigger" href="/projects/8/" data-project-id="8">
+                            MORE <span class="btn-arrow">&rarr;</span>
+                        </a>
+                        
+                        <a class="action-btn action-secondary" href="https://github.com/elaine2700/todo-list" target="_blank" rel="noopener noreferrer">
+                            CODE <span class="btn-arrow">&nearr;</span>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+            </article>
+            
+        </div>
+
+        <!-- Empty Filter State -->
+        <div id="emptyProjectsState" class="projects-empty-state hidden">
+            <div class="empty-state-box">
+                <div class="empty-state-code">// NULL_FILTER_MATCH</div>
+                <h3 class="empty-state-title">No Projects Found</h3>
+                <p class="empty-state-text">No project entries match the current filter selection.</p>
+                <button id="resetFilterBtn" class="empty-state-reset-btn">RESET TO ALL PROJECTS</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Dossier Modal Component (URL Synchronized) -->
+    <!-- ==========================================================================
+     PROJECT DETAIL MODAL (PROJECT DOSSIER)
+     Synchronized with URL /projects/{id}/
+     ========================================================================== -->
+<div id="projectModalBackdrop" 
+     class="project-modal-backdrop is-open" 
+     role="dialog" 
+     aria-modal="true" 
+     aria-hidden="false"
+     data-initial-id="0">
+    
+    <div class="project-modal-window" id="projectModalWindow">
+        <!-- Modal Topbar / Command Header -->
+        <div class="modal-topbar">
+            <div class="modal-topbar-left">
+                <span class="modal-pulse-dot" aria-hidden="true"></span>
+                <span class="modal-topbar-tag" id="modalDossierTag">PROJECT DOSSIER</span>
+                <span class="modal-topbar-divider">//</span>
+                <span class="modal-topbar-id" id="modalDossierId">PRJ-01</span>
+            </div>
+            <div class="modal-topbar-center">
+                <span class="modal-topbar-title" id="modalDossierTitle">PROJECT DETAILS</span>
+            </div>
+            <div class="modal-topbar-right">
+                <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close project dossier">
+                    ✕ <span class="esc-hint">[ESC]</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Scrollable Dossier Content Area -->
+        <div class="modal-scroll-body" id="modalScrollBody">
+            
+            <div class="project-dossier-pane is-active" 
+                 id="dossierPane-0" 
+                 data-id="0"
+                 data-index="PRJ-01"
+                 data-title="VR Arki Academy"
+                 data-category="VR-AR"
+                 data-trailer="https://www.youtube-nocookie.com/embed/S3NLhjTkV9Q?si=oMxRshWUIqkft5ze?autoplay=1">
+                
+                <!-- Dossier Hero Header -->
+                <header class="dossier-hero">
+                    <div class="dossier-meta-strip">
+                        <span class="dossier-index-pill">01 / 09</span>
+                        
+                        <span class="project-type-badge type-vr-ar">VR-AR</span>
+                        
+                    </div>
+
+                    <h1 class="dossier-title">VR Arki Academy</h1>
+                    <p class="dossier-subtitle">A building system where the user can design and create their dream house in Virtual Reality.</p>
+
+                    <!-- Taxonomies & Actions Bar -->
+                    <div class="dossier-toolbar">
+                        <div class="dossier-taxonomies">
+                            
+                            <div class="tag-group tools-group">
+                                
+                                <span class="tag-badge tag-tool">Unity</span>
+                                
+                            </div>
+                            
+
+                            
+                            <div class="tag-group languages-group">
+                                
+                                <span class="tag-badge tag-lang">C#</span>
+                                
+                            </div>
+                            
+                        </div>
+
+                        <div class="dossier-actions">
+                            
+                            <a class="action-btn action-secondary" href="https://github.com/elaine2700/VR_ArchiAcademy" target="_blank" rel="noopener noreferrer">
+                                VIEW CODE &nearr;
+                            </a>
+                            
+                            
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Media Enclosure -->
+                <div class="dossier-media-section">
+                    
+                    <div class="video-container">
+                        <iframe class="dossier-video-frame" 
+                                title="VR Arki Academy Demo Video"
+                                
+                                src="https://www.youtube-nocookie.com/embed/S3NLhjTkV9Q?si=oMxRshWUIqkft5ze"
+                                
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                    </div>
+                    <p class="media-caption">// DEMO VIDEO RECORDING // 1080P HD</p>
+                    
+                </div>
+
+                <!-- Markdown Content Section -->
+                <section class="dossier-content-body">
+                    
+                    <div class="dossier-markdown">
                         <h2>About</h2>
 <p>A project developed as my final project at Vancouver Film School in the VR/AR Design &amp; Development program.
 This project was developed in Unity Engine.</p>
@@ -104,12 +788,857 @@ This project was developed in Unity Engine.</p>
 <h2>Problem / Solution</h2>
 <p>It is often a problem for some people to get a sense of scale of the space they are designing in. It is not the same to say 20 by 20 metres than to be a space of 20 by 20 metres. This tool helps to understand the 3d space, for architecture students it is one of the fundamental skills they need to develop to keep evolving their design skills</p>
 
+                    </div>
+                    
+                </section>
+            </div>
+            
+            <div class="project-dossier-pane " 
+                 id="dossierPane-1" 
+                 data-id="1"
+                 data-index="PRJ-02"
+                 data-title="Hexagonal Procedural World"
+                 data-category="Tool"
+                 data-trailer="https://www.youtube-nocookie.com/embed/US76BYYP_ZM?si=k3Dr0CE4kS5Yusp1?autoplay=1">
+                
+                <!-- Dossier Hero Header -->
+                <header class="dossier-hero">
+                    <div class="dossier-meta-strip">
+                        <span class="dossier-index-pill">02 / 09</span>
+                        
+                        <span class="project-type-badge type-tool">Tool</span>
+                        
+                    </div>
+
+                    <h1 class="dossier-title">Hexagonal Procedural World</h1>
+                    <p class="dossier-subtitle">A tool to create a Procedural world with hexagons.</p>
+
+                    <!-- Taxonomies & Actions Bar -->
+                    <div class="dossier-toolbar">
+                        <div class="dossier-taxonomies">
+                            
+                            <div class="tag-group tools-group">
+                                
+                                <span class="tag-badge tag-tool">Unity</span>
+                                
+                            </div>
+                            
+
+                            
+                            <div class="tag-group languages-group">
+                                
+                                <span class="tag-badge tag-lang">C#</span>
+                                
+                            </div>
+                            
+                        </div>
+
+                        <div class="dossier-actions">
+                            
+                            <a class="action-btn action-secondary" href="https://github.com/elaine2700/Hexagonal_World" target="_blank" rel="noopener noreferrer">
+                                VIEW CODE &nearr;
+                            </a>
+                            
+                            
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Media Enclosure -->
+                <div class="dossier-media-section">
+                    
+                    <div class="video-container">
+                        <iframe class="dossier-video-frame" 
+                                title="Hexagonal Procedural World Demo Video"
+                                
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                    </div>
+                    <p class="media-caption">// DEMO VIDEO RECORDING // 1080P HD</p>
                     
                 </div>
-            </section>
+
+                <!-- Markdown Content Section -->
+                <section class="dossier-content-body">
+                    
+                    <div class="dossier-markdown">
+                        <h2>About</h2>
+<p>A hexagonal procedural world created with Unity Engine.</p>
+<h2>Description</h2>
+<p>A while back a saw a tutorial on how to make a world like this in Blender using the Geometry Nodes system, and I thought it would be a good exercise to recreate it with Unity.</p>
+<h3>Height</h3>
+<p>This tool creates the hexagon mesh and then changes its location to create a hexagonal grid. Before drawing the mesh, the height is decided with the help of the Mathf.PerlinNoise function that Unity provides, giving as arguments the hexagon's position.</p>
+<h3>Mask</h3>
+<p>An important aspect of the world is the overall shape as a hexagon, so before generating the grid, the script spawns a big hexagon that will sorround the grid. And, before spawning every object I generated a ray to check if the position is inside the hexagon mask.</p>
+<h3>Materials</h3>
+<p>To select a material for the hexagon, the script compares the height along the maximum height and with a lerp function, it maps the value with the index of a material list. Later, for the trees, the script compares the height in percentage and checks if it is between the set range.</p>
+
+                    </div>
+                    
+                </section>
+            </div>
+            
+            <div class="project-dossier-pane " 
+                 id="dossierPane-2" 
+                 data-id="2"
+                 data-index="PRJ-03"
+                 data-title="Model Viewer"
+                 data-category="Web"
+                 data-trailer="">
+                
+                <!-- Dossier Hero Header -->
+                <header class="dossier-hero">
+                    <div class="dossier-meta-strip">
+                        <span class="dossier-index-pill">03 / 09</span>
+                        
+                        <span class="project-type-badge type-web">Web</span>
+                        
+                    </div>
+
+                    <h1 class="dossier-title">Model Viewer</h1>
+                    <p class="dossier-subtitle">A tool to display the breakdown of an specific 3d model</p>
+
+                    <!-- Taxonomies & Actions Bar -->
+                    <div class="dossier-toolbar">
+                        <div class="dossier-taxonomies">
+                            
+                            <div class="tag-group tools-group">
+                                
+                                <span class="tag-badge tag-tool">Unity</span>
+                                
+                            </div>
+                            
+
+                            
+                            <div class="tag-group languages-group">
+                                
+                                <span class="tag-badge tag-lang">C#</span>
+                                
+                            </div>
+                            
+                        </div>
+
+                        <div class="dossier-actions">
+                            
+                            <a class="action-btn action-secondary" href="https://github.com/elaine2700/3d-Model-Viewer" target="_blank" rel="noopener noreferrer">
+                                VIEW CODE &nearr;
+                            </a>
+                            
+                            
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Media Enclosure -->
+                <div class="dossier-media-section">
+                    
+                    <div class="dossier-banner-frame">
+                        <img src="/assets/images/Bike_Viewer.png" alt="Model Viewer Full Banner" class="dossier-banner-image"/>
+                    </div>
+                    <p class="media-caption">// PROJECT MEDIA CAPTURE</p>
+                    
+                </div>
+
+                <!-- Markdown Content Section -->
+                <section class="dossier-content-body">
+                    
+                    <!-- Architectural Spec Breakdown for Cards without Markdown -->
+                    <div class="dossier-specs-card">
+                        <div class="specs-card-header">
+                            <span class="specs-tag">// SYSTEM SPECIFICATIONS</span>
+                        </div>
+                        <div class="specs-grid">
+                            <div class="spec-row">
+                                <span class="spec-key">CLASSIFICATION</span>
+                                <span class="spec-val">Web Application</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">FRAMEWORKS & TOOLS</span>
+                                <span class="spec-val">
+                                    Unity
+                                </span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">PROGRAMMING LANGUAGES</span>
+                                <span class="spec-val">
+                                    C#
+                                </span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">REPOSITORY STATUS</span>
+                                <span class="spec-val">
+                                    
+                                    <a href="https://github.com/elaine2700/3d-Model-Viewer" target="_blank" rel="noopener noreferrer">Public Open Source Repository</a>
+                                    
+                                </span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">DEPLOYMENT</span>
+                                <span class="spec-val">
+                                    
+                                    Internal Prototype / Local Execution
+                                    
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </section>
+            </div>
+            
+            <div class="project-dossier-pane " 
+                 id="dossierPane-3" 
+                 data-id="3"
+                 data-index="PRJ-04"
+                 data-title="Focus Food"
+                 data-category="Web"
+                 data-trailer="">
+                
+                <!-- Dossier Hero Header -->
+                <header class="dossier-hero">
+                    <div class="dossier-meta-strip">
+                        <span class="dossier-index-pill">04 / 09</span>
+                        
+                        <span class="project-type-badge type-web">Web</span>
+                        
+                    </div>
+
+                    <h1 class="dossier-title">Focus Food</h1>
+                    <p class="dossier-subtitle">Project developed for the -Women Who Code Hackathon for Social Good 2023- </p>
+
+                    <!-- Taxonomies & Actions Bar -->
+                    <div class="dossier-toolbar">
+                        <div class="dossier-taxonomies">
+                            
+                            <div class="tag-group tools-group">
+                                
+                                <span class="tag-badge tag-tool">React</span>
+                                
+                                <span class="tag-badge tag-tool">Flask</span>
+                                
+                            </div>
+                            
+
+                            
+                            <div class="tag-group languages-group">
+                                
+                                <span class="tag-badge tag-lang">HTML</span>
+                                
+                                <span class="tag-badge tag-lang">CSS</span>
+                                
+                            </div>
+                            
+                        </div>
+
+                        <div class="dossier-actions">
+                            
+                            <a class="action-btn action-secondary" href="https://github.com/Idealyinfamous/super-brain-project" target="_blank" rel="noopener noreferrer">
+                                VIEW CODE &nearr;
+                            </a>
+                            
+                            
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Media Enclosure -->
+                <div class="dossier-media-section">
+                    
+                    <div class="dossier-banner-frame">
+                        <img src="/assets/images/RecipeFinder.png" alt="Focus Food Full Banner" class="dossier-banner-image"/>
+                    </div>
+                    <p class="media-caption">// PROJECT MEDIA CAPTURE</p>
+                    
+                </div>
+
+                <!-- Markdown Content Section -->
+                <section class="dossier-content-body">
+                    
+                    <div class="dossier-markdown">
+                        <h2>Purpose/Mission</h2>
+<p>Women Who Code Hackathon for Social Good 2023</p>
+<p>Many of us face challenges deciding about their next meal. But to some this minor inconvenience  can be completely debilitating. Sometimes to the point where it is a danger to ones health. With [ Food decider], we hope to cut down on the complexities and anxiety of meal decisions by providing only relevant data within the [ Food decider] app.Our app might not be able to completely solve the riddle of decision-stall but it can help with managing it. Making the meal decision easier for all.</p>
+<p>We wanted to design a site to address ADHD Decision paralysis,  Dietary/Allergy management, and Food waste reduction.</p>
+<h2>Description</h2>
+<p>Our Focus Food app minimizes distractions by allowing users to swiftly select ingredients and presents recipes with minimal interruption, using a slot machine animation to maintain engagement. This approach optimizes the user’s path to finding  a recipe, minimizing interruptions and ensuring a user-friendly, distraction-focused experience.</p>
+<h2>Technologies Used</h2>
+<ul>
+<li>JavaScript</li>
+<li>React</li>
+<li>Flask</li>
+<li>Python</li>
+<li>Bootstrap</li>
+<li>CSS</li>
+<li>iPassage</li>
+<li>MySQL</li>
+</ul>
+<h2>The Build</h2>
+<h3>Wire Framing</h3>
+<p><img src="/assets/images/W1-80.jpg" alt="Wire Frame 1">
+<img src="/assets/images/W2-80.jpg" alt="Wire Frame 2">
+<img src="/assets/images/W3-80.jpg" alt="Wire Frame 3">
+<img src="/assets/images/W4-80.jpg" alt="Wire Frame 4"></p>
+<h3>Design Details</h3>
+<p><img src="/assets/images/Design-80.jpg" alt="Design Details"></p>
+<h2>The final Product: FOCUS FOOD</h2>
+<p><img src="/assets/images/RecipeFinder.png" alt="Focus Food Site screenshot"></p>
+<h2>What We Learned</h2>
+<ul>
+<li>Learned to created a complete web-app connecting front end with back end</li>
+<li>React Basics</li>
+<li>Setting up Flask Server</li>
+<li>Shared team knowledge</li>
+<li>Developed a deeper understanding of Git</li>
+<li>Effectively communicate with the team
+Learned new web techonologies</li>
+</ul>
+<h2>Super Brains Team</h2>
+<ul>
+<li>Jessica Perry - Team Lead</li>
+<li>Calico Seders - Technical Lead</li>
+<li>Elaine Serrano - Front End</li>
+<li>Ana Villalobos - Front End</li>
+<li>Chris Gruenhagen - Full Stack</li>
+</ul>
+<h2>Attribution</h2>
+<p>Recipe data obtained from the Spoonacular API.
+https://spoonacular.com/food-api</p>
+<h2>License</h2>
+<p>MIT</p>
+<p>Copyright (c) SUPERBRAINS '23</p>
+
+                    </div>
+                    
+                </section>
+            </div>
+            
+            <div class="project-dossier-pane " 
+                 id="dossierPane-4" 
+                 data-id="4"
+                 data-index="PRJ-05"
+                 data-title="Visions of Yesterday"
+                 data-category="VR-AR"
+                 data-trailer="https://www.youtube-nocookie.com/embed/cTC7mPqpGU8?si=UQ7ZhPdvj9Dh3xN5?autoplay=1">
+                
+                <!-- Dossier Hero Header -->
+                <header class="dossier-hero">
+                    <div class="dossier-meta-strip">
+                        <span class="dossier-index-pill">05 / 09</span>
+                        
+                        <span class="project-type-badge type-vr-ar">VR-AR</span>
+                        
+                    </div>
+
+                    <h1 class="dossier-title">Visions of Yesterday</h1>
+                    <p class="dossier-subtitle">A Virtual Reality narrative where the user will experience dementia symptoms.</p>
+
+                    <!-- Taxonomies & Actions Bar -->
+                    <div class="dossier-toolbar">
+                        <div class="dossier-taxonomies">
+                            
+                            <div class="tag-group tools-group">
+                                
+                                <span class="tag-badge tag-tool">Unity</span>
+                                
+                            </div>
+                            
+
+                            
+                            <div class="tag-group languages-group">
+                                
+                                <span class="tag-badge tag-lang">C#</span>
+                                
+                            </div>
+                            
+                        </div>
+
+                        <div class="dossier-actions">
+                            
+                            <a class="action-btn action-secondary" href="https://github.com/JorgeLeonS/DementiaProject" target="_blank" rel="noopener noreferrer">
+                                VIEW CODE &nearr;
+                            </a>
+                            
+                            
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Media Enclosure -->
+                <div class="dossier-media-section">
+                    
+                    <div class="video-container">
+                        <iframe class="dossier-video-frame" 
+                                title="Visions of Yesterday Demo Video"
+                                
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                    </div>
+                    <p class="media-caption">// DEMO VIDEO RECORDING // 1080P HD</p>
+                    
+                </div>
+
+                <!-- Markdown Content Section -->
+                <section class="dossier-content-body">
+                    
+                    <div class="dossier-markdown">
+                        <h2>About</h2>
+<p>Visions of Yesterday is an empathy based Virtual Reality application, created to teach users the trials and tribulations associated with dementia.
+The intended audience for this project are as follows: dementia care workers, dementia stricken families, and those interested in how VR can teach empathy.</p>
+<h2>Vision</h2>
+<p>This project can help teach our potential audience valuable lessons about dementia, through the use of empathy. The vision of the project is to demonstrate that simple tasks, such as finding one's toothbrush, can be almost insurmountable when one has dementia.
+The user is situated in a house with a caretaker to assist them. The goal of this experience is to generate awareness and empathy for those with dementia by focusing on the visual impairments associated with this disorder.</p>
+<h2>Characteristics</h2>
+<ul>
+<li>Developed in Unity</li>
+<li>Start Date: May 3d, 2022</li>
+<li>Final Date: August 12th, 2022</li>
+<li>Project type: Proof of Concept</li>
+</ul>
+<h2>Team</h2>
+<ul>
+<li>Anthony Fusio. 3d Artist</li>
+<li>Elaine Serrano. Developer, Technical Artist</li>
+<li>Jorge Leon. Lead Developer</li>
+<li>William Livingston. Level Designer, Narrative designer</li>
+</ul>
+
+                    </div>
+                    
+                </section>
+            </div>
+            
+            <div class="project-dossier-pane " 
+                 id="dossierPane-5" 
+                 data-id="5"
+                 data-index="PRJ-06"
+                 data-title="Movie Library"
+                 data-category="Web"
+                 data-trailer="">
+                
+                <!-- Dossier Hero Header -->
+                <header class="dossier-hero">
+                    <div class="dossier-meta-strip">
+                        <span class="dossier-index-pill">06 / 09</span>
+                        
+                        <span class="project-type-badge type-web">Web</span>
+                        
+                    </div>
+
+                    <h1 class="dossier-title">Movie Library</h1>
+                    <p class="dossier-subtitle">Type the name of a movie and get the movie information</p>
+
+                    <!-- Taxonomies & Actions Bar -->
+                    <div class="dossier-toolbar">
+                        <div class="dossier-taxonomies">
+                            
+                            <div class="tag-group tools-group">
+                                
+                                <span class="tag-badge tag-tool">React</span>
+                                
+                            </div>
+                            
+
+                            
+                            <div class="tag-group languages-group">
+                                
+                                <span class="tag-badge tag-lang">HTML</span>
+                                
+                                <span class="tag-badge tag-lang">CSS</span>
+                                
+                                <span class="tag-badge tag-lang">JS</span>
+                                
+                            </div>
+                            
+                        </div>
+
+                        <div class="dossier-actions">
+                            
+                            <a class="action-btn action-secondary" href="https://github.com/elaine2700/movielibrary" target="_blank" rel="noopener noreferrer">
+                                VIEW CODE &nearr;
+                            </a>
+                            
+                            
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Media Enclosure -->
+                <div class="dossier-media-section">
+                    
+                    <div class="dossier-banner-frame">
+                        <img src="/assets/images/movielibrary_thumbnail.png" alt="Movie Library Full Banner" class="dossier-banner-image"/>
+                    </div>
+                    <p class="media-caption">// PROJECT MEDIA CAPTURE</p>
+                    
+                </div>
+
+                <!-- Markdown Content Section -->
+                <section class="dossier-content-body">
+                    
+                    <!-- Architectural Spec Breakdown for Cards without Markdown -->
+                    <div class="dossier-specs-card">
+                        <div class="specs-card-header">
+                            <span class="specs-tag">// SYSTEM SPECIFICATIONS</span>
+                        </div>
+                        <div class="specs-grid">
+                            <div class="spec-row">
+                                <span class="spec-key">CLASSIFICATION</span>
+                                <span class="spec-val">Web Application</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">FRAMEWORKS & TOOLS</span>
+                                <span class="spec-val">
+                                    React
+                                </span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">PROGRAMMING LANGUAGES</span>
+                                <span class="spec-val">
+                                    HTML, CSS, JS
+                                </span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">REPOSITORY STATUS</span>
+                                <span class="spec-val">
+                                    
+                                    <a href="https://github.com/elaine2700/movielibrary" target="_blank" rel="noopener noreferrer">Public Open Source Repository</a>
+                                    
+                                </span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">DEPLOYMENT</span>
+                                <span class="spec-val">
+                                    
+                                    Internal Prototype / Local Execution
+                                    
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </section>
+            </div>
+            
+            <div class="project-dossier-pane " 
+                 id="dossierPane-6" 
+                 data-id="6"
+                 data-index="PRJ-07"
+                 data-title="Rube Goldberg Machine"
+                 data-category="VR-AR"
+                 data-trailer="https://www.youtube-nocookie.com/embed/B8rQNaGdGaQ?si=5wXCQaH1pGeuIJ6I?autoplay=1">
+                
+                <!-- Dossier Hero Header -->
+                <header class="dossier-hero">
+                    <div class="dossier-meta-strip">
+                        <span class="dossier-index-pill">07 / 09</span>
+                        
+                        <span class="project-type-badge type-vr-ar">VR-AR</span>
+                        
+                    </div>
+
+                    <h1 class="dossier-title">Rube Goldberg Machine</h1>
+                    <p class="dossier-subtitle">A machine that completes a single task in a complicated way. The task for my machine is to open a box full of cookies.</p>
+
+                    <!-- Taxonomies & Actions Bar -->
+                    <div class="dossier-toolbar">
+                        <div class="dossier-taxonomies">
+                            
+                            <div class="tag-group tools-group">
+                                
+                                <span class="tag-badge tag-tool">Unreal</span>
+                                
+                                <span class="tag-badge tag-tool">Blueprints</span>
+                                
+                            </div>
+                            
+
+                            
+                        </div>
+
+                        <div class="dossier-actions">
+                            
+                            
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Media Enclosure -->
+                <div class="dossier-media-section">
+                    
+                    <div class="video-container">
+                        <iframe class="dossier-video-frame" 
+                                title="Rube Goldberg Machine Demo Video"
+                                
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                    </div>
+                    <p class="media-caption">// DEMO VIDEO RECORDING // 1080P HD</p>
+                    
+                </div>
+
+                <!-- Markdown Content Section -->
+                <section class="dossier-content-body">
+                    
+                    <div class="dossier-markdown">
+                        <h2>About</h2>
+<p>A project developed as my final project at Vancouver Film School in the VR/AR Design &amp; Development program.
+This project was developed in Unity Engine.</p>
+<h2>Functionality</h2>
+<p>This project was made for an assignment at Vancouver Film School. The task consisted in designing a Rube Goldberg Machine in Unreal Engine, using for the most part Physics simulation with the minimum amount of Blueprints.
+A Rube Goldberg Machine does a simple tasks in a complicated way by combining multiple objects to create a chain reaction. These machines are fun to watch when they are working, so I designed mine to do a fun task, which was to open a box full of cookies.</p>
+<h2>Characteristics</h2>
+<ul>
+<li>Developed in Unreal Engine 4</li>
+<li>Start Date: April 7th, 2022</li>
+<li>Final Date: April 21st, 2022</li>
+<li>Assets from Quixel Bridge</li>
+</ul>
+
+                    </div>
+                    
+                </section>
+            </div>
+            
+            <div class="project-dossier-pane " 
+                 id="dossierPane-7" 
+                 data-id="7"
+                 data-index="PRJ-08"
+                 data-title="Artist Mode On Website"
+                 data-category="Web"
+                 data-trailer="">
+                
+                <!-- Dossier Hero Header -->
+                <header class="dossier-hero">
+                    <div class="dossier-meta-strip">
+                        <span class="dossier-index-pill">08 / 09</span>
+                        
+                        <span class="project-type-badge type-web">Web</span>
+                        
+                    </div>
+
+                    <h1 class="dossier-title">Artist Mode On Website</h1>
+                    <p class="dossier-subtitle">Website Design</p>
+
+                    <!-- Taxonomies & Actions Bar -->
+                    <div class="dossier-toolbar">
+                        <div class="dossier-taxonomies">
+                            
+
+                            
+                            <div class="tag-group languages-group">
+                                
+                                <span class="tag-badge tag-lang">HTML</span>
+                                
+                                <span class="tag-badge tag-lang">CSS</span>
+                                
+                            </div>
+                            
+                        </div>
+
+                        <div class="dossier-actions">
+                            
+                            
+                            <a class="action-btn action-accent" href="https://www.artistmodeon.com" target="_blank" rel="noopener noreferrer">
+                                LIVE SITE &nearr;
+                            </a>
+                            
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Media Enclosure -->
+                <div class="dossier-media-section">
+                    
+                    <div class="dossier-banner-frame">
+                        <img src="/assets/images/artistmodeon_thumbnail.png" alt="Artist Mode On Website Full Banner" class="dossier-banner-image"/>
+                    </div>
+                    <p class="media-caption">// PROJECT MEDIA CAPTURE</p>
+                    
+                </div>
+
+                <!-- Markdown Content Section -->
+                <section class="dossier-content-body">
+                    
+                    <!-- Architectural Spec Breakdown for Cards without Markdown -->
+                    <div class="dossier-specs-card">
+                        <div class="specs-card-header">
+                            <span class="specs-tag">// SYSTEM SPECIFICATIONS</span>
+                        </div>
+                        <div class="specs-grid">
+                            <div class="spec-row">
+                                <span class="spec-key">CLASSIFICATION</span>
+                                <span class="spec-val">Web Application</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">FRAMEWORKS & TOOLS</span>
+                                <span class="spec-val">
+                                    Vanilla / Core Technologies
+                                </span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">PROGRAMMING LANGUAGES</span>
+                                <span class="spec-val">
+                                    HTML, CSS
+                                </span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">REPOSITORY STATUS</span>
+                                <span class="spec-val">
+                                    
+                                    Private Client / Proprietary Work
+                                    
+                                </span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">DEPLOYMENT</span>
+                                <span class="spec-val">
+                                    
+                                    <a href="https://www.artistmodeon.com" target="_blank" rel="noopener noreferrer">Production Live Link Active</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </section>
+            </div>
+            
+            <div class="project-dossier-pane " 
+                 id="dossierPane-8" 
+                 data-id="8"
+                 data-index="PRJ-09"
+                 data-title="To do list App"
+                 data-category="Web"
+                 data-trailer="">
+                
+                <!-- Dossier Hero Header -->
+                <header class="dossier-hero">
+                    <div class="dossier-meta-strip">
+                        <span class="dossier-index-pill">09 / 09</span>
+                        
+                        <span class="project-type-badge type-web">Web</span>
+                        
+                    </div>
+
+                    <h1 class="dossier-title">To do list App</h1>
+                    <p class="dossier-subtitle">A simple tool to make a list of tasks.</p>
+
+                    <!-- Taxonomies & Actions Bar -->
+                    <div class="dossier-toolbar">
+                        <div class="dossier-taxonomies">
+                            
+                            <div class="tag-group tools-group">
+                                
+                                <span class="tag-badge tag-tool">React</span>
+                                
+                            </div>
+                            
+
+                            
+                            <div class="tag-group languages-group">
+                                
+                                <span class="tag-badge tag-lang">HTML</span>
+                                
+                                <span class="tag-badge tag-lang">CSS</span>
+                                
+                                <span class="tag-badge tag-lang">JS</span>
+                                
+                            </div>
+                            
+                        </div>
+
+                        <div class="dossier-actions">
+                            
+                            <a class="action-btn action-secondary" href="https://github.com/elaine2700/todo-list" target="_blank" rel="noopener noreferrer">
+                                VIEW CODE &nearr;
+                            </a>
+                            
+                            
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Media Enclosure -->
+                <div class="dossier-media-section">
+                    
+                    <div class="dossier-banner-frame">
+                        <img src="/assets/images/ToDo-list_thumbnail.png" alt="To do list App Full Banner" class="dossier-banner-image"/>
+                    </div>
+                    <p class="media-caption">// PROJECT MEDIA CAPTURE</p>
+                    
+                </div>
+
+                <!-- Markdown Content Section -->
+                <section class="dossier-content-body">
+                    
+                    <!-- Architectural Spec Breakdown for Cards without Markdown -->
+                    <div class="dossier-specs-card">
+                        <div class="specs-card-header">
+                            <span class="specs-tag">// SYSTEM SPECIFICATIONS</span>
+                        </div>
+                        <div class="specs-grid">
+                            <div class="spec-row">
+                                <span class="spec-key">CLASSIFICATION</span>
+                                <span class="spec-val">Web Application</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">FRAMEWORKS & TOOLS</span>
+                                <span class="spec-val">
+                                    React
+                                </span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">PROGRAMMING LANGUAGES</span>
+                                <span class="spec-val">
+                                    HTML, CSS, JS
+                                </span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">REPOSITORY STATUS</span>
+                                <span class="spec-val">
+                                    
+                                    <a href="https://github.com/elaine2700/todo-list" target="_blank" rel="noopener noreferrer">Public Open Source Repository</a>
+                                    
+                                </span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">DEPLOYMENT</span>
+                                <span class="spec-val">
+                                    
+                                    Internal Prototype / Local Execution
+                                    
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </section>
+            </div>
+            
         </div>
+
+        <!-- Modal Bottom Navigation Controls -->
+        <footer class="modal-footer">
+            <div class="modal-nav-group">
+                <button type="button" class="modal-nav-btn prev-btn" id="modalPrevBtn" aria-label="Previous project">
+                    &larr; PREV PROJECT
+                </button>
+                <span class="modal-counter-text" id="modalCounterText">PROJECT 1 OF 9</span>
+                <button type="button" class="modal-nav-btn next-btn" id="modalNextBtn" aria-label="Next project">
+                    NEXT PROJECT &rarr;
+                </button>
+            </div>
+            <div class="modal-footer-action">
+                <button type="button" class="modal-return-btn" id="modalReturnBtn">
+                    RETURN TO CATALOG [ESC]
+                </button>
+            </div>
+        </footer>
     </div>
+</div>
+
 </article>
+
     </main>
 
     <footer id="contact" class='footer'>   
@@ -126,6 +1655,8 @@ This project was developed in Unity Engine.</p>
         </div>
     </footer>
 
+    
+    <script src=/assets/js/projects.js></script>
     
 </body>
 </html>
