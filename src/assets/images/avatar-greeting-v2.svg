@@ -1,28 +1,4 @@
-<div class="avatar-hero-card" id="avatarHeroCard">
-    <!-- Corner crosshairs for retro-technical architectural framing -->
-    <div class="corner-mark top-left">+</div>
-    <div class="corner-mark top-right">+</div>
-    <div class="corner-mark bottom-left">+</div>
-    <div class="corner-mark bottom-right">+</div>
-
-    <!-- Metadata HUD header -->
-    <div class="avatar-card-header">
-        <span class="avatar-sys-id"><span class="status-pulse-dot"></span> UNIT_01 // AVATAR</span>
-        <span class="avatar-tech-coord">SYS: ACTIVE</span>
-    </div>
-
-    <!-- Speech Bubble (Toned to paper canvas, no harsh white contrast) -->
-    <div class="avatar-speech-bubble" id="avatarSpeechBubble">
-        <div class="speech-bubble-tag">00/ GREETING</div>
-        <div class="speech-bubble-content">
-            <span class="greeting-message" id="avatarGreetingText">HELLO, WORLD! I'M ELAINE 👋</span><span class="blinking-cursor">_</span>
-        </div>
-        <div class="speech-bubble-tail"></div>
-    </div>
-
-    <!-- Avatar SVG Enclosure (Version 2: Single waving hand & upper body) -->
-    <div class="avatar-svg-wrapper">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1140" class="avatar-greeting-svg v2" id="avatarGreetingSvg" aria-label="Animated avatar greeting with floating hands">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1140" class="avatar-greeting-svg v2" id="avatarGreetingSvg" aria-label="Animated avatar greeting with floating hands">
   <defs>
     <style>
       :root {
@@ -151,47 +127,3 @@
     </g>
   </g>
 </svg>
-    </div>
-
-    <!-- Bottom Status Bar -->
-    <div class="avatar-card-footer">
-        <span class="avatar-status-text">XR & CREATIVE DEV // WAVING</span>
-        <button type="button" class="avatar-action-pill" id="avatarWaveBtn">WAVE BACK 👋</button>
-    </div>
-</div>
-
-<script>
-(function() {
-    const waveBtn = document.getElementById('avatarWaveBtn');
-    let resetTimer = null;
-
-    if (waveBtn) {
-        waveBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            
-            const wavingHand = document.querySelector('.floating-hand-right');
-            const sparkles = document.querySelector('.avatar-sparkle');
-
-            if (wavingHand) {
-                // Wave faster for ~3 seconds without altering greeting phrase
-                wavingHand.style.animationDuration = '0.5s';
-                if (sparkles) {
-                    sparkles.style.animationDuration = '0.5s';
-                }
-                waveBtn.textContent = 'WAVING! 👋';
-                waveBtn.classList.add('active');
-
-                if (resetTimer) clearTimeout(resetTimer);
-                resetTimer = setTimeout(function() {
-                    wavingHand.style.animationDuration = '';
-                    if (sparkles) {
-                        sparkles.style.animationDuration = '';
-                    }
-                    waveBtn.textContent = 'WAVE BACK 👋';
-                    waveBtn.classList.remove('active');
-                }, 3000);
-            }
-        });
-    }
-})();
-</script>

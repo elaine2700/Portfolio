@@ -230,17 +230,17 @@
 .avatar-speech-bubble {
     position: relative;
     width: 94%;
-    background: #FFFFFF;
+    background: var(--beige-bg);
     border: 1.5px solid var(--text-dark);
     padding: 0.85rem 1rem;
     margin-bottom: 1rem;
     box-shadow: 2px 2px 0 var(--text-dark);
-    cursor: pointer;
+    cursor: default;
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .avatar-speech-bubble:hover {
-    background: #FFFAF2;
+    background: #F2F3E5;
     transform: translateY(-2px);
 }
 
@@ -312,7 +312,12 @@
     height: 0;
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
-    border-top: 8px solid #FFFFFF;
+    border-top: 8px solid var(--beige-bg);
+    transition: border-top-color 0.2s ease;
+}
+
+.avatar-speech-bubble:hover .speech-bubble-tail::after {
+    border-top-color: #F2F3E5;
 }
 
 /* Avatar Image & Animation Container */
