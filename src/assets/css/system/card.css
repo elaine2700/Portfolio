@@ -1,15 +1,17 @@
 /* Card System */
 .card {
     background-color: var(--color-surface-card);
-    border: 1.5px solid var(--color-ink-primary);
-    padding: 1.5rem;
+    border: 3px double var(--color-ink-primary);
+    padding: 1.35rem 1.25rem;
     box-sizing: border-box;
     position: relative;
+    box-shadow: var(--shadow-retro);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .card:hover {
     transform: translate(-2px, -2px);
-    box-shadow: var(--shadow-retro);
+    box-shadow: var(--shadow-retro-hover);
 }
 
 .card .card-header {

@@ -137,7 +137,13 @@ cssFiles: ["/assets/css/home.css"]
                 </div>
 
                 <div class="plate-image-container corner-tape">
-                    <img src="{{ project.image }}" alt="{{ project.title }} specimen thumbnail" loading="lazy" />
+                    <span class="corner-tape-strip tape-tl" aria-hidden="true"></span>
+                    <span class="corner-tape-strip tape-tr" aria-hidden="true"></span>
+                    <span class="corner-tape-strip tape-bl" aria-hidden="true"></span>
+                    <span class="corner-tape-strip tape-br" aria-hidden="true"></span>
+                    <div class="image-crop-box">
+                        <img src="{{ project.image }}" alt="{{ project.title }} specimen thumbnail" loading="lazy" />
+                    </div>
                 </div>
 
                 <h3 class="plate-title">{{ project.title }}</h3>

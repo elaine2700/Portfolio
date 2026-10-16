@@ -51,14 +51,20 @@
                     {% endif %}
                 </div>
 
-                <!-- Media Frame with 16:9 Aspect Ratio -->
-                <div class="project-image-frame">
-                    <img src="{{ project.image }}" alt="{{ project.title }} thumbnail" class="project-thumbnail" loading="lazy"/>
-                    {% if project.trailer %}
-                    <div class="video-indicator-badge" title="Demo video available">
-                        <span class="play-icon">&#9654;</span> DEMO VIDEO
+                <!-- Media Frame with 16:9 Aspect Ratio & Corner Tape -->
+                <div class="project-image-frame corner-tape">
+                    <span class="corner-tape-strip tape-tl" aria-hidden="true"></span>
+                    <span class="corner-tape-strip tape-tr" aria-hidden="true"></span>
+                    <span class="corner-tape-strip tape-bl" aria-hidden="true"></span>
+                    <span class="corner-tape-strip tape-br" aria-hidden="true"></span>
+                    <div class="image-crop-box">
+                        <img src="{{ project.image }}" alt="{{ project.title }} thumbnail" class="project-thumbnail" loading="lazy"/>
+                        {% if project.trailer %}
+                        <div class="video-indicator-badge" title="Demo video available">
+                            <span class="play-icon">&#9654;</span> DEMO VIDEO
+                        </div>
+                        {% endif %}
                     </div>
-                    {% endif %}
                 </div>
                 
                 <!-- Card Body -->

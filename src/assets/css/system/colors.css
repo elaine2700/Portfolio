@@ -59,8 +59,8 @@
     --shadow-retro: 3px 3px 0 var(--color-ink-primary);
     --shadow-retro-small: 2px 2px 0 var(--color-ink-primary);
     --shadow-retro-hover: 4px 4px 0 var(--color-ink-primary);
-    --color-tape: rgba(224, 213, 190, 0.82);
-    --color-tape-border: rgba(180, 165, 140, 0.4);
+    --color-tape: rgba(234, 219, 182, 0.92);
+    --color-tape-border: rgba(180, 160, 125, 0.6);
 
     /* Surface Mappings */
     --color-surface-primary: var(--color-surface-card);
