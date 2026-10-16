@@ -193,13 +193,8 @@
     width: 100%;
 }
 
-/* ==========================================================================
-   4. DOUBLE-BORDER PROJECT CARD (Proposal v1 Integration)
-   ========================================================================== */
-
 .project-card {
     background-color: var(--color-surface-card);
-    border: 3px double var(--color-ink-primary);
     box-shadow: var(--shadow-retro);
     display: flex;
     flex-direction: column;
