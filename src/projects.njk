@@ -3,55 +3,76 @@ layout: "layouts/base"
 title: "Projects"
 cssFiles: ["/assets/css/projects.css"]
 jsFiles: ["/assets/js/projects.js"]
-
-// TODO: Make filter bar to work.
 ---
 <article class="projects__page">
 
+    <!-- ARCHIVAL CATALOG HEADER -->
+    <header class="catalog-page-header">
+        <div class="catalog-title-group">
+            <div class="registration-mark" title="Registration Crosshair"><span></span></div>
+            <h1 class="catalog-main-title">PROJECT ARCHIVES // ALL WORKS</h1>
+        </div>
+    </header>
+
+    <!-- INTERACTIVE FILTER BAR (Vintage Index Tabs) -->
     <div id="filterBar" class="projects__filterbar">
-        <span class="filter-label">FILTER:</span>
+        <span class="filter-label">INDEX FILTER:</span>
         <div class="filter-group">
-            <button class="button filter-btn active">ALL</button>
-            <button class="button filter-btn">VR-AR</button>
-            <button class="button filter-btn">WEB</button>
-            <button class="button filter-btn">TOOL</button>
+            <button class="filter-btn active" data-filter="ALL">ALL <span class="tag pill gold">09</span></button>
+            <button class="filter-btn" data-filter="VR-AR">VR-AR <span class="tag pill gold">03</span></button>
+            <button class="filter-btn" data-filter="WEB">WEB <span class="tag pill gold">05</span></button>
+            <button class="filter-btn" data-filter="TOOL">TOOL <span class="tag pill gold">01</span></button>
         </div>
     </div>
-    
-    <div class="projects-divider"></div>
 
+    <!-- SPECIMEN CARDS GRID -->
     <section class="projects__section">
         <div class="projects-grid">
             {% for project in projects %}
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="{{project.image}}" alt="{{project.title}} thumbnail" class="thumbnail"/>
+            <div class="card" data-category="{{ project.projectType }}">
+                <!-- Card Header with Graph Strip -->
+                <div class="card-header">
+                    <span>ARCHIVE #0{{ project.id + 1 }}</span>
                     {% if project.projectType %}
-                    <span class="project-type-badge">{{project.projectType}}</span>
+                    <span
+                        class="pill {% if project.projectType == 'VR-AR' %}teal{% elif project.projectType == 'Tool' %}gold{% endif %}"
+                        style="font-size: 0.65rem; padding: 0.15rem 0.55rem;">
+                        {{ project.projectType }}
+                    </span>
                     {% endif %}
                 </div>
-                
-                <div class="project-card-header">
-                    <h2 class="project-title">{{project.title}}</h2>
-                    <!-- Optional: Right aligned element or duplicate badge if needed -->
+
+                <!-- Preview Thumbnail with Corner Tape -->
+                <div class="project-image corner-tape">
+                    <img src="{{ project.image }}" alt="{{ project.title }} thumbnail" class="thumbnail"
+                        loading="lazy" />
                 </div>
 
-                <div class="tag-group">
-                   {% for tool in project.tools %}
-                    <span class="tag">{{tool}}</span>
+                <h2 class="project-title">{{ project.title }}</h2>
+
+                <!-- Monospace Tech Tags -->
+                <div class="tag-group" style="margin-bottom: 0.85rem;">
+                    {% for tool in project.tools %}
+                    <span class="tag">{{ tool }}</span>
+                    {% endfor %}
+                    {% for language in project.programmingLanguages %}
+                    <span class="tag">{{ language }}</span>
                     {% endfor %}
                 </div>
-                
+
+                <!-- Description -->
                 <div class="project-description">
-                    <p>{{project.description}}</p> <!-- Assuming description exists in frontmatter/data -->
+                    <p>{{ project.description }}</p>
                 </div>
 
+                <!-- Action Buttons -->
                 <div class="project-actions">
-                    {% if project.content  %}
-                    <a class="button secondary" href="/projects/{{project.id}}">MORE</a>
+                    {% if project.content %}
+                    <a class="button button-s" href="/projects/{{ project.id }}/">MORE SPECS -&gt;</a>
                     {% endif %}
                     {% if project.linkCode %}
-                    <a class="button secondary" href="{{project.linkCode}}">CODE</a>
+                    <a class="button secondary button-s" href="{{ project.linkCode }}" target="_blank"
+                        rel="noopener">CODE &nearr;</a>
                     {% endif %}
                 </div>
             </div>

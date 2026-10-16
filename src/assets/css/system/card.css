@@ -1,12 +1,62 @@
-.card{
-    box-shadow: var(--shadow-small);
-    border-radius: var(--spacing-s);
+/* Card System */
+.card {
+    background-color: var(--color-surface-card);
+    border: 1.5px solid var(--color-ink-primary);
+    padding: 1.5rem;
+    box-sizing: border-box;
+    position: relative;
 }
-.card-title{
-    padding: var(--spacing-xs) var(--spacing-s);
-    border-bottom: var(--border-width-default) solid;
-    font-size: 1rem;
+
+.card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-retro);
 }
-.card-content{
-    padding: var(--spacing-s);
+
+.card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.85rem;
+    margin-bottom: 1rem;
+    border-bottom: 1.5px solid var(--color-border-dashed);
+    font-family: var(--font-family-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+}
+
+.card .card-content {
+    margin-top: 0.5rem;
+}
+
+/* Drafting Graph Paper Texture */
+.graph-paper {
+    background-color: var(--color-surface-card);
+    background-image:
+        linear-gradient(var(--color-grid-lines) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-grid-lines) 1px, transparent 1px);
+    background-size: 16px 16px;
+    background-position: -1px -1px;
+}
+
+.graph-paper-fine {
+    background-color: var(--color-surface-card);
+    background-image:
+        linear-gradient(var(--color-grid-lines-subtle) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-grid-lines-subtle) 1px, transparent 1px);
+    background-size: 10px 10px;
+}
+
+/* Modular Specimen Card */
+.specimen-card {
+    background-color: var(--color-surface-card);
+    border: 1.5px dashed var(--color-border-dashed);
+    padding: 1.5rem;
+    box-sizing: border-box;
+    position: relative;
+    box-shadow: 2px 2px 0 rgba(30, 30, 28, 0.08);
+}
+
+.specimen-card:hover {
+    border-color: var(--color-ink-primary);
 }

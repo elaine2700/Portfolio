@@ -1,12 +1,164 @@
-:root{
-    /*Borders*/
-    --border-radius-default: var(--spacing-xs);
-    --border-width-light: 1px;
-    --border-width-default: 2px;
-    --border-widht-strong: 3px;
+:root {
+    --border-width-thin: 1px;
+    --border-width-default: 1.5px;
+    --border-width-heavy: 3px;
+    --border-radius-default: 4px;
+    --border-radius-pill: 9999px;
 
-    /*Border radius*/
-    --border-radius-default: var(--spacing);
-    --border-radius-small: var(--spacing-s);
-    --border-radius-large: var(--spacing-l);
+    --border-dashed-thin: var(--border-width-default) dashed var(--color-border-dashed);
+    --border-dashed-default: var(--border-width-default) dashed var(--color-border-dashed);
+    --border-dashed-heavy: var(--border-width-heavy) dashed var(--color-border-dashed);
+}
+
+/* Base Border Styles */
+.border-simple {
+    border: 1px solid var(--color-border-primary);
+}
+
+.border-double {
+    border: 3px double var(--color-border-primary);
+}
+
+.border-dashed {
+    border: 1.5px dashed var(--color-border-dashed);
+}
+
+.border-terracotta {
+    border-color: var(--color-primary) !important;
+}
+
+.border-gold {
+    border-color: var(--color-accent-gold) !important;
+}
+
+.border-teal {
+    border-color: var(--color-accent-teal) !important;
+}
+
+/* Corner Tape Effect (Authentic Masking Tape) */
+.corner-tape {
+    position: relative;
+}
+
+.corner-tape::before,
+.corner-tape::after {
+    content: "";
+    position: absolute;
+    width: 48px;
+    height: 18px;
+    background-color: var(--color-tape);
+    border: 0.5px solid var(--color-tape-border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+/* Top-left tape */
+.corner-tape::before {
+    top: -8px;
+    left: -16px;
+    transform: rotate(-38deg);
+}
+
+/* Bottom-right tape */
+.corner-tape::after {
+    bottom: -8px;
+    right: -16px;
+    transform: rotate(-38deg);
+}
+
+/* Optional 4-corner tape variant */
+.corner-tape-4::before {
+    top: -8px;
+    left: -16px;
+    transform: rotate(-38deg);
+}
+
+/* Perforated Ticket Notches */
+.ticket-banner {
+    position: relative;
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    border: 1.5px dashed rgba(255, 255, 255, 0.4);
+    box-shadow: var(--shadow-retro);
+}
+
+.ticket-banner::before,
+.ticket-banner::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-canvas);
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.ticket-banner::before {
+    left: -11px;
+}
+
+.ticket-banner::after {
+    right: -11px;
+}
+
+/* Rubber Stamp Effect */
+.rubber-stamp {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    font-family: var(--font-family-display);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 2px solid currentColor;
+    border-radius: 4px;
+    transform: rotate(-3deg);
+    opacity: 0.88;
+    mix-blend-mode: multiply;
+}
+
+.rubber-stamp.teal {
+    color: var(--color-accent-teal);
+    border-color: var(--color-accent-teal);
+}
+
+.rubber-stamp.terracotta {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+/* Circular Seal Stamp */
+.circular-seal {
+    width: 70px;
+    height: 70px;
+    border: 2px dashed var(--color-ink-primary);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--font-family-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px;
+    box-sizing: border-box;
+    transform: rotate(8deg);
+    opacity: 0.8;
+}
+
+.circular-seal .seal-inner {
+    border: 1px solid var(--color-ink-primary);
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.1;
 }

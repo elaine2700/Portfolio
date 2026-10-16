@@ -1,157 +1,325 @@
-/* .home__page rule removed as it was empty */
+/* ==========================================================================
+   HOME PAGE (Proposal v1 - Retro Editorial Zine & Tactile Collage)
+   ========================================================================== */
 
-/* Breadcrumb simulation (if used in body instead of nav) */
-.breadcrumb {
-    font-family: var(--font-family-headers);
-    font-size: 0.8rem;
-    margin-bottom: 4rem;
-    color: var(--text-dark);
+.home__page {
+    position: relative;
 }
 
 /* HERO SECTION */
 .home_hero {
-    margin-bottom: 4rem;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 4.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1.5px dashed var(--color-border-dashed);
+}
+
+.hero-text-side {
+    max-width: 650px;
 }
 
 .hero-title {
-    font-size: 5rem;
-    /* Massive text */
-    line-height: 1;
-    margin-bottom: 2rem;
-    color: var(--text-dark);
-    font-weight: bold;
+    font-size: clamp(3rem, 5.5vw, 4.75rem);
+    line-height: 0.95;
+    margin-bottom: 1.5rem;
+    color: var(--color-ink-primary);
+    font-weight: 700;
+    letter-spacing: 0.02em;
 }
 
-.hero-description {
-    max-width: 600px;
-    font-size: 1.1rem;
-    line-height: 1.5;
-    margin-bottom: 3rem;
-    color: var(--text-gray);
-    font-family: var(--font-family-default);
+.hero-subtitle {
+    font-family: var(--font-family-mono);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-ink-muted);
+    margin-bottom: 1.75rem;
 }
 
-.hero-divider {
-    height: 1px;
-    background-color: var(--accent-blue);
+.hero-cta-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* HERO TACTILE COLLAGE */
+.hero-collage-side {
+    position: relative;
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.collage-container {
+    position: relative;
     width: 100%;
+    max-width: 380px;
+    height: 320px;
+}
+
+/* Torn paper background slip */
+.collage-torn-paper {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    width: 260px;
+    height: 250px;
+    background-color: var(--color-primary-light);
+    border-left: 6px solid var(--color-primary);
+    box-shadow: var(--shadow-retro-small);
+    transform: rotate(-3deg);
+    z-index: 1;
+}
+
+/* Vintage Postage Stamp */
+.postage-stamp {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    width: 82px;
+    height: 98px;
+    background-color: #FAF4E6;
+    border: 2px dashed #C48E75;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    transform: rotate(5deg);
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 4px;
+    box-sizing: border-box;
+}
+
+.stamp-inner {
+    border: 1px solid var(--color-primary);
+    width: 100%;
+    height: 64px;
+    background-color: #F8EBE5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    font-family: var(--font-family-display);
+    font-size: 1.5rem;
+    line-height: 1;
+    font-weight: 700;
+}
+
+.stamp-inner span {
+    font-family: var(--font-family-mono);
+    font-size: 0.5rem;
+    letter-spacing: 0.08em;
+}
+
+.stamp-waves {
+    width: 100%;
+    height: 14px;
+    background: repeating-radial-gradient(circle at 0 0, transparent 0, transparent 4px, var(--color-ink-faint) 4px, var(--color-ink-faint) 5px);
+    opacity: 0.6;
+}
+
+/* Circular Halftone / Artwork Cutout */
+.collage-circle-art {
+    position: absolute;
+    top: 55px;
+    left: 45px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid var(--color-ink-primary);
+    background: radial-gradient(circle, var(--color-accent-teal) 0%, #1A2E2B 100%);
+    box-shadow: 3px 3px 0 var(--color-ink-primary);
+    z-index: 3;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-2deg);
+}
+
+.collage-circle-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: luminosity;
+    filter: contrast(130%) grayscale(40%);
+}
+
+.halftone-dot-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(var(--color-accent-gold) 1.5px, transparent 1.5px);
+    background-size: 8px 8px;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+/* Taped Typewriter Bio Note */
+.collage-note-card {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    width: 250px;
+    background-color: var(--color-surface-card);
+    border: 1px solid var(--color-ink-primary);
+    padding: 1rem 1.15rem;
+    font-family: var(--font-family-mono);
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: var(--color-ink-primary);
+    box-shadow: var(--shadow-retro-small);
+    transform: rotate(2deg);
+    z-index: 5;
+}
+
+.collage-note-tape {
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55px;
+    height: 16px;
+    background-color: var(--color-tape);
+    border: 0.5px solid var(--color-tape-border);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   SECTION 01: SKILLS & SPECIMENS (3 Modular Graph-Paper Cards)
+   ========================================================================== */
+.skills-section {
+    margin-bottom: 5rem;
+}
+
+.skills-specimens-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+}
+
+.skills-specimen-card {
+    background-color: var(--color-surface-card);
+    border: 1.5px dashed var(--color-border-dashed);
+    padding: 1.5rem;
+    position: relative;
+    box-shadow: 2px 2px 0 rgba(30, 30, 28, 0.06);
+    transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.skills-specimen-card:hover {
+    border-color: var(--color-ink-primary);
+    transform: translateY(-2px);
+}
+
+.specimen-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: var(--border-width-thin) solid var(--color-grid-lines);
+}
+
+.specimen-num {
+    font-family: var(--font-family-mono);
+    font-size: 0.75rem;
+    color: var(--color-ink-muted);
+}
+
+.specimen-title {
+    font-family: var(--font-family-display);
+    font-size: 1.15rem;
+    margin-bottom: 0.85rem;
+    letter-spacing: 0.05em;
+    color: var(--color-ink-primary);
+}
+
+/* ==========================================================================
+   SECTION 02: SELECTED WORKS (Exhibition Catalog Plates)
+   ========================================================================== */
+.works-section {
     margin-bottom: 4rem;
 }
 
-/* CONTENT GRID (Skills + Works) */
-.home-content-grid {
+.catalog-plates-grid {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    /* 1/3 for skills, 2/3 for works */
-    gap: 4rem;
-}
-
-/* SKILLS SECTION */
-.section-title {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid var(--accent-blue);
-    /* Or maybe just text */
-    padding-bottom: 0.5rem;
-    display: inline-block;
-    width: 100%;
-}
-
-.skill-category {
-    margin-bottom: 2rem;
-}
-
-.skill-category h3 {
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
-    color: var(--text-gray);
-    text-transform: uppercase;
-    font-family: var(--font-family-default);
-    letter-spacing: 0.05em;
-}
-
-.skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.skill-tags span {
-    border: 1px solid var(--text-dark);
-    padding: 0.25rem 0.5rem;
-    font-size: 0.8rem;
-    font-family: var(--font-family-default);
-    background: transparent;
-}
-
-
-/* SELECTED WORKS SECTION */
-.selected-works-list {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-}
-
-.work-item {
-    display: flex;
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    align-items: flex-start;
+    margin-bottom: 3rem;
 }
 
-.work-image-container {
-    flex: 0 0 200px;
-    /* Fixed width for thumbnail */
-    width: 200px;
-}
-
-.work-image-container img {
+.card.plate-image-container {
     width: 100%;
-    height: auto;
-    display: block;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    border: 1px solid var(--text-dark);
-}
-
-.work-info {
-    flex: 1;
-}
-
-.work-title {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-dark);
-}
-
-.work-tech {
-    font-size: 0.8rem;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--color-ink-primary);
+    background-color: #000;
     margin-bottom: 1rem;
-    color: var(--text-gray);
-    font-family: var(--font-family-default);
 }
 
-.work-description {
-    font-size: 0.9rem;
-    line-height: 1.4;
-    max-width: 500px;
+.card .plate-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: contrast(105%) brightness(95%);
+}
+
+.card .catalog-plate-card:hover .plate-image-container img {
+    transform: scale(1.03);
+    filter: contrast(115%);
+}
+
+.card .plate-title {
+    font-family: var(--font-family-display);
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.04em;
+    color: var(--color-ink-primary);
+}
+
+.card .plate-description {
+    font-family: var(--font-family-mono);
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--color-ink-muted);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.card .plate-actions {
+    display: flex;
+    gap: 0.65rem;
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px dashed var(--color-border-dashed);
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 3rem;
-    }
-
-    .home-content-grid {
+@media (max-width: 1024px) {
+    .home_hero {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
-    .work-item {
-        flex-direction: column;
+    .skills-specimens-grid,
+    .catalog-plates-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
+}
 
-    .work-image-container {
-        width: 100%;
-        flex: auto;
+@media (max-width: 640px) {
+
+    .skills-specimens-grid,
+    .catalog-plates-grid {
+        grid-template-columns: 1fr;
     }
 }

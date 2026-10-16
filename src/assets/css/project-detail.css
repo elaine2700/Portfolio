@@ -1,151 +1,339 @@
-/* Breadcrumb (reused) */
-.breadcrumb {
-    font-family: var(--font-family-headers);
-    font-size: 0.8rem;
-    margin-bottom: 3rem;
-    color: var(--text-dark);
-}
+/* ==========================================================================
+   PROJECT DETAIL (Proposal v1 - Technical Manual & Vintage Zine Spread)
+   Directly inspired by the "OFFSET" and "FLEXOGRAFIA" printing guide spreads.
+   ========================================================================== */
 
 .project-detail__page {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
+    position: relative;
+    padding-bottom: 3rem;
 }
 
-/* HEADER */
-.project-header {
-    text-align: center;
-    margin-bottom: 4rem;
+/* TOP BREADCRUMB */
+.project-breadcrumb-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    font-family: var(--font-family-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-muted);
+}
+
+.breadcrumb-back {
+    color: var(--color-ink-primary);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.breadcrumb-back:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+.breadcrumb-dossier-id {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* HEADER BANNER (Perforated Terracotta Ticket) */
+.project-ticket-header {
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    border: 2px dashed rgba(255, 255, 255, 0.45);
+    padding: 2.5rem 3rem;
+    position: relative;
+    box-shadow: var(--shadow-retro);
+    margin-bottom: 3.5rem;
+    box-sizing: border-box;
+}
+
+/* Notched circle cutouts on left and right */
+.project-ticket-header::before,
+.project-ticket-header::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 26px;
+    height: 26px;
+    background-color: var(--color-canvas);
+    border-radius: 50%;
+    z-index: 3;
+}
+
+.project-ticket-header::before {
+    left: -14px;
+}
+
+.project-ticket-header::after {
+    right: -14px;
+}
+
+.ticket-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .project-title-large {
-    font-size: 4rem;
-    line-height: 1.1;
-    margin-bottom: 1rem;
-    color: var(--text-dark);
-    text-transform: uppercase;
-}
-
-.project-subtitle {
-    font-size: 1.2rem;
-    color: var(--text-gray);
-    margin-bottom: 2rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: var(--font-family-default);
-}
-
-.project-meta {
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    line-height: 1;
+    color: #FFFFFF;
+    margin: 0;
+    letter-spacing: 0.03em;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 2rem;
-}
-
-.meta-group {
-    display: flex;
-    gap: 0.5rem;
-    justify-content: center;
     flex-wrap: wrap;
 }
 
-.project-buttons {
-    margin-top: 1rem;
+.project-title-large .asterisk-star {
+    color: var(--color-accent-sage);
+    font-size: 1.4em;
+    margin-left: 0.4rem;
 }
 
-.action-btn {
-    background: var(--text-dark);
-    color: var(--beige-bg);
-    padding: 0.6rem 1.5rem;
+.ticket-action-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.project-subtitle {
+    font-family: var(--font-family-mono);
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: #FFF2EB;
+    max-width: 800px;
+    margin-bottom: 1.75rem;
+}
+
+.project-meta-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px dashed rgba(255, 255, 255, 0.35);
+}
+
+.meta-pill {
+    font-family: var(--font-family-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 0.9rem;
-    display: inline-block;
+    padding: 0.3rem 0.85rem;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #FFFFFF;
 }
 
-/* MEDIA */
-.project-media {
+/* FEATURED MEDIA PLATE */
+.project-media-plate {
     margin-bottom: 4rem;
+}
+
+.media-frame {
+    background-color: #0F0F0E;
+    border: 2px solid var(--color-ink-primary);
+    box-shadow: var(--shadow-retro);
+    position: relative;
+    overflow: hidden;
+}
+
+.media-frame.corner-tape::before,
+.media-frame.corner-tape::after {
+    width: 60px;
+    height: 22px;
 }
 
 .video-container {
     width: 100%;
     aspect-ratio: 16/9;
-    background: #000;
 }
 
-.video {
+.video-container iframe,
+.media-frame img {
     width: 100%;
     height: 100%;
+    display: block;
+    object-fit: cover;
 }
 
-.media-caption {
-    text-align: right;
-    font-size: 0.8rem;
-    color: var(--text-gray);
-    margin-top: 0.5rem;
-    font-family: var(--font-family-default);
+.media-caption-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.75rem;
+    font-family: var(--font-family-mono);
+    font-size: 0.78rem;
+    color: var(--color-ink-muted);
 }
 
-/* CONTENT GRID */
-
-
-.detail-section {
-    margin-bottom: 3rem;
+/* EDITORIAL SPLIT SPREAD */
+.project-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3.5rem;
+    align-items: flex-start;
 }
 
-.detail-heading {
-    font-size: 0.9rem;
-    color: var(--text-dark);
-    border-bottom: 1px solid var(--accent-blue);
-    padding-bottom: 0.5rem;
-    margin-bottom: 1.5rem;
+/* LEFT COLUMN: TECHNICAL DOSSIER */
+.dossier-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.dossier-box {
+    background-color: var(--color-surface-card);
+    border: 1.5px dashed var(--color-border-dashed);
+    padding: 1.5rem;
+    box-sizing: border-box;
+}
+
+.dossier-pill-header {
     display: inline-block;
-    width: 100%;
-    font-family: var(--font-family-headers);
+    font-family: var(--font-family-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 9999px;
+    border: 1px solid var(--color-ink-primary);
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    margin-bottom: 1rem;
 }
 
-.detail-body {
-    font-family: var(--font-family-default);
-    font-size: 0.9rem;
+.dossier-pill-header.teal {
+    background-color: var(--color-accent-teal);
+}
+
+.dossier-pill-header.gold {
+    background-color: var(--color-accent-gold);
+    color: var(--color-ink-primary);
+}
+
+.dossier-box-content {
+    font-family: var(--font-family-mono);
+    font-size: 0.85rem;
     line-height: 1.6;
-    color: var(--text-gray);
+    color: var(--color-ink-primary);
 }
 
-.detail-body p {
+/* RIGHT COLUMN: DEEP DIVE ARTICLE */
+.editorial-article-column {
+    font-family: var(--font-family-mono);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--color-ink-primary);
+}
+
+.editorial-article-column h2,
+.editorial-article-column h3 {
+    margin-top: 2rem;
     margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1.5px solid var(--color-ink-primary);
 }
 
-.detail-body img {
-    width: 100%;
+.editorial-article-column img {
+    max-width: 100%;
     height: auto;
+    border: 1.5px solid var(--color-ink-primary);
+    margin: 1.5rem 0;
+    box-shadow: var(--shadow-retro-small);
 }
 
-.detail-body h1,
-.detail-body h2,
-.detail-body h3,
-.detail-body h4,
-.detail-body h5,
-.detail-body h6 {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid var(--accent-blue);
+/* TECHNICAL WIREFRAME DIAGRAM (Inspired by Offset Rollers in Inspiration) */
+.technical-diagram-card {
+    background-color: var(--color-surface-card);
+    border: 1.5px solid var(--color-ink-primary);
+    padding: 1.5rem;
+    margin: 2.5rem 0;
+    box-shadow: var(--shadow-retro-small);
+}
+
+.diagram-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-family-mono);
+    font-size: 0.75rem;
+    color: var(--color-ink-muted);
+    border-bottom: 1px dashed var(--color-border-dashed);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.diagram-art-wrapper {
+    position: relative;
+    height: 180px;
+    background-color: var(--color-surface-pulp);
+    border: 1px solid var(--color-grid-lines);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.diagram-circle-teal {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background-color: var(--color-accent-teal);
+    opacity: 0.6;
+    mix-blend-mode: multiply;
+    transform: translateX(-35px);
+}
+
+.diagram-circle-gold {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background-color: var(--color-accent-gold);
+    opacity: 0.7;
+    mix-blend-mode: multiply;
+    transform: translateX(35px);
+}
+
+.diagram-wireframe-cube {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border: 1.5px solid var(--color-ink-primary);
+    transform: rotate(45deg);
+    z-index: 4;
+}
+
+.diagram-wireframe-inner {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 1px dashed var(--color-ink-primary);
+    transform: rotate(45deg);
+    z-index: 5;
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-    .project-header {
-        text-align: left;
-    }
-
-    .project-title-large {
-        font-size: 2.5rem;
-    }
-
+@media (max-width: 960px) {
     .project-content-grid {
         grid-template-columns: 1fr;
     }
-}
 
-/* Legacy styles removed */
+    .project-ticket-header {
+        padding: 2rem 1.5rem;
+    }
+}

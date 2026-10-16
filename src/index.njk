@@ -2,83 +2,171 @@
 layout: "layouts/base"
 title: "Home"
 cssFiles: ["/assets/css/home.css"]
-projectsCards: []
 ---
 <article class="home__page">
+
+    <!-- HERO SECTION (Tactile Collage & Editorial Boldness) -->
     <header class="home_hero">
-        <h1 class="hero-title">HELLO, I AM ELAINE</h1>
-        <div class="hero-description">
-            <p>
-                A passionate web designer creating sophisticated, immersive digital experiences that blend aesthetics with functionality.
+        <div class="hero-text-side">
+            <h1 class="hero-title">HELLO, I AM ELAINE — WEB DESIGNER &amp; XR CREATIVE</h1>
+            <p class="hero-subtitle">
+                Crafting sophisticated, immersive digital experiences that blend tactile print aesthetics with
+                interactive 3D, web technologies, and spatial computing.
             </p>
+            <div class="hero-cta-group">
+                <a class="button ticket-btn teal" href="/projects/">EXPLORE ARCHIVES -&gt;</a>
+                <a class="button ticket-btn gold" href="/resume/">RESUME DOSSIER</a>
+            </div>
         </div>
-        <div class="hero-divider"></div>
+
+        <div class="hero-collage-side" aria-hidden="true">
+            <div class="collage-container">
+                <!-- Layer 1: Torn Paper Backing -->
+                <div class="collage-torn-paper"></div>
+
+                <!-- Layer 2: Vintage Postage Stamp -->
+                <div class="postage-stamp">
+                    <div class="stamp-inner">
+                        <span>POSTAGE</span>
+                        5&cent;
+                        <span>AIRMAIL</span>
+                    </div>
+                    <div class="stamp-waves"></div>
+                </div>
+
+                <!-- Layer 3: Circular Artwork Cutout with Halftone Dots -->
+                <div class="collage-circle-art">
+                    <img src="/assets/images/Icon_Complete.png" alt="Elaine Avatar Screenprint" />
+                    <div class="halftone-dot-overlay"></div>
+                </div>
+
+                <!-- Layer 4: Taped Typewriter Note Card -->
+                <div class="collage-note-card">
+                    <div class="collage-note-tape"></div>
+                    <p
+                        style="margin: 0; font-weight: 700; color: var(--color-primary); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;">
+                        ARCHIVE DOSSIER // 2026
+                    </p>
+                    <p style="margin: 0.35rem 0 0 0;">
+                        "Creating interactive worlds where code, physical typography, and spatial imagination
+                        intersect."
+                    </p>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <div class="home-content-grid">
-        <!-- Skills Section -->
-        <section class="skills-section">
-            <h2 class="section-title">01/ SKILLS</h2>
-            <div class="skills-list">
-                <div class="skill-category">
-                    <h3>WEB DEVELOPMENT</h3>
-                    <div class="skill-tags">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>React</span>
-                        <span>Express.js</span>
-                        <span>Node.js</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>DESIGN</h3>
-                    <div class="skill-tags">
-                        <span>UI/UX</span>
-                        <span>Photoshop</span>
-                        <span>Illustrator</span>
-                        <span>After Effects</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>XR DEVELOPMENT</h3>
-                    <div class="skill-tags">
-                        <span>Unity</span>
-                        <span>C#</span>
-                        <span>Unreal</span>
-                        <span>Blueprints</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- SECTION 01: SKILLS & SPECIMENS -->
+    <section class="skills-section">
+        <h2 class="section-tag">01 // SKILLS &amp; SPECIMENS</h2>
 
-        <!-- Selected Works Section -->
-        <section class="works-section">
-            <h2 class="section-title">02/ SELECTED WORKS</h2>
-            <div class="selected-works-list">
-                {% set selectedIds = [0, 1, 2] %}
-                {% for project in projects %}
-                {% if project.id in selectedIds  %}
-                <div class="work-item">
-                    <div class="work-image-container">
-                        <img src="{{project.image}}" alt="{{project.title}} thumbnail">
-                    </div>
-                    <div class="work-info">
-                        <h3 class="work-title">{{project.title}}</h3>
-                        {% for tool in project.tools %}
-                        <span class="work-tech">{{tool}}</span>
-                        {% endfor %}
-                        <p class="work-description">{{project.description}}</p>
-                    </div>
+        <div class="skills-specimens-grid">
+            <!-- 01 Web Development -->
+            <div class="skills-specimen-card graph-paper">
+                <div class="specimen-header">
+                    <span class="pill">WEB DEV</span>
+                    <span class="specimen-num">SPEC. A1</span>
                 </div>
-                {% endif %}
-                {% endfor %}
+                <h3 class="specimen-title">WEB ARCHITECTURE</h3>
+                <div class="tag-group">
+                    <span class="tag">HTML5</span>
+                    <span class="tag">CSS3 / SCSS</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Express.js</span>
+                    <span class="tag">Eleventy</span>
+                    <span class="tag">JavaScript</span>
+                </div>
             </div>
-            
-            <div style="margin-top: 4rem; text-align: right;">
-                 <a class="button" href="/projects">VIEW ALL PROJECTS -></a>
+
+            <!-- 02 XR & Spatial Development -->
+            <div class="skills-specimen-card graph-paper">
+                <div class="specimen-header">
+                    <span class="pill teal">XR DEV</span>
+                    <span class="specimen-num">SPEC. B2</span>
+                </div>
+                <h3 class="specimen-title">SPATIAL &amp; 3D SYSTEMS</h3>
+                <div class="tag-group">
+                    <span class="tag">Unity 3D</span>
+                    <span class="tag">C#</span>
+                    <span class="tag">Unreal Engine</span>
+                    <span class="tag">Blueprints</span>
+                    <span class="tag">Three.js</span>
+                    <span class="tag">WebGL</span>
+                    <span class="tag">VR / AR</span>
+                </div>
             </div>
-        </section>
-    </div>
+
+            <!-- 03 Visual Design -->
+            <div class="skills-specimen-card graph-paper">
+                <div class="specimen-header">
+                    <span class="pill gold">DESIGN</span>
+                    <span class="specimen-num">SPEC. C3</span>
+                </div>
+                <h3 class="specimen-title">VISUAL &amp; EDITORIAL</h3>
+                <div class="tag-group">
+                    <span class="tag">UI/UX Design</span>
+                    <span class="tag">Figma</span>
+                    <span class="tag">Photoshop</span>
+                    <span class="tag">Illustrator</span>
+                    <span class="tag">After Effects</span>
+                    <span class="tag">Typography</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 02: SELECTED WORKS (Exhibition Catalog Plates) -->
+    <section class="works-section">
+        <h2 class="section-tag">02 // SELECTED EXHIBITIONS</h2>
+
+        <div class="catalog-plates-grid">
+            {% set selectedIds = [0, 1, 2] %}
+            {% for project in projects %}
+            {% if project.id in selectedIds %}
+            <div class="card">
+                <div class="card-header">
+                    <span>ARCHIVE #0{{ project.id + 1 }}</span>
+                    {% if project.projectType %}
+                    <span
+                        class="pill {% if project.projectType == 'VR-AR' %}teal{% elif project.projectType == 'Tool' %}gold{% endif %}"
+                        style="font-size: 0.65rem; padding: 0.15rem 0.5rem;">
+                        {{ project.projectType }}
+                    </span>
+                    {% endif %}
+                </div>
+
+                <div class="plate-image-container corner-tape">
+                    <img src="{{ project.image }}" alt="{{ project.title }} specimen thumbnail" loading="lazy" />
+                </div>
+
+                <h3 class="plate-title">{{ project.title }}</h3>
+
+                <div class="tag-group" style="margin-bottom: 0.85rem;">
+                    {% for tool in project.tools %}
+                    <span class="tag">{{ tool }}</span>
+                    {% endfor %}
+                </div>
+
+                <p class="plate-description">{{ project.description }}</p>
+
+                <div class="plate-actions">
+                    {% if project.content %}
+                    <a class="button button-s" href="/projects/{{ project.id }}/">MORE SPECS -&gt;</a>
+                    {% endif %}
+                    {% if project.linkCode %}
+                    <a class="button secondary button-s" href="{{ project.linkCode }}" target="_blank"
+                        rel="noopener">CODE &nearr;</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        <div style="text-align: right; margin-top: 2.5rem;">
+            <a class="button ticket-btn teal" href="/projects/">VIEW ALL PROJECT ARCHIVES -&gt;</a>
+        </div>
+    </section>
+
 </article>

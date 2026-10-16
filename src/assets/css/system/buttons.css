@@ -1,51 +1,111 @@
+/* Buttons System */
 .button {
-    --button-padding-x: var(--spacing-s);
-    --button-padding-y: var(--spacing-s);
-    --button-border-radius: var(--border-radius-default);
-    --button-color-bg: var(--color-surface-primary);
-    --button-color-bg-hover: var(--color-surface-tertiary);
-    --button-color: var(--color-text-secondary);
-    --button-color-hover: var(--color-text-primary);
-    --button-text-size: 1rem;
-    padding: var(--button-padding-y) var(--button-padding-x);
-    background-color: var(--button-color-bg);
-    color: var(--button-color);
-    width: max-content;
-    font-size: var(--button-text-size);
-    display: inline-block;
-}
-
-.button:visited {
-    background-color: var(--button-color-bg);
-    color: var(--button-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1.15rem;
+    font-family: var(--font-family-mono);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: var(--color-primary);
+    border: 1.5px solid var(--color-ink-primary);
+    border-radius: 2px;
+    box-shadow: var(--shadow-retro-small);
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
 }
 
 .button:hover {
-    background-color: var(--accent-gray);
-    color: var(--button-color-hover);
+    background-color: var(--color-primary-hover);
+    transform: translate(-1px, -1px);
+    box-shadow: var(--shadow-retro);
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
+.button:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 var(--color-ink-primary);
+}
+
+/* Secondary Outline Button */
+.button.secondary {
+    background-color: transparent;
+    color: var(--color-ink-primary);
+    border: 1.5px solid var(--color-ink-primary);
+    box-shadow: var(--shadow-retro-small);
+}
+
+.button.secondary:hover {
+    background-color: var(--color-surface-pulp);
+    color: var(--color-ink-primary);
+}
+
+/* Golden Ticket Button */
+.button.ticket-btn,
+.button.gold {
+    background-color: var(--color-accent-gold);
+    color: var(--color-ink-primary);
+    border: 1.5px dashed var(--color-ink-primary);
+    box-shadow: var(--shadow-retro-small);
+}
+
+.button.ticket-btn:hover,
+.button.gold:hover {
+    background-color: var(--color-accent-gold-dark);
+    color: #FFFFFF;
+}
+
+/* Teal Accent Button */
+.button.teal {
+    background-color: var(--color-accent-teal);
+    color: #FFFFFF;
+}
+
+.button.teal:hover {
+    background-color: var(--color-accent-teal-dark);
+}
+
+/* Filter Tab Buttons */
+.filter-btn {
+    background-color: transparent;
+    color: var(--color-ink-primary);
+    border: 1.5px solid var(--color-ink-primary);
+    padding: 0.4rem 0.9rem;
+    font-size: 0.78rem;
+    border-radius: 2px;
+    box-shadow: none;
+}
+
+.filter-btn:hover {
+    background-color: var(--color-surface-pulp);
+    transform: none;
+    box-shadow: none;
+}
+
+.filter-btn.active {
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    border-color: var(--color-ink-primary);
+    box-shadow: var(--shadow-retro-small);
+}
+
+/* Sizes */
 .button-s {
-    --button-border-radius: var(--border-radius-small);
-    --button-padding-x: var(--spacing-xs);
-    --button-padding-y: var(--spacing-xs);
-    --button-text-size: 0.85rem;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.72rem;
 }
 
 .button-l {
-    --button-border-radius: var(--border-radius-large);
-    --button-padding-x: var(--spacing-l);
-    --button-padding-y: var(--spacing-l);
-    --button-text-size: 1.2rem;
+    padding: 0.75rem 1.75rem;
+    font-size: 0.95rem;
 }
 
-.button.secondary {
-    --button-color-bg: var(--color-surface-tertiary);
-    --button-color: var(--color-text-tertiary);
-    --button-color-bg-hover: var(--gray-dark);
-    --button-color-hover: var(--color-text-primary);
+.margin-auto {
+    margin: 0 auto;
 }
-
-/* Secondary */
-/* Destructive */
-/* Ghost */
