@@ -1,0 +1,185 @@
+<!-- ==========================================================================
+     PROJECT DETAIL MODAL (PROJECT DOSSIER)
+     Synchronized with URL /projects/{id}/
+     ========================================================================== -->
+<div id="projectModalBackdrop" 
+     class="project-modal-backdrop {% if initialProjectId != null %}is-open{% endif %}" 
+     role="dialog" 
+     aria-modal="true" 
+     aria-hidden="{% if initialProjectId != null %}false{% else %}true{% endif %}"
+     data-initial-id="{% if initialProjectId != null %}{{ initialProjectId }}{% endif %}">
+    
+    <div class="project-modal-window" id="projectModalWindow">
+        <!-- Modal Topbar / Command Header -->
+        <div class="modal-topbar">
+            <div class="modal-topbar-left">
+                <span class="modal-pulse-dot" aria-hidden="true"></span>
+                <span class="modal-topbar-tag" id="modalDossierTag">PROJECT DOSSIER</span>
+                <span class="modal-topbar-divider">//</span>
+                <span class="modal-topbar-id" id="modalDossierId">PRJ-01</span>
+            </div>
+            <div class="modal-topbar-center">
+                <span class="modal-topbar-title" id="modalDossierTitle">PROJECT DETAILS</span>
+            </div>
+            <div class="modal-topbar-right">
+                <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close project dossier">
+                    ✕ <span class="esc-hint">[ESC]</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Scrollable Dossier Content Area -->
+        <div class="modal-scroll-body" id="modalScrollBody">
+            {% for proj in projects %}
+            <div class="project-dossier-pane {% if initialProjectId == proj.id or (initialProjectId == null and loop.first) %}is-active{% endif %}" 
+                 id="dossierPane-{{ proj.id }}" 
+                 data-id="{{ proj.id }}"
+                 data-index="PRJ-0{{ loop.index }}"
+                 data-title="{{ proj.title }}"
+                 data-category="{{ proj.projectType }}"
+                 data-trailer="{% if proj.trailer %}https://www.youtube-nocookie.com/embed/{{ proj.trailer }}?autoplay=1{% endif %}">
+                
+                <!-- Dossier Hero Header -->
+                <header class="dossier-hero">
+                    <div class="dossier-meta-strip">
+                        <span class="dossier-index-pill">0{{ loop.index }} / 0{{ projects.length }}</span>
+                        {% if proj.projectType %}
+                        <span class="project-type-badge type-{{ proj.projectType | lower }}">{{ proj.projectType }}</span>
+                        {% endif %}
+                    </div>
+
+                    <h1 class="dossier-title">{{ proj.title }}</h1>
+                    <p class="dossier-subtitle">{{ proj.description }}</p>
+
+                    <!-- Taxonomies & Actions Bar -->
+                    <div class="dossier-toolbar">
+                        <div class="dossier-taxonomies">
+                            {% if proj.tools and proj.tools.length > 0 %}
+                            <div class="tag-group tools-group">
+                                {% for tool in proj.tools %}
+                                <span class="tag-badge tag-tool">{{ tool }}</span>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+
+                            {% if proj.programmingLanguages and proj.programmingLanguages.length > 0 %}
+                            <div class="tag-group languages-group">
+                                {% for lang in proj.programmingLanguages %}
+                                <span class="tag-badge tag-lang">{{ lang }}</span>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="dossier-actions">
+                            {% if proj.linkCode %}
+                            <a class="action-btn action-secondary" href="{{ proj.linkCode }}" target="_blank" rel="noopener noreferrer">
+                                VIEW CODE &nearr;
+                            </a>
+                            {% endif %}
+                            {% if proj.live %}
+                            <a class="action-btn action-accent" href="{{ proj.live }}" target="_blank" rel="noopener noreferrer">
+                                LIVE SITE &nearr;
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Media Enclosure -->
+                <div class="dossier-media-section">
+                    {% if proj.trailer %}
+                    <div class="video-container">
+                        <iframe class="dossier-video-frame" 
+                                title="{{ proj.title }} Demo Video"
+                                {% if initialProjectId == proj.id %}
+                                src="https://www.youtube-nocookie.com/embed/{{ proj.trailer }}"
+                                {% endif %}
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                    </div>
+                    <p class="media-caption">// DEMO VIDEO RECORDING // 1080P HD</p>
+                    {% else %}
+                    <div class="dossier-banner-frame">
+                        <img src="{{ proj.image }}" alt="{{ proj.title }} Full Banner" class="dossier-banner-image"/>
+                    </div>
+                    <p class="media-caption">// PROJECT MEDIA CAPTURE</p>
+                    {% endif %}
+                </div>
+
+                <!-- Markdown Content Section -->
+                <section class="dossier-content-body">
+                    {% if proj.content %}
+                    <div class="dossier-markdown">
+                        {% renderFile "./src/_includes/projects/" + proj.content %}
+                    </div>
+                    {% else %}
+                    <!-- Architectural Spec Breakdown for Cards without Markdown -->
+                    <div class="dossier-specs-card">
+                        <div class="specs-card-header">
+                            <span class="specs-tag">// SYSTEM SPECIFICATIONS</span>
+                        </div>
+                        <div class="specs-grid">
+                            <div class="spec-row">
+                                <span class="spec-key">CLASSIFICATION</span>
+                                <span class="spec-val">{{ proj.projectType }} Application</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">FRAMEWORKS & TOOLS</span>
+                                <span class="spec-val">
+                                    {% if proj.tools and proj.tools.length > 0 %}{{ proj.tools | join(', ') }}{% else %}Vanilla / Core Technologies{% endif %}
+                                </span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">PROGRAMMING LANGUAGES</span>
+                                <span class="spec-val">
+                                    {% if proj.programmingLanguages and proj.programmingLanguages.length > 0 %}{{ proj.programmingLanguages | join(', ') }}{% else %}Standard Web Stack{% endif %}
+                                </span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">REPOSITORY STATUS</span>
+                                <span class="spec-val">
+                                    {% if proj.linkCode %}
+                                    <a href="{{ proj.linkCode }}" target="_blank" rel="noopener noreferrer">Public Open Source Repository</a>
+                                    {% else %}
+                                    Private Client / Proprietary Work
+                                    {% endif %}
+                                </span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">DEPLOYMENT</span>
+                                <span class="spec-val">
+                                    {% if proj.live %}
+                                    <a href="{{ proj.live }}" target="_blank" rel="noopener noreferrer">Production Live Link Active</a>
+                                    {% else %}
+                                    Internal Prototype / Local Execution
+                                    {% endif %}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </section>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Modal Bottom Navigation Controls -->
+        <footer class="modal-footer">
+            <div class="modal-nav-group">
+                <button type="button" class="modal-nav-btn prev-btn" id="modalPrevBtn" aria-label="Previous project">
+                    &larr; PREV PROJECT
+                </button>
+                <span class="modal-counter-text" id="modalCounterText">PROJECT 1 OF {{ projects.length }}</span>
+                <button type="button" class="modal-nav-btn next-btn" id="modalNextBtn" aria-label="Next project">
+                    NEXT PROJECT &rarr;
+                </button>
+            </div>
+            <div class="modal-footer-action">
+                <button type="button" class="modal-return-btn" id="modalReturnBtn">
+                    RETURN TO CATALOG [ESC]
+                </button>
+            </div>
+        </footer>
+    </div>
+</div>

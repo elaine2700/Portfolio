@@ -1,79 +1,131 @@
+/**
+ * ==========================================================================
+ * PROJECTS CATALOG (Proposal v1 - Archival Specimen Publication)
+ * Functional Filtering & Taxonomy Grid with Proposal v1 Aesthetics
+ * ==========================================================================
+ */
+
 /* ==========================================================================
-   PROJECTS CATALOG (Proposal v1 - Archival Specimen Publication)
+   1. PAGE HEADER & INTRO
    ========================================================================== */
 
 .projects__page {
+    width: 100%;
     position: relative;
     padding-bottom: 2rem;
 }
 
-/* ARCHIVAL HEADER */
-.catalog-page-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
-    padding-bottom: 1.25rem;
-    border-bottom: var(--border-dashed-default);
+.projects__header {
+    margin-bottom: 2rem;
 }
 
-.catalog-title-group {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+.projects__index {
+    font-family: var(--font-family-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
 }
 
-.catalog-main-title {
-    font-size: clamp(2rem, 4vw, 3.25rem);
+.projects__title {
+    font-family: var(--font-family-display);
+    font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+    font-weight: 700;
     letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0 0 0.85rem 0;
     color: var(--color-ink-primary);
-    line-height: 1;
+    line-height: 1.05;
 }
 
-.catalog-meta-stamps {
+.projects__subtitle {
+    font-family: var(--font-family-mono);
+    font-size: 0.95rem;
+    color: var(--color-ink-muted);
+    max-width: 820px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.projects__header-divider {
+    height: 1.5px;
+    background: repeating-linear-gradient(90deg, var(--color-ink-primary) 0, var(--color-ink-primary) 6px, transparent 6px, transparent 12px);
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+/* ==========================================================================
+   2. COMMAND BAR & FILTER CONTROLS
+   ========================================================================== */
+
+.projects__command-bar {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-bottom: 2.75rem;
+    padding: 0.85rem 1.25rem;
+    background-color: var(--color-surface-card);
+    border: 1.5px solid var(--color-ink-primary);
+    box-shadow: var(--shadow-retro);
 }
 
-/* FILTER BAR (Vintage Index Tabs) */
 .projects__filterbar {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
+    gap: 1.25rem;
     flex-wrap: wrap;
+}
+
+.filter-lead {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.filter-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(210, 90, 56, 0.35);
+    display: inline-block;
 }
 
 .filter-label {
     font-family: var(--font-family-display);
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     color: var(--color-ink-primary);
 }
 
 .filter-group {
     display: flex;
-    gap: 0.65rem;
+    align-items: center;
+    gap: 0.6rem;
     flex-wrap: wrap;
 }
 
 .filter-btn {
-    font-family: var(--font-family-mono);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    padding: 0.45rem 1.1rem;
-    border: 1.5px solid var(--color-ink-primary);
     background-color: transparent;
+    border: 1.5px solid var(--color-ink-primary);
     color: var(--color-ink-primary);
+    padding: 0.45rem 0.9rem;
+    font-family: var(--font-family-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
     cursor: pointer;
     box-shadow: var(--shadow-retro-small);
-    transition: transform 0.1s ease, background-color 0.15s ease, color 0.15s ease, box-shadow 0.1s ease;
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease, color 0.15s ease;
     border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    user-select: none;
 }
 
 .filter-btn:hover {
@@ -86,9 +138,54 @@
     background-color: var(--color-primary);
     color: #FFFFFF;
     box-shadow: 2px 2px 0 var(--color-ink-primary);
+    transform: none;
 }
 
-/* PROJECT SPECIMEN CARDS GRID */
+.filter-badge {
+    font-size: 0.68rem;
+    padding: 0.05rem 0.4rem;
+    background-color: rgba(30, 30, 28, 0.1);
+    border: 1px solid var(--color-ink-primary);
+    border-radius: 9999px;
+    font-weight: 700;
+    color: inherit;
+}
+
+.filter-btn.active .filter-badge {
+    background-color: #FFFFFF;
+    color: var(--color-primary);
+    border-color: #FFFFFF;
+}
+
+.projects__status-strip {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-family-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-ink-primary);
+    letter-spacing: 0.04em;
+}
+
+.status-indicator-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--color-accent-teal);
+    border: 1px solid var(--color-ink-primary);
+    display: inline-block;
+}
+
+/* ==========================================================================
+   3. PROJECTS CATALOG GRID
+   ========================================================================== */
+
+.projects__section {
+    width: 100%;
+    margin-bottom: 4rem;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -96,65 +193,402 @@
     width: 100%;
 }
 
-/* Thumbnail with Corner Tape */
-.project-image {
-    width: 100%;
-    margin-bottom: 1.15rem;
+/* ==========================================================================
+   4. DOUBLE-BORDER PROJECT CARD (Proposal v1 Integration)
+   ========================================================================== */
+
+.project-card {
+    background-color: var(--color-surface-card);
+    border: 3px double var(--color-ink-primary);
+    box-shadow: var(--shadow-retro);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.project-image img.thumbnail {
-    width: 100%;
-    filter: contrast(105%);
-    transition: transform 0.3s ease;
+.project-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-retro-hover);
 }
 
-.project-card:hover .project-image img.thumbnail {
-    transform: scale(1.04);
+/* 4.1 Card Meta Bar */
+.card-meta-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.55rem 0.95rem;
+    background-color: var(--color-surface-pulp);
+    border-bottom: 1px solid var(--color-ink-primary);
+    font-family: var(--font-family-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+}
+
+.card-meta-id {
+    font-weight: 700;
+    color: var(--color-ink-muted);
+}
+
+.project-type-badge {
+    font-family: var(--font-family-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 0.15rem 0.55rem;
+    border-radius: 9999px;
+    border: 1px solid var(--color-ink-primary);
+    text-transform: uppercase;
+}
+
+.project-type-badge.type-vr-ar {
+    background-color: var(--color-accent-teal);
+    color: #FFFFFF;
+}
+
+.project-type-badge.type-web {
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+}
+
+.project-type-badge.type-tool {
+    background-color: var(--color-accent-gold);
+    color: var(--color-ink-primary);
+}
+
+/* 4.2 Media Frame with Corner Tape (No extra image border per spec) */
+.project-image-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: #111110;
+    overflow: hidden;
+    border: none;
+    border-bottom: 1.5px solid var(--color-ink-primary);
+}
+
+.project-image-frame::before,
+.project-image-frame::after {
+    content: "";
+    position: absolute;
+    width: 44px;
+    height: 16px;
+    background-color: var(--color-tape);
+    border: 0.5px solid var(--color-tape-border);
+    box-shadow: 0 1px 2px rgba(30, 30, 28, 0.15);
+    z-index: 4;
+    pointer-events: none;
+}
+
+.project-image-frame::before {
+    top: 6px;
+    left: -12px;
+    transform: rotate(-38deg);
+}
+
+.project-image-frame::after {
+    bottom: 6px;
+    right: -12px;
+    transform: rotate(-38deg);
+}
+
+.project-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: contrast(105%) brightness(96%);
+    transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.project-card:hover .project-thumbnail {
+    transform: scale(1.03);
+    filter: contrast(112%) brightness(100%);
+}
+
+.video-indicator-badge {
+    position: absolute;
+    bottom: 0.6rem;
+    right: 0.6rem;
+    background-color: rgba(30, 30, 28, 0.88);
+    backdrop-filter: blur(2px);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-family: var(--font-family-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    letter-spacing: 0.06em;
+    z-index: 3;
+}
+
+.video-indicator-badge .play-icon {
+    font-size: 0.6rem;
+    color: var(--color-accent-gold);
+}
+
+/* 4.3 Card Body */
+.card-body {
+    padding: 1.25rem 1.25rem 1.35rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-card-header {
+    margin-bottom: 0.75rem;
 }
 
 .project-title {
     font-family: var(--font-family-display);
     font-size: 1.35rem;
-    letter-spacing: 0.03em;
+    font-weight: 700;
+    letter-spacing: 0.04em;
     color: var(--color-ink-primary);
-    margin-bottom: 0.65rem;
+    line-height: 1.2;
+    margin: 0;
 }
 
+/* 4.4 Taxonomies (Tools & Languages) */
+.project-taxonomies {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin-bottom: 1rem;
+}
+
+.tag-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.tag-badge {
+    font-family: var(--font-family-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: inline-block;
+    border: 1px solid var(--color-ink-primary);
+}
+
+.tag-tool {
+    background-color: var(--color-surface-pulp);
+    color: var(--color-ink-primary);
+}
+
+.tag-lang {
+    background-color: transparent;
+    border-style: dashed;
+    border-color: var(--color-border-dashed);
+    color: var(--color-ink-muted);
+}
+
+/* 4.5 Description */
 .project-description {
     font-family: var(--font-family-mono);
-    font-size: 0.82rem;
-    line-height: 1.45;
+    font-size: 0.84rem;
+    line-height: 1.55;
     color: var(--color-ink-muted);
     margin-bottom: 1.25rem;
     flex-grow: 1;
 }
 
+.project-description p {
+    margin: 0;
+}
+
+/* 4.6 Action Footer & Tactile Buttons */
 .project-actions {
     display: flex;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 0.65rem;
     margin-top: auto;
-    padding-top: 0.85rem;
+    padding-top: 1rem;
     border-top: 1.5px dashed var(--color-border-dashed);
 }
+
+.action-btn {
+    font-family: var(--font-family-mono);
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.48rem 0.95rem;
+    text-decoration: none !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    border-radius: 2px;
+    border: 1.5px solid var(--color-ink-primary);
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease, color 0.15s ease;
+    user-select: none;
+}
+
+.action-primary,
+.action-primary:link,
+.action-primary:visited {
+    background-color: var(--color-primary);
+    color: #FFFFFF !important;
+    box-shadow: var(--shadow-retro-small);
+}
+
+.action-primary:hover,
+.action-primary:active {
+    background-color: var(--color-primary-hover);
+    color: #FFFFFF !important;
+    transform: translate(-1px, -1px);
+    box-shadow: var(--shadow-retro);
+}
+
+.action-secondary,
+.action-secondary:link,
+.action-secondary:visited {
+    background-color: transparent;
+    color: var(--color-ink-primary) !important;
+    box-shadow: var(--shadow-retro-small);
+}
+
+.action-secondary:hover,
+.action-secondary:active {
+    background-color: var(--color-surface-pulp);
+    color: var(--color-ink-primary) !important;
+    transform: translate(-1px, -1px);
+    box-shadow: var(--shadow-retro);
+}
+
+.action-accent,
+.action-accent:link,
+.action-accent:visited {
+    background-color: var(--color-accent-teal);
+    color: #FFFFFF !important;
+    box-shadow: var(--shadow-retro-small);
+}
+
+.action-accent:hover,
+.action-accent:active {
+    background-color: var(--color-accent-teal-dark);
+    color: #FFFFFF !important;
+    transform: translate(-1px, -1px);
+    box-shadow: var(--shadow-retro);
+}
+
+.btn-arrow {
+    font-size: 0.85rem;
+    line-height: 1;
+    transition: transform 0.15s ease;
+}
+
+.action-btn:hover .btn-arrow {
+    transform: translateX(2px);
+}
+
+/* ==========================================================================
+   5. EMPTY FILTER STATE
+   ========================================================================== */
+
+.projects-empty-state {
+    width: 100%;
+    margin: 2.5rem 0;
+}
+
+.empty-state-box {
+    border: 2px dashed var(--color-border-dashed);
+    background-color: var(--color-surface-card);
+    padding: 3rem 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-retro-small);
+}
+
+.empty-state-code {
+    font-family: var(--font-family-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+}
+
+.empty-state-title {
+    font-family: var(--font-family-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-ink-primary);
+    margin: 0 0 0.5rem 0;
+}
+
+.empty-state-text {
+    font-family: var(--font-family-mono);
+    font-size: 0.9rem;
+    color: var(--color-ink-muted);
+    max-width: 500px;
+    margin: 0 auto 1.5rem auto;
+    line-height: 1.5;
+}
+
+.empty-state-reset-btn {
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    border: 1.5px solid var(--color-ink-primary);
+    font-family: var(--font-family-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 0.6rem 1.25rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-retro-small);
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
+}
+
+.empty-state-reset-btn:hover {
+    background-color: var(--color-primary-hover);
+    transform: translate(-1px, -1px);
+    box-shadow: var(--shadow-retro);
+}
+
+/* ==========================================================================
+   6. UTILITIES & RESPONSIVENESS
+   ========================================================================== */
 
 .hidden {
     display: none !important;
 }
 
-/* Responsive */
-@media (max-width: 1100px) {
+@media only screen and (max-width: 1100px) {
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
     }
 }
 
-@media (max-width: 680px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .catalog-page-header {
+@media only screen and (max-width: 820px) {
+    .projects__command-bar {
         flex-direction: column;
         align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .projects__title {
+        font-size: 2.2rem;
+    }
+
+    .projects__filterbar {
+        gap: 0.75rem;
     }
 }
