@@ -2,10 +2,10 @@
 layout: layouts/base.njk
 title: "Blog & Knowledge Graph"
 cssFiles:
-  - "/assets/strata-graph/strata-graph.css"
-  - "/assets/css/blog.css"
+- "/assets/strata-graph/strata-graph.css"
+- "/assets/css/blog.css"
 jsFiles:
-  - "/assets/strata-graph/strata-graph.js"
+- "/assets/strata-graph/strata-graph.js"
 ---
 
 <header class="blog-header">
@@ -22,21 +22,31 @@ jsFiles:
     <span>JavaScript is disabled. Classic directory navigation is active with full article reader.</span>
   </div>
   <style>
-    .blog-view-bar { display: none !important; }
-    #blog-graph-view { display: none !important; }
-    #blog-classic-view { display: block !important; }
+    .blog-view-bar {
+      display: none !important;
+    }
+
+    #blog-graph-view {
+      display: none !important;
+    }
+
+    #blog-classic-view {
+      display: block !important;
+    }
   </style>
 </noscript>
 
 <!-- View Switcher & Status Bar -->
 <div class="blog-view-bar" id="blog-view-bar">
   <div class="blog-view-switcher" role="tablist" aria-label="Blog View Mode">
-    <button type="button" class="view-switch-btn active" id="btn-view-graph" role="tab" aria-selected="true" aria-controls="blog-graph-view">
+    <button type="button" class="view-switch-btn active" id="btn-view-graph" role="tab" aria-selected="true"
+      aria-controls="blog-graph-view">
       <span class="view-btn-icon">&#x25C8;</span>
       <span class="view-btn-label">GRAPH VIEW</span>
       <span class="view-btn-tech">[CANVAS 2D]</span>
     </button>
-    <button type="button" class="view-switch-btn" id="btn-view-classic" role="tab" aria-selected="false" aria-controls="blog-classic-view">
+    <button type="button" class="view-switch-btn" id="btn-view-classic" role="tab" aria-selected="false"
+      aria-controls="blog-classic-view">
       <span class="view-btn-icon">&#x2630;</span>
       <span class="view-btn-label">CLASSIC VIEW</span>
       <span class="view-btn-tech">[DIRECTORY]</span>
@@ -49,7 +59,8 @@ jsFiles:
 </div>
 
 <!-- Mode 1: Interactive Force-Directed Canvas Graph -->
-<section class="blog-view-pane blog-graph-section" id="blog-graph-view" role="tabpanel" aria-labelledby="btn-view-graph">
+<section class="blog-view-pane blog-graph-section" id="blog-graph-view" role="tabpanel"
+  aria-labelledby="btn-view-graph">
   <div id="strata-graph-container">
     <!-- Strata-Graph Canvas Mount Point -->
   </div>
@@ -75,7 +86,8 @@ jsFiles:
 </section>
 
 <!-- Mode 2: Classic Fallback Navigation & Editorial Directory View -->
-<section class="blog-view-pane blog-classic-section" id="blog-classic-view" role="tabpanel" aria-labelledby="btn-view-classic">
+<section class="blog-view-pane blog-classic-section" id="blog-classic-view" role="tabpanel"
+  aria-labelledby="btn-view-classic">
 
   <div class="classic-explorer-layout">
     <!-- Left Column: Hierarchical Folder Tree Sidebar -->
@@ -85,22 +97,22 @@ jsFiles:
           <span class="tree-prompt">&gt;</span>
           <span class="tree-title-text">DIRECTORY EXPLORER</span>
         </div>
-        <span class="tree-stat-badge">{{ blogData.folderList.length }} DIRS / {{ blogData.articleList.length }} POSTS</span>
+        <span class="tree-stat-badge">{{ blogData.folderList.length }} DIRS / {{ blogData.articleList.length }}
+          POSTS</span>
       </div>
 
       <nav class="tree-nav-container" aria-label="Folder Hierarchy">
         <!-- ALL DIRECTORIES Root Item -->
-        <button type="button" 
-                class="tree-node-btn active" 
-                data-folder="all" 
-                data-title="All Compiled Articles"
-                data-desc="Viewing all compiled articles across the knowledge base. Select a specific directory from the explorer tree to filter topics, or browse articles below."
-                aria-selected="true">
+        <button type="button" class="tree-node-btn active" data-folder="all" data-title="All Compiled Articles"
+          data-desc="Viewing all compiled articles across the knowledge base. Select a specific directory from the explorer tree to filter topics, or browse articles below."
+          aria-selected="true">
           <span class="tree-indent" style="--depth: 0;"></span>
           <span class="tree-connector" aria-hidden="true">&#x25C7;</span>
           <span class="tree-folder-icon" aria-hidden="true">
-            <svg class="flat-folder-svg" viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true" focusable="false">
-              <path d="M1.75 2.5A1.25 1.25 0 0 0 .5 3.75v8.5A1.25 1.25 0 0 0 1.75 13.5h12.5a1.25 1.25 0 0 0 1.25-1.25v-7a1.25 1.25 0 0 0-1.25-1.25H7.31L5.93 2.688A1.25 1.25 0 0 0 5.05 2.5H1.75z"/>
+            <svg class="flat-folder-svg" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"
+              aria-hidden="true" focusable="false">
+              <path
+                d="M1.75 2.5A1.25 1.25 0 0 0 .5 3.75v8.5A1.25 1.25 0 0 0 1.75 13.5h12.5a1.25 1.25 0 0 0 1.25-1.25v-7a1.25 1.25 0 0 0-1.25-1.25H7.31L5.93 2.688A1.25 1.25 0 0 0 5.05 2.5H1.75z" />
             </svg>
           </span>
           <span class="tree-node-label">ALL DIRECTORIES</span>
@@ -110,32 +122,26 @@ jsFiles:
         <!-- Hierarchy Folder Tree Nodes -->
         <div class="tree-nodes-list" role="tree">
           {% for item in blogData.treeList %}
-          <button type="button" 
-                  class="tree-node-btn" 
-                  role="treeitem"
-                  data-folder="{{ item.path }}"
-                  data-depth="{{ item.depth }}"
-                  data-name="{{ item.name }}"
-                  data-title="{{ item.title }}"
-                  data-desc="{{ item.description }}"
-                  data-has-children="{{ item.hasChildren }}"
-                  data-direct-count="{{ item.directCount }}"
-                  data-total-count="{{ item.totalCount }}"
-                  data-subfolder-count="{{ item.subfolderCount }}"
-                  aria-selected="false">
+          <button type="button" class="tree-node-btn" role="treeitem" data-folder="{{ item.path }}"
+            data-depth="{{ item.depth }}" data-name="{{ item.name }}" data-title="{{ item.title }}"
+            data-desc="{{ item.description }}" data-has-children="{{ item.hasChildren }}"
+            data-direct-count="{{ item.directCount }}" data-total-count="{{ item.totalCount }}"
+            data-subfolder-count="{{ item.subfolderCount }}" aria-selected="false">
             <span class="tree-indent" style="--depth: {{ item.depth }};"></span>
             <span class="tree-connector" aria-hidden="true">
               {% if item.depth == 0 %}
-                &#x25C9;
+              &#x25C9;
               {% elif item.isLast %}
-                &#x2514;&#x2500;
+              &#x2514;&#x2500;
               {% else %}
-                &#x251C;&#x2500;
+              &#x251C;&#x2500;
               {% endif %}
             </span>
             <span class="tree-folder-icon" aria-hidden="true">
-              <svg class="flat-folder-svg" viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true" focusable="false">
-                <path d="M1.75 2.5A1.25 1.25 0 0 0 .5 3.75v8.5A1.25 1.25 0 0 0 1.75 13.5h12.5a1.25 1.25 0 0 0 1.25-1.25v-7a1.25 1.25 0 0 0-1.25-1.25H7.31L5.93 2.688A1.25 1.25 0 0 0 5.05 2.5H1.75z"/>
+              <svg class="flat-folder-svg" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"
+                aria-hidden="true" focusable="false">
+                <path
+                  d="M1.75 2.5A1.25 1.25 0 0 0 .5 3.75v8.5A1.25 1.25 0 0 0 1.75 13.5h12.5a1.25 1.25 0 0 0 1.25-1.25v-7a1.25 1.25 0 0 0-1.25-1.25H7.31L5.93 2.688A1.25 1.25 0 0 0 5.05 2.5H1.75z" />
               </svg>
             </span>
             <span class="tree-node-label">{{ item.name }}/</span>
@@ -170,7 +176,8 @@ jsFiles:
         </div>
         <h2 class="scope-heading" id="dir-active-title">All Compiled Articles</h2>
         <p class="scope-description" id="dir-active-desc">
-          Viewing all compiled articles across the knowledge base. Select a specific directory from the explorer on the left to filter by topic, or browse articles below.
+          Viewing all compiled articles across the knowledge base. Select a specific directory from the explorer on the
+          left to filter by topic, or browse articles below.
         </p>
       </header>
 
@@ -181,26 +188,29 @@ jsFiles:
         </div>
         <div class="child-subfolders-grid" id="child-subfolders-grid">
           {% for item in blogData.treeList %}
-            {% if item.childFolders and item.childFolders.length > 0 %}
-              {% for child in item.childFolders %}
-              <div class="child-subfolder-card" data-parent="{{ item.path }}" data-target="{{ child.path }}">
-                <div class="child-folder-top">
-                  <span class="child-folder-icon">
-                    <svg class="flat-folder-svg" viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true" focusable="false">
-                      <path d="M1.75 2.5A1.25 1.25 0 0 0 .5 3.75v8.5A1.25 1.25 0 0 0 1.75 13.5h12.5a1.25 1.25 0 0 0 1.25-1.25v-7a1.25 1.25 0 0 0-1.25-1.25H7.31L5.93 2.688A1.25 1.25 0 0 0 5.05 2.5H1.75z"/>
-                    </svg>
-                  </span>
-                  <span class="child-folder-name">{{ child.name }}/</span>
-                </div>
-                <div class="child-folder-bottom">
-                  <span class="child-folder-count">{{ child.directCount }} direct &bull; {{ child.totalCount }} total</span>
-                  <button type="button" class="child-folder-enter-btn" data-target="{{ child.path }}" title="Enter {{ child.name }}/">
-                    ENTER &gt;
-                  </button>
-                </div>
-              </div>
-              {% endfor %}
-            {% endif %}
+          {% if item.childFolders and item.childFolders.length > 0 %}
+          {% for child in item.childFolders %}
+          <div class="card child-subfolder-card" data-parent="{{ item.path }}" data-target="{{ child.path }}">
+            <div class="child-folder-top">
+              <span class="child-folder-icon">
+                <svg class="flat-folder-svg" viewBox="0 0 16 16" width="18" height="18" fill="currentColor"
+                  aria-hidden="true" focusable="false">
+                  <path
+                    d="M1.75 2.5A1.25 1.25 0 0 0 .5 3.75v8.5A1.25 1.25 0 0 0 1.75 13.5h12.5a1.25 1.25 0 0 0 1.25-1.25v-7a1.25 1.25 0 0 0-1.25-1.25H7.31L5.93 2.688A1.25 1.25 0 0 0 5.05 2.5H1.75z" />
+                </svg>
+              </span>
+              <span class="child-folder-name">{{ child.name }}/</span>
+            </div>
+            <div class="child-folder-bottom">
+              <span class="child-folder-count">{{ child.directCount }} direct &bull; {{ child.totalCount }} total</span>
+              <button type="button" class="child-folder-enter-btn" data-target="{{ child.path }}"
+                title="Enter {{ child.name }}/">
+                ENTER &gt;
+              </button>
+            </div>
+          </div>
+          {% endfor %}
+          {% endif %}
           {% endfor %}
         </div>
       </section>
@@ -221,7 +231,8 @@ jsFiles:
       <!-- Articles List -->
       <div class="classic-articles-list" id="classic-articles-list">
         {% for article in blogData.articleList %}
-        <article class="classic-article-card" data-folder="{{ article.folderPath }}" id="{{ article.id | replace(':', '-') | replace('/', '-') }}">
+        <article class="classic-article-card" data-folder="{{ article.folderPath }}"
+          id="{{ article.id | replace(':', '-') | replace('/', '-') }}">
           <header class="classic-card-header">
             <div class="classic-meta-left">
               <span class="classic-folder-badge">DIR: {{ article.folderPath }}</span>
@@ -234,7 +245,7 @@ jsFiles:
           </header>
 
           <h2 class="classic-article-title">{{ article.title }}</h2>
-          
+
           <p class="classic-article-summary">{{ article.summary }}</p>
 
           {% if article.tags and article.tags.length > 0 %}
@@ -244,6 +255,14 @@ jsFiles:
             {% endfor %}
           </div>
           {% endif %}
+
+          <!-- Card Action Buttons -->
+          <div class="classic-card-actions">
+            <button type="button" class="action-btn action-primary open-article-modal-btn"
+              data-article-id="{{ article.id }}">
+              READ ARTICLE &rarr;
+            </button>
+          </div>
 
           <!-- Accessible Native Disclosure Reader (Works 100% without JS) -->
           <details class="classic-article-details">
@@ -265,8 +284,23 @@ jsFiles:
   </div>
 </section>
 
+{# Reusable Modal Component for Blog Article Reader #}
+{% set modalId = "blogArticleModal" %}
+{% set modalTag = "KNOWLEDGE ARCHIVE" %}
+{% set modalDefaultTitle = "ARTICLE READER" %}
+{% set modalItemCode = "POST // READ" %}
+{% set modalHasFooter = true %}
+{% set modalReturnText = "CLOSE READER [ESC]" %}
+{% include "components/modal.njk" %}
+
+<!-- Embedded Articles Data for Client-Side Modal Hydration -->
+<script id="blogArticlesData" type="application/json">
+  {{ blogData.articles | dump | safe }}
+</script>
+
+
 <script>
-  (function() {
+  (function () {
     // 1. Detection and View State Management
     const viewGraphBtn = document.getElementById('btn-view-graph');
     const viewClassicBtn = document.getElementById('btn-view-classic');
@@ -308,7 +342,7 @@ jsFiles:
       currentView = viewMode;
       try {
         localStorage.setItem('strata_blog_view', viewMode);
-      } catch (e) {}
+      } catch (e) { }
 
       if (viewMode === 'graph' && hasCanvas) {
         graphSection.style.display = 'block';
@@ -352,7 +386,7 @@ jsFiles:
     }
 
     if (viewGraphBtn) {
-      viewGraphBtn.addEventListener('click', function() {
+      viewGraphBtn.addEventListener('click', function () {
         if (hasCanvas) {
           setView('graph');
         }
@@ -360,7 +394,7 @@ jsFiles:
     }
 
     if (viewClassicBtn) {
-      viewClassicBtn.addEventListener('click', function() {
+      viewClassicBtn.addEventListener('click', function () {
         setView('classic');
       });
     }
@@ -377,6 +411,13 @@ jsFiles:
             container: '#strata-graph-container',
             dataUrl: '/assets/data/blog-graph.json'
           });
+          // Unify graph canvas article clicks to open the reusable modal
+          if (window.blogGraph && window.blogGraph.canvasEngine) {
+            window.blogGraph.canvasEngine.onArticleClick = function (node) {
+              const articleId = node.articleId || node.id;
+              openArticleReader(articleId);
+            };
+          }
         }
       } else {
         setTimeout(initGraph, 50);
@@ -400,7 +441,7 @@ jsFiles:
     function selectFolder(folderPath) {
       let activeBtn = null;
 
-      treeNodeBtns.forEach(function(btn) {
+      treeNodeBtns.forEach(function (btn) {
         const bFolder = btn.getAttribute('data-folder');
         if (bFolder === folderPath) {
           btn.classList.add('active');
@@ -430,8 +471,8 @@ jsFiles:
         dirActivePath.textContent = folderPath === 'all' ? 'ALL DIRECTORIES' : folderPath;
       }
       if (dirActiveTitle) {
-        dirActiveTitle.textContent = folderPath === 'all' 
-          ? 'All Compiled Articles' 
+        dirActiveTitle.textContent = folderPath === 'all'
+          ? 'All Compiled Articles'
           : (title ? title : folderPath);
       }
       if (dirActiveDesc) {
@@ -443,7 +484,7 @@ jsFiles:
       // Filter child subfolders
       if (subfoldersSection && subfolderCards.length > 0) {
         let visibleSubfolders = 0;
-        subfolderCards.forEach(function(card) {
+        subfolderCards.forEach(function (card) {
           const parent = card.getAttribute('data-parent');
           const isMatch = (folderPath === 'all' && parent === '/') || (parent === folderPath);
           if (isMatch) {
@@ -459,7 +500,7 @@ jsFiles:
 
       // Filter articles
       let visibleArticleCount = 0;
-      articleCards.forEach(function(card) {
+      articleCards.forEach(function (card) {
         const cardFolder = card.getAttribute('data-folder');
         if (folderPath === 'all' || cardFolder === folderPath) {
           card.style.display = '';
@@ -489,24 +530,24 @@ jsFiles:
     }
 
     // Attach tree node click events
-    treeNodeBtns.forEach(function(btn) {
-      btn.addEventListener('click', function() {
+    treeNodeBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
         const folder = this.getAttribute('data-folder');
         selectFolder(folder);
       });
     });
 
     // Attach subfolder chip card / button clicks
-    document.querySelectorAll('.child-folder-enter-btn').forEach(function(btn) {
-      btn.addEventListener('click', function(e) {
+    document.querySelectorAll('.child-folder-enter-btn').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
         e.stopPropagation();
         const target = this.getAttribute('data-target');
         selectFolder(target);
       });
     });
 
-    document.querySelectorAll('.child-subfolder-card').forEach(function(card) {
-      card.addEventListener('click', function() {
+    document.querySelectorAll('.child-subfolder-card').forEach(function (card) {
+      card.addEventListener('click', function () {
         const target = this.getAttribute('data-target');
         selectFolder(target);
       });
@@ -514,7 +555,7 @@ jsFiles:
 
     // Reset button in empty state
     if (emptyResetBtn) {
-      emptyResetBtn.addEventListener('click', function() {
+      emptyResetBtn.addEventListener('click', function () {
         selectFolder('all');
       });
     }
@@ -522,8 +563,118 @@ jsFiles:
     // Initialize with 'all'
     selectFolder('all');
 
+    // 4. Modal Article Reader Controller (Reusable Modal Component)
+    const articleModal = document.getElementById('blogArticleModal');
+    const modalCloseBtn = document.getElementById('blogArticleModalCloseBtn');
+    const modalReturnBtn = document.getElementById('blogArticleModalReturnBtn');
+    const modalTag = document.getElementById('blogArticleModalTag');
+    const modalId = document.getElementById('blogArticleModalId');
+    const modalTitle = document.getElementById('blogArticleModalTitle');
+    const modalBody = document.getElementById('blogArticleModalScrollBody');
+
+    let blogArticlesMap = {};
+    const articlesScript = document.getElementById('blogArticlesData');
+    if (articlesScript) {
+      try {
+        blogArticlesMap = JSON.parse(articlesScript.textContent);
+      } catch (err) {
+        console.error('[Blog] Could not parse embedded blog articles data:', err);
+      }
+    }
+
+    function openArticleReader(articleId) {
+      const article = blogArticlesMap[articleId];
+      if (!article) return;
+
+      if (modalTag) {
+        const folder = article.folderPath === '/' ? 'ROOT' : article.folderPath;
+        modalTag.textContent = folder.replace(/^\//, '').toUpperCase() || 'ARCHIVE';
+      }
+      if (modalId) {
+        modalId.textContent = (article.id || 'POST').toUpperCase();
+      }
+      if (modalTitle) {
+        modalTitle.textContent = (article.title || 'ARTICLE DETAILS').toUpperCase();
+      }
+
+      if (modalBody) {
+        let bodyHtml = '';
+
+        if (article.thumbnail) {
+          bodyHtml += '<img src="' + article.thumbnail + '" alt="' + (article.title || '') + '" class="modal-hero-image" />';
+        }
+
+        bodyHtml += '<div class="modal-article-meta">';
+        if (article.date) bodyHtml += '<span>DATE: ' + article.date + '</span>';
+        if (article.readingTime) bodyHtml += '<span>&bull; TIME: ' + article.readingTime + '</span>';
+        if (article.wordCount) bodyHtml += '<span>&bull; WORDS: ' + article.wordCount + '</span>';
+        bodyHtml += '</div>';
+
+        if (article.tags && article.tags.length > 0) {
+          bodyHtml += '<div class="modal-article-tags">';
+          article.tags.forEach(function (tag) {
+            bodyHtml += '<span class="modal-tag">#' + tag + '</span>';
+          });
+          bodyHtml += '</div>';
+        }
+
+        bodyHtml += '<div class="article-markdown-body">' + (article.htmlContent || '') + '</div>';
+
+        modalBody.innerHTML = bodyHtml;
+        modalBody.scrollTop = 0;
+      }
+
+      if (articleModal) {
+        articleModal.classList.add('is-open');
+        articleModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        if (modalCloseBtn) modalCloseBtn.focus();
+      }
+    }
+
+    function closeArticleReader() {
+      if (articleModal) {
+        articleModal.classList.remove('is-open');
+        articleModal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+      }
+    }
+
+    // Attach click handlers to all modal buttons
+    document.querySelectorAll('.open-article-modal-btn').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const aId = this.getAttribute('data-article-id');
+        openArticleReader(aId);
+      });
+    });
+
+    if (modalCloseBtn) {
+      modalCloseBtn.addEventListener('click', closeArticleReader);
+    }
+    if (modalReturnBtn) {
+      modalReturnBtn.addEventListener('click', closeArticleReader);
+    }
+
+    if (articleModal) {
+      articleModal.addEventListener('click', function (e) {
+        if (e.target === articleModal) {
+          closeArticleReader();
+        }
+      });
+    }
+
+    window.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && articleModal && articleModal.classList.contains('is-open')) {
+        closeArticleReader();
+      }
+    });
+
+    // Expose openArticleReader globally for canvas or programmatic calls
+    window.openBlogArticle = openArticleReader;
+
     // Viewport resize auto-switch if no user preference
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
       if (!localStorage.getItem('strata_blog_view')) {
         if (window.innerWidth <= 768 && currentView !== 'classic') {
           setView('classic', '[FALLBACK: MOBILE VIEWPORT DETECTED]');

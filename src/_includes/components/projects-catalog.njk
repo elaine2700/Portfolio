@@ -44,7 +44,8 @@
     <section class="projects__section" aria-label="Project cards catalog">
         <div class="projects-grid" id="projectsGrid">
             {% for project in projects %}
-            <article class="card" data-category="{{ project.projectType | upper }}" data-id="{{ project.id }}">
+            <article class="card project-card" data-category="{{ project.projectType | upper }}"
+                data-id="{{ project.id }}">
                 <!-- Card Architectural Topbar / Metadata Strip -->
                 <div class="card-meta-bar">
                     <span class="card-meta-id">PRJ-0{{ loop.index }}</span>

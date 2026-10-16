@@ -1,0 +1,56 @@
+{#
+  ==========================================================================
+  REUSABLE MODAL COMPONENT (modal.njk)
+  Unified single source of truth for portfolio dialogs, dossiers, and readers.
+  ==========================================================================
+#}
+<div id="{{ modalId | default('siteModal') }}" 
+     class="modal-backdrop {{ modalExtraClass }} {% if modalInitialOpen %}is-open{% endif %}" 
+     role="dialog" 
+     aria-modal="true" 
+     aria-hidden="{% if modalInitialOpen %}false{% else %}true{% endif %}"
+     {% if modalInitialId != null %}data-initial-id="{{ modalInitialId }}"{% endif %}>
+    
+    <div class="modal-window {{ modalWindowExtraClass }}" id="{{ modalWindowId | default((modalId | default('siteModal')) ~ 'Window') }}">
+        <!-- Modal Topbar / Command Header -->
+        <div class="modal-topbar">
+            <div class="modal-topbar-left">
+                <span class="modal-pulse-dot" aria-hidden="true"></span>
+                <span class="modal-topbar-tag" id="{{ modalTagId | default((modalId | default('siteModal')) ~ 'Tag') }}">{{ modalTag | default('DOSSIER') }}</span>
+                <span class="modal-topbar-divider">//</span>
+                <span class="modal-topbar-id" id="{{ modalItemId | default((modalId | default('siteModal')) ~ 'Id') }}">{{ modalItemCode | default('DOC-01') }}</span>
+            </div>
+            <div class="modal-topbar-center">
+                <span class="modal-topbar-title" id="{{ modalTitleId | default((modalId | default('siteModal')) ~ 'Title') }}">{{ modalDefaultTitle | default('DETAILS') }}</span>
+            </div>
+            <div class="modal-topbar-right">
+                <button type="button" class="modal-close-btn" id="{{ modalCloseBtnId | default((modalId | default('siteModal')) ~ 'CloseBtn') }}" aria-label="Close dialog">
+                    ✕ <span class="esc-hint">[ESC]</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Scrollable Modal Content Area -->
+        <div class="modal-scroll-body" id="{{ modalScrollBodyId | default((modalId | default('siteModal')) ~ 'ScrollBody') }}">
+            {% if modalBodyContent %}
+                {{ modalBodyContent | safe }}
+            {% endif %}
+        </div>
+
+        {% if modalHasFooter %}
+        <!-- Modal Footer Controls -->
+        <footer class="modal-footer" id="{{ modalFooterId | default((modalId | default('siteModal')) ~ 'Footer') }}">
+            <div class="modal-footer-nav" id="{{ modalFooterNavId | default((modalId | default('siteModal')) ~ 'FooterNav') }}">
+                {% if modalFooterNavContent %}
+                    {{ modalFooterNavContent | safe }}
+                {% endif %}
+            </div>
+            <div class="modal-footer-action" style="margin-left: auto;">
+                <button type="button" class="modal-return-btn" id="{{ modalReturnBtnId | default((modalId | default('siteModal')) ~ 'ReturnBtn') }}">
+                    {{ modalReturnText | default('RETURN [ESC]') }}
+                </button>
+            </div>
+        </footer>
+        {% endif %}
+    </div>
+</div>
