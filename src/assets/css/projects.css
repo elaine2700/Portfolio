@@ -226,17 +226,6 @@
     color: var(--color-ink-muted);
 }
 
-.project-type-badge {
-    font-family: var(--font-family-mono);
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    padding: 0.15rem 0.55rem;
-    border-radius: 9999px;
-    border: 1px solid var(--color-ink-primary);
-    text-transform: uppercase;
-}
-
 .project-type-badge.type-vr-ar {
     background-color: var(--color-accent-teal);
     color: #FFFFFF;
