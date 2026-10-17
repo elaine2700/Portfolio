@@ -91,8 +91,8 @@ jsFiles:
 
   <div class="classic-explorer-layout">
     <!-- Left Column: Hierarchical Folder Tree Sidebar -->
-    <aside class="classic-tree-sidebar" aria-label="Directory Explorer">
-      <div class="tree-sidebar-header">
+    <aside class="card classic-tree-sidebar " aria-label="Directory Explorer">
+      <div class="card-header">
         <div class="tree-header-title">
           <span class="tree-prompt">&gt;</span>
           <span class="tree-title-text">DIRECTORY EXPLORER</span>
@@ -116,7 +116,7 @@ jsFiles:
             </svg>
           </span>
           <span class="tree-node-label">ALL DIRECTORIES</span>
-          <span class="tree-node-badge">({{ blogData.articleList.length }})</span>
+          <span class="tag tag-s pill sage tree-node-badge">{{ blogData.articleList.length }}</span>
         </button>
 
         <!-- Hierarchy Folder Tree Nodes -->
@@ -145,8 +145,9 @@ jsFiles:
               </svg>
             </span>
             <span class="tree-node-label">{{ item.name }}/</span>
-            <span class="tree-node-badge" title="{{ item.directCount }} direct, {{ item.totalCount }} total articles">
-              ({{ item.directCount }})
+            <span class="tag tag-s pill sage tree-node-badge"
+              title="{{ item.directCount }} direct, {{ item.totalCount }} total articles">
+              {{ item.directCount }}
             </span>
           </button>
           {% endfor %}
@@ -160,7 +161,7 @@ jsFiles:
         </div>
         <div class="tree-legend-item">
           <span class="tree-legend-dot">&bull;</span>
-          <span>DISCLOSURE EXPANDS ARTICLES</span>
+          <span>READ FULL ARTICLE IN MODAL</span>
         </div>
       </div>
     </aside>
@@ -231,52 +232,43 @@ jsFiles:
       <!-- Articles List -->
       <div class="classic-articles-list" id="classic-articles-list">
         {% for article in blogData.articleList %}
-        <article class="classic-article-card" data-folder="{{ article.folderPath }}"
+        <article class="card classic-article-card" data-folder="{{ article.folderPath }}"
           id="{{ article.id | replace(':', '-') | replace('/', '-') }}">
-          <header class="classic-card-header">
+          <header class="card-header">
             <div class="classic-meta-left">
-              <span class="classic-folder-badge">DIR: {{ article.folderPath }}</span>
+              <span class="tag pill teal">DIR: {{ article.folderPath }}</span>
               <time class="classic-article-date" datetime="{{ article.date }}">{{ article.date }}</time>
               <span class="classic-reading-time">&bull; {{ article.readingTime }}</span>
             </div>
             <div class="classic-meta-right">
-              <span class="classic-words-badge">{{ article.wordCount }} words</span>
+              <span class="tag">{{ article.wordCount }} words</span>
             </div>
           </header>
 
-          <h2 class="classic-article-title">{{ article.title }}</h2>
+          <h2 class="classic-article-title">
+            <button type="button" class="classic-title-link open-article-modal-btn" data-article-id="{{ article.id }}"
+              title="Read {{ article.title }}">
+              {{ article.title }}
+            </button>
+          </h2>
 
           <p class="classic-article-summary">{{ article.summary }}</p>
 
           {% if article.tags and article.tags.length > 0 %}
-          <div class="classic-tags-list">
+          <div class="classic-tags-list tag-group">
             {% for tag in article.tags %}
-            <span class="classic-tag-item">#{{ tag }}</span>
+            <span class="tag">#{{ tag }}</span>
             {% endfor %}
           </div>
           {% endif %}
 
           <!-- Card Action Buttons -->
           <div class="classic-card-actions">
-            <button type="button" class="action-btn action-primary open-article-modal-btn"
+            <button type="button" class="action-btn button button-s teal action-primary open-article-modal-btn"
               data-article-id="{{ article.id }}">
-              READ ARTICLE &rarr;
+              READ FULL ARTICLE &rarr;
             </button>
           </div>
-
-          <!-- Accessible Native Disclosure Reader (Works 100% without JS) -->
-          <details class="classic-article-details">
-            <summary class="classic-read-toggle">
-              <span class="toggle-icon">&gt;</span>
-              <span class="toggle-text">READ FULL ARTICLE</span>
-              <span class="toggle-hint">[PRESS TO EXPAND INLINE READER]</span>
-            </summary>
-            <div class="classic-article-body">
-              <div class="article-body-inner">
-                {{ article.htmlContent | safe }}
-              </div>
-            </div>
-          </details>
         </article>
         {% endfor %}
       </div>

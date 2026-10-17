@@ -27,8 +27,8 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), 
-                visibility 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+        visibility 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .modal-backdrop.is-open,
@@ -52,7 +52,6 @@ body.modal-open {
 .project-modal-window,
 .sg-modal-container {
     background-color: var(--color-canvas);
-    border: 3px double var(--color-ink-primary);
     box-shadow: 8px 8px 0 var(--color-ink-primary);
     width: 100%;
     max-width: 980px;
@@ -82,8 +81,7 @@ body.modal-open {
     align-items: center;
     justify-content: space-between;
     padding: 0.65rem 1.25rem;
-    background-color: var(--color-surface-pulp);
-    border-bottom: 1.5px solid var(--color-ink-primary);
+    border-bottom: 1.5px dashed var(--color-ink-primary);
     flex-shrink: 0;
     gap: 1rem;
     box-sizing: border-box;
@@ -443,8 +441,7 @@ body.modal-open {
     align-items: center;
     justify-content: space-between;
     padding: 0.75rem 1.25rem;
-    background-color: var(--color-surface-pulp);
-    border-top: 2px solid var(--color-ink-primary);
+    border-top: 1px dashed var(--color-ink-primary);
     flex-shrink: 0;
     flex-wrap: wrap;
     gap: 0.85rem;
@@ -520,6 +517,7 @@ body.modal-open {
    ========================================================================== */
 
 @media (max-width: 768px) {
+
     .modal-backdrop,
     .project-modal-backdrop,
     .sg-modal-overlay {
