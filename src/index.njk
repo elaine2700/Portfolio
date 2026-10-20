@@ -21,32 +21,43 @@ cssFiles: ["/assets/css/home.css"]
 
         <div class="hero-collage-side" aria-hidden="true">
             <div class="collage-container">
-                <!-- Layer 1: Torn Paper Backing -->
-                <div class="collage-torn-paper"></div>
-
-                <!-- Layer 2: Vintage Postage Stamp -->
-                <div class="postage-stamp">
-                    <div class="stamp-inner">
-                        <span>POSTAGE</span>
-                        5&cent;
-                        <span>AIRMAIL</span>
+                <!-- Layer 1: Technical Drafting Graph Paper Sheet with Masking Tape -->
+                <div class="collage-graph-sheet graph-paper">
+                    <div class="corner-tape-strip tape-tl"></div>
+                    <div class="graph-sheet-header">
+                        <span class="graph-sheet-crosshair">+</span>
                     </div>
-                    <div class="stamp-waves"></div>
+                    <div class="graph-sheet-swatches" aria-hidden="true">
+                        <span class="swatch-dot swatch-terracotta" title="Terracotta"></span>
+                        <span class="swatch-dot swatch-ochre" title="Golden Ochre"></span>
+                        <span class="swatch-dot swatch-teal" title="Vintage Teal"></span>
+                        <span class="swatch-dot swatch-sage" title="Retro Sage"></span>
+                    </div>
                 </div>
 
-                <!-- Layer 3: Circular Artwork Cutout with Halftone Dots -->
-                <div class="collage-circle-art">
-                    <img src="/assets/images/Icon_Complete.png" alt="Elaine Avatar Screenprint" />
-                    <div class="halftone-dot-overlay"></div>
+                <!-- Layer 3: Minimal Retro Vector Avatar Specimen Card -->
+                <div class="collage-portrait-card">
+                    <div class="portrait-art-window">
+                        <div class="portrait-halftone-overlay"></div>
+                        <img src="/assets/images/elaine-avatar-retro.png" 
+                             alt="Elaine Serrano - Minimal Retro Vector Avatar" 
+                             class="portrait-avatar-img" />
+                    </div>
+                    <div class="portrait-caption">
+                        <span class="portrait-name">ELAINE SERRANO</span>
+                        <span class="portrait-role">WEB DESIGN &amp; CREATIVE CODE</span>
+                    </div>
                 </div>
 
                 <!-- Layer 4: Taped Typewriter Note Card -->
                 <div class="collage-note-card">
                     <div class="collage-note-tape"></div>
-                    <p style="margin: 0.35rem 0 0 0;">
-                        "Creating interactive worlds where code, physical typography, and spatial imagination
-                        intersect."
+                    <p class="note-quote">
+                        "Designing tactile digital spaces where typography and modern web craft intersect."
                     </p>
+                    <div class="note-footer">
+                        <span class="note-stamp-pill">ARCHIVE</span>
+                    </div>
                 </div>
             </div>
         </div>
