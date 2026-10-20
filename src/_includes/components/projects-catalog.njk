@@ -7,7 +7,6 @@
             A curated collection of spatial computing (VR/AR) simulations, procedural tools, interactive web
             applications, and developer experiments.
         </p>
-        <div class="projects__header-divider"></div>
     </header>
 
     <!-- Command & Filter Bar -->
@@ -19,16 +18,16 @@
             </div>
             <div class="filter-group">
                 <button class="button filter-btn active" data-filter="ALL" aria-pressed="true">
-                    ALL <span class="filter-badge" data-count-for="ALL">{{ projects.length }}</span>
+                    ALL <span class="tag pill filter-badge" data-count-for="ALL">{{ projects.length }}</span>
                 </button>
                 <button class="button filter-btn" data-filter="VR-AR" aria-pressed="false">
-                    VR-AR <span class="filter-badge" data-count-for="VR-AR">3</span>
+                    VR-AR <span class="tag pill teal filter-badge" data-count-for="VR-AR">3</span>
                 </button>
                 <button class="button filter-btn" data-filter="WEB" aria-pressed="false">
-                    WEB <span class="filter-badge" data-count-for="WEB">5</span>
+                    WEB <span class="tag pill gold filter-badge" data-count-for="WEB">5</span>
                 </button>
                 <button class="button filter-btn" data-filter="TOOL" aria-pressed="false">
-                    TOOL <span class="filter-badge" data-count-for="TOOL">1</span>
+                    TOOL <span class="tag pill sage filter-badge" data-count-for="TOOL">1</span>
                 </button>
             </div>
         </div>
@@ -50,7 +49,8 @@
                 <div class="card-meta-bar">
                     <span class="card-meta-id">PRJ-0{{ loop.index }}</span>
                     {% if project.projectType %}
-                    <span class="project-type-badge type-{{ project.projectType | lower }}">{{ project.projectType
+                    <span class="tag pill project-type-badge {{ project.projectType | projectColor }}">{{
+                        project.projectType
                         }}</span>
                     {% endif %}
                 </div>

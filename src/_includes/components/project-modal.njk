@@ -38,7 +38,8 @@
                     <div class="dossier-meta-strip">
                         <span class="dossier-index-pill">0{{ loop.index }} / 0{{ projects.length }}</span>
                         {% if proj.projectType %}
-                        <span class="project-type-badge type-{{ proj.projectType | lower }}">{{ proj.projectType
+                        <span class="tag pill project-type-badge {{ proj.projectType | projectColor }}">{{
+                            proj.projectType
                             }}</span>
                         {% endif %}
                     </div>

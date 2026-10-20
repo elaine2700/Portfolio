@@ -141,20 +141,10 @@
     transform: none;
 }
 
-.filter-badge {
-    font-size: 0.68rem;
-    padding: 0.05rem 0.4rem;
-    background-color: rgba(30, 30, 28, 0.1);
-    border: 1px solid var(--color-ink-primary);
-    border-radius: 9999px;
-    font-weight: 700;
-    color: inherit;
-}
-
 .filter-btn.active .filter-badge {
     background-color: #FFFFFF;
     color: var(--color-primary);
-    border-color: #FFFFFF;
+    border-color: var(--color-ink-primary);
 }
 
 .projects__status-strip {
@@ -226,20 +216,6 @@
     color: var(--color-ink-muted);
 }
 
-.project-type-badge.type-vr-ar {
-    background-color: var(--color-accent-teal);
-    color: #FFFFFF;
-}
-
-.project-type-badge.type-web {
-    background-color: var(--color-primary);
-    color: #FFFFFF;
-}
-
-.project-type-badge.type-tool {
-    background-color: var(--color-accent-gold);
-    color: var(--color-ink-primary);
-}
 
 /* 4.2 Media Frame with Inset and Corner Tape (No extra image border per spec) */
 .project-image-frame {

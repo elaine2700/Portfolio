@@ -1,10 +1,10 @@
-const {EleventyRenderPlugin} = require("@11ty/eleventy");
+const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const dotenv = require('dotenv');
 dotenv.config();
 
 const { compileGraph } = require('./packages/strata-graph/src/index');
 
-module.exports = function(eleventyConfig){
+module.exports = function (eleventyConfig) {
     // Compile strata-graph blog data before each build
     eleventyConfig.on('eleventy.before', async () => {
         try {
@@ -20,7 +20,7 @@ module.exports = function(eleventyConfig){
     eleventyConfig.watchIgnores.add("src/assets/data/blog-graph.json");
     eleventyConfig.addWatchTarget("src/content/blog/");
     eleventyConfig.addPassthroughCopy("src/assets");
-    
+
     eleventyConfig.addPlugin(EleventyRenderPlugin);
 
     eleventyConfig.addFilter("getYear", (dateString) => {
@@ -28,8 +28,14 @@ module.exports = function(eleventyConfig){
         return date.getFullYear();
     });
 
+    /**Map project type to a color.*/
+    const PROJECT_TYPE_COLORS = { "vr-ar": "teal", "vr": "teal", "tool": "sage", "web": "gold" };
+    eleventyConfig.addFilter("projectColor", (projectType) => {
+        return PROJECT_TYPE_COLORS[String(projectType || "").toLowerCase()] || "";
+    });
+
     return {
-        dir:{
+        dir: {
             input: 'src',
             includes: '_includes',
             output: process.env.SITE_DIR,
