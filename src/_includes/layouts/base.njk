@@ -34,14 +34,13 @@
             [
             { 'name': 'Home', 'url': '/' },
             { 'name': 'Projects', 'url': '/projects/' },
-            { 'name': 'Resume', 'url': '/resume/' },
             { 'name': 'Contact', 'url': '#contact' },
             { 'name': 'Blog', 'url': '/blog/' }
             ]
             %}
             <nav class="top-nav">
                 {% for item in navItems %}
-                {% set isCurrent = (page.url == item.url) or (item.url != '/' and item.url != '#contact' and
+                {% set isCurrent = (page.url == item.url) or (page.url and item.url != '/' and item.url != '#contact' and
                 page.url.startsWith(item.url)) %}
                 <a class="{% if isCurrent %}active{% endif %}" href="{{ item.url }}">{{ item.name }}</a>
                 {% endfor %}
