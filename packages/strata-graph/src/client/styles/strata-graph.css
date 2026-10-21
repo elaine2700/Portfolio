@@ -224,11 +224,17 @@
 }
 
 .strata-graph-hint-dot.folder {
-  background: var(--sg-node-folder-border-color);
+  background: var(--sg-node-folder-color, #3D7068);
   border: 1px solid #1A1A1A;
+  border-radius: 2px;
+  width: 9px;
+  height: 8px;
 }
 
 .strata-graph-hint-dot.article {
-  background: var(--sg-node-border-color);
-  border: 1px solid #1A1A1A;
+  background: var(--sg-node-polaroid-bg, #FAF7F0);
+  border: 1.2px solid #1A1A1A;
+  border-radius: 1px;
+  width: 8px;
+  height: 10px;
 }

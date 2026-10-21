@@ -121,11 +121,17 @@ export class CanvasEngine {
     const { x, y } = this.screenToWorld(screenX, screenY);
     for (let i = this.nodes.length - 1; i >= 0; i--) {
       const node = this.nodes[i];
-      const radius = this.renderer.getNodeRadius(node);
-      const dx = node.x - x;
-      const dy = node.y - y;
-      if (dx * dx + dy * dy <= radius * radius) {
-        return node;
+      if (this.renderer && typeof this.renderer.isPointInNode === 'function') {
+        if (this.renderer.isPointInNode(node, x, y)) {
+          return node;
+        }
+      } else {
+        const radius = this.renderer ? this.renderer.getNodeRadius(node) : 40;
+        const dx = node.x - x;
+        const dy = node.y - y;
+        if (dx * dx + dy * dy <= radius * radius) {
+          return node;
+        }
       }
     }
     return null;
@@ -135,7 +141,7 @@ export class CanvasEngine {
     // Clone nodes and links
     this.nodes = nodesData.map((d, i) => {
       const angle = (i / nodesData.length) * Math.PI * 2;
-      const spread = 120 + Math.random() * 40;
+      const spread = 140 + Math.random() * 40;
       const startX = origin ? origin.x + Math.cos(angle) * 30 : Math.cos(angle) * spread;
       const startY = origin ? origin.y + Math.sin(angle) * 30 : Math.sin(angle) * spread;
 
@@ -145,7 +151,7 @@ export class CanvasEngine {
         y: startY,
         vx: (Math.random() - 0.5) * 2,
         vy: (Math.random() - 0.5) * 2,
-        radius: this.renderer.getNodeRadius(d)
+        radius: this.renderer ? this.renderer.getNodeRadius(d) : 44
       };
     });
 
@@ -165,11 +171,11 @@ export class CanvasEngine {
 
     this.simulation = forceSimulation(this.nodes)
       .force('center', forceCenter(0, 0).strength(0.08))
-      .force('charge', forceManyBody().strength(-380))
+      .force('charge', forceManyBody().strength(-420))
       .force(
         'collide',
         forceCollide()
-          .radius(d => (d.radius || 40) + 26)
+          .radius(d => (d.radius || 46) + 22)
           .iterations(2)
       )
       .alpha(1)
@@ -181,7 +187,7 @@ export class CanvasEngine {
         'link',
         forceLink(this.links)
           .id(d => d.id)
-          .distance(d => d.distance || 140)
+          .distance(d => (d.distance ? Math.max(d.distance, 150) : 155))
           .strength(d => d.strength || 0.5)
       );
     }

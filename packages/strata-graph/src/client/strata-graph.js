@@ -67,9 +67,13 @@ export class StrataGraph {
     }
 
     // Instantiate Subsystems
-    this.renderer = new NodeRenderer(this.options.nodeOptions);
-    this.canvasEngine = new CanvasEngine(this.canvasEl, this.renderer, this.options.canvasOptions);
-    this.zoomManager = new ZoomManager(this.wrapperEl, this.data, this.options.zoomOptions);
+    const nodeOpts = { ...this.options, ...(this.options.nodeOptions || {}) };
+    const canvasOpts = { ...this.options, ...(this.options.canvasOptions || {}) };
+    const zoomOpts = { ...this.options, ...(this.options.zoomOptions || {}) };
+
+    this.renderer = new NodeRenderer(nodeOpts);
+    this.canvasEngine = new CanvasEngine(this.canvasEl, this.renderer, canvasOpts);
+    this.zoomManager = new ZoomManager(this.wrapperEl, this.data, zoomOpts);
 
     // Wire up events
     this.wireSubsystems();

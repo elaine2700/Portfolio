@@ -432,6 +432,20 @@ jsFiles:
           window.blogGraph = new StrataGraph({
             container: '#strata-graph-container',
             dataUrl: '/assets/data/blog-graph.json',
+            options: {
+              nodeOptions: {
+                folderShape: 'folder',
+                articleShape: 'polaroid',
+                folderColor: '#3D7068',
+                folderTabColor: '#315C55',
+                folderBorderColor: '#1E1E1C',
+                polaroidBg: '#FAF7F0',
+                polaroidBorderColor: '#1E1E1C',
+                badgeBg: '#D25A38',
+                badgeText: '#FFFFFF',
+                tapeEnabled: true
+              }
+            },
             onArticleClick: function (node) {
               const articleId = node.articleId || node.id;
               openArticleReader(articleId);

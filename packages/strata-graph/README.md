@@ -114,6 +114,26 @@ Include the bundled script and stylesheet:
   const graph = new StrataGraph({
     container: '#blog-graph',
     dataUrl: '/assets/data/blog-graph.json',
+    options: {
+      nodeOptions: {
+        // Shapes: 'circle', 'polaroid', 'folder', or custom function
+        folderShape: 'folder',
+        articleShape: 'polaroid',
+
+        // Palette & styling
+        folderColor: '#3D7068',
+        folderTabColor: '#315C55',
+        folderBorderColor: '#1E1E1C',
+        polaroidBg: '#FAF7F0',
+        polaroidBorderColor: '#1E1E1C',
+        badgeBg: '#D25A38',
+        badgeText: '#FFFFFF',
+        tapeEnabled: true,
+
+        // Optional custom renderer hook:
+        // renderNode: (ctx, node, isHovered, helpers) => { ... }
+      }
+    },
     onArticleClick: (article) => {
       console.log('Article clicked:', article);
       // Open your host application modal here
@@ -121,6 +141,17 @@ Include the bundled script and stylesheet:
   });
 </script>
 ```
+
+---
+
+## Flexible Node Shapes & Custom Renderers
+
+`strata-graph` supports pluggable, flexible node rendering:
+
+- **`polaroid`**: Authentic physical polaroid cards with masking tape, bordered photo window, title chin, metadata, and retro drop shadow.
+- **`folder`**: Tabbed physical folder shapes with directory prompt `DIR //`, centered photo frame, manila label strip, and item counter pill badge.
+- **`circle`**: Classic Bauhaus circular clipped nodes with outer rings.
+- **`renderNode` Hook**: Pass `(ctx, node, isHovered, helpers) => boolean | void` to draw completely custom visuals on the HTML5 Canvas. Helpers provide `getImage`, `drawBadge`, `drawLabel`, `drawPolaroidNode`, `drawFolderNode`, and `drawCircleNode`.
 
 ---
 
@@ -137,6 +168,8 @@ Override any of these CSS variables to match your design system:
   --sg-canvas-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 
   /* Nodes */
+  --sg-node-folder-color: #3D7068;
+  --sg-node-polaroid-bg: #FAF7F0;
   --sg-node-folder-radius: 42px;
   --sg-node-article-radius: 34px;
   --sg-node-border-color: #1A1A1A;

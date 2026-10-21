@@ -14,20 +14,22 @@
   /* Canvas & Viewport */
   --sg-canvas-bg: var(--color-canvas);
   --sg-canvas-height: 620px;
-  --sg-canvas-border: 3px double var(--color-ink-primary);
+  --sg-canvas-border: 1px solid var(--color-ink-primary);
   --sg-canvas-shadow: var(--shadow-retro);
 
   /* Graph Nodes */
+  --sg-node-folder-color: var(--color-accent-teal);
+  --sg-node-polaroid-bg: var(--color-surface-card);
   --sg-node-folder-radius: 44px;
   --sg-node-article-radius: 36px;
   --sg-node-border-color: var(--color-ink-primary);
   --sg-node-border-width: 2px;
-  --sg-node-folder-border-color: var(--color-primary);
-  --sg-node-folder-border-width: 3px;
-  --sg-node-hover-ring: rgba(210, 90, 56, 0.35);
+  --sg-node-folder-border-color: var(--color-ink-primary);
+  --sg-node-folder-border-width: 2px;
+  --sg-node-hover-ring: rgba(210, 90, 56, 0.45);
 
   /* Badges & Pills */
-  --sg-badge-bg: var(--color-accent-teal);
+  --sg-badge-bg: var(--color-primary);
   --sg-badge-text: #FFFFFF;
   --sg-badge-font: var(--font-family-mono);
 

@@ -1,4 +1,4 @@
-// ../../node_modules/d3-force/src/center.js
+// node_modules/d3-force/src/center.js
 function center_default(x3, y3) {
   var nodes, strength = 1;
   if (x3 == null) x3 = 0;
@@ -27,7 +27,7 @@ function center_default(x3, y3) {
   return force;
 }
 
-// ../../node_modules/d3-quadtree/src/add.js
+// node_modules/d3-quadtree/src/add.js
 function add_default(d) {
   const x3 = +this._x.call(null, d), y3 = +this._y.call(null, d);
   return add(this.cover(x3, y3), x3, y3, d);
@@ -74,7 +74,7 @@ function addAll(data) {
   return this;
 }
 
-// ../../node_modules/d3-quadtree/src/cover.js
+// node_modules/d3-quadtree/src/cover.js
 function cover_default(x3, y3) {
   if (isNaN(x3 = +x3) || isNaN(y3 = +y3)) return this;
   var x0 = this._x0, y0 = this._y0, x1 = this._x1, y1 = this._y1;
@@ -110,7 +110,7 @@ function cover_default(x3, y3) {
   return this;
 }
 
-// ../../node_modules/d3-quadtree/src/data.js
+// node_modules/d3-quadtree/src/data.js
 function data_default() {
   var data = [];
   this.visit(function(node) {
@@ -121,12 +121,12 @@ function data_default() {
   return data;
 }
 
-// ../../node_modules/d3-quadtree/src/extent.js
+// node_modules/d3-quadtree/src/extent.js
 function extent_default(_) {
   return arguments.length ? this.cover(+_[0][0], +_[0][1]).cover(+_[1][0], +_[1][1]) : isNaN(this._x0) ? void 0 : [[this._x0, this._y0], [this._x1, this._y1]];
 }
 
-// ../../node_modules/d3-quadtree/src/quad.js
+// node_modules/d3-quadtree/src/quad.js
 function quad_default(node, x0, y0, x1, y1) {
   this.node = node;
   this.x0 = x0;
@@ -135,7 +135,7 @@ function quad_default(node, x0, y0, x1, y1) {
   this.y1 = y1;
 }
 
-// ../../node_modules/d3-quadtree/src/find.js
+// node_modules/d3-quadtree/src/find.js
 function find_default(x3, y3, radius) {
   var data, x0 = this._x0, y0 = this._y0, x1, y1, x22, y22, x32 = this._x1, y32 = this._y1, quads = [], node = this._root, q, i;
   if (node) quads.push(new quad_default(node, x0, y0, x32, y32));
@@ -173,7 +173,7 @@ function find_default(x3, y3, radius) {
   return data;
 }
 
-// ../../node_modules/d3-quadtree/src/remove.js
+// node_modules/d3-quadtree/src/remove.js
 function remove_default(d) {
   if (isNaN(x3 = +this._x.call(null, d)) || isNaN(y3 = +this._y.call(null, d))) return this;
   var parent, node = this._root, retainer, previous, next, x0 = this._x0, y0 = this._y0, x1 = this._x1, y1 = this._y1, x3, y3, xm, ym, right, bottom, i, j;
@@ -203,12 +203,12 @@ function removeAll(data) {
   return this;
 }
 
-// ../../node_modules/d3-quadtree/src/root.js
+// node_modules/d3-quadtree/src/root.js
 function root_default() {
   return this._root;
 }
 
-// ../../node_modules/d3-quadtree/src/size.js
+// node_modules/d3-quadtree/src/size.js
 function size_default() {
   var size = 0;
   this.visit(function(node) {
@@ -219,7 +219,7 @@ function size_default() {
   return size;
 }
 
-// ../../node_modules/d3-quadtree/src/visit.js
+// node_modules/d3-quadtree/src/visit.js
 function visit_default(callback) {
   var quads = [], q, node = this._root, child, x0, y0, x1, y1;
   if (node) quads.push(new quad_default(node, this._x0, this._y0, this._x1, this._y1));
@@ -235,7 +235,7 @@ function visit_default(callback) {
   return this;
 }
 
-// ../../node_modules/d3-quadtree/src/visitAfter.js
+// node_modules/d3-quadtree/src/visitAfter.js
 function visitAfter_default(callback) {
   var quads = [], next = [], q;
   if (this._root) quads.push(new quad_default(this._root, this._x0, this._y0, this._x1, this._y1));
@@ -256,7 +256,7 @@ function visitAfter_default(callback) {
   return this;
 }
 
-// ../../node_modules/d3-quadtree/src/x.js
+// node_modules/d3-quadtree/src/x.js
 function defaultX(d) {
   return d[0];
 }
@@ -264,7 +264,7 @@ function x_default(_) {
   return arguments.length ? (this._x = _, this) : this._x;
 }
 
-// ../../node_modules/d3-quadtree/src/y.js
+// node_modules/d3-quadtree/src/y.js
 function defaultY(d) {
   return d[1];
 }
@@ -272,7 +272,7 @@ function y_default(_) {
   return arguments.length ? (this._y = _, this) : this._y;
 }
 
-// ../../node_modules/d3-quadtree/src/quadtree.js
+// node_modules/d3-quadtree/src/quadtree.js
 function quadtree(nodes, x3, y3) {
   var tree = new Quadtree(x3 == null ? defaultX : x3, y3 == null ? defaultY : y3, NaN, NaN, NaN, NaN);
   return nodes == null ? tree : tree.addAll(nodes);
@@ -322,19 +322,19 @@ treeProto.visitAfter = visitAfter_default;
 treeProto.x = x_default;
 treeProto.y = y_default;
 
-// ../../node_modules/d3-force/src/constant.js
+// node_modules/d3-force/src/constant.js
 function constant_default(x3) {
   return function() {
     return x3;
   };
 }
 
-// ../../node_modules/d3-force/src/jiggle.js
+// node_modules/d3-force/src/jiggle.js
 function jiggle_default(random) {
   return (random() - 0.5) * 1e-6;
 }
 
-// ../../node_modules/d3-force/src/collide.js
+// node_modules/d3-force/src/collide.js
 function x(d) {
   return d.x + d.vx;
 }
@@ -407,7 +407,7 @@ function collide_default(radius) {
   return force;
 }
 
-// ../../node_modules/d3-force/src/link.js
+// node_modules/d3-force/src/link.js
 function index(d) {
   return d.index;
 }
@@ -489,7 +489,7 @@ function link_default(links) {
   return force;
 }
 
-// ../../node_modules/d3-dispatch/src/dispatch.js
+// node_modules/d3-dispatch/src/dispatch.js
 var noop = { value: () => {
 } };
 function dispatch() {
@@ -559,7 +559,7 @@ function set(type, name, callback) {
 }
 var dispatch_default = dispatch;
 
-// ../../node_modules/d3-timer/src/timer.js
+// node_modules/d3-timer/src/timer.js
 var frame = 0;
 var timeout = 0;
 var interval = 0;
@@ -661,7 +661,7 @@ function sleep(time) {
   }
 }
 
-// ../../node_modules/d3-force/src/lcg.js
+// node_modules/d3-force/src/lcg.js
 var a = 1664525;
 var c = 1013904223;
 var m = 4294967296;
@@ -670,7 +670,7 @@ function lcg_default() {
   return () => (s = (a * s + c) % m) / m;
 }
 
-// ../../node_modules/d3-force/src/simulation.js
+// node_modules/d3-force/src/simulation.js
 function x2(d) {
   return d.x;
 }
@@ -779,7 +779,7 @@ function simulation_default(nodes) {
   };
 }
 
-// ../../node_modules/d3-force/src/manyBody.js
+// node_modules/d3-force/src/manyBody.js
 function manyBody_default() {
   var nodes, node, random, alpha, strength = constant_default(-30), strengths, distanceMin2 = 1, distanceMax2 = Infinity, theta2 = 0.81;
   function force(_) {
@@ -858,7 +858,7 @@ function manyBody_default() {
   return force;
 }
 
-// src/client/canvas-engine.js
+// packages/strata-graph/src/client/canvas-engine.js
 var CanvasEngine = class {
   constructor(canvasElement, nodeRenderer, options = {}) {
     this.canvas = canvasElement;
@@ -945,11 +945,17 @@ var CanvasEngine = class {
     const { x: x3, y: y3 } = this.screenToWorld(screenX, screenY);
     for (let i = this.nodes.length - 1; i >= 0; i--) {
       const node = this.nodes[i];
-      const radius = this.renderer.getNodeRadius(node);
-      const dx = node.x - x3;
-      const dy = node.y - y3;
-      if (dx * dx + dy * dy <= radius * radius) {
-        return node;
+      if (this.renderer && typeof this.renderer.isPointInNode === "function") {
+        if (this.renderer.isPointInNode(node, x3, y3)) {
+          return node;
+        }
+      } else {
+        const radius = this.renderer ? this.renderer.getNodeRadius(node) : 40;
+        const dx = node.x - x3;
+        const dy = node.y - y3;
+        if (dx * dx + dy * dy <= radius * radius) {
+          return node;
+        }
       }
     }
     return null;
@@ -957,7 +963,7 @@ var CanvasEngine = class {
   setData(nodesData, linksData, origin = null) {
     this.nodes = nodesData.map((d, i) => {
       const angle = i / nodesData.length * Math.PI * 2;
-      const spread = 120 + Math.random() * 40;
+      const spread = 140 + Math.random() * 40;
       const startX = origin ? origin.x + Math.cos(angle) * 30 : Math.cos(angle) * spread;
       const startY = origin ? origin.y + Math.sin(angle) * 30 : Math.sin(angle) * spread;
       return {
@@ -966,7 +972,7 @@ var CanvasEngine = class {
         y: startY,
         vx: (Math.random() - 0.5) * 2,
         vy: (Math.random() - 0.5) * 2,
-        radius: this.renderer.getNodeRadius(d)
+        radius: this.renderer ? this.renderer.getNodeRadius(d) : 44
       };
     });
     this.links = linksData.map((l) => ({ ...l }));
@@ -979,14 +985,14 @@ var CanvasEngine = class {
     if (this.simulation) {
       this.simulation.stop();
     }
-    this.simulation = simulation_default(this.nodes).force("center", center_default(0, 0).strength(0.08)).force("charge", manyBody_default().strength(-380)).force(
+    this.simulation = simulation_default(this.nodes).force("center", center_default(0, 0).strength(0.08)).force("charge", manyBody_default().strength(-420)).force(
       "collide",
-      collide_default().radius((d) => (d.radius || 40) + 26).iterations(2)
+      collide_default().radius((d) => (d.radius || 46) + 22).iterations(2)
     ).alpha(1).alphaDecay(0.035).velocityDecay(0.35);
     if (this.links.length > 0) {
       this.simulation.force(
         "link",
-        link_default(this.links).id((d) => d.id).distance((d) => d.distance || 140).strength((d) => d.strength || 0.5)
+        link_default(this.links).id((d) => d.id).distance((d) => d.distance ? Math.max(d.distance, 150) : 155).strength((d) => d.strength || 0.5)
       );
     }
     this.simulation.on("tick", () => {
@@ -1220,21 +1226,51 @@ var CanvasEngine = class {
   }
 };
 
-// src/client/node-renderer.js
+// packages/strata-graph/src/client/node-renderer.js
 var NodeRenderer = class {
   constructor(options = {}) {
     this.options = {
+      // Shape strategy: 'circle', 'polaroid', 'folder', 'auto', or custom function
+      nodeShape: options.nodeShape || null,
+      folderShape: options.folderShape || "circle",
+      articleShape: options.articleShape || "circle",
+      // Dimensions
       folderRadius: options.folderRadius || 42,
       articleRadius: options.articleRadius || 34,
-      folderBorderColor: options.folderBorderColor || "#8EA8B5",
-      articleBorderColor: options.articleBorderColor || "#1A1A1A",
+      polaroidWidth: options.polaroidWidth || 96,
+      polaroidHeight: options.polaroidHeight || 124,
+      folderWidth: options.folderWidth || 112,
+      folderHeight: options.folderHeight || 94,
+      folderTabWidth: options.folderTabWidth || 50,
+      folderTabHeight: options.folderTabHeight || 14,
+      // Styling & Palette
+      folderColor: options.folderColor || "#3D7068",
+      folderTabColor: options.folderTabColor || "#315C55",
+      folderBorderColor: options.folderBorderColor || "#1E1E1C",
+      folderShadowColor: options.folderShadowColor || "#1E1E1C",
+      articleBorderColor: options.articleBorderColor || "#1E1E1C",
+      polaroidBg: options.polaroidBg || "#FAF7F0",
+      polaroidBorderColor: options.polaroidBorderColor || "#1E1E1C",
+      polaroidShadowColor: options.polaroidShadowColor || "#1E1E1C",
+      shadowColor: options.shadowColor || "#1E1E1C",
       borderWidth: options.borderWidth || 2,
-      hoverRingColor: options.hoverRingColor || "rgba(140, 166, 142, 0.6)",
-      badgeBg: options.badgeBg || "#8CA68E",
+      hoverRingColor: options.hoverRingColor || "rgba(210, 90, 56, 0.45)",
+      tapeEnabled: options.tapeEnabled !== void 0 ? options.tapeEnabled : true,
+      tapeColor: options.tapeColor || "rgba(246, 235, 206, 0.94)",
+      tapeBorderColor: options.tapeBorderColor || "rgba(180, 160, 125, 0.7)",
+      // Badges
+      badgeBg: options.badgeBg || "#D25A38",
       badgeText: options.badgeText || "#FFFFFF",
+      badgeBorderColor: options.badgeBorderColor || "#1E1E1C",
+      // Labels
       labelFont: options.labelFont || "11px 'JetBrains Mono', monospace, sans-serif",
       labelColor: options.labelColor || "#1A1A1A",
       labelBg: options.labelBg || "rgba(234, 235, 215, 0.94)",
+      // Extensibility hooks
+      renderNode: options.renderNode || null,
+      renderPolaroid: options.renderPolaroid || null,
+      renderFolder: options.renderFolder || null,
+      renderCircle: options.renderCircle || null,
       ...options
     };
     this.imageCache = /* @__PURE__ */ new Map();
@@ -1274,13 +1310,66 @@ var NodeRenderer = class {
     return null;
   }
   /**
-   * Calculates radius for a node based on type and importance.
+   * Determines the shape to use for a specific node.
+   * @param {object} node
+   * @returns {string}
+   */
+  getNodeShape(node) {
+    if (node.shape) return node.shape;
+    if (typeof this.options.nodeShape === "function") {
+      return this.options.nodeShape(node);
+    }
+    if (this.options.nodeShape && this.options.nodeShape !== "auto") {
+      return this.options.nodeShape;
+    }
+    return node.type === "folder" ? this.options.folderShape : this.options.articleShape;
+  }
+  /**
+   * Calculates effective bounding/collision radius for a node based on shape and dimensions.
    * @param {object} node
    * @returns {number}
    */
   getNodeRadius(node) {
     if (node.radius) return node.radius;
+    const shape = this.getNodeShape(node);
+    if (shape === "polaroid") {
+      const w = this.options.polaroidWidth;
+      const h = this.options.polaroidHeight;
+      return Math.hypot(w, h) / 2 * 0.78;
+    }
+    if (shape === "folder") {
+      const w = this.options.folderWidth;
+      const h = this.options.folderHeight;
+      return Math.hypot(w, h) / 2 * 0.76;
+    }
     return node.type === "folder" ? this.options.folderRadius : this.options.articleRadius;
+  }
+  /**
+   * Precise hit-testing for interaction (supports circles, rectangles, and custom shapes).
+   * @param {object} node
+   * @param {number} px World coordinate X
+   * @param {number} py World coordinate Y
+   * @returns {boolean}
+   */
+  isPointInNode(node, px, py) {
+    if (typeof node.hitTest === "function") {
+      return node.hitTest(px, py);
+    }
+    const shape = this.getNodeShape(node);
+    if (shape === "polaroid") {
+      const w = this.options.polaroidWidth;
+      const h = this.options.polaroidHeight;
+      return px >= node.x - w / 2 && px <= node.x + w / 2 && py >= node.y - h / 2 && py <= node.y + h / 2;
+    }
+    if (shape === "folder") {
+      const w = this.options.folderWidth;
+      const h = this.options.folderHeight;
+      return px >= node.x - w / 2 && px <= node.x + w / 2 && py >= node.y - h / 2 && py <= node.y + h / 2;
+    }
+    const r = this.getNodeRadius(node);
+    const dx = node.x - px;
+    const dy = node.y - py;
+    return dx * dx + dy * dy <= r * r;
   }
   /**
    * Draws a link line between two nodes.
@@ -1305,7 +1394,25 @@ var NodeRenderer = class {
     ctx.restore();
   }
   /**
-   * Draws a single node.
+   * Provides helper methods for custom or pluggable renderers.
+   */
+  getRenderHelpers() {
+    return {
+      getImage: (url) => this.getImage(url),
+      getNodeRadius: (node) => this.getNodeRadius(node),
+      getNodeShape: (node) => this.getNodeShape(node),
+      isPointInNode: (node, px, py) => this.isPointInNode(node, px, py),
+      drawBadge: (ctx, x3, y3, text, opts) => this.drawBadge(ctx, x3, y3, text, opts),
+      drawLabel: (ctx, x3, y3, text, isFolder, isHovered, opts) => this.drawLabel(ctx, x3, y3, text, isFolder, isHovered, opts),
+      drawCircleNode: (ctx, node, isHovered, opts) => this.drawCircleNode(ctx, node, isHovered, opts),
+      drawPolaroidNode: (ctx, node, isHovered, opts) => this.drawPolaroidNode(ctx, node, isHovered, opts),
+      drawFolderNode: (ctx, node, isHovered, opts) => this.drawFolderNode(ctx, node, isHovered, opts),
+      drawFolderPerimeter: (ctx, x3, y3, w, h, tabW, tabH) => this.drawFolderPerimeter(ctx, x3, y3, w, h, tabW, tabH),
+      options: this.options
+    };
+  }
+  /**
+   * Main node dispatcher.
    * @param {CanvasRenderingContext2D} ctx
    * @param {object} node
    * @param {boolean} isHovered
@@ -1313,19 +1420,305 @@ var NodeRenderer = class {
   drawNode(ctx, node, isHovered = false) {
     const x3 = node.x;
     const y3 = node.y;
+    if (isNaN(x3) || isNaN(y3)) return;
+    if (typeof this.options.renderNode === "function") {
+      const helpers = this.getRenderHelpers();
+      const handled = this.options.renderNode(ctx, node, isHovered, helpers);
+      if (handled !== false) return;
+    }
+    const shape = this.getNodeShape(node);
+    if (shape === "polaroid") {
+      if (typeof this.options.renderPolaroid === "function") {
+        const handled = this.options.renderPolaroid(ctx, node, isHovered, this.getRenderHelpers());
+        if (handled !== false) return;
+      }
+      this.drawPolaroidNode(ctx, node, isHovered);
+    } else if (shape === "folder") {
+      if (typeof this.options.renderFolder === "function") {
+        const handled = this.options.renderFolder(ctx, node, isHovered, this.getRenderHelpers());
+        if (handled !== false) return;
+      }
+      this.drawFolderNode(ctx, node, isHovered);
+    } else {
+      if (typeof this.options.renderCircle === "function") {
+        const handled = this.options.renderCircle(ctx, node, isHovered, this.getRenderHelpers());
+        if (handled !== false) return;
+      }
+      this.drawCircleNode(ctx, node, isHovered);
+    }
+  }
+  // =========================================================================
+  // BUILT-IN SHAPE RENDERERS
+  // =========================================================================
+  /**
+   * 1. Polaroid Card Node Renderer (Tailored for leaf articles)
+   */
+  drawPolaroidNode(ctx, node, isHovered = false, overrideOpts = {}) {
+    const opts = { ...this.options, ...overrideOpts };
+    const w = opts.polaroidWidth || 96;
+    const h = opts.polaroidHeight || 124;
+    let cx = node.x - w / 2;
+    let cy = node.y - h / 2;
+    const shadowOffset = isHovered ? 5 : 3;
+    if (isHovered) {
+      cy -= 2;
+      cx -= 1;
+    }
+    ctx.save();
+    if (isHovered) {
+      ctx.save();
+      ctx.strokeStyle = opts.hoverRingColor || "#D25A38";
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([3, 3]);
+      ctx.strokeRect(cx - 3, cy - 3, w + 6, h + 6);
+      ctx.restore();
+    }
+    ctx.fillStyle = opts.shadowColor || "#1E1E1C";
+    if (ctx.roundRect) {
+      ctx.beginPath();
+      ctx.roundRect(cx + shadowOffset, cy + shadowOffset, w, h, 2);
+      ctx.fill();
+    } else {
+      ctx.fillRect(cx + shadowOffset, cy + shadowOffset, w, h);
+    }
+    ctx.fillStyle = opts.polaroidBg || "#FAF7F0";
+    ctx.strokeStyle = opts.polaroidBorderColor || "#1E1E1C";
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    if (ctx.roundRect) {
+      ctx.roundRect(cx, cy, w, h, 2);
+    } else {
+      ctx.rect(cx, cy, w, h);
+    }
+    ctx.fill();
+    ctx.stroke();
+    if (opts.tapeEnabled) {
+      const tapeW = 34;
+      const tapeH = 10;
+      const tapeX = node.x - tapeW / 2;
+      const tapeY = cy - 4.5;
+      ctx.save();
+      ctx.fillStyle = opts.tapeColor || "rgba(246, 235, 206, 0.94)";
+      ctx.strokeStyle = opts.tapeBorderColor || "rgba(180, 160, 125, 0.7)";
+      ctx.lineWidth = 0.6;
+      ctx.fillRect(tapeX, tapeY, tapeW, tapeH);
+      ctx.strokeRect(tapeX, tapeY, tapeW, tapeH);
+      ctx.restore();
+    }
+    const padX = 7;
+    const padTop = 8;
+    const photoW = w - padX * 2;
+    const photoH = 70;
+    const photoX = cx + padX;
+    const photoY = cy + padTop;
+    ctx.fillStyle = "#E8E2D5";
+    ctx.fillRect(photoX, photoY, photoW, photoH);
+    const img = this.getImage(node.thumbnail);
+    if (img && img.complete && img.naturalWidth > 0) {
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(photoX, photoY, photoW, photoH);
+      ctx.clip();
+      const scale = Math.max(photoW / img.naturalWidth, photoH / img.naturalHeight);
+      const drawW = img.naturalWidth * scale;
+      const drawH = img.naturalHeight * scale;
+      const drawX = photoX + (photoW - drawW) / 2;
+      const drawY = photoY + (photoH - drawH) / 2;
+      ctx.drawImage(img, drawX, drawY, drawW, drawH);
+      ctx.restore();
+    } else {
+      this.drawPolaroidFallback(ctx, photoX, photoY, photoW, photoH, node);
+    }
+    ctx.strokeStyle = "#1E1E1C";
+    ctx.lineWidth = 1;
+    ctx.strokeRect(photoX, photoY, photoW, photoH);
+    ctx.save();
+    ctx.beginPath();
+    ctx.setLineDash([2, 2]);
+    ctx.strokeStyle = "rgba(30, 30, 28, 0.35)";
+    ctx.lineWidth = 1;
+    ctx.moveTo(photoX, photoY + photoH + 5);
+    ctx.lineTo(photoX + photoW, photoY + photoH + 5);
+    ctx.stroke();
+    ctx.restore();
+    ctx.save();
+    ctx.font = "bold 8px 'JetBrains Mono', monospace";
+    ctx.fillStyle = "#1E1E1C";
+    ctx.textAlign = "left";
+    ctx.textBaseline = "top";
+    const rawTitle = (node.title || "Untitled").toUpperCase();
+    const words = rawTitle.split(/\s+/);
+    let line1 = "";
+    let line2 = "";
+    for (const word of words) {
+      const testLine1 = line1 ? line1 + " " + word : word;
+      if (ctx.measureText(testLine1).width <= photoW) {
+        line1 = testLine1;
+      } else {
+        const testLine2 = line2 ? line2 + " " + word : word;
+        if (ctx.measureText(testLine2).width <= photoW) {
+          line2 = testLine2;
+        } else if (!line2) {
+          let wTrunc = word;
+          while (ctx.measureText(wTrunc + "...").width > photoW && wTrunc.length > 2) {
+            wTrunc = wTrunc.slice(0, -1);
+          }
+          line2 = wTrunc + "...";
+        }
+      }
+    }
+    if (line2) {
+      ctx.fillText(line1, photoX, photoY + photoH + 7);
+      ctx.fillText(line2, photoX, photoY + photoH + 16.5);
+      ctx.font = "7px 'JetBrains Mono', monospace";
+      ctx.fillStyle = "#5C5A55";
+      const metaText = (node.readingTime || node.date || "ARTICLE").toUpperCase();
+      ctx.fillText(metaText, photoX, photoY + photoH + 26.5);
+    } else {
+      ctx.fillText(line1 || rawTitle, photoX, photoY + photoH + 9);
+      ctx.font = "7.5px 'JetBrains Mono', monospace";
+      ctx.fillStyle = "#5C5A55";
+      const metaText = (node.readingTime || node.date || "ARTICLE").toUpperCase();
+      ctx.fillText(metaText, photoX, photoY + photoH + 22);
+    }
+    ctx.restore();
+    ctx.restore();
+  }
+  /**
+   * Helper: Traces the tabbed physical folder silhouette.
+   */
+  drawFolderPerimeter(ctx, x3, y3, w, h, tabW, tabH) {
+    const r = 3;
+    ctx.beginPath();
+    ctx.moveTo(x3 + 5, y3 + tabH);
+    ctx.lineTo(x3 + 5, y3 + r);
+    ctx.arcTo(x3 + 5, y3, x3 + 5 + r, y3, r);
+    ctx.lineTo(x3 + 5 + tabW - 8, y3);
+    ctx.arcTo(x3 + 5 + tabW, y3, x3 + 5 + tabW + 6, y3 + tabH, r);
+    ctx.lineTo(x3 + 5 + tabW + 6, y3 + tabH);
+    ctx.lineTo(x3 + w - r, y3 + tabH);
+    ctx.arcTo(x3 + w, y3 + tabH, x3 + w, y3 + tabH + r, r);
+    ctx.lineTo(x3 + w, y3 + h - r);
+    ctx.arcTo(x3 + w, y3 + h, x3 + w - r, y3 + h, r);
+    ctx.lineTo(x3 + r, y3 + h);
+    ctx.arcTo(x3, y3 + h, x3, y3 + h - r, r);
+    ctx.lineTo(x3, y3 + tabH + r);
+    ctx.arcTo(x3, y3 + tabH, x3 + 5, y3 + tabH, r);
+    ctx.closePath();
+  }
+  /**
+   * 2. Tabbed Teal Folder Node Renderer
+   */
+  drawFolderNode(ctx, node, isHovered = false, overrideOpts = {}) {
+    const opts = { ...this.options, ...overrideOpts };
+    const w = opts.folderWidth || 112;
+    const h = opts.folderHeight || 94;
+    const tabW = opts.folderTabWidth || 50;
+    const tabH = opts.folderTabHeight || 14;
+    let cx = node.x - w / 2;
+    let cy = node.y - h / 2;
+    const shadowOffset = isHovered ? 5 : 3;
+    if (isHovered) {
+      cy -= 2;
+      cx -= 1;
+    }
+    ctx.save();
+    if (isHovered) {
+      ctx.save();
+      ctx.strokeStyle = opts.hoverRingColor || "#E5A93C";
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([3, 3]);
+      this.drawFolderPerimeter(ctx, cx - 3, cy - 3, w + 6, h + 6, tabW, tabH);
+      ctx.stroke();
+      ctx.restore();
+    }
+    this.drawFolderPerimeter(ctx, cx + shadowOffset, cy + shadowOffset, w, h, tabW, tabH);
+    ctx.fillStyle = opts.shadowColor || "#1E1E1C";
+    ctx.fill();
+    this.drawFolderPerimeter(ctx, cx, cy, w, h, tabW, tabH);
+    ctx.fillStyle = opts.folderColor || "#3D7068";
+    ctx.fill();
+    ctx.strokeStyle = opts.folderBorderColor || "#1E1E1C";
+    ctx.lineWidth = 1.6;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(cx + 5 + tabW + 6, cy + tabH);
+    ctx.lineTo(cx + w - 3, cy + tabH);
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.25)";
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.font = "bold 7px 'JetBrains Mono', monospace";
+    ctx.fillStyle = "#FFFFFF";
+    ctx.textAlign = "left";
+    ctx.textBaseline = "middle";
+    ctx.fillText("DIR //", cx + 10, cy + tabH / 2);
+    const frameW = 76;
+    const frameH = 50;
+    const frameX = cx + (w - frameW) / 2;
+    const frameY = cy + tabH + 6;
+    ctx.fillStyle = "#FAF7F0";
+    ctx.fillRect(frameX, frameY, frameW, frameH);
+    const img = this.getImage(node.thumbnail);
+    if (img && img.complete && img.naturalWidth > 0) {
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(frameX, frameY, frameW, frameH);
+      ctx.clip();
+      const scale = Math.max(frameW / img.naturalWidth, frameH / img.naturalHeight);
+      const drawW = img.naturalWidth * scale;
+      const drawH = img.naturalHeight * scale;
+      const drawX = frameX + (frameW - drawW) / 2;
+      const drawY = frameY + (frameH - drawH) / 2;
+      ctx.drawImage(img, drawX, drawY, drawW, drawH);
+      ctx.restore();
+    } else {
+      this.drawFolderFallback(ctx, frameX, frameY, frameW, frameH, node);
+    }
+    ctx.strokeStyle = "#1E1E1C";
+    ctx.lineWidth = 1.2;
+    ctx.strokeRect(frameX, frameY, frameW, frameH);
+    const labelW = w - 20;
+    const labelH = 14;
+    const labelX = cx + 10;
+    const labelY = cy + h - labelH - 5;
+    ctx.fillStyle = "#FAF7F0";
+    ctx.strokeStyle = "#1E1E1C";
+    ctx.lineWidth = 1;
+    ctx.fillRect(labelX, labelY, labelW, labelH);
+    ctx.strokeRect(labelX, labelY, labelW, labelH);
+    ctx.font = "bold 8.5px 'JetBrains Mono', monospace";
+    ctx.fillStyle = "#1E1E1C";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    let folderTitle = (node.title || "FOLDER").toUpperCase();
+    if (!folderTitle.endsWith("/")) folderTitle += "/";
+    while (ctx.measureText(folderTitle).width > labelW - 6 && folderTitle.length > 3) {
+      folderTitle = folderTitle.slice(0, -4) + "...";
+    }
+    ctx.fillText(folderTitle, labelX + labelW / 2, labelY + labelH / 2);
+    const countVal = node.itemCount !== void 0 ? node.itemCount : node.totalArticles || 0;
+    this.drawBadge(ctx, cx + w - 10, cy + tabH - 1, String(countVal));
+    ctx.restore();
+  }
+  /**
+   * 3. Classic Circle Node Renderer (For backwards compatibility or default package mode)
+   */
+  drawCircleNode(ctx, node, isHovered = false, overrideOpts = {}) {
+    const opts = { ...this.options, ...overrideOpts };
+    const x3 = node.x;
+    const y3 = node.y;
     const r = this.getNodeRadius(node);
     const isFolder = node.type === "folder";
-    if (isNaN(x3) || isNaN(y3)) return;
     ctx.save();
     if (isHovered) {
       ctx.beginPath();
       ctx.arc(x3, y3, r + 7, 0, Math.PI * 2);
-      ctx.strokeStyle = this.options.hoverRingColor;
+      ctx.strokeStyle = opts.hoverRingColor;
       ctx.lineWidth = 4;
       ctx.stroke();
       ctx.beginPath();
       ctx.arc(x3, y3, r + 12, 0, Math.PI * 2);
-      ctx.strokeStyle = isFolder ? "#8EA8B5" : "#1A1A1A";
+      ctx.strokeStyle = isFolder ? opts.folderBorderColor : opts.articleBorderColor;
       ctx.lineWidth = 1;
       ctx.setLineDash([4, 4]);
       ctx.stroke();
@@ -1356,8 +1749,8 @@ var NodeRenderer = class {
     }
     ctx.beginPath();
     ctx.arc(x3, y3, r, 0, Math.PI * 2);
-    ctx.strokeStyle = isFolder ? this.options.folderBorderColor : this.options.articleBorderColor;
-    ctx.lineWidth = isFolder ? 3 : this.options.borderWidth;
+    ctx.strokeStyle = isFolder ? opts.folderBorderColor : opts.articleBorderColor;
+    ctx.lineWidth = isFolder ? 3 : opts.borderWidth;
     ctx.stroke();
     if (isFolder) {
       ctx.beginPath();
@@ -1372,9 +1765,46 @@ var NodeRenderer = class {
     this.drawLabel(ctx, x3, y3 + r + 14, node.title || "Untitled", isFolder, isHovered);
     ctx.restore();
   }
-  /**
-   * Draws a stylized retro-technical fallback inside node if no image is present.
-   */
+  // =========================================================================
+  // FALLBACK GRAPHICS & UTILITIES
+  // =========================================================================
+  drawPolaroidFallback(ctx, px, py, pw, ph, node) {
+    ctx.save();
+    ctx.strokeStyle = "rgba(30, 30, 28, 0.3)";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(px + pw / 2, py + 8);
+    ctx.lineTo(px + pw / 2, py + ph - 8);
+    ctx.moveTo(px + 8, py + ph / 2);
+    ctx.lineTo(px + pw - 8, py + ph / 2);
+    ctx.stroke();
+    ctx.fillStyle = "#1E1E1C";
+    ctx.font = "bold 10px 'JetBrains Mono', monospace";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    const initials = (node.title || "DOC").split(/\s+/).slice(0, 2).map((w) => w[0].toUpperCase()).join("");
+    ctx.fillText(initials || "DOC", px + pw / 2, py + ph / 2);
+    ctx.restore();
+  }
+  drawFolderFallback(ctx, fx, fy, fw, fh, node) {
+    ctx.save();
+    ctx.strokeStyle = "rgba(30, 30, 28, 0.35)";
+    ctx.lineWidth = 1.2;
+    const iconW = fw * 0.65;
+    const iconH = fh * 0.55;
+    const ix = fx + (fw - iconW) / 2;
+    const iy = fy + (fh - iconH) / 2 + 2;
+    ctx.fillStyle = "rgba(61, 112, 104, 0.15)";
+    ctx.fillRect(ix, iy, iconW, iconH);
+    ctx.strokeRect(ix, iy, iconW, iconH);
+    ctx.strokeRect(ix, iy - 4, iconW * 0.45, 4);
+    ctx.fillStyle = "#1E1E1C";
+    ctx.font = "bold 8.5px 'JetBrains Mono', monospace";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("DIR", fx + fw / 2, fy + fh / 2 + 3);
+    ctx.restore();
+  }
   drawFallbackGraphic(ctx, x3, y3, r, node, isFolder) {
     ctx.save();
     ctx.strokeStyle = "rgba(26, 26, 26, 0.4)";
@@ -1415,20 +1845,35 @@ var NodeRenderer = class {
   /**
    * Draws a badge pill with text.
    */
-  drawBadge(ctx, x3, y3, text) {
+  drawBadge(ctx, x3, y3, text, opts = {}) {
     ctx.save();
     ctx.font = "bold 9px 'JetBrains Mono', monospace";
     const textWidth = ctx.measureText(text).width;
     const pillW = Math.max(18, textWidth + 8);
     const pillH = 14;
+    const bg = opts.bg || this.options.badgeBg || "#D25A38";
+    const textColor = opts.color || this.options.badgeText || "#FFFFFF";
+    const borderColor = opts.border || this.options.badgeBorderColor || "#1E1E1C";
+    ctx.fillStyle = "#1E1E1C";
+    if (ctx.roundRect) {
+      ctx.beginPath();
+      ctx.roundRect(x3 - pillW / 2 + 1, y3 - pillH / 2 + 1, pillW, pillH, 7);
+      ctx.fill();
+    } else {
+      ctx.fillRect(x3 - pillW / 2 + 1, y3 - pillH / 2 + 1, pillW, pillH);
+    }
     ctx.beginPath();
-    ctx.roundRect ? ctx.roundRect(x3 - pillW / 2, y3 - pillH / 2, pillW, pillH, 7) : ctx.rect(x3 - pillW / 2, y3 - pillH / 2, pillW, pillH);
-    ctx.fillStyle = this.options.badgeBg;
+    if (ctx.roundRect) {
+      ctx.roundRect(x3 - pillW / 2, y3 - pillH / 2, pillW, pillH, 7);
+    } else {
+      ctx.rect(x3 - pillW / 2, y3 - pillH / 2, pillW, pillH);
+    }
+    ctx.fillStyle = bg;
     ctx.fill();
-    ctx.strokeStyle = "#1A1A1A";
-    ctx.lineWidth = 1;
+    ctx.strokeStyle = borderColor;
+    ctx.lineWidth = 1.2;
     ctx.stroke();
-    ctx.fillStyle = this.options.badgeText;
+    ctx.fillStyle = textColor;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText(text, x3, y3);
@@ -1437,7 +1882,7 @@ var NodeRenderer = class {
   /**
    * Draws text label with a subtle background capsule for crisp readability.
    */
-  drawLabel(ctx, x3, y3, text, isFolder, isHovered) {
+  drawLabel(ctx, x3, y3, text, isFolder, isHovered, opts = {}) {
     ctx.save();
     ctx.font = isHovered ? "bold 11px 'JetBrains Mono', monospace" : "10.5px 'JetBrains Mono', monospace";
     ctx.textAlign = "center";
@@ -1447,24 +1892,23 @@ var NodeRenderer = class {
       display = display.substring(0, 22) + "...";
     }
     const paddingX = 6;
-    const paddingY = 3;
     const metrics = ctx.measureText(display);
     const boxW = metrics.width + paddingX * 2;
     const boxH = 16;
-    ctx.fillStyle = this.options.labelBg;
+    ctx.fillStyle = opts.labelBg || this.options.labelBg;
     ctx.strokeStyle = isHovered ? isFolder ? "#8EA8B5" : "#1A1A1A" : "rgba(26, 26, 26, 0.25)";
     ctx.lineWidth = isHovered ? 1.5 : 1;
     ctx.beginPath();
     ctx.rect(x3 - boxW / 2, y3 - boxH / 2, boxW, boxH);
     ctx.fill();
     ctx.stroke();
-    ctx.fillStyle = this.options.labelColor;
+    ctx.fillStyle = opts.labelColor || this.options.labelColor;
     ctx.fillText(display, x3, y3);
     ctx.restore();
   }
 };
 
-// src/client/zoom-manager.js
+// packages/strata-graph/src/client/zoom-manager.js
 var ZoomManager = class {
   constructor(containerElement, graphData, options = {}) {
     this.container = containerElement;
@@ -1569,7 +2013,7 @@ var ZoomManager = class {
   }
 };
 
-// src/client/strata-graph.js
+// packages/strata-graph/src/client/strata-graph.js
 var StrataGraph = class {
   /**
    * @param {object} config
@@ -1617,9 +2061,12 @@ var StrataGraph = class {
       this.renderErrorState("No graph data provided to strata-graph.");
       return;
     }
-    this.renderer = new NodeRenderer(this.options.nodeOptions);
-    this.canvasEngine = new CanvasEngine(this.canvasEl, this.renderer, this.options.canvasOptions);
-    this.zoomManager = new ZoomManager(this.wrapperEl, this.data, this.options.zoomOptions);
+    const nodeOpts = { ...this.options, ...this.options.nodeOptions || {} };
+    const canvasOpts = { ...this.options, ...this.options.canvasOptions || {} };
+    const zoomOpts = { ...this.options, ...this.options.zoomOptions || {} };
+    this.renderer = new NodeRenderer(nodeOpts);
+    this.canvasEngine = new CanvasEngine(this.canvasEl, this.renderer, canvasOpts);
+    this.zoomManager = new ZoomManager(this.wrapperEl, this.data, zoomOpts);
     this.wireSubsystems();
     const initialLevel = this.data.root || this.data.levels["/"];
     if (initialLevel) {
