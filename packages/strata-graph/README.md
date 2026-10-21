@@ -1,10 +1,10 @@
 # strata-graph
 
-An interactive, canvas-based hierarchical force-directed graph blog and knowledge-base engine with zoom levels, folder drill-down, and an editorial Markdown reading modal.
+An interactive, canvas-based hierarchical force-directed graph blog and knowledge-base engine with zoom levels, folder drill-down, and host event hooks.
 
 ## Overview
 
-`strata-graph` organizes hierarchical directories of Markdown files into an interactive force simulation. Folders are rendered as category clusters with thumbnail images and item counters, while articles are rendered as nodes that open an accessible reading modal on click.
+`strata-graph` organizes hierarchical directories of Markdown files into an interactive force simulation. Folders are rendered as category clusters with thumbnail images and item counters, while articles are rendered as interactive nodes that notify the host application on click.
 
 ```text
 Root Level (/)
@@ -12,7 +12,7 @@ Root Level (/)
 │   ├── Colors [Folder Node: 2 items]  ──>  Drill Down into /design/colors
 │   │   ├── best-palette.md
 │   │   └── autumn-colors.md
-│   ├── how-to-design-a-webpage.md  ──(Click)──>  Editorial Reading Modal
+│   ├── how-to-design-a-webpage.md  ──(Click)──>  onArticleClick Callback
 │   └── the-design-of-everyday.md
 └── weekend-recap.md (Article Node)
 ```
@@ -23,7 +23,7 @@ Root Level (/)
 - **D3-Force on HTML5 Canvas**: High-performance 2D physics simulation with custom force centering, collision detection, and drag interactions.
 - **HiDPI Retina Ready**: Razor-sharp rendering on high-density displays (`devicePixelRatio`).
 - **Circular Thumbnail Cropping**: Automatic aspect-ratio cropping of featured images with fallback geometric glyphs.
-- **Accessible Editorial Modal**: Markdown reader with keyboard navigation (`Escape`), focus trapping, metadata headers, and tag badges.
+- **Customizable Host Callbacks**: Decoupled interaction events (`onArticleClick`, `onFolderClick`) allowing any host UI or modal reader.
 - **Customizable CSS Variables**: Fully themeable using standard CSS custom properties (`--sg-*`).
 - **Markdown Compiler & CLI**: Automatic scanning of nested folders with frontmatter parsing via `gray-matter` and `markdown-it`.
 
@@ -113,7 +113,11 @@ Include the bundled script and stylesheet:
 <script>
   const graph = new StrataGraph({
     container: '#blog-graph',
-    dataUrl: '/assets/data/blog-graph.json'
+    dataUrl: '/assets/data/blog-graph.json',
+    onArticleClick: (article) => {
+      console.log('Article clicked:', article);
+      // Open your host application modal here
+    }
   });
 </script>
 ```
@@ -149,12 +153,6 @@ Override any of these CSS variables to match your design system:
   --sg-breadcrumb-text: #1A1A1A;
   --sg-breadcrumb-active: #8CA68E;
   --sg-breadcrumb-hover: #8EA8B5;
-
-  /* Reading Modal */
-  --sg-modal-bg: #EAEBD7;
-  --sg-modal-border: 2px solid #1A1A1A;
-  --sg-modal-accent: #8EA8B5;
-  --sg-modal-accent-green: #8CA68E;
 }
 ```
 

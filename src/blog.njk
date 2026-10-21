@@ -8,14 +8,6 @@ jsFiles:
 - "/assets/strata-graph/strata-graph.js"
 ---
 
-<header class="blog-header">
-  <div class="blog-section-index">KNOWLEDGE GRAPH &amp; ARTICLES</div>
-  <h1 class="blog-title">Digital Garden</h1>
-  <p class="blog-description">
-    Choose between a force-directed graph with hierarchical zoom levels, or a classic directory navigation.
-  </p>
-</header>
-
 <noscript>
   <div class="blog-fallback-banner">
     <span class="blog-fallback-pill">NO-JS FALLBACK ACTIVE</span>
@@ -36,27 +28,38 @@ jsFiles:
   </style>
 </noscript>
 
-<!-- View Switcher & Status Bar -->
-<div class="blog-view-bar" id="blog-view-bar">
-  <div class="blog-view-switcher" role="tablist" aria-label="Blog View Mode">
-    <button type="button" class="view-switch-btn active" id="btn-view-graph" role="tab" aria-selected="true"
-      aria-controls="blog-graph-view">
-      <span class="view-btn-icon">&#x25C8;</span>
-      <span class="view-btn-label">GRAPH VIEW</span>
-      <span class="view-btn-tech">[CANVAS 2D]</span>
-    </button>
-    <button type="button" class="view-switch-btn" id="btn-view-classic" role="tab" aria-selected="false"
-      aria-controls="blog-classic-view">
-      <span class="view-btn-icon">&#x2630;</span>
-      <span class="view-btn-label">CLASSIC VIEW</span>
-      <span class="view-btn-tech">[DIRECTORY]</span>
-    </button>
+<header class="blog-header">
+  <div>
+    <div class="blog-section-index">KNOWLEDGE GRAPH &amp; ARTICLES</div>
+    <h1 class="blog-title">Digital Garden</h1>
   </div>
-  <div class="blog-view-status" id="blog-view-status" aria-live="polite">
-    <span class="status-indicator"></span>
-    <span class="status-text" id="status-text">[MODE: INTERACTIVE GRAPH]</span>
+  <div class="blog-view-control">
+    <div class="blog-view-bar" id="blog-view-bar">
+      <div class="blog-view-switch-container" role="group" aria-label="Blog view mode switcher">
+        <button type="button" class="view-switch-btn view-switch-label active" id="btn-view-graph" role="tab"
+          aria-selected="true" aria-controls="blog-graph-view" title="Switch to Graph View">
+          <span class="view-btn-icon">&#x25C8;</span>
+          <span class="view-btn-label">GRAPH VIEW</span>
+        </button>
+
+        <label class="view-switch-control" for="blog-view-checkbox" title="Toggle between Graph and Classic view">
+          <input type="checkbox" id="blog-view-checkbox" class="view-switch-input" role="switch"
+            aria-label="Toggle between Graph View and Classic View" aria-checked="false"
+            aria-controls="blog-graph-view blog-classic-view">
+          <span class="view-switch-track" aria-hidden="true">
+            <span class="view-switch-thumb"></span>
+          </span>
+        </label>
+
+        <button type="button" class="view-switch-btn view-switch-label" id="btn-view-classic" role="tab"
+          aria-selected="false" aria-controls="blog-classic-view" title="Switch to Classic Directory View">
+          <span class="view-btn-icon">&#x2630;</span>
+          <span class="view-btn-label">CLASSIC VIEW</span>
+        </button>
+      </div>
+    </div>
   </div>
-</div>
+</header>
 
 <!-- Mode 1: Interactive Force-Directed Canvas Graph -->
 <section class="blog-view-pane blog-graph-section" id="blog-graph-view" role="tabpanel"
@@ -296,10 +299,11 @@ jsFiles:
     // 1. Detection and View State Management
     const viewGraphBtn = document.getElementById('btn-view-graph');
     const viewClassicBtn = document.getElementById('btn-view-classic');
+    const viewSwitch = document.getElementById('blog-view-checkbox');
+    const viewSwitchControl = document.querySelector('.view-switch-control');
     const graphSection = document.getElementById('blog-graph-view');
     const classicSection = document.getElementById('blog-classic-view');
     const statusText = document.getElementById('status-text');
-    const statusIndicator = document.querySelector('.status-indicator');
 
     function checkCanvasSupport() {
       try {
@@ -323,6 +327,14 @@ jsFiles:
         viewGraphBtn.title = 'Canvas 2D is unsupported in this browser';
         viewGraphBtn.classList.add('disabled');
       }
+      if (viewSwitch) {
+        viewSwitch.disabled = true;
+        viewSwitch.checked = true;
+      }
+      if (viewSwitchControl) {
+        viewSwitchControl.classList.add('disabled');
+        viewSwitchControl.title = 'Canvas 2D is unsupported in this browser';
+      }
     } else if (storedView) {
       currentView = storedView;
     } else if (isSmallScreen) {
@@ -339,27 +351,38 @@ jsFiles:
       if (viewMode === 'graph' && hasCanvas) {
         graphSection.style.display = 'block';
         classicSection.style.display = 'none';
-        viewGraphBtn.classList.add('active');
-        viewGraphBtn.setAttribute('aria-selected', 'true');
-        viewClassicBtn.classList.remove('active');
-        viewClassicBtn.setAttribute('aria-selected', 'false');
+        if (viewGraphBtn) {
+          viewGraphBtn.classList.add('active');
+          viewGraphBtn.setAttribute('aria-selected', 'true');
+        }
+        if (viewClassicBtn) {
+          viewClassicBtn.classList.remove('active');
+          viewClassicBtn.setAttribute('aria-selected', 'false');
+        }
+        if (viewSwitch) {
+          viewSwitch.checked = false;
+          viewSwitch.setAttribute('aria-checked', 'false');
+        }
 
         if (statusText) {
           statusText.textContent = reason || '[MODE: INTERACTIVE GRAPH (CANVAS 2D)]';
-        }
-        if (statusIndicator) {
-          statusIndicator.className = 'status-indicator graph-active';
         }
 
         initGraph();
       } else {
         graphSection.style.display = 'none';
         classicSection.style.display = 'block';
-        viewClassicBtn.classList.add('active');
-        viewClassicBtn.setAttribute('aria-selected', 'true');
+        if (viewClassicBtn) {
+          viewClassicBtn.classList.add('active');
+          viewClassicBtn.setAttribute('aria-selected', 'true');
+        }
         if (viewGraphBtn) {
           viewGraphBtn.classList.remove('active');
           viewGraphBtn.setAttribute('aria-selected', 'false');
+        }
+        if (viewSwitch) {
+          viewSwitch.checked = true;
+          viewSwitch.setAttribute('aria-checked', 'true');
         }
 
         if (statusText) {
@@ -371,10 +394,17 @@ jsFiles:
           }
           statusText.textContent = label;
         }
-        if (statusIndicator) {
-          statusIndicator.className = 'status-indicator classic-active';
-        }
       }
+    }
+
+    if (viewSwitch) {
+      viewSwitch.addEventListener('change', function () {
+        if (!hasCanvas && !this.checked) {
+          this.checked = true;
+          return;
+        }
+        setView(this.checked ? 'classic' : 'graph');
+      });
     }
 
     if (viewGraphBtn) {
@@ -401,15 +431,12 @@ jsFiles:
         if (!window.blogGraph) {
           window.blogGraph = new StrataGraph({
             container: '#strata-graph-container',
-            dataUrl: '/assets/data/blog-graph.json'
-          });
-          // Unify graph canvas article clicks to open the reusable modal
-          if (window.blogGraph && window.blogGraph.canvasEngine) {
-            window.blogGraph.canvasEngine.onArticleClick = function (node) {
+            dataUrl: '/assets/data/blog-graph.json',
+            onArticleClick: function (node) {
               const articleId = node.articleId || node.id;
               openArticleReader(articleId);
-            };
-          }
+            }
+          });
         }
       } else {
         setTimeout(initGraph, 50);

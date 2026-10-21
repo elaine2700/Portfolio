@@ -6,7 +6,6 @@
 import { CanvasEngine } from './canvas-engine';
 import { NodeRenderer } from './node-renderer';
 import { ZoomManager } from './zoom-manager';
-import { ModalViewer } from './modal-viewer';
 
 export class StrataGraph {
   /**
@@ -27,18 +26,21 @@ export class StrataGraph {
 
     this.dataUrl = config.dataUrl || (typeof config.data === 'string' ? config.data : null);
     this.data = typeof config.data === 'object' ? config.data : null;
-    this.options = config.options || {};
+    this.options = {
+      onArticleClick: config.onArticleClick,
+      onFolderClick: config.onFolderClick,
+      ...config.options
+    };
 
     this.renderer = null;
     this.canvasEngine = null;
     this.zoomManager = null;
-    this.modalViewer = null;
 
     this.wrapperEl = null;
     this.viewportEl = null;
     this.canvasEl = null;
 
-    this.init();
+    this.ready = this.init();
   }
 
   async init() {
@@ -68,7 +70,6 @@ export class StrataGraph {
     this.renderer = new NodeRenderer(this.options.nodeOptions);
     this.canvasEngine = new CanvasEngine(this.canvasEl, this.renderer, this.options.canvasOptions);
     this.zoomManager = new ZoomManager(this.wrapperEl, this.data, this.options.zoomOptions);
-    this.modalViewer = new ModalViewer(this.options.modalOptions);
 
     // Wire up events
     this.wireSubsystems();
@@ -140,17 +141,21 @@ export class StrataGraph {
   wireSubsystems() {
     // Canvas -> Folder Click (Drill down)
     this.canvasEngine.onFolderClick = async (folderNode) => {
+      if (typeof this.options.onFolderClick === 'function') {
+        this.options.onFolderClick(folderNode);
+        return;
+      }
       await this.canvasEngine.zoomToNode(folderNode, 400);
       await this.zoomManager.drillDown(folderNode);
     };
 
-    // Canvas -> Article Click (Open Modal)
+    // Canvas -> Article Click (Delegate to host application callback)
     this.canvasEngine.onArticleClick = (articleNode) => {
-      const articleData = this.data.articles[articleNode.articleId || articleNode.id];
-      if (articleData) {
-        this.modalViewer.open(articleData);
-      } else {
-        this.modalViewer.open(articleNode);
+      if (typeof this.options.onArticleClick === 'function') {
+        const articleData = this.data && this.data.articles
+          ? this.data.articles[articleNode.articleId || articleNode.id]
+          : null;
+        this.options.onArticleClick(articleData || articleNode);
       }
     };
 
@@ -172,13 +177,13 @@ export class StrataGraph {
   }
 
   /**
-   * Directly opens an article by ID.
+   * Directly triggers article click handler by ID.
    * @param {string} articleId
    */
   openArticle(articleId) {
     const article = this.data && this.data.articles ? this.data.articles[articleId] : null;
-    if (article && this.modalViewer) {
-      this.modalViewer.open(article);
+    if (article && typeof this.options.onArticleClick === 'function') {
+      this.options.onArticleClick(article);
     }
   }
 
@@ -194,7 +199,6 @@ export class StrataGraph {
 
   destroy() {
     if (this.canvasEngine) this.canvasEngine.destroy();
-    if (this.modalViewer) this.modalViewer.destroy();
     if (this.container) this.container.innerHTML = '';
   }
 }

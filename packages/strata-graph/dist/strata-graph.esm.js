@@ -1,4 +1,4 @@
-// packages/strata-graph/node_modules/d3-force/src/center.js
+// ../../node_modules/d3-force/src/center.js
 function center_default(x3, y3) {
   var nodes, strength = 1;
   if (x3 == null) x3 = 0;
@@ -27,7 +27,7 @@ function center_default(x3, y3) {
   return force;
 }
 
-// packages/strata-graph/node_modules/d3-quadtree/src/add.js
+// ../../node_modules/d3-quadtree/src/add.js
 function add_default(d) {
   const x3 = +this._x.call(null, d), y3 = +this._y.call(null, d);
   return add(this.cover(x3, y3), x3, y3, d);
@@ -74,7 +74,7 @@ function addAll(data) {
   return this;
 }
 
-// packages/strata-graph/node_modules/d3-quadtree/src/cover.js
+// ../../node_modules/d3-quadtree/src/cover.js
 function cover_default(x3, y3) {
   if (isNaN(x3 = +x3) || isNaN(y3 = +y3)) return this;
   var x0 = this._x0, y0 = this._y0, x1 = this._x1, y1 = this._y1;
@@ -110,7 +110,7 @@ function cover_default(x3, y3) {
   return this;
 }
 
-// packages/strata-graph/node_modules/d3-quadtree/src/data.js
+// ../../node_modules/d3-quadtree/src/data.js
 function data_default() {
   var data = [];
   this.visit(function(node) {
@@ -121,12 +121,12 @@ function data_default() {
   return data;
 }
 
-// packages/strata-graph/node_modules/d3-quadtree/src/extent.js
+// ../../node_modules/d3-quadtree/src/extent.js
 function extent_default(_) {
   return arguments.length ? this.cover(+_[0][0], +_[0][1]).cover(+_[1][0], +_[1][1]) : isNaN(this._x0) ? void 0 : [[this._x0, this._y0], [this._x1, this._y1]];
 }
 
-// packages/strata-graph/node_modules/d3-quadtree/src/quad.js
+// ../../node_modules/d3-quadtree/src/quad.js
 function quad_default(node, x0, y0, x1, y1) {
   this.node = node;
   this.x0 = x0;
@@ -135,7 +135,7 @@ function quad_default(node, x0, y0, x1, y1) {
   this.y1 = y1;
 }
 
-// packages/strata-graph/node_modules/d3-quadtree/src/find.js
+// ../../node_modules/d3-quadtree/src/find.js
 function find_default(x3, y3, radius) {
   var data, x0 = this._x0, y0 = this._y0, x1, y1, x22, y22, x32 = this._x1, y32 = this._y1, quads = [], node = this._root, q, i;
   if (node) quads.push(new quad_default(node, x0, y0, x32, y32));
@@ -173,7 +173,7 @@ function find_default(x3, y3, radius) {
   return data;
 }
 
-// packages/strata-graph/node_modules/d3-quadtree/src/remove.js
+// ../../node_modules/d3-quadtree/src/remove.js
 function remove_default(d) {
   if (isNaN(x3 = +this._x.call(null, d)) || isNaN(y3 = +this._y.call(null, d))) return this;
   var parent, node = this._root, retainer, previous, next, x0 = this._x0, y0 = this._y0, x1 = this._x1, y1 = this._y1, x3, y3, xm, ym, right, bottom, i, j;
@@ -203,12 +203,12 @@ function removeAll(data) {
   return this;
 }
 
-// packages/strata-graph/node_modules/d3-quadtree/src/root.js
+// ../../node_modules/d3-quadtree/src/root.js
 function root_default() {
   return this._root;
 }
 
-// packages/strata-graph/node_modules/d3-quadtree/src/size.js
+// ../../node_modules/d3-quadtree/src/size.js
 function size_default() {
   var size = 0;
   this.visit(function(node) {
@@ -219,7 +219,7 @@ function size_default() {
   return size;
 }
 
-// packages/strata-graph/node_modules/d3-quadtree/src/visit.js
+// ../../node_modules/d3-quadtree/src/visit.js
 function visit_default(callback) {
   var quads = [], q, node = this._root, child, x0, y0, x1, y1;
   if (node) quads.push(new quad_default(node, this._x0, this._y0, this._x1, this._y1));
@@ -235,7 +235,7 @@ function visit_default(callback) {
   return this;
 }
 
-// packages/strata-graph/node_modules/d3-quadtree/src/visitAfter.js
+// ../../node_modules/d3-quadtree/src/visitAfter.js
 function visitAfter_default(callback) {
   var quads = [], next = [], q;
   if (this._root) quads.push(new quad_default(this._root, this._x0, this._y0, this._x1, this._y1));
@@ -256,7 +256,7 @@ function visitAfter_default(callback) {
   return this;
 }
 
-// packages/strata-graph/node_modules/d3-quadtree/src/x.js
+// ../../node_modules/d3-quadtree/src/x.js
 function defaultX(d) {
   return d[0];
 }
@@ -264,7 +264,7 @@ function x_default(_) {
   return arguments.length ? (this._x = _, this) : this._x;
 }
 
-// packages/strata-graph/node_modules/d3-quadtree/src/y.js
+// ../../node_modules/d3-quadtree/src/y.js
 function defaultY(d) {
   return d[1];
 }
@@ -272,7 +272,7 @@ function y_default(_) {
   return arguments.length ? (this._y = _, this) : this._y;
 }
 
-// packages/strata-graph/node_modules/d3-quadtree/src/quadtree.js
+// ../../node_modules/d3-quadtree/src/quadtree.js
 function quadtree(nodes, x3, y3) {
   var tree = new Quadtree(x3 == null ? defaultX : x3, y3 == null ? defaultY : y3, NaN, NaN, NaN, NaN);
   return nodes == null ? tree : tree.addAll(nodes);
@@ -322,19 +322,19 @@ treeProto.visitAfter = visitAfter_default;
 treeProto.x = x_default;
 treeProto.y = y_default;
 
-// packages/strata-graph/node_modules/d3-force/src/constant.js
+// ../../node_modules/d3-force/src/constant.js
 function constant_default(x3) {
   return function() {
     return x3;
   };
 }
 
-// packages/strata-graph/node_modules/d3-force/src/jiggle.js
+// ../../node_modules/d3-force/src/jiggle.js
 function jiggle_default(random) {
   return (random() - 0.5) * 1e-6;
 }
 
-// packages/strata-graph/node_modules/d3-force/src/collide.js
+// ../../node_modules/d3-force/src/collide.js
 function x(d) {
   return d.x + d.vx;
 }
@@ -407,7 +407,7 @@ function collide_default(radius) {
   return force;
 }
 
-// packages/strata-graph/node_modules/d3-force/src/link.js
+// ../../node_modules/d3-force/src/link.js
 function index(d) {
   return d.index;
 }
@@ -489,7 +489,7 @@ function link_default(links) {
   return force;
 }
 
-// packages/strata-graph/node_modules/d3-dispatch/src/dispatch.js
+// ../../node_modules/d3-dispatch/src/dispatch.js
 var noop = { value: () => {
 } };
 function dispatch() {
@@ -559,7 +559,7 @@ function set(type, name, callback) {
 }
 var dispatch_default = dispatch;
 
-// packages/strata-graph/node_modules/d3-timer/src/timer.js
+// ../../node_modules/d3-timer/src/timer.js
 var frame = 0;
 var timeout = 0;
 var interval = 0;
@@ -661,7 +661,7 @@ function sleep(time) {
   }
 }
 
-// packages/strata-graph/node_modules/d3-force/src/lcg.js
+// ../../node_modules/d3-force/src/lcg.js
 var a = 1664525;
 var c = 1013904223;
 var m = 4294967296;
@@ -670,7 +670,7 @@ function lcg_default() {
   return () => (s = (a * s + c) % m) / m;
 }
 
-// packages/strata-graph/node_modules/d3-force/src/simulation.js
+// ../../node_modules/d3-force/src/simulation.js
 function x2(d) {
   return d.x;
 }
@@ -779,7 +779,7 @@ function simulation_default(nodes) {
   };
 }
 
-// packages/strata-graph/node_modules/d3-force/src/manyBody.js
+// ../../node_modules/d3-force/src/manyBody.js
 function manyBody_default() {
   var nodes, node, random, alpha, strength = constant_default(-30), strengths, distanceMin2 = 1, distanceMax2 = Infinity, theta2 = 0.81;
   function force(_) {
@@ -858,7 +858,7 @@ function manyBody_default() {
   return force;
 }
 
-// packages/strata-graph/src/client/canvas-engine.js
+// src/client/canvas-engine.js
 var CanvasEngine = class {
   constructor(canvasElement, nodeRenderer, options = {}) {
     this.canvas = canvasElement;
@@ -1220,7 +1220,7 @@ var CanvasEngine = class {
   }
 };
 
-// packages/strata-graph/src/client/node-renderer.js
+// src/client/node-renderer.js
 var NodeRenderer = class {
   constructor(options = {}) {
     this.options = {
@@ -1464,7 +1464,7 @@ var NodeRenderer = class {
   }
 };
 
-// packages/strata-graph/src/client/zoom-manager.js
+// src/client/zoom-manager.js
 var ZoomManager = class {
   constructor(containerElement, graphData, options = {}) {
     this.container = containerElement;
@@ -1569,118 +1569,7 @@ var ZoomManager = class {
   }
 };
 
-// packages/strata-graph/src/client/modal-viewer.js
-var ModalViewer = class {
-  constructor(options = {}) {
-    this.options = {
-      onClose: null,
-      ...options
-    };
-    this.isOpen = false;
-    this.currentArticle = null;
-    this.overlayEl = null;
-    this.containerEl = null;
-    this.bodyEl = null;
-    this.buildDOM();
-    this.bindEvents();
-  }
-  buildDOM() {
-    const overlay = document.createElement("div");
-    overlay.className = "sg-modal-overlay";
-    overlay.setAttribute("role", "dialog");
-    overlay.setAttribute("aria-modal", "true");
-    overlay.setAttribute("aria-hidden", "true");
-    overlay.innerHTML = `
-      <div class="sg-modal-container">
-        <div class="sg-modal-header-bar">
-          <div class="sg-modal-breadcrumb" id="sg-modal-breadcrumb">
-            READING / ARTICLE
-          </div>
-          <button type="button" class="sg-modal-close-btn" id="sg-modal-close-btn" aria-label="Close article">
-            <span>CLOSE</span>
-            <span class="sg-modal-close-key">ESC</span>
-          </button>
-        </div>
-        <div class="sg-modal-body" id="sg-modal-body">
-          <!-- Injected dynamically -->
-        </div>
-      </div>
-    `;
-    document.body.appendChild(overlay);
-    this.overlayEl = overlay;
-    this.containerEl = overlay.querySelector(".sg-modal-container");
-    this.bodyEl = overlay.querySelector("#sg-modal-body");
-    this.breadcrumbEl = overlay.querySelector("#sg-modal-breadcrumb");
-    this.closeBtn = overlay.querySelector("#sg-modal-close-btn");
-  }
-  bindEvents() {
-    this.closeBtn.addEventListener("click", () => this.close());
-    this.overlayEl.addEventListener("click", (e) => {
-      if (e.target === this.overlayEl) {
-        this.close();
-      }
-    });
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && this.isOpen) {
-        this.close();
-      }
-    });
-  }
-  /**
-   * Opens and renders an article.
-   * @param {object} article
-   */
-  open(article) {
-    if (!article) return;
-    this.currentArticle = article;
-    this.isOpen = true;
-    const folderLabel = (article.folderPath || "/").toUpperCase();
-    this.breadcrumbEl.textContent = `CATALOG: ${folderLabel} / ${article.title.toUpperCase()}`;
-    const tagsHtml = (article.tags || []).map((tag) => `<span class="sg-article-tag">#${tag}</span>`).join(" ");
-    const heroImgHtml = article.thumbnail ? `<img src="${article.thumbnail}" alt="${article.title}" class="sg-article-hero-img" />` : "";
-    const metaParts = [];
-    if (article.date) metaParts.push(`<span>DATE: ${article.date}</span>`);
-    if (article.readingTime) metaParts.push(`<span>TIME: ${article.readingTime}</span>`);
-    if (article.wordCount) metaParts.push(`<span>WORDS: ${article.wordCount}</span>`);
-    this.bodyEl.innerHTML = `
-      <header class="sg-article-hero">
-        <div class="sg-article-meta-line">
-          ${metaParts.join(" &bull; ")}
-        </div>
-        <h1 class="sg-article-title">${article.title}</h1>
-        ${tagsHtml ? `<div class="sg-article-tags">${tagsHtml}</div>` : ""}
-        ${heroImgHtml}
-      </header>
-      <article class="sg-article-content">
-        ${article.htmlContent || `<p>${article.description || article.summary || "No content provided."}</p>`}
-      </article>
-    `;
-    this.bodyEl.scrollTop = 0;
-    this.overlayEl.classList.add("is-active");
-    this.overlayEl.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-    setTimeout(() => {
-      this.closeBtn.focus();
-    }, 50);
-  }
-  close() {
-    if (!this.isOpen) return;
-    this.isOpen = false;
-    this.overlayEl.classList.remove("is-active");
-    this.overlayEl.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-    if (this.options.onClose) {
-      this.options.onClose();
-    }
-  }
-  destroy() {
-    if (this.overlayEl && this.overlayEl.parentNode) {
-      this.overlayEl.parentNode.removeChild(this.overlayEl);
-    }
-  }
-};
-
-// packages/strata-graph/src/client/strata-graph.js
+// src/client/strata-graph.js
 var StrataGraph = class {
   /**
    * @param {object} config
@@ -1696,15 +1585,18 @@ var StrataGraph = class {
     }
     this.dataUrl = config.dataUrl || (typeof config.data === "string" ? config.data : null);
     this.data = typeof config.data === "object" ? config.data : null;
-    this.options = config.options || {};
+    this.options = {
+      onArticleClick: config.onArticleClick,
+      onFolderClick: config.onFolderClick,
+      ...config.options
+    };
     this.renderer = null;
     this.canvasEngine = null;
     this.zoomManager = null;
-    this.modalViewer = null;
     this.wrapperEl = null;
     this.viewportEl = null;
     this.canvasEl = null;
-    this.init();
+    this.ready = this.init();
   }
   async init() {
     this.buildDOM();
@@ -1728,7 +1620,6 @@ var StrataGraph = class {
     this.renderer = new NodeRenderer(this.options.nodeOptions);
     this.canvasEngine = new CanvasEngine(this.canvasEl, this.renderer, this.options.canvasOptions);
     this.zoomManager = new ZoomManager(this.wrapperEl, this.data, this.options.zoomOptions);
-    this.modalViewer = new ModalViewer(this.options.modalOptions);
     this.wireSubsystems();
     const initialLevel = this.data.root || this.data.levels["/"];
     if (initialLevel) {
@@ -1782,15 +1673,17 @@ var StrataGraph = class {
   }
   wireSubsystems() {
     this.canvasEngine.onFolderClick = async (folderNode) => {
+      if (typeof this.options.onFolderClick === "function") {
+        this.options.onFolderClick(folderNode);
+        return;
+      }
       await this.canvasEngine.zoomToNode(folderNode, 400);
       await this.zoomManager.drillDown(folderNode);
     };
     this.canvasEngine.onArticleClick = (articleNode) => {
-      const articleData = this.data.articles[articleNode.articleId || articleNode.id];
-      if (articleData) {
-        this.modalViewer.open(articleData);
-      } else {
-        this.modalViewer.open(articleNode);
+      if (typeof this.options.onArticleClick === "function") {
+        const articleData = this.data && this.data.articles ? this.data.articles[articleNode.articleId || articleNode.id] : null;
+        this.options.onArticleClick(articleData || articleNode);
       }
     };
     this.zoomManager.setOnLevelChange((targetLevel, sourceNode) => {
@@ -1808,13 +1701,13 @@ var StrataGraph = class {
     }
   }
   /**
-   * Directly opens an article by ID.
+   * Directly triggers article click handler by ID.
    * @param {string} articleId
    */
   openArticle(articleId) {
     const article = this.data && this.data.articles ? this.data.articles[articleId] : null;
-    if (article && this.modalViewer) {
-      this.modalViewer.open(article);
+    if (article && typeof this.options.onArticleClick === "function") {
+      this.options.onArticleClick(article);
     }
   }
   /**
@@ -1828,7 +1721,6 @@ var StrataGraph = class {
   }
   destroy() {
     if (this.canvasEngine) this.canvasEngine.destroy();
-    if (this.modalViewer) this.modalViewer.destroy();
     if (this.container) this.container.innerHTML = "";
   }
 };

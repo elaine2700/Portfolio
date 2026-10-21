@@ -20,6 +20,10 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.watchIgnores.add("src/assets/data/blog-graph.json");
     eleventyConfig.addWatchTarget("src/content/blog/");
     eleventyConfig.addPassthroughCopy("src/assets");
+    eleventyConfig.addPassthroughCopy({
+        "node_modules/strata-graph/dist/strata-graph.js": "assets/strata-graph/strata-graph.js",
+        "node_modules/strata-graph/dist/strata-graph.css": "assets/strata-graph/strata-graph.css"
+    });
 
     eleventyConfig.addPlugin(EleventyRenderPlugin);
 

@@ -1,7 +1,7 @@
 {
   "name": "strata-graph",
   "version": "1.0.0",
-  "description": "Interactive hierarchical force-graph engine with zoom levels and markdown reader",
+  "description": "Interactive hierarchical force-graph engine with zoom levels and node navigation",
   "main": "src/index.js",
   "bin": {
     "strata-graph": "./bin/cli.js"

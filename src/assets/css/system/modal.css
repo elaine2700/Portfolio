@@ -11,8 +11,7 @@
    ========================================================================== */
 
 .modal-backdrop,
-.project-modal-backdrop,
-.sg-modal-overlay {
+.project-modal-backdrop {
     position: fixed;
     inset: 0;
     z-index: 9999;
@@ -33,8 +32,7 @@
 
 .modal-backdrop.is-open,
 .modal-backdrop.is-active,
-.project-modal-backdrop.is-open,
-.sg-modal-overlay.is-active {
+.project-modal-backdrop.is-open {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -49,8 +47,7 @@ body.modal-open {
    ========================================================================== */
 
 .modal-window,
-.project-modal-window,
-.sg-modal-container {
+.project-modal-window {
     background-color: var(--color-canvas);
     box-shadow: 8px 8px 0 var(--color-ink-primary);
     width: 100%;
@@ -66,8 +63,7 @@ body.modal-open {
 }
 
 .modal-backdrop.is-open .modal-window,
-.project-modal-backdrop.is-open .project-modal-window,
-.sg-modal-overlay.is-active .sg-modal-container {
+.project-modal-backdrop.is-open .project-modal-window {
     transform: scale(1);
 }
 
@@ -75,8 +71,7 @@ body.modal-open {
    3. MODAL TOPBAR & COMMAND HEADER
    ========================================================================== */
 
-.modal-topbar,
-.sg-modal-header-bar {
+.modal-topbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -87,8 +82,7 @@ body.modal-open {
     box-sizing: border-box;
 }
 
-.modal-topbar-left,
-.sg-modal-breadcrumb {
+.modal-topbar-left {
     display: flex;
     align-items: center;
     gap: 0.6rem;
@@ -146,8 +140,7 @@ body.modal-open {
     flex-shrink: 0;
 }
 
-.modal-close-btn,
-.sg-modal-close-btn {
+.modal-close-btn {
     background-color: var(--color-primary);
     color: #FFFFFF;
     border: 1.5px solid var(--color-ink-primary);
@@ -166,8 +159,7 @@ body.modal-open {
     gap: 0.35rem;
 }
 
-.modal-close-btn .esc-hint,
-.sg-modal-close-key {
+.modal-close-btn .esc-hint {
     font-size: 0.65rem;
     opacity: 0.85;
     background: transparent;
@@ -176,8 +168,7 @@ body.modal-open {
     border-radius: 2px;
 }
 
-.modal-close-btn:hover,
-.sg-modal-close-btn:hover {
+.modal-close-btn:hover {
     background-color: var(--color-primary-hover);
     color: #FFFFFF;
     transform: translate(-1px, -1px);
@@ -188,8 +179,7 @@ body.modal-open {
    4. MODAL SCROLLABLE BODY
    ========================================================================== */
 
-.modal-scroll-body,
-.sg-modal-body {
+.modal-scroll-body {
     flex: 1 1 auto;
     overflow-y: auto;
     padding: 2.25rem 2.25rem;
@@ -201,19 +191,16 @@ body.modal-open {
     scrollbar-color: var(--color-ink-primary) var(--color-surface-pulp);
 }
 
-.modal-scroll-body::-webkit-scrollbar,
-.sg-modal-body::-webkit-scrollbar {
+.modal-scroll-body::-webkit-scrollbar {
     width: 8px;
 }
 
-.modal-scroll-body::-webkit-scrollbar-track,
-.sg-modal-body::-webkit-scrollbar-track {
+.modal-scroll-body::-webkit-scrollbar-track {
     background: var(--color-surface-pulp);
     border-left: 1px solid var(--color-ink-primary);
 }
 
-.modal-scroll-body::-webkit-scrollbar-thumb,
-.sg-modal-body::-webkit-scrollbar-thumb {
+.modal-scroll-body::-webkit-scrollbar-thumb {
     background: var(--color-ink-primary);
 }
 
@@ -221,9 +208,7 @@ body.modal-open {
    5. MODAL TYPOGRAPHY & MARKDOWN CONTENT
    ========================================================================== */
 
-.modal-scroll-body h1,
-.sg-modal-body h1,
-.sg-article-title {
+.modal-scroll-body h1 {
     font-family: var(--font-family-display);
     font-size: clamp(2rem, 3.8vw, 3rem);
     font-weight: 700;
@@ -236,8 +221,7 @@ body.modal-open {
     text-transform: uppercase;
 }
 
-.modal-scroll-body h2,
-.sg-modal-body h2 {
+.modal-scroll-body h2 {
     font-family: var(--font-family-display);
     font-size: 1.45rem;
     font-weight: 700;
@@ -249,8 +233,7 @@ body.modal-open {
     padding-bottom: 0.35rem;
 }
 
-.modal-scroll-body h3,
-.sg-modal-body h3 {
+.modal-scroll-body h3 {
     font-family: var(--font-family-display);
     font-size: 1.15rem;
     font-weight: 700;
@@ -260,8 +243,7 @@ body.modal-open {
     margin: 1.5rem 0 0.5rem 0;
 }
 
-.modal-scroll-body p,
-.sg-modal-body p {
+.modal-scroll-body p {
     font-family: var(--font-family-mono);
     font-size: 0.92rem;
     line-height: 1.65;
@@ -270,16 +252,13 @@ body.modal-open {
 }
 
 .modal-scroll-body ul,
-.modal-scroll-body ol,
-.sg-modal-body ul,
-.sg-modal-body ol {
+.modal-scroll-body ol {
     list-style: none;
     padding-left: 0;
     margin: 0 0 1.5rem 0;
 }
 
-.modal-scroll-body li,
-.sg-modal-body li {
+.modal-scroll-body li {
     font-family: var(--font-family-mono);
     font-size: 0.9rem;
     line-height: 1.6;
@@ -289,8 +268,7 @@ body.modal-open {
     margin-bottom: 0.45rem;
 }
 
-.modal-scroll-body li::before,
-.sg-modal-body li::before {
+.modal-scroll-body li::before {
     content: '>';
     position: absolute;
     left: 0;
@@ -298,8 +276,7 @@ body.modal-open {
     font-weight: 700;
 }
 
-.modal-scroll-body blockquote,
-.sg-modal-body blockquote {
+.modal-scroll-body blockquote {
     background-color: rgba(229, 169, 60, 0.12);
     border-left: 4px solid var(--color-accent-gold);
     padding: 1rem 1.25rem;
@@ -310,8 +287,7 @@ body.modal-open {
     color: var(--color-ink-primary);
 }
 
-.modal-scroll-body pre,
-.sg-modal-body pre {
+.modal-scroll-body pre {
     background-color: var(--color-ink-primary);
     color: var(--color-canvas);
     padding: 1.25rem;
@@ -324,16 +300,14 @@ body.modal-open {
     line-height: 1.5;
 }
 
-.modal-scroll-body pre code,
-.sg-modal-body pre code {
+.modal-scroll-body pre code {
     background: transparent;
     border: none;
     padding: 0;
     color: inherit;
 }
 
-.modal-scroll-body code,
-.sg-modal-body code {
+.modal-scroll-body code {
     font-family: var(--font-family-mono);
     background-color: var(--color-surface-pulp);
     padding: 0.15rem 0.4rem;
@@ -341,8 +315,7 @@ body.modal-open {
     font-size: 0.88em;
 }
 
-.modal-scroll-body table,
-.sg-modal-body table {
+.modal-scroll-body table {
     width: 100%;
     border-collapse: collapse;
     margin: 1.5rem 0;
@@ -351,16 +324,13 @@ body.modal-open {
 }
 
 .modal-scroll-body th,
-.modal-scroll-body td,
-.sg-modal-body th,
-.sg-modal-body td {
+.modal-scroll-body td {
     border: 1px solid var(--color-ink-primary);
     padding: 0.6rem 0.85rem;
     text-align: left;
 }
 
-.modal-scroll-body th,
-.sg-modal-body th {
+.modal-scroll-body th {
     background-color: var(--color-surface-pulp);
     font-family: var(--font-family-display);
     font-weight: 700;
@@ -368,26 +338,22 @@ body.modal-open {
     color: var(--color-ink-primary);
 }
 
-.modal-scroll-body td,
-.sg-modal-body td {
+.modal-scroll-body td {
     background-color: var(--color-surface-card);
 }
 
-.modal-scroll-body a,
-.sg-modal-body a {
+.modal-scroll-body a {
     color: var(--color-primary);
     font-weight: 700;
     text-decoration: underline;
     transition: color 0.15s ease;
 }
 
-.modal-scroll-body a:hover,
-.sg-modal-body a:hover {
+.modal-scroll-body a:hover {
     color: var(--color-primary-hover);
 }
 
 /* Modal Article Header & Meta */
-.sg-article-meta,
 .modal-article-meta {
     display: flex;
     align-items: center;
@@ -401,7 +367,6 @@ body.modal-open {
     letter-spacing: 0.05em;
 }
 
-.sg-article-tags,
 .modal-article-tags {
     display: flex;
     flex-wrap: wrap;
@@ -409,7 +374,6 @@ body.modal-open {
     margin-bottom: 1.5rem;
 }
 
-.sg-article-tag,
 .modal-tag {
     font-family: var(--font-family-mono);
     font-size: 0.72rem;
@@ -422,7 +386,6 @@ body.modal-open {
     display: inline-block;
 }
 
-.sg-article-hero-img,
 .modal-hero-image {
     max-width: 100%;
     height: auto;
@@ -519,19 +482,16 @@ body.modal-open {
 @media (max-width: 768px) {
 
     .modal-backdrop,
-    .project-modal-backdrop,
-    .sg-modal-overlay {
+    .project-modal-backdrop {
         padding: 0.75rem;
     }
 
     .modal-window,
-    .project-modal-window,
-    .sg-modal-container {
+    .project-modal-window {
         max-height: 94vh;
     }
 
-    .modal-scroll-body,
-    .sg-modal-body {
+    .modal-scroll-body {
         padding: 1.5rem 1.25rem;
     }
 
