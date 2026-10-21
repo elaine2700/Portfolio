@@ -65,6 +65,11 @@
     color: var(--color-ink-primary);
 }
 
+.tag.light {
+    background-color: var(--color-canvas);
+    color: var(--color-ink-primary);
+}
+
 .tag.card-header-pill {
     margin-bottom: 0.75rem;
 }
