@@ -330,12 +330,13 @@ The portfolio implements a **centralized modal system** serving as the single so
 
 1. **Hero Section (`.home_hero`):**
    - Two-column asymmetric layout (`1.15fr 0.85fr`) separated by a dashed divider.
-   - Left Text Side: Giant headline (`clamp(3rem, 5.5vw, 4.75rem)`), monospace lead paragraph, and dual CTA buttons (`EXPLORE PROJECTS ->`, `READ RESUME`).
-   - Right Tactile Collage (`.collage-container`):
-     - Terracotta torn paper background slip (`.collage-torn-paper`, -3deg tilt).
-     - Vintage postage stamp (`.postage-stamp`, +5deg tilt) featuring inner frame, "AIR MAIL 2026" monogram, and radial wave cancel mark.
-     - Circular halftone portrait cutout (`.collage-circle-art`) with duotone teal contrast and golden dot overlay screen.
-     - Taped typewriter bio note card (`.collage-note-card`) fastened with a top masking tape strip (`.collage-note-tape`).
+   - Left Text Side: Giant headline (`clamp(3rem, 5.5vw, 4.75rem)`), monospace lead paragraph, and dual ticket-notched CTA buttons (`EXPLORE ARCHIVES ->`, `CONTACT // LAB`).
+   - Right Digital Collage (`.collage-container`):
+     - Layer 1: Realistic torn paper slips (`.collage-torn-paper.paper-rust` and `.paper-ochre`) with organic fibrous deckle edges and alpha-contoured solid ink drop shadows (`filter: drop-shadow(3px 3px 0 var(--color-ink-primary))`).
+     - Layer 2: Centerpiece Artwork Plate (`.collage-artwork-plate`, +1deg tilt, taped at top) featuring a complete 3D wireframe floating island in cyberspace with luminous cyan/emerald vector lines, constellation nodes, and holographic X, Y, Z spatial coordinate vectors.
+     - Layer 3: Polaroid Avatar Card (`.collage-polaroid-card`, -4.5deg tilt, upper-left) featuring Elaine's illustrated vector avatar with authentic vintage newsprint halftone dot overlay screen and top masking tape strip.
+     - Layer 4: Taped typewriter field note card (`.collage-note-card`, -1.5deg tilt, lower-right) with monospace quote and `XR // WEB` indicator pill.
+     - Layer 5: Retro 8-bit pixel pointer cursor (`.collage-pixel-cursor`) floating over the collage edge.
 2. **Section 01: Skills & Specimens (`.skills-section`):**
    - Grid of 3 modular dashed specimen cards (`SPEC. C1 SYSTEMS & ENGINES`, `SPEC. C2 CODE & ARCHITECTURE`, `SPEC. C3 VISUAL & EDITORIAL`).
 3. **Section 02: Selected Exhibitions (`.works-section`):**
