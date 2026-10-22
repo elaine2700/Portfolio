@@ -99,6 +99,20 @@ npm start
 ```
 The site will be available locally at `http://localhost:8080/`.
 
+### Blog Content Management (Obsidian CMS)
+Write and manage blog posts directly in [Obsidian](https://obsidian.md/) inside a designated `Site_Blog` folder:
+1. Configure your Obsidian Vault path in `.env` (see `.env.example`):
+   ```env
+   OBSIDIAN_VAULT_PATH="C:/path/to/your/ObsidianVault"
+   OBSIDIAN_BLOG_DIR="Site_Blog"
+   ```
+2. Run synchronization from the terminal:
+   ```bash
+   npm run sync:blog          # Syncs articles, rewrites wikilinks, and copies images
+   npm run sync:blog:dry      # Dry-run test (preview without writing)
+   npm run sync:blog:clean    # Sync and remove any posts deleted from Obsidian
+   ```
+
 ### Production Build
 Compile the static site to the `_site/` output directory:
 ```bash
