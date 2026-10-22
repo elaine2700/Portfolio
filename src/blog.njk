@@ -682,6 +682,18 @@ jsFiles:
       });
     });
 
+    // Delegated click handler for internal article wikilinks (#article:...)
+    document.addEventListener('click', function (e) {
+      const link = e.target.closest('a');
+      if (!link) return;
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#article:')) {
+        e.preventDefault();
+        const targetId = href.replace(/^#/, '');
+        openArticleReader(targetId);
+      }
+    });
+
     if (modalCloseBtn) {
       modalCloseBtn.addEventListener('click', closeArticleReader);
     }
