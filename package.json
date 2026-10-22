@@ -9,7 +9,8 @@
     "build": "eleventy",
     "sync:blog": "node scripts/sync-obsidian.js",
     "sync:blog:dry": "node scripts/sync-obsidian.js --dry-run",
-    "sync:blog:clean": "node scripts/sync-obsidian.js --prune"
+    "sync:blog:clean": "node scripts/sync-obsidian.js --prune",
+    "publish:blog": "node scripts/publish-blog.js"
   },
   "workspaces": [
     "packages/*"
