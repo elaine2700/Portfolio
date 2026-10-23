@@ -2,11 +2,42 @@
 layout: "layouts/base"
 title: "Home"
 cssFiles: ["/assets/css/home.css"]
+jsFiles: ["/assets/js/scroll-animator.js"]
 ---
+<noscript>
+    <style>
+        [data-animation-type="start"] .hero-title,
+        [data-animation-type="start"] .hero-subtitle,
+        [data-animation-type="start"] .hero-paragraph,
+        [data-animation-type="start"] .hero-cta-group .button,
+        [data-animation-type="start"] .collage-container > *,
+        .animate-on-start .hero-title,
+        .animate-on-start .hero-subtitle,
+        .animate-on-start .hero-paragraph,
+        .animate-on-start .hero-cta-group .button,
+        .animate-on-start .collage-container > *,
+        .animate-on-scroll .hero-title,
+        .animate-on-scroll .hero-subtitle,
+        .animate-on-scroll .hero-paragraph,
+        .animate-on-scroll .hero-cta-group .button,
+        .animate-on-scroll .collage-container > *,
+        .animate-on-scroll .skills-specimen-card,
+        .animate-on-scroll .skills-specimen-card .tag,
+        .animate-on-scroll .catalog-plates-grid .card,
+        .animate-on-scroll .corner-tape-strip,
+        .animate-on-scroll .image-crop-box img,
+        .animate-on-scroll .works-cta-container,
+        .animate-on-scroll .section-tag {
+            opacity: 1 !important;
+            transform: none !important;
+            animation: none !important;
+        }
+    </style>
+</noscript>
 <article class="home__page">
 
     <!-- HERO SECTION (Digital Collage & Editorial Boldness) -->
-    <header class="home_hero">
+    <section class="animate-on-scroll hero-section home_hero" data-animation-type="start">
         <div class="hero-text-side">
             <h1 class="hero-title">HELLO, I AM ELAINE</h1>
             <h2 class="hero-subtitle">FULL STACK DEVELOPER // CREATIVE MIND</h2>
@@ -69,10 +100,10 @@ cssFiles: ["/assets/css/home.css"]
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
     <!-- SECTION 01: SKILLS & SPECIMENS -->
-    <section class="skills-section">
+    <section class="animate-on-scroll skills-section">
         <h2 class="section-tag">01 // SKILLS</h2>
 
         <div class="skills-specimens-grid">
@@ -129,7 +160,7 @@ cssFiles: ["/assets/css/home.css"]
     </section>
 
     <!-- SECTION 02: SELECTED WORKS (Exhibition Catalog Plates) -->
-    <section class="works-section">
+    <section class="animate-on-scroll works-section">
         <h2 class="section-tag">02 // SELECTED EXHIBITIONS</h2>
 
         <div class="catalog-plates-grid">
@@ -180,7 +211,7 @@ cssFiles: ["/assets/css/home.css"]
             {% endfor %}
         </div>
 
-        <div style="text-align: right; margin-top: 2.5rem;">
+        <div class="works-cta-container" style="text-align: right; margin-top: 2.5rem;">
             <a class="button ticket-btn teal" href="/projects/">VIEW ALL PROJECT ARCHIVES -&gt;</a>
         </div>
     </section>

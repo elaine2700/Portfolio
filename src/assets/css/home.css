@@ -257,7 +257,6 @@
     z-index: 6;
     filter: drop-shadow(2px 2px 0 var(--color-ink-primary));
     pointer-events: none;
-    animation: floatCursor 3.5s ease-in-out infinite;
 }
 
 @keyframes floatCursor {
@@ -420,5 +419,543 @@
     .skills-specimens-grid,
     .catalog-plates-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   SCROLL & LOAD ANIMATIONS (ScrollAnimator Integration)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   A. HERO SECTION ANIMATIONS (Immediate at load via data-animation-type="start" or .animate-on-start)
+   -------------------------------------------------------------------------- */
+
+/* 1. Hero Title: from left to right, opacity 0 to 100 */
+[data-animation-type="start"] .hero-title,
+.animate-on-start .hero-title,
+.hero-section.is-visible .hero-title {
+    animation: heroTitleSlideIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0s both;
+}
+
+@keyframes heroTitleSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 2. Hero Subtitle: + 1s after hero-title, from left to right, opacity 0 to 100 */
+[data-animation-type="start"] .hero-subtitle,
+.animate-on-start .hero-subtitle,
+.hero-section.is-visible .hero-subtitle {
+    animation: heroSubtitleSlideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+@keyframes heroSubtitleSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-35px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Hero Paragraph: smooth fade in */
+[data-animation-type="start"] .hero-paragraph,
+.animate-on-start .hero-paragraph,
+.hero-section.is-visible .hero-paragraph {
+    animation: heroParagraphFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+@keyframes heroParagraphFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 3. Hero CTA Buttons: + 1s after hero-subtitle (at 2s), slight bounce & small stretch */
+[data-animation-type="start"] .hero-cta-group .button,
+.animate-on-start .hero-cta-group .button,
+.hero-section.is-visible .hero-cta-group .button {
+    animation: buttonBounceStretch cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    animation-duration: 0.85s;
+}
+
+[data-animation-type="start"] .hero-cta-group .button:nth-child(1),
+.animate-on-start .hero-cta-group .button:nth-child(1),
+.hero-section.is-visible .hero-cta-group .button:nth-child(1) {
+    animation-delay: 0.6s;
+}
+
+[data-animation-type="start"] .hero-cta-group .button:nth-child(2),
+.animate-on-start .hero-cta-group .button:nth-child(2),
+.hero-section.is-visible .hero-cta-group .button:nth-child(2) {
+    animation-delay: 0.75s;
+}
+
+[data-animation-type="start"] .hero-cta-group .button:nth-child(3),
+.animate-on-start .hero-cta-group .button:nth-child(3),
+.hero-section.is-visible .hero-cta-group .button:nth-child(3) {
+    animation-delay: 2.4s;
+}
+
+@keyframes buttonBounceStretch {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.65, 0.65);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-4px) scale(1.14, 0.88);
+    }
+
+    75% {
+        transform: translateY(2px) scale(0.94, 1.06);
+    }
+
+    90% {
+        transform: translateY(-1px) scale(1.02, 0.98);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1, 1);
+    }
+}
+
+/* Preserve interactive button hover after bounce */
+[data-animation-type="start"] .hero-cta-group .button:hover,
+.animate-on-start .hero-cta-group .button:hover,
+.hero-section.is-visible .hero-cta-group .button:hover {
+    transform: translate(-1px, -1px) !important;
+}
+
+[data-animation-type="start"] .hero-cta-group .button:active,
+.animate-on-start .hero-cta-group .button:active,
+.hero-section.is-visible .hero-cta-group .button:active {
+    transform: translate(1px, 1px) !important;
+}
+
+/* 4. Hero Collage Side: each collage block inside collage-container with rotation bounce */
+[data-animation-type="start"] .collage-torn-paper.paper-rust,
+.animate-on-start .collage-torn-paper.paper-rust,
+.hero-section.is-visible .collage-torn-paper.paper-rust {
+    --base-rot: 2deg;
+    animation: collageRotationBounce 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+}
+
+[data-animation-type="start"] .collage-torn-paper.paper-ochre,
+.animate-on-start .collage-torn-paper.paper-ochre,
+.hero-section.is-visible .collage-torn-paper.paper-ochre {
+    --base-rot: 5.5deg;
+    animation: collageRotationBounce 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
+}
+
+[data-animation-type="start"] .collage-artwork-plate,
+.animate-on-start .collage-artwork-plate,
+.hero-section.is-visible .collage-artwork-plate {
+    --base-rot: 3deg;
+    animation: collageRotationBounce 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) 0.65s both;
+}
+
+[data-animation-type="start"] .collage-polaroid-card,
+.animate-on-start .collage-polaroid-card,
+.hero-section.is-visible .collage-polaroid-card {
+    --base-rot: -4.5deg;
+    animation: collageRotationBounce 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) 0.9s both;
+}
+
+[data-animation-type="start"] .collage-note-card,
+.animate-on-start .collage-note-card,
+.hero-section.is-visible .collage-note-card {
+    --base-rot: -1.5deg;
+    animation: collageRotationBounce 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) 1.15s both;
+}
+
+[data-animation-type="start"] .collage-pixel-cursor,
+.animate-on-start .collage-pixel-cursor,
+.hero-section.is-visible .collage-pixel-cursor {
+    animation: collageRotationBounce 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) 1.4s both,
+        floatCursor 3.5s ease-in-out 2.05s infinite;
+}
+
+@keyframes collageRotationBounce {
+    0% {
+        opacity: 0;
+        transform: scale(0.4) rotate(calc(var(--base-rot, 0deg) - 15deg));
+    }
+
+    55% {
+        opacity: 1;
+        transform: scale(1.08) rotate(calc(var(--base-rot, 0deg) + 6deg));
+    }
+
+    75% {
+        transform: scale(0.96) rotate(calc(var(--base-rot, 0deg) - 2deg));
+    }
+
+    90% {
+        transform: scale(1.02) rotate(calc(var(--base-rot, 0deg) + 1deg));
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(var(--base-rot, 0deg));
+    }
+}
+
+/* Preserve collage card hovers */
+[data-animation-type="start"] .collage-polaroid:hover,
+.animate-on-start .collage-polaroid:hover,
+.hero-section.is-visible .collage-polaroid:hover,
+[data-animation-type="start"] .collage-note-card:hover,
+.animate-on-start .collage-note-card:hover,
+.hero-section.is-visible .collage-note-card:hover {
+    transform: rotate(0deg) translate(-2px, -2px) !important;
+    box-shadow: var(--shadow-retro-hover) !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   B. SKILL SECTION ANIMATIONS
+   -------------------------------------------------------------------------- */
+/* Section Tag */
+.skills-section:not(.is-visible) .section-tag {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.skills-section.is-visible .section-tag {
+    animation: sectionTagSlide 1s cubic-bezier(0.16, 1, 0.3, 1) 0s both;
+}
+
+@keyframes sectionTagSlide {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    65% {
+        transform: translateX(20px);
+    }
+
+    80% {
+        transform: translate(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Initial states: card scale 80%, all tags hidden (opacity 0) */
+.skills-section:not(.is-visible) .skills-specimen-card {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.skills-section .skills-specimen-card .tag,
+.skills-section .skills-specimen-card .specimen-title {
+    opacity: 0;
+}
+
+/* Card staggered appearance: small delay after the other */
+.skills-section.is-visible .skills-specimen-card {
+    animation: skillCardPop 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) var(--card-delay, 0s) both;
+}
+
+.skills-section.is-visible .skills-specimen-card:nth-child(1) {
+    --card-delay: 0.1s;
+}
+
+.skills-section.is-visible .skills-specimen-card:nth-child(2) {
+    --card-delay: 0.35s;
+}
+
+.skills-section.is-visible .skills-specimen-card:nth-child(3) {
+    --card-delay: 0.6s;
+}
+
+/* Card starts scale 80%, then 120%, then settles to 100% */
+@keyframes skillCardPop {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    55% {
+        transform: scale(1.2);
+    }
+
+    80% {
+        transform: scale(0.97);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* When the size is 120% (~55% into 0.75s = 0.41s), the tags go from opacity 0 to 100% */
+.skills-section.is-visible .skills-specimen-card .tag,
+.skills-section.is-visible .skills-specimen-card .specimen-title {
+    animation: skillTagsReveal 0.35s ease calc(var(--card-delay, 0s) + 0.41s) both;
+}
+
+@keyframes skillTagsReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(3px) scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Preserve card hover after animation */
+.skills-section.is-visible .skills-specimen-card:hover {
+    border-color: var(--color-ink-primary);
+    transform: translateY(-2px) !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   C. SELECTED WORKS SECTION ANIMATIONS (Exhibition Archive Stamping)
+   -------------------------------------------------------------------------- */
+/* Section Tag */
+.works-section:not(.is-visible) .section-tag {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.works-section.is-visible .section-tag {
+    animation: sectionTagSlide 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0s both;
+}
+
+/* Catalog Plates Cards: Staggered archival reveal from below */
+.works-section:not(.is-visible) .catalog-plates-grid .card {
+    opacity: 0;
+    transform: translateY(40px) scale(0.97);
+}
+
+.works-section.is-visible .catalog-plates-grid .card {
+    animation: catalogCardRise 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--card-delay, 0s) both;
+}
+
+.works-section.is-visible .catalog-plates-grid .card:nth-child(1) {
+    --card-delay: 0.1s;
+}
+
+.works-section.is-visible .catalog-plates-grid .card:nth-child(2) {
+    --card-delay: 0.28s;
+}
+
+.works-section.is-visible .catalog-plates-grid .card:nth-child(3) {
+    --card-delay: 0.46s;
+}
+
+@keyframes catalogCardRise {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.97);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(-4px) scale(1.01);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Corner Tape Strips: Stamp down to tape the photographic specimen plate into the card */
+.works-section:not(.is-visible) .corner-tape-strip {
+    opacity: 0;
+}
+
+.works-section.is-visible .corner-tape-strip {
+    animation: tapeStamp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) calc(var(--card-delay, 0s) + 0.35s) both;
+}
+
+.works-section.is-visible .corner-tape-strip.tape-tl {
+    --tape-rot: -38deg;
+}
+
+.works-section.is-visible .corner-tape-strip.tape-tr {
+    --tape-rot: 38deg;
+}
+
+.works-section.is-visible .corner-tape-strip.tape-bl {
+    --tape-rot: 38deg;
+}
+
+.works-section.is-visible .corner-tape-strip.tape-br {
+    --tape-rot: -38deg;
+}
+
+@keyframes tapeStamp {
+    0% {
+        opacity: 0;
+        transform: rotate(var(--tape-rot, 0deg)) scale(1.6);
+    }
+
+    60% {
+        opacity: 0.95;
+        transform: rotate(var(--tape-rot, 0deg)) scale(0.92);
+    }
+
+    100% {
+        opacity: 0.95;
+        transform: rotate(var(--tape-rot, 0deg)) scale(1);
+    }
+}
+
+/* Image plate subtle focus settling */
+.works-section:not(.is-visible) .image-crop-box img {
+    transform: scale(1.08);
+}
+
+.works-section.is-visible .image-crop-box img {
+    animation: imagePlateSettle 0.6s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--card-delay, 0s) + 0.2s) both;
+}
+
+@keyframes imagePlateSettle {
+    0% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Bottom Archive CTA Button */
+.works-section:not(.is-visible) .works-cta-container {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.works-section.is-visible .works-cta-container {
+    animation: worksCtaSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.75s;
+}
+
+@keyframes worksCtaSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Preserve card hovers */
+.works-section.is-visible .catalog-plates-grid .card:hover {
+    transform: translate(-2px, -2px) !important;
+    box-shadow: var(--shadow-retro-hover) !important;
+}
+
+.works-section.is-visible .catalog-plates-grid .card:hover .plate-image-container img {
+    transform: scale(1.03) !important;
+    filter: contrast(115%) !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   D. ACCESSIBILITY: REDUCED MOTION SUPPORT
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+
+    .animate-on-start .hero-title,
+    .animate-on-start .hero-subtitle,
+    .animate-on-start .hero-paragraph,
+    .animate-on-start .hero-cta-group .button,
+    .animate-on-start .collage-torn-paper,
+    .animate-on-start .collage-polaroid,
+    .animate-on-start .collage-note-card,
+    .animate-on-start .collage-pixel-cursor,
+    .animate-on-scroll .hero-title,
+    .animate-on-scroll .hero-subtitle,
+    .animate-on-scroll .hero-paragraph,
+    .animate-on-scroll .hero-cta-group .button,
+    .animate-on-scroll .collage-torn-paper,
+    .animate-on-scroll .collage-polaroid,
+    .animate-on-scroll .collage-note-card,
+    .animate-on-scroll .collage-pixel-cursor,
+    .animate-on-scroll .skills-specimen-card,
+    .animate-on-scroll .skills-specimen-card .tag,
+    .animate-on-scroll .catalog-plates-grid .card,
+    .animate-on-scroll .corner-tape-strip,
+    .animate-on-scroll .image-crop-box img,
+    .animate-on-scroll .works-cta-container,
+    .animate-on-scroll .section-tag {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .collage-torn-paper.paper-rust {
+        transform: rotate(2deg) !important;
+    }
+
+    .collage-torn-paper.paper-ochre {
+        transform: rotate(5.5deg) !important;
+    }
+
+    .collage-artwork-plate {
+        transform: rotate(3deg) !important;
+    }
+
+    .collage-polaroid-card {
+        transform: rotate(-4.5deg) !important;
+    }
+
+    .collage-note-card {
+        transform: rotate(-1.5deg) !important;
+    }
+
+    .corner-tape-strip.tape-tl {
+        transform: rotate(-38deg) !important;
+    }
+
+    .corner-tape-strip.tape-tr {
+        transform: rotate(38deg) !important;
+    }
+
+    .corner-tape-strip.tape-bl {
+        transform: rotate(38deg) !important;
+    }
+
+    .corner-tape-strip.tape-br {
+        transform: rotate(-38deg) !important;
     }
 }
