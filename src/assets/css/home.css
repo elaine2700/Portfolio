@@ -166,6 +166,12 @@
     transition: transform 0.25s ease;
 }
 
+.polaroid-img.avatar {
+    width: 70%;
+    transform: translateX(25%) translateY(10%);
+    height: auto;
+}
+
 .collage-polaroid-card:hover .polaroid-avatar-img {
     transform: scale(1.03);
 }
