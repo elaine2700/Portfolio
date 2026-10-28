@@ -14,14 +14,16 @@
     <div class="modal-window {{ modalWindowExtraClass }}" id="{{ modalWindowId | default((modalId | default('siteModal')) ~ 'Window') }}">
         <!-- Modal Topbar / Command Header -->
         <div class="modal-topbar">
-            <div class="modal-topbar-left">
-                <span class="modal-pulse-dot" aria-hidden="true"></span>
-                <span class="modal-topbar-tag" id="{{ modalTagId | default((modalId | default('siteModal')) ~ 'Tag') }}">{{ modalTag | default('DOSSIER') }}</span>
-                <span class="modal-topbar-divider">//</span>
-                <span class="modal-topbar-id" id="{{ modalItemId | default((modalId | default('siteModal')) ~ 'Id') }}">{{ modalItemCode | default('DOC-01') }}</span>
-            </div>
-            <div class="modal-topbar-center">
-                <span class="modal-topbar-title" id="{{ modalTitleId | default((modalId | default('siteModal')) ~ 'Title') }}">{{ modalDefaultTitle | default('DETAILS') }}</span>
+            <div>
+                <div class="modal-topbar-left">
+                    <span class="modal-pulse-dot" aria-hidden="true"></span>
+                    <span class="modal-topbar-tag" id="{{ modalTagId | default((modalId | default('siteModal')) ~ 'Tag') }}">{{ modalTag | default('DOSSIER') }}</span>
+                    <span class="modal-topbar-divider">//</span>
+                    <span class="modal-topbar-id" id="{{ modalItemId | default((modalId | default('siteModal')) ~ 'Id') }}">{{ modalItemCode | default('DOC-01') }}</span>
+                </div>
+                <div class="modal-topbar-center">
+                    <span class="modal-topbar-title" id="{{ modalTitleId | default((modalId | default('siteModal')) ~ 'Title') }}">{{ modalDefaultTitle | default('DETAILS') }}</span>
+                </div> 
             </div>
             <div class="modal-topbar-right">
                 <button type="button" class="modal-close-btn" id="{{ modalCloseBtnId | default((modalId | default('siteModal')) ~ 'CloseBtn') }}" aria-label="Close dialog">
