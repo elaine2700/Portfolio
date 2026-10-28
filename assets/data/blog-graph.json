@@ -1,17 +1,17 @@
 {
   "meta": {
     "version": "1.0.0",
-    "generatedAt": "2026-09-13T06:53:18.126Z",
+    "generatedAt": "2026-10-28T01:01:27.730Z",
     "rootPath": "/",
-    "totalArticles": 0,
-    "totalFolders": 4
+    "totalArticles": 1,
+    "totalFolders": 2
   },
   "root": {
     "path": "/",
     "parentPath": null,
-    "title": "Blog",
-    "description": "",
-    "thumbnail": null,
+    "title": "Knowledge Graph",
+    "description": "An interactive graph exploring software craftsmanship, technical aesthetics, game development, and design systems.",
+    "thumbnail": "/assets/images/blog/thumb-root.svg",
     "breadcrumbs": [
       {
         "title": "ROOT",
@@ -23,16 +23,16 @@
     "articleCount": 0,
     "nodes": [
       {
-        "id": "folder:design",
+        "id": "folder:Drawing & Painting",
         "type": "folder",
-        "title": "Design",
-        "targetPath": "/design",
-        "thumbnail": null,
-        "description": "",
+        "title": "Drawing & Painting",
+        "targetPath": "/Drawing & Painting",
+        "thumbnail": "/assets/images/blog/thumb-root.svg",
+        "description": "About the process of drawing and painting",
         "itemCount": 1,
-        "totalArticles": 0,
-        "subfolderCount": 1,
-        "articleCount": 0,
+        "totalArticles": 1,
+        "subfolderCount": 0,
+        "articleCount": 1,
         "color": null,
         "order": 999
       }
@@ -43,9 +43,9 @@
     "/": {
       "path": "/",
       "parentPath": null,
-      "title": "Blog",
-      "description": "",
-      "thumbnail": null,
+      "title": "Knowledge Graph",
+      "description": "An interactive graph exploring software craftsmanship, technical aesthetics, game development, and design systems.",
+      "thumbnail": "/assets/images/blog/thumb-root.svg",
       "breadcrumbs": [
         {
           "title": "ROOT",
@@ -57,130 +57,77 @@
       "articleCount": 0,
       "nodes": [
         {
-          "id": "folder:design",
+          "id": "folder:Drawing & Painting",
           "type": "folder",
-          "title": "Design",
-          "targetPath": "/design",
-          "thumbnail": null,
-          "description": "",
+          "title": "Drawing & Painting",
+          "targetPath": "/Drawing & Painting",
+          "thumbnail": "/assets/images/blog/thumb-root.svg",
+          "description": "About the process of drawing and painting",
           "itemCount": 1,
-          "totalArticles": 0,
-          "subfolderCount": 1,
-          "articleCount": 0,
-          "color": null,
-          "order": 999
-        }
-      ],
-      "links": []
-    },
-    "/design": {
-      "path": "/design",
-      "parentPath": "/",
-      "title": "Design",
-      "description": "",
-      "thumbnail": null,
-      "breadcrumbs": [
-        {
-          "title": "ROOT",
-          "path": "/"
-        },
-        {
-          "title": "DESIGN",
-          "path": "/design"
-        }
-      ],
-      "itemCount": 1,
-      "subfolderCount": 1,
-      "articleCount": 0,
-      "nodes": [
-        {
-          "id": "folder:design:colors",
-          "type": "folder",
-          "title": "Colors",
-          "targetPath": "/design/colors",
-          "thumbnail": null,
-          "description": "",
-          "itemCount": 1,
-          "totalArticles": 0,
-          "subfolderCount": 1,
-          "articleCount": 0,
-          "color": null,
-          "order": 999
-        }
-      ],
-      "links": []
-    },
-    "/design/colors": {
-      "path": "/design/colors",
-      "parentPath": "/design",
-      "title": "Colors",
-      "description": "",
-      "thumbnail": null,
-      "breadcrumbs": [
-        {
-          "title": "ROOT",
-          "path": "/"
-        },
-        {
-          "title": "DESIGN",
-          "path": "/design"
-        },
-        {
-          "title": "COLORS",
-          "path": "/design/colors"
-        }
-      ],
-      "itemCount": 1,
-      "subfolderCount": 1,
-      "articleCount": 0,
-      "nodes": [
-        {
-          "id": "folder:design:colors:typography",
-          "type": "folder",
-          "title": "Typography",
-          "targetPath": "/design/colors/typography",
-          "thumbnail": null,
-          "description": "",
-          "itemCount": 0,
-          "totalArticles": 0,
+          "totalArticles": 1,
           "subfolderCount": 0,
-          "articleCount": 0,
+          "articleCount": 1,
           "color": null,
           "order": 999
         }
       ],
       "links": []
     },
-    "/design/colors/typography": {
-      "path": "/design/colors/typography",
-      "parentPath": "/design/colors",
-      "title": "Typography",
-      "description": "",
-      "thumbnail": null,
+    "/Drawing & Painting": {
+      "path": "/Drawing & Painting",
+      "parentPath": "/",
+      "title": "Drawing & Painting",
+      "description": "About the process of drawing and painting",
+      "thumbnail": "/assets/images/blog/thumb-root.svg",
       "breadcrumbs": [
         {
           "title": "ROOT",
           "path": "/"
         },
         {
-          "title": "DESIGN",
-          "path": "/design"
-        },
-        {
-          "title": "COLORS",
-          "path": "/design/colors"
-        },
-        {
-          "title": "TYPOGRAPHY",
-          "path": "/design/colors/typography"
+          "title": "DRAWING & PAINTING",
+          "path": "/Drawing & Painting"
         }
       ],
-      "itemCount": 0,
+      "itemCount": 1,
       "subfolderCount": 0,
-      "articleCount": 0,
-      "nodes": [],
+      "articleCount": 1,
+      "nodes": [
+        {
+          "id": "article:Drawing & Painting/Painting trees",
+          "type": "article",
+          "title": "I like painting trees",
+          "articleId": "article:Drawing & Painting/Painting trees",
+          "path": "/Drawing & Painting/Painting trees",
+          "thumbnail": "/assets/images/blog/thumb-root.svg",
+          "summary": "A little about the process of painting trees",
+          "tags": [
+            "painting"
+          ],
+          "date": "2026-10-25",
+          "readingTime": "1 min read",
+          "order": 999
+        }
+      ],
       "links": []
     }
   },
-  "articles": {}
+  "articles": {
+    "article:Drawing & Painting/Painting trees": {
+      "id": "article:Drawing & Painting/Painting trees",
+      "title": "I like painting trees",
+      "path": "/Drawing & Painting/Painting trees",
+      "thumbnail": "/assets/images/blog/thumb-root.svg",
+      "description": "A little about the process of painting trees",
+      "summary": "A little about the process of painting trees",
+      "tags": [
+        "painting"
+      ],
+      "date": "2026-10-25",
+      "readingTime": "1 min read",
+      "wordCount": 18,
+      "htmlContent": "<p>Hello!\nThis is the process:\nI had old canvases with ugly paintings (I painted them but never finished)</p>\n",
+      "folderPath": "/Drawing & Painting"
+    }
+  }
 }

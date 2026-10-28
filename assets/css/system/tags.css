@@ -1,24 +1,75 @@
+/* Tags & Badges System */
 .tag-group {
     display: flex;
-    gap: var(--spacing-xs);
     flex-wrap: wrap;
-}
-
-ul.tag-group {
+    gap: 0.45rem;
     list-style: none;
-}
-
-.tag {
-    --tag-color-bg: var(--accent-green);
-    background-color: var(--tag-color-bg);
-    color: white;
-    padding: var(--spacing-xxs) var(--spacing-s);
-}
-
-li.tag {
+    padding: 0;
     margin: 0;
 }
 
+/* Stamped Tech Tag */
+.tag {
+    --tag-padding: 0.25rem 0.6rem;
+    --tag-font-size: 0.72rem;
+    font-family: var(--font-family-mono);
+    font-size: var(--tag-font-size);
+    padding: var(--tag-padding);
+    border: 1px solid var(--color-ink-primary);
+    background-color: transparent;
+    color: var(--color-ink-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    align-items: center;
+}
+
 .tag.dark {
-    --tag-color-bg: var(--color-surface-primary)
+    background-color: var(--color-ink-primary);
+    color: var(--color-canvas);
+}
+
+.tag.tag-s {
+    --tag-padding: 0.05rem 0.3rem;
+    --tag-font-size: 0.625rem;
+}
+
+
+/* Rounded Pill Capsules */
+.pill {
+    font-family: var(--font-family-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: var(--tag-padding);
+    border-radius: var(--border-radius-pill);
+    border: var(--border-width-default) solid var(--color-ink-primary);
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    display: inline-block;
+}
+
+.tag.gold {
+    background-color: var(--color-accent-gold);
+    color: var(--color-ink-primary);
+}
+
+.tag.teal {
+    background-color: var(--color-accent-teal);
+    color: #FFFFFF;
+}
+
+.tag.sage {
+    background-color: var(--color-accent-sage);
+    color: var(--color-ink-primary);
+}
+
+.tag.light {
+    background-color: var(--color-canvas);
+    color: var(--color-ink-primary);
+}
+
+.tag.card-header-pill {
+    margin-bottom: 0.75rem;
 }

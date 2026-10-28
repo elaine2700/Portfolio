@@ -1,12 +1,212 @@
-:root{
-    /*Borders*/
-    --border-radius-default: var(--spacing-xs);
-    --border-width-light: 1px;
-    --border-width-default: 2px;
-    --border-widht-strong: 3px;
+:root {
+    --border-width-thin: 1px;
+    --border-width-default: 1.5px;
+    --border-width-heavy: 3px;
+    --border-radius-default: 4px;
+    --border-radius-pill: 9999px;
 
-    /*Border radius*/
-    --border-radius-default: var(--spacing);
-    --border-radius-small: var(--spacing-s);
-    --border-radius-large: var(--spacing-l);
+    --border-dashed-thin: var(--border-width-default) dashed var(--color-border-dashed);
+    --border-dashed-default: var(--border-width-default) dashed var(--color-border-dashed);
+    --border-dashed-heavy: var(--border-width-heavy) dashed var(--color-border-dashed);
+}
+
+/* Base Border Styles */
+.border-simple {
+    border: 1px solid var(--color-border-primary);
+}
+
+.border-double {
+    border: 3px double var(--color-border-primary);
+}
+
+.border-dashed {
+    border: 1.5px dashed var(--color-border-dashed);
+}
+
+.border-terracotta {
+    border-color: var(--color-primary) !important;
+}
+
+.border-gold {
+    border-color: var(--color-accent-gold) !important;
+}
+
+.border-teal {
+    border-color: var(--color-accent-teal) !important;
+}
+
+/* Corner Tape Effect (Authentic Masking Tape) */
+.corner-tape {
+    position: relative;
+    overflow: visible !important;
+}
+
+/* Individual tape strip element (supports 4 corners) */
+.corner-tape-strip {
+    position: absolute;
+    width: 44px;
+    height: 16px;
+    background: linear-gradient(135deg,
+            rgba(246, 235, 206, 0.94) 0%,
+            rgba(230, 214, 175, 0.88) 100%);
+    border: 0.5px solid var(--color-tape-border, rgba(180, 160, 125, 0.6));
+    box-shadow: 1px 2px 3px rgba(30, 30, 28, 0.22);
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.95;
+    border-radius: 1px;
+}
+
+/* Top-left tape */
+.corner-tape-strip.tape-tl {
+    top: -6px;
+    left: -14px;
+    transform: rotate(-38deg);
+}
+
+/* Top-right tape */
+.corner-tape-strip.tape-tr {
+    top: -6px;
+    right: -14px;
+    transform: rotate(38deg);
+}
+
+/* Bottom-left tape */
+.corner-tape-strip.tape-bl {
+    bottom: -6px;
+    left: -14px;
+    transform: rotate(38deg);
+}
+
+/* Bottom-right tape */
+.corner-tape-strip.tape-br {
+    bottom: -6px;
+    right: -14px;
+    transform: rotate(-38deg);
+}
+
+/* Fallback for elements with only .corner-tape class (2 pseudo-elements) */
+.corner-tape::before,
+.corner-tape::after {
+    content: "";
+    position: absolute;
+    width: 44px;
+    height: 16px;
+    background: linear-gradient(135deg,
+            rgba(246, 235, 206, 0.94) 0%,
+            rgba(230, 214, 175, 0.88) 100%);
+    border: 0.5px solid var(--color-tape-border, rgba(180, 160, 125, 0.6));
+    box-shadow: 1px 2px 3px rgba(30, 30, 28, 0.22);
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.95;
+    border-radius: 1px;
+}
+
+/* Top-left tape fallback */
+.corner-tape::before {
+    top: -6px;
+    left: -14px;
+    transform: rotate(-38deg);
+}
+
+/* Bottom-right tape fallback */
+.corner-tape::after {
+    bottom: -6px;
+    right: -14px;
+    transform: rotate(-38deg);
+}
+
+/* When explicit .corner-tape-strip elements exist, suppress pseudo-elements */
+.corner-tape:has(.corner-tape-strip)::before,
+.corner-tape:has(.corner-tape-strip)::after {
+    display: none;
+}
+
+/* Perforated Ticket Notches */
+.ticket-banner {
+    position: relative;
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    border: 1.5px dashed rgba(255, 255, 255, 0.4);
+    box-shadow: var(--shadow-retro);
+}
+
+.ticket-banner::before,
+.ticket-banner::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-canvas);
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.ticket-banner::before {
+    left: -11px;
+}
+
+.ticket-banner::after {
+    right: -11px;
+}
+
+/* Rubber Stamp Effect */
+.rubber-stamp {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    font-family: var(--font-family-display);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 2px solid currentColor;
+    border-radius: 4px;
+    transform: rotate(-3deg);
+    opacity: 0.88;
+    mix-blend-mode: multiply;
+}
+
+.rubber-stamp.teal {
+    color: var(--color-accent-teal);
+    border-color: var(--color-accent-teal);
+}
+
+.rubber-stamp.terracotta {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+/* Circular Seal Stamp */
+.circular-seal {
+    width: 70px;
+    height: 70px;
+    border: 2px dashed var(--color-ink-primary);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--font-family-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px;
+    box-sizing: border-box;
+    transform: rotate(8deg);
+    opacity: 0.8;
+}
+
+.circular-seal .seal-inner {
+    border: 1px solid var(--color-ink-primary);
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.1;
 }

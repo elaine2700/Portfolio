@@ -1,0 +1,515 @@
+/**
+ * ==========================================================================
+ * UNIFIED MODAL COMPONENT STYLES
+ * Single source of truth for all dialogs, dossiers, and article readers.
+ * Aligned with Proposal v1 Aesthetics (Retro-Editorial Archival Manual)
+ * ==========================================================================
+ */
+
+/* ==========================================================================
+   1. MODAL BACKDROP & OVERLAY
+   ========================================================================== */
+
+.modal-backdrop,
+.project-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background-color: rgba(30, 30, 28, 0.78);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+        visibility 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-backdrop.is-open,
+.modal-backdrop.is-active,
+.project-modal-backdrop.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+body.modal-open {
+    overflow: hidden !important;
+}
+
+/* ==========================================================================
+   2. MODAL WINDOW CONTAINER
+   ========================================================================== */
+
+.modal-window,
+.project-modal-window {
+    background-color: var(--color-canvas);
+    box-shadow: 8px 8px 0 var(--color-ink-primary);
+    width: 100%;
+    max-width: 980px;
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(0.96);
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+    position: relative;
+}
+
+.modal-backdrop.is-open .modal-window,
+.project-modal-backdrop.is-open .project-modal-window {
+    transform: scale(1);
+}
+
+/* ==========================================================================
+   3. MODAL TOPBAR & COMMAND HEADER
+   ========================================================================== */
+
+.modal-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 1.25rem;
+    border-bottom: 1.5px dashed var(--color-ink-primary);
+    flex-shrink: 0;
+    gap: 1rem;
+    box-sizing: border-box;
+}
+
+.modal-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-family-display);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--color-ink-primary);
+    flex-shrink: 0;
+    text-transform: uppercase;
+}
+
+.modal-pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-accent-teal);
+    box-shadow: 0 0 0 2px rgba(61, 112, 104, 0.35);
+    display: inline-block;
+}
+
+.modal-topbar-tag {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.modal-topbar-divider {
+    color: var(--color-ink-muted);
+}
+
+.modal-topbar-id {
+    font-family: var(--font-family-mono);
+    color: var(--color-ink-primary);
+    font-weight: 700;
+}
+
+.modal-topbar-center {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.modal-topbar-title {
+    font-family: var(--font-family-display);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.modal-topbar-right {
+    flex-shrink: 0;
+}
+
+.modal-close-btn {
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    border: 1.5px solid var(--color-ink-primary);
+    font-family: var(--font-family-mono);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 0.35rem 0.75rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-retro-small);
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
+    border-radius: 2px;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.modal-close-btn .esc-hint {
+    font-size: 0.65rem;
+    opacity: 0.85;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 0.05rem 0.3rem;
+    border-radius: 2px;
+}
+
+.modal-close-btn:hover {
+    background-color: var(--color-primary-hover);
+    color: #FFFFFF;
+    transform: translate(-1px, -1px);
+    box-shadow: var(--shadow-retro);
+}
+
+/* ==========================================================================
+   4. MODAL SCROLLABLE BODY
+   ========================================================================== */
+
+.modal-scroll-body {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 2.25rem 2.25rem;
+    overscroll-behavior: contain;
+    color: var(--color-ink-primary);
+    font-family: var(--font-family-mono);
+    line-height: 1.65;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-ink-primary) var(--color-surface-pulp);
+}
+
+.modal-scroll-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-scroll-body::-webkit-scrollbar-track {
+    background: var(--color-surface-pulp);
+    border-left: 1px solid var(--color-ink-primary);
+}
+
+.modal-scroll-body::-webkit-scrollbar-thumb {
+    background: var(--color-ink-primary);
+}
+
+/* ==========================================================================
+   5. MODAL TYPOGRAPHY & MARKDOWN CONTENT
+   ========================================================================== */
+
+.modal-scroll-body h1 {
+    font-family: var(--font-family-display);
+    font-size: clamp(2rem, 3.8vw, 3rem);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: var(--color-ink-primary);
+    line-height: 1.1;
+    margin: 0 0 1rem 0;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.modal-scroll-body h2 {
+    font-family: var(--font-family-display);
+    font-size: 1.45rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-ink-primary);
+    margin: 2rem 0 0.85rem 0;
+    border-bottom: 1.5px solid var(--color-ink-primary);
+    padding-bottom: 0.35rem;
+}
+
+.modal-scroll-body h3 {
+    font-family: var(--font-family-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--color-ink-primary);
+    margin: 1.5rem 0 0.5rem 0;
+}
+
+.modal-scroll-body p {
+    font-family: var(--font-family-mono);
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--color-ink-primary);
+    margin: 0 0 1.25rem 0;
+}
+
+.modal-scroll-body ul,
+.modal-scroll-body ol {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.modal-scroll-body li {
+    font-family: var(--font-family-mono);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-ink-primary);
+    position: relative;
+    padding-left: 1.4rem;
+    margin-bottom: 0.45rem;
+}
+
+.modal-scroll-body li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.modal-scroll-body blockquote {
+    background-color: rgba(229, 169, 60, 0.12);
+    border-left: 4px solid var(--color-accent-gold);
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    font-family: var(--font-family-mono);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-ink-primary);
+}
+
+.modal-scroll-body pre {
+    background-color: var(--color-ink-primary);
+    color: var(--color-canvas);
+    padding: 1.25rem;
+    border: 1.5px solid var(--color-ink-primary);
+    box-shadow: var(--shadow-retro-small);
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    font-family: var(--font-family-mono);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.modal-scroll-body pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: inherit;
+}
+
+.modal-scroll-body code {
+    font-family: var(--font-family-mono);
+    background-color: var(--color-surface-pulp);
+    padding: 0.15rem 0.4rem;
+    border: 1px solid rgba(30, 30, 28, 0.2);
+    font-size: 0.88em;
+}
+
+.modal-scroll-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-family: var(--font-family-mono);
+    font-size: 0.85rem;
+}
+
+.modal-scroll-body th,
+.modal-scroll-body td {
+    border: 1px solid var(--color-ink-primary);
+    padding: 0.6rem 0.85rem;
+    text-align: left;
+}
+
+.modal-scroll-body th {
+    background-color: var(--color-surface-pulp);
+    font-family: var(--font-family-display);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-ink-primary);
+}
+
+.modal-scroll-body td {
+    background-color: var(--color-surface-card);
+}
+
+.modal-scroll-body a {
+    color: var(--color-primary);
+    font-weight: 700;
+    text-decoration: underline;
+    transition: color 0.15s ease;
+}
+
+.modal-scroll-body a:hover {
+    color: var(--color-primary-hover);
+}
+
+/* Modal Article Header & Meta */
+.modal-article-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-family: var(--font-family-mono);
+    font-size: 0.75rem;
+    color: var(--color-ink-muted);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.modal-article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-tag {
+    font-family: var(--font-family-mono);
+    font-size: 0.72rem;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--color-ink-primary);
+    background-color: var(--color-surface-pulp);
+    color: var(--color-ink-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: inline-block;
+}
+
+.modal-hero-image {
+    max-width: 100%;
+    height: auto;
+    border: none;
+    display: block;
+    margin: 1.5rem 0;
+    background-color: #111110;
+}
+
+/* ==========================================================================
+   6. MODAL FOOTER & NAVIGATION CONTROLS
+   ========================================================================== */
+
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem;
+    border-top: 1px dashed var(--color-ink-primary);
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    box-sizing: border-box;
+}
+
+.modal-nav-group {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.modal-nav-btn {
+    background-color: var(--color-surface-card);
+    border: 1.5px solid var(--color-ink-primary);
+    color: var(--color-ink-primary);
+    font-family: var(--font-family-mono);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.45rem 0.85rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-retro-small);
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
+    border-radius: 2px;
+    user-select: none;
+}
+
+.modal-nav-btn:hover:not(:disabled) {
+    background-color: var(--color-canvas);
+    transform: translate(-1px, -1px);
+    box-shadow: var(--shadow-retro);
+}
+
+.modal-nav-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    border-style: dashed;
+}
+
+.modal-counter-text {
+    font-family: var(--font-family-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-ink-muted);
+    padding: 0 0.35rem;
+}
+
+.modal-return-btn {
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    border: 1.5px solid var(--color-ink-primary);
+    font-family: var(--font-family-mono);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.45rem 0.95rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-retro-small);
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
+    border-radius: 2px;
+    user-select: none;
+}
+
+.modal-return-btn:hover {
+    background-color: var(--color-primary-hover);
+    transform: translate(-1px, -1px);
+    box-shadow: var(--shadow-retro);
+}
+
+/* ==========================================================================
+   7. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+    .modal-backdrop,
+    .project-modal-backdrop {
+        padding: 0.75rem;
+    }
+
+    .modal-window,
+    .project-modal-window {
+        max-height: 94vh;
+    }
+
+    .modal-scroll-body {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .modal-topbar-center {
+        display: none;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .modal-nav-group {
+        justify-content: space-between;
+    }
+
+    .modal-return-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

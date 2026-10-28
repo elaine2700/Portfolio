@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elaine Serrano | Blog &amp; Knowledge Graph</title>
+
+    <!-- Google Fonts: Oswald (Display), JetBrains Mono (Typewriter/Meta), Playfair Display (Editorial) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300..800;1,300..800&family=Oswald:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS System -->
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="/assets/css/footer.css" />
+    
+    <link rel="stylesheet" href="/assets/strata-graph/strata-graph.css" />
+    
+    <link rel="stylesheet" href="/assets/css/blog.css" />
+    
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-brand-side">
+                <a class="site-logo-link" href="/">ELAINE SERRANO</a>
+            </div>
+            
+            <nav class="top-nav">
+                
+                
+                <a class="" href="/">Home</a>
+                
+                
+                <a class="" href="/projects/">Projects</a>
+                
+                
+                <a class="active" href="/blog/">Blog</a>
+                
+                
+                <a class="" href="#contact">Contact</a>
+                
+            </nav>
+        </div>
+    </header>
+    
+    <main class="content-wrapper">
+        
+<noscript>
+  <div class="blog-fallback-banner">
+    <span class="blog-fallback-pill">NO-JS FALLBACK ACTIVE</span>
+    <span>JavaScript is disabled. Classic directory navigation is active with full article reader.</span>
+  </div>
+  <style>
+    .blog-view-bar {
+      display: none !important;
+    }
+
+    #blog-graph-view {
+      display: none !important;
+    }
+
+    #blog-classic-view {
+      display: block !important;
+    }
+  </style>
+</noscript>
+
+<header class="blog-header">
+  <div>
+    <div class="blog-section-index">KNOWLEDGE GRAPH &amp; ARTICLES</div>
+    <h1 class="blog-title">Digital Garden</h1>
+  </div>
+  <div class="blog-view-control">
+    <div class="blog-view-bar" id="blog-view-bar">
+      <div class="blog-view-switch-container" role="group" aria-label="Blog view mode switcher">
+        <button type="button" class="view-switch-btn view-switch-label active" id="btn-view-graph" role="tab"
+          aria-selected="true" aria-controls="blog-graph-view" title="Switch to Graph View">
+          <span class="view-btn-icon">&#x25C8;</span>
+          <span class="view-btn-label">GRAPH VIEW</span>
+        </button>
+
+        <label class="view-switch-control" for="blog-view-checkbox" title="Toggle between Graph and Classic view">
+          <input type="checkbox" id="blog-view-checkbox" class="view-switch-input" role="switch"
+            aria-label="Toggle between Graph View and Classic View" aria-checked="false"
+            aria-controls="blog-graph-view blog-classic-view">
+          <span class="view-switch-track" aria-hidden="true">
+            <span class="view-switch-thumb"></span>
+          </span>
+        </label>
+
+        <button type="button" class="view-switch-btn view-switch-label" id="btn-view-classic" role="tab"
+          aria-selected="false" aria-controls="blog-classic-view" title="Switch to Classic Directory View">
+          <span class="view-btn-icon">&#x2630;</span>
+          <span class="view-btn-label">CLASSIC VIEW</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mode 1: Interactive Force-Directed Canvas Graph -->
+<section class="blog-view-pane blog-graph-section" id="blog-graph-view" role="tabpanel"
+  aria-labelledby="btn-view-graph">
+  <div id="strata-graph-container">
+    <!-- Strata-Graph Canvas Mount Point -->
+  </div>
+
+  <div class="blog-instructions-card">
+    <div class="blog-instruction-item">
+      <span class="blog-instruction-pill">CLICK FOLDER</span>
+      <span>Drills down into subcategory with animated zoom</span>
+    </div>
+    <div class="blog-instruction-item">
+      <span class="blog-instruction-pill">CLICK ARTICLE</span>
+      <span>Opens editorial article reader modal</span>
+    </div>
+    <div class="blog-instruction-item">
+      <span class="blog-instruction-pill">DRAG &amp; PAN</span>
+      <span>Freely reposition nodes or pan camera</span>
+    </div>
+    <div class="blog-instruction-item">
+      <span class="blog-instruction-pill">WHEEL</span>
+      <span>Zoom camera in/out around cursor</span>
+    </div>
+  </div>
+</section>
+
+<!-- Mode 2: Classic Fallback Navigation & Editorial Directory View -->
+<section class="blog-view-pane blog-classic-section" id="blog-classic-view" role="tabpanel"
+  aria-labelledby="btn-view-classic">
+
+  <div class="classic-explorer-layout">
+    <!-- Left Column: Hierarchical Folder Tree Sidebar -->
+    <aside class="card classic-tree-sidebar " aria-label="Directory Explorer">
+      <div class="card-header">
+        <div class="tree-header-title">
+          <span class="tree-prompt">&gt;</span>
+          <span class="tree-title-text">DIRECTORY EXPLORER</span>
+        </div>
+        <span class="tree-stat-badge">2 DIRS / 1
+          POSTS</span>
+      </div>
+
+      <nav class="tree-nav-container" aria-label="Folder Hierarchy">
+        <!-- ALL DIRECTORIES Root Item -->
+        <button type="button" class="tree-node-btn active" data-folder="all" data-title="All Compiled Articles"
+          data-desc="Viewing all compiled articles across the knowledge base. Select a specific directory from the explorer tree to filter topics, or browse articles below."
+          aria-selected="true">
+          <span class="tree-indent" style="--depth: 0;"></span>
+          <span class="tree-connector" aria-hidden="true">&#x25C7;</span>
+          <span class="tree-folder-icon" aria-hidden="true">
+            <svg class="flat-folder-svg" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"
+              aria-hidden="true" focusable="false">
+              <path
+                d="M1.75 2.5A1.25 1.25 0 0 0 .5 3.75v8.5A1.25 1.25 0 0 0 1.75 13.5h12.5a1.25 1.25 0 0 0 1.25-1.25v-7a1.25 1.25 0 0 0-1.25-1.25H7.31L5.93 2.688A1.25 1.25 0 0 0 5.05 2.5H1.75z" />
+            </svg>
+          </span>
+          <span class="tree-node-label">ALL DIRECTORIES</span>
+          <span class="tag tag-s pill sage tree-node-badge">1</span>
+        </button>
+
+        <!-- Hierarchy Folder Tree Nodes -->
+        <div class="tree-nodes-list" role="tree">
+          
+          <button type="button" class="tree-node-btn" role="treeitem" data-folder="/"
+            data-depth="0" data-name="root" data-title="Knowledge Graph"
+            data-desc="An interactive graph exploring software craftsmanship, technical aesthetics, game development, and design systems." data-has-children="true"
+            data-direct-count="0" data-total-count="1"
+            data-subfolder-count="1" aria-selected="false">
+            <span class="tree-indent" style="--depth: 0;"></span>
+            <span class="tree-connector" aria-hidden="true">
+              
+              &#x25C9;
+              
+            </span>
+            <span class="tree-folder-icon" aria-hidden="true">
+              <svg class="flat-folder-svg" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"
+                aria-hidden="true" focusable="false">
+                <path
+                  d="M1.75 2.5A1.25 1.25 0 0 0 .5 3.75v8.5A1.25 1.25 0 0 0 1.75 13.5h12.5a1.25 1.25 0 0 0 1.25-1.25v-7a1.25 1.25 0 0 0-1.25-1.25H7.31L5.93 2.688A1.25 1.25 0 0 0 5.05 2.5H1.75z" />
+              </svg>
+            </span>
+            <span class="tree-node-label">root/</span>
+            <span class="tag tag-s pill sage tree-node-badge"
+              title="0 direct, 1 total articles">
+              0
+            </span>
+          </button>
+          
+          <button type="button" class="tree-node-btn" role="treeitem" data-folder="/Drawing &amp; Painting"
+            data-depth="1" data-name="Drawing &amp; Painting" data-title="Drawing &amp; Painting"
+            data-desc="About the process of drawing and painting" data-has-children="false"
+            data-direct-count="1" data-total-count="1"
+            data-subfolder-count="0" aria-selected="false">
+            <span class="tree-indent" style="--depth: 1;"></span>
+            <span class="tree-connector" aria-hidden="true">
+              
+              &#x2514;&#x2500;
+              
+            </span>
+            <span class="tree-folder-icon" aria-hidden="true">
+              <svg class="flat-folder-svg" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"
+                aria-hidden="true" focusable="false">
+                <path
+                  d="M1.75 2.5A1.25 1.25 0 0 0 .5 3.75v8.5A1.25 1.25 0 0 0 1.75 13.5h12.5a1.25 1.25 0 0 0 1.25-1.25v-7a1.25 1.25 0 0 0-1.25-1.25H7.31L5.93 2.688A1.25 1.25 0 0 0 5.05 2.5H1.75z" />
+              </svg>
+            </span>
+            <span class="tree-node-label">Drawing &amp; Painting/</span>
+            <span class="tag tag-s pill sage tree-node-badge"
+              title="1 direct, 1 total articles">
+              1
+            </span>
+          </button>
+          
+        </div>
+      </nav>
+
+      <div class="tree-sidebar-footer">
+        <div class="tree-legend-item">
+          <span class="tree-legend-dot">&bull;</span>
+          <span>SELECT DIRECTORY TO FILTER</span>
+        </div>
+        <div class="tree-legend-item">
+          <span class="tree-legend-dot">&bull;</span>
+          <span>READ FULL ARTICLE IN MODAL</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right Column: Content Children Pane -->
+    <main class="classic-content-pane" id="classic-content-pane">
+      <!-- Active Directory Scope Bar -->
+      <header class="classic-scope-bar" id="classic-scope-bar">
+        <div class="scope-bar-meta">
+          <span class="scope-badge">ACTIVE DIRECTORY</span>
+          <span class="scope-path-display" id="dir-active-path">ALL DIRECTORIES</span>
+          <span class="scope-stats-pill" id="dir-active-count">1 Articles</span>
+        </div>
+        <h2 class="scope-heading" id="dir-active-title">All Compiled Articles</h2>
+        <p class="scope-description" id="dir-active-desc">
+          Viewing all compiled articles across the knowledge base. Select a specific directory from the explorer on the
+          left to filter by topic, or browse articles below.
+        </p>
+      </header>
+
+      <!-- Child Subfolders (if any exist under current directory) -->
+      <section class="classic-child-subfolders" id="classic-child-subfolders">
+        <div class="child-subfolders-header">
+          <span class="child-subfolders-label">CHILD DIRECTORIES IN SCOPE:</span>
+        </div>
+        <div class="child-subfolders-grid" id="child-subfolders-grid">
+          
+          
+          
+          <div class="card child-subfolder-card" data-parent="/" data-target="/Drawing &amp; Painting">
+            <div class="child-folder-top">
+              <span class="child-folder-icon">
+                <svg class="flat-folder-svg" viewBox="0 0 16 16" width="18" height="18" fill="currentColor"
+                  aria-hidden="true" focusable="false">
+                  <path
+                    d="M1.75 2.5A1.25 1.25 0 0 0 .5 3.75v8.5A1.25 1.25 0 0 0 1.75 13.5h12.5a1.25 1.25 0 0 0 1.25-1.25v-7a1.25 1.25 0 0 0-1.25-1.25H7.31L5.93 2.688A1.25 1.25 0 0 0 5.05 2.5H1.75z" />
+                </svg>
+              </span>
+              <span class="child-folder-name">Drawing &amp; Painting/</span>
+            </div>
+            <div class="child-folder-bottom">
+              <span class="child-folder-count">1 direct &bull; 1 total</span>
+              <button type="button" class="child-folder-enter-btn" data-target="/Drawing &amp; Painting"
+                title="Enter Drawing &amp; Painting/">
+                ENTER &gt;
+              </button>
+            </div>
+          </div>
+          
+          
+          
+          
+          
+        </div>
+      </section>
+
+      <!-- Empty State Card (if folder has 0 articles) -->
+      <div class="classic-empty-directory" id="classic-empty-directory" style="display: none;">
+        <div class="empty-dir-box">
+          <div class="empty-dir-code">[ DIRECTORY EMPTY: 0 ARTICLES ]</div>
+          <p class="empty-dir-text" id="empty-dir-text">
+            This directory currently serves as an organizational category node with no direct articles.
+          </p>
+          <button type="button" class="empty-dir-back-btn" id="empty-dir-reset-btn">
+            &lt; VIEW ALL DIRECTORIES
+          </button>
+        </div>
+      </div>
+
+      <!-- Articles List -->
+      <div class="classic-articles-list" id="classic-articles-list">
+        
+        <article class="card classic-article-card" data-folder="/Drawing &amp; Painting"
+          id="article-Drawing &amp; Painting-Painting trees">
+          <header class="card-header">
+            <div class="classic-meta-left">
+              <span class="tag pill teal">DIR: /Drawing &amp; Painting</span>
+              <time class="classic-article-date" datetime="2026-10-25">2026-10-25</time>
+              <span class="classic-reading-time">&bull; 1 min read</span>
+            </div>
+            <div class="classic-meta-right">
+              <span class="tag">18 words</span>
+            </div>
+          </header>
+
+          <h2 class="classic-article-title">
+            <button type="button" class="classic-title-link open-article-modal-btn" data-article-id="article:Drawing &amp; Painting/Painting trees"
+              title="Read I like painting trees">
+              I like painting trees
+            </button>
+          </h2>
+
+          <p class="classic-article-summary">A little about the process of painting trees</p>
+
+          
+          <div class="classic-tags-list tag-group">
+            
+            <span class="tag">#painting</span>
+            
+          </div>
+          
+
+          <!-- Card Action Buttons -->
+          <div class="classic-card-actions">
+            <button type="button" class="action-btn button button-s teal action-primary open-article-modal-btn"
+              data-article-id="article:Drawing &amp; Painting/Painting trees">
+              READ FULL ARTICLE &rarr;
+            </button>
+          </div>
+        </article>
+        
+      </div>
+    </main>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+<div id="blogArticleModal" 
+     class="modal-backdrop  " 
+     role="dialog" 
+     aria-modal="true" 
+     aria-hidden="true"
+     >
+    
+    <div class="modal-window " id="blogArticleModalWindow">
+        <!-- Modal Topbar / Command Header -->
+        <div class="modal-topbar">
+            <div>
+                <div class="modal-topbar-left">
+                    <span class="modal-pulse-dot" aria-hidden="true"></span>
+                    <span class="modal-topbar-tag" id="blogArticleModalTag">KNOWLEDGE ARCHIVE</span>
+                    <span class="modal-topbar-divider">//</span>
+                    <span class="modal-topbar-id" id="blogArticleModalId">POST // READ</span>
+                </div>
+                <div class="modal-topbar-center">
+                    <span class="modal-topbar-title" id="blogArticleModalTitle">ARTICLE READER</span>
+                </div> 
+            </div>
+            <div class="modal-topbar-right">
+                <button type="button" class="modal-close-btn" id="blogArticleModalCloseBtn" aria-label="Close dialog">
+                    ✕ <span class="esc-hint">[ESC]</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Scrollable Modal Content Area -->
+        <div class="modal-scroll-body" id="blogArticleModalScrollBody">
+            
+        </div>
+
+        
+        <!-- Modal Footer Controls -->
+        <footer class="modal-footer" id="blogArticleModalFooter">
+            <div class="modal-footer-nav" id="blogArticleModalFooterNav">
+                
+            </div>
+            <div class="modal-footer-action" style="margin-left: auto;">
+                <button type="button" class="modal-return-btn" id="blogArticleModalReturnBtn">
+                    CLOSE READER [ESC]
+                </button>
+            </div>
+        </footer>
+        
+    </div>
+</div>
+
+
+<!-- Embedded Articles Data for Client-Side Modal Hydration -->
+<script id="blogArticlesData" type="application/json">
+  {"article:Drawing & Painting/Painting trees":{"id":"article:Drawing & Painting/Painting trees","title":"I like painting trees","path":"/Drawing & Painting/Painting trees","thumbnail":"/assets/images/blog/thumb-root.svg","description":"A little about the process of painting trees","summary":"A little about the process of painting trees","tags":["painting"],"date":"2026-10-25","readingTime":"1 min read","wordCount":18,"htmlContent":"<p>Hello!\nThis is the process:\nI had old canvases with ugly paintings (I painted them but never finished)</p>\n","folderPath":"/Drawing & Painting"}}
+</script>
+
+
+<script>
+  (function () {
+    // 1. Detection and View State Management
+    const viewGraphBtn = document.getElementById('btn-view-graph');
+    const viewClassicBtn = document.getElementById('btn-view-classic');
+    const viewSwitch = document.getElementById('blog-view-checkbox');
+    const viewSwitchControl = document.querySelector('.view-switch-control');
+    const graphSection = document.getElementById('blog-graph-view');
+    const classicSection = document.getElementById('blog-classic-view');
+    const statusText = document.getElementById('status-text');
+
+    function checkCanvasSupport() {
+      try {
+        const c = document.createElement('canvas');
+        return !!(c.getContext && c.getContext('2d'));
+      } catch (e) {
+        return false;
+      }
+    }
+
+    const hasCanvas = checkCanvasSupport();
+    const isSmallScreen = window.innerWidth <= 768;
+    const storedView = localStorage.getItem('strata_blog_view');
+
+    let currentView = 'graph';
+
+    if (!hasCanvas) {
+      currentView = 'classic';
+      if (viewGraphBtn) {
+        viewGraphBtn.disabled = true;
+        viewGraphBtn.title = 'Canvas 2D is unsupported in this browser';
+        viewGraphBtn.classList.add('disabled');
+      }
+      if (viewSwitch) {
+        viewSwitch.disabled = true;
+        viewSwitch.checked = true;
+      }
+      if (viewSwitchControl) {
+        viewSwitchControl.classList.add('disabled');
+        viewSwitchControl.title = 'Canvas 2D is unsupported in this browser';
+      }
+    } else if (storedView) {
+      currentView = storedView;
+    } else if (isSmallScreen) {
+      // Small screens automatically fallback to classic navigation
+      currentView = 'classic';
+    }
+
+    function setView(viewMode, reason) {
+      currentView = viewMode;
+      try {
+        localStorage.setItem('strata_blog_view', viewMode);
+      } catch (e) { }
+
+      if (viewMode === 'graph' && hasCanvas) {
+        graphSection.style.display = 'block';
+        classicSection.style.display = 'none';
+        if (viewGraphBtn) {
+          viewGraphBtn.classList.add('active');
+          viewGraphBtn.setAttribute('aria-selected', 'true');
+        }
+        if (viewClassicBtn) {
+          viewClassicBtn.classList.remove('active');
+          viewClassicBtn.setAttribute('aria-selected', 'false');
+        }
+        if (viewSwitch) {
+          viewSwitch.checked = false;
+          viewSwitch.setAttribute('aria-checked', 'false');
+        }
+
+        if (statusText) {
+          statusText.textContent = reason || '[MODE: INTERACTIVE GRAPH (CANVAS 2D)]';
+        }
+
+        initGraph();
+      } else {
+        graphSection.style.display = 'none';
+        classicSection.style.display = 'block';
+        if (viewClassicBtn) {
+          viewClassicBtn.classList.add('active');
+          viewClassicBtn.setAttribute('aria-selected', 'true');
+        }
+        if (viewGraphBtn) {
+          viewGraphBtn.classList.remove('active');
+          viewGraphBtn.setAttribute('aria-selected', 'false');
+        }
+        if (viewSwitch) {
+          viewSwitch.checked = true;
+          viewSwitch.setAttribute('aria-checked', 'true');
+        }
+
+        if (statusText) {
+          let label = '[MODE: CLASSIC DIRECTORY NAVIGATION]';
+          if (!hasCanvas) {
+            label = '[FALLBACK: CANVAS 2D NOT DETECTED • CLASSIC NAVIGATION ACTIVE]';
+          } else if (isSmallScreen && !storedView) {
+            label = '[FALLBACK: SMALL SCREEN DETECTED • CLASSIC NAVIGATION ACTIVE]';
+          }
+          statusText.textContent = label;
+        }
+      }
+    }
+
+    if (viewSwitch) {
+      viewSwitch.addEventListener('change', function () {
+        if (!hasCanvas && !this.checked) {
+          this.checked = true;
+          return;
+        }
+        setView(this.checked ? 'classic' : 'graph');
+      });
+    }
+
+    if (viewGraphBtn) {
+      viewGraphBtn.addEventListener('click', function () {
+        if (hasCanvas) {
+          setView('graph');
+        }
+      });
+    }
+
+    if (viewClassicBtn) {
+      viewClassicBtn.addEventListener('click', function () {
+        setView('classic');
+      });
+    }
+
+    // Initial view activation
+    setView(currentView);
+
+    // 2. StrataGraph Canvas Loader
+    function initGraph() {
+      if (!hasCanvas) return;
+      if (typeof StrataGraph !== 'undefined') {
+        if (!window.blogGraph) {
+          window.blogGraph = new StrataGraph({
+            container: '#strata-graph-container',
+            dataUrl: '/assets/data/blog-graph.json',
+            options: {
+              nodeOptions: {
+                folderShape: 'folder',
+                articleShape: 'polaroid',
+                folderColor: '#3D7068',
+                folderTabColor: '#315C55',
+                folderBorderColor: '#1E1E1C',
+                polaroidBg: '#FAF7F0',
+                polaroidBorderColor: '#1E1E1C',
+                badgeBg: '#D25A38',
+                badgeText: '#FFFFFF',
+                tapeEnabled: true
+              }
+            },
+            onArticleClick: function (node) {
+              const articleId = node.articleId || node.id;
+              openArticleReader(articleId);
+            }
+          });
+        }
+      } else {
+        setTimeout(initGraph, 50);
+      }
+    }
+
+    // 3. Classic Hierarchical Folder Tree & Content Explorer Filtering
+    const treeNodeBtns = document.querySelectorAll('.tree-node-btn');
+    const articleCards = document.querySelectorAll('.classic-article-card');
+    const subfolderCards = document.querySelectorAll('.child-subfolder-card');
+    const subfoldersSection = document.getElementById('classic-child-subfolders');
+    const emptyState = document.getElementById('classic-empty-directory');
+    const emptyStateText = document.getElementById('empty-dir-text');
+    const emptyResetBtn = document.getElementById('empty-dir-reset-btn');
+    const articlesList = document.getElementById('classic-articles-list');
+    const dirActivePath = document.getElementById('dir-active-path');
+    const dirActiveTitle = document.getElementById('dir-active-title');
+    const dirActiveDesc = document.getElementById('dir-active-desc');
+    const dirActiveCount = document.getElementById('dir-active-count');
+
+    function selectFolder(folderPath) {
+      let activeBtn = null;
+
+      treeNodeBtns.forEach(function (btn) {
+        const bFolder = btn.getAttribute('data-folder');
+        if (bFolder === folderPath) {
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          activeBtn = btn;
+        } else {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-selected', 'false');
+        }
+      });
+
+      if (!activeBtn) {
+        // Fallback to 'all' if folder not found
+        activeBtn = document.querySelector('.tree-node-btn[data-folder="all"]');
+        if (activeBtn) {
+          activeBtn.classList.add('active');
+          activeBtn.setAttribute('aria-selected', 'true');
+          folderPath = 'all';
+        }
+      }
+
+      // Update scope header
+      const title = activeBtn ? activeBtn.getAttribute('data-title') : '';
+      const desc = activeBtn ? activeBtn.getAttribute('data-desc') : '';
+
+      if (dirActivePath) {
+        dirActivePath.textContent = folderPath === 'all' ? 'ALL DIRECTORIES' : folderPath;
+      }
+      if (dirActiveTitle) {
+        dirActiveTitle.textContent = folderPath === 'all'
+          ? 'All Compiled Articles'
+          : (title ? title : folderPath);
+      }
+      if (dirActiveDesc) {
+        dirActiveDesc.textContent = desc ? desc : (folderPath === 'all'
+          ? 'Viewing all compiled articles across the knowledge base. Select a specific directory from the explorer on the left to filter topics, or browse articles below.'
+          : 'Viewing articles compiled under ' + folderPath + '.');
+      }
+
+      // Filter child subfolders
+      if (subfoldersSection && subfolderCards.length > 0) {
+        let visibleSubfolders = 0;
+        subfolderCards.forEach(function (card) {
+          const parent = card.getAttribute('data-parent');
+          const isMatch = (folderPath === 'all' && parent === '/') || (parent === folderPath);
+          if (isMatch) {
+            card.style.display = '';
+            visibleSubfolders++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        subfoldersSection.style.display = visibleSubfolders > 0 ? '' : 'none';
+      }
+
+      // Filter articles
+      let visibleArticleCount = 0;
+      articleCards.forEach(function (card) {
+        const cardFolder = card.getAttribute('data-folder');
+        if (folderPath === 'all' || cardFolder === folderPath) {
+          card.style.display = '';
+          visibleArticleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (dirActiveCount) {
+        dirActiveCount.textContent = visibleArticleCount + (visibleArticleCount === 1 ? ' Article' : ' Articles');
+      }
+
+      // Empty state handling
+      if (emptyState && articlesList) {
+        if (visibleArticleCount === 0) {
+          emptyState.style.display = 'block';
+          if (emptyStateText) {
+            emptyStateText.textContent = 'Directory "' + folderPath + '" contains no direct articles. Select a subfolder or return to all directories.';
+          }
+          articlesList.style.display = 'none';
+        } else {
+          emptyState.style.display = 'none';
+          articlesList.style.display = 'flex';
+        }
+      }
+    }
+
+    // Attach tree node click events
+    treeNodeBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const folder = this.getAttribute('data-folder');
+        selectFolder(folder);
+      });
+    });
+
+    // Attach subfolder chip card / button clicks
+    document.querySelectorAll('.child-folder-enter-btn').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const target = this.getAttribute('data-target');
+        selectFolder(target);
+      });
+    });
+
+    document.querySelectorAll('.child-subfolder-card').forEach(function (card) {
+      card.addEventListener('click', function () {
+        const target = this.getAttribute('data-target');
+        selectFolder(target);
+      });
+    });
+
+    // Reset button in empty state
+    if (emptyResetBtn) {
+      emptyResetBtn.addEventListener('click', function () {
+        selectFolder('all');
+      });
+    }
+
+    // Initialize with 'all'
+    selectFolder('all');
+
+    // 4. Modal Article Reader Controller (Reusable Modal Component)
+    const articleModal = document.getElementById('blogArticleModal');
+    const modalCloseBtn = document.getElementById('blogArticleModalCloseBtn');
+    const modalReturnBtn = document.getElementById('blogArticleModalReturnBtn');
+    const modalTag = document.getElementById('blogArticleModalTag');
+    const modalId = document.getElementById('blogArticleModalId');
+    const modalTitle = document.getElementById('blogArticleModalTitle');
+    const modalBody = document.getElementById('blogArticleModalScrollBody');
+
+    let blogArticlesMap = {};
+    const articlesScript = document.getElementById('blogArticlesData');
+    if (articlesScript) {
+      try {
+        blogArticlesMap = JSON.parse(articlesScript.textContent);
+      } catch (err) {
+        console.error('[Blog] Could not parse embedded blog articles data:', err);
+      }
+    }
+
+    function openArticleReader(articleId) {
+      const article = blogArticlesMap[articleId];
+      if (!article) return;
+
+      if (modalTag) {
+        const folder = article.folderPath === '/' ? 'ROOT' : article.folderPath;
+        modalTag.textContent = folder.replace(/^\//, '').toUpperCase() || 'ARCHIVE';
+      }
+      if (modalId) {
+        modalId.textContent = (article.id || 'POST').toUpperCase();
+      }
+      if (modalTitle) {
+        modalTitle.textContent = (article.title || 'ARTICLE DETAILS').toUpperCase();
+      }
+
+      if (modalBody) {
+        let bodyHtml = '';
+
+        if (article.thumbnail) {
+          bodyHtml += '<img src="' + article.thumbnail + '" alt="' + (article.title || '') + '" class="modal-hero-image" />';
+        }
+
+        bodyHtml += '<div class="modal-article-meta">';
+        if (article.date) bodyHtml += '<span>DATE: ' + article.date + '</span>';
+        if (article.readingTime) bodyHtml += '<span>&bull; TIME: ' + article.readingTime + '</span>';
+        if (article.wordCount) bodyHtml += '<span>&bull; WORDS: ' + article.wordCount + '</span>';
+        bodyHtml += '</div>';
+
+        if (article.tags && article.tags.length > 0) {
+          bodyHtml += '<div class="modal-article-tags">';
+          article.tags.forEach(function (tag) {
+            bodyHtml += '<span class="modal-tag">#' + tag + '</span>';
+          });
+          bodyHtml += '</div>';
+        }
+
+        bodyHtml += '<div class="article-markdown-body">' + (article.htmlContent || '') + '</div>';
+
+        modalBody.innerHTML = bodyHtml;
+        modalBody.scrollTop = 0;
+      }
+
+      if (articleModal) {
+        articleModal.classList.add('is-open');
+        articleModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        if (modalCloseBtn) modalCloseBtn.focus();
+      }
+    }
+
+    function closeArticleReader() {
+      if (articleModal) {
+        articleModal.classList.remove('is-open');
+        articleModal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+      }
+    }
+
+    // Attach click handlers to all modal buttons
+    document.querySelectorAll('.open-article-modal-btn').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const aId = this.getAttribute('data-article-id');
+        openArticleReader(aId);
+      });
+    });
+
+    // Delegated click handler for internal article wikilinks (#article:...)
+    document.addEventListener('click', function (e) {
+      const link = e.target.closest('a');
+      if (!link) return;
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#article:')) {
+        e.preventDefault();
+        const targetId = href.replace(/^#/, '');
+        openArticleReader(targetId);
+      }
+    });
+
+    if (modalCloseBtn) {
+      modalCloseBtn.addEventListener('click', closeArticleReader);
+    }
+    if (modalReturnBtn) {
+      modalReturnBtn.addEventListener('click', closeArticleReader);
+    }
+
+    if (articleModal) {
+      articleModal.addEventListener('click', function (e) {
+        if (e.target === articleModal) {
+          closeArticleReader();
+        }
+      });
+    }
+
+    window.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && articleModal && articleModal.classList.contains('is-open')) {
+        closeArticleReader();
+      }
+    });
+
+    // Expose openArticleReader globally for canvas or programmatic calls
+    window.openBlogArticle = openArticleReader;
+
+    // Viewport resize auto-switch if no user preference
+    window.addEventListener('resize', function () {
+      if (!localStorage.getItem('strata_blog_view')) {
+        if (window.innerWidth <= 768 && currentView !== 'classic') {
+          setView('classic', '[FALLBACK: MOBILE VIEWPORT DETECTED]');
+        }
+      }
+    });
+
+  })();
+</script>
+    </main>
+
+    <footer id="contact">
+        <div class="coupon-cutoff-line"></div>
+        <div class="footer-center-col">
+            <p>&copy; 2026 ELAINE SERRANO</p>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/elaine-serrano-echeverria/" target="_blank"
+                    rel="noopener">LinkedIn</a>
+                <span>•</span>
+                <a href="https://github.com/elaine2700" target="_blank" rel="noopener">GitHub</a>
+                <span>•</span>
+                <a href="mailto:contact@elaineserrano.com">contact@elaineserrano.com</a>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="/assets/strata-graph/strata-graph.js"></script>
+    
+</body>
+
+</html>
