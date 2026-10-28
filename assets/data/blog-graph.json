@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0.0",
-    "generatedAt": "2026-10-28T01:01:27.730Z",
+    "generatedAt": "2026-10-28T01:02:24.508Z",
     "rootPath": "/",
     "totalArticles": 1,
     "totalFolders": 2
@@ -27,7 +27,7 @@
         "type": "folder",
         "title": "Drawing & Painting",
         "targetPath": "/Drawing & Painting",
-        "thumbnail": "/assets/images/blog/thumb-root.svg",
+        "thumbnail": "/assets/images/blog/PaintingTrees-composition2.jpeg",
         "description": "About the process of drawing and painting",
         "itemCount": 1,
         "totalArticles": 1,
@@ -61,7 +61,7 @@
           "type": "folder",
           "title": "Drawing & Painting",
           "targetPath": "/Drawing & Painting",
-          "thumbnail": "/assets/images/blog/thumb-root.svg",
+          "thumbnail": "/assets/images/blog/PaintingTrees-composition2.jpeg",
           "description": "About the process of drawing and painting",
           "itemCount": 1,
           "totalArticles": 1,
@@ -78,7 +78,7 @@
       "parentPath": "/",
       "title": "Drawing & Painting",
       "description": "About the process of drawing and painting",
-      "thumbnail": "/assets/images/blog/thumb-root.svg",
+      "thumbnail": "/assets/images/blog/PaintingTrees-composition2.jpeg",
       "breadcrumbs": [
         {
           "title": "ROOT",
@@ -96,16 +96,16 @@
         {
           "id": "article:Drawing & Painting/Painting trees",
           "type": "article",
-          "title": "I like painting trees",
+          "title": "Volver a pintar: Tres árboles, tres colores",
           "articleId": "article:Drawing & Painting/Painting trees",
           "path": "/Drawing & Painting/Painting trees",
-          "thumbnail": "/assets/images/blog/thumb-root.svg",
-          "summary": "A little about the process of painting trees",
+          "thumbnail": "/assets/images/blog/PaintingTrees-Composition-Final.JPEG",
+          "summary": "El arte de no dejar los proyectos a medias",
           "tags": [
             "painting"
           ],
           "date": "2026-10-25",
-          "readingTime": "1 min read",
+          "readingTime": "3 min read",
           "order": 999
         }
       ],
@@ -115,18 +115,18 @@
   "articles": {
     "article:Drawing & Painting/Painting trees": {
       "id": "article:Drawing & Painting/Painting trees",
-      "title": "I like painting trees",
+      "title": "Volver a pintar: Tres árboles, tres colores",
       "path": "/Drawing & Painting/Painting trees",
-      "thumbnail": "/assets/images/blog/thumb-root.svg",
-      "description": "A little about the process of painting trees",
-      "summary": "A little about the process of painting trees",
+      "thumbnail": "/assets/images/blog/PaintingTrees-Composition-Final.JPEG",
+      "description": "El arte de no dejar los proyectos a medias",
+      "summary": "El arte de no dejar los proyectos a medias",
       "tags": [
         "painting"
       ],
       "date": "2026-10-25",
-      "readingTime": "1 min read",
-      "wordCount": 18,
-      "htmlContent": "<p>Hello!\nThis is the process:\nI had old canvases with ugly paintings (I painted them but never finished)</p>\n",
+      "readingTime": "3 min read",
+      "wordCount": 437,
+      "htmlContent": "<p>Hace más de 4 años cuando mi hobby principal era la pintura, compré cuatro bastidores de 30 x 30cm con la idea de armar una composición original. Empecé a darle vueltas a varias ideas, pero la inspiración no llegaba y no sabía qué plasmar en los lienzos.</p>\n<p><img src=\"/assets/images/blog/PaintingTrees-01.jpeg\" alt=\"324\"></p>\n<p>Al final, volví a lo que mejor conocía: los árboles. Es un hábito que se me quedó desde que estudiaba arquitectura; al principio solo dibujaba la simbología básica en los planos, pero con el tiempo esos trazos evolucionaron hasta convertirse en detallados árboles en alzado. Lo que más me atrapa de dibujarlos es que no hay una manera “correcta” de hacerlo. Existen tantas especies y siluetas que puedes jugar con la geometría y componer formas con total libertad.</p>\n<p><img src=\"/assets/images/blog/PaintingTrees-composition1.jpeg\" alt=\"265\"> <img src=\"/assets/images/blog/PaintingTrees-composition2.jpeg\" alt=\"265\"> <img src=\"/assets/images/blog/PaintingTrees-composition3.jpeg\" alt=\"265\"> <img src=\"/assets/images/blog/PaintingTrees-composition4.jpeg\" alt=\"265\"></p>\n<p>Así que arranqué con los bocetos. Terminé de pintar el primer cuadro, avancé un poco con otro… y hasta ahí llegué. La motivación se fue apagando, los dejé arrumbados y me olvidé de ellos.</p>\n<p><img src=\"/assets/images/blog/PaintingTrees-FirstPainting.JPEG\" alt=\"265\"></p>\n<p>Hace poco, haciendo limpieza, me topé con esos lienzos a medio terminar en un rincón. Al verlos sentí nostalgia por la mi antiguo hobby y decidí continuar pero con cambios a la idea original.</p>\n<p>Como uno de los cuadros iniciales ya estaba listo y apartado, la composición pasó de cuatro a tres piezas. Esto resultó ideal, ya que un tríptico te permite jugar acomodándolo en formato vertical u horizontal dependiendo del espacio donde se exhibirá.</p>\n<p><img src=\"/assets/images/blog/PaintingTrees-Sketch.jpeg\" alt=\"256\"></p>\n<p>Rehice los dibujos buscando un enfoque más simple y directo. Mantuve esa esencia estructurada del alzado arquitectónico, pero asegurándome de que cada árbol tuviera una forma y personalidad completamente distinta.</p>\n<p><img src=\"/assets/images/blog/PaintingTrees-ColorPalette.png\" alt=\"PaintingTrees-ColorPalette\"></p>\n<p>Como me encanta el Pop Art, elegí un paleta viva que llenara de energía el espacio. Al ser tres piezas, la opción más lógica y equilibrada fue elegir una tríada de colores vibrantes: un rojo carmín intenso, un amarillo brillante y un azul turquesa.</p>\n<p>Para darle coherencia a la serie, me puse una regla de composición muy clara. Cada cuadro llevaría un color principal sólido para el fondo, aplicados de manera muy limpia y plana con pincel. Los otros dos colores de la tríada serían los encargados de darle vida al árbol.\nPara romper con la uniformidad y evitar demasiada uniformidad, dejé el pincel a un lado y apliqué el acrílico directamente con espátula a las hojas de los árboles. Ese cambio de técnica le dio un relieve increíble a las hojas; la textura hace que la pintura resalte del fondo liso y le aporta muchísimo dinamismo a la obra.</p>\n<p>Después de una semana de dedicarle mis ratos libres, por fin terminé la composición.</p>\n<p><img src=\"/assets/images/blog/PaintingTrees-Composition-Final.JPEG\" alt=\"PaintingTrees-Composition-Final\"></p>\n",
       "folderPath": "/Drawing & Painting"
     }
   }
