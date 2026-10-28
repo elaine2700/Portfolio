@@ -10,4 +10,6 @@ order: 0
 
 Welcome to my digital garden and technical sketchbook. Here, ideas, case studies, and architecture notes are organized spatially as a hierarchical knowledge graph.
 
-Explore clusters by clicking folder nodes to drill down, or click any article node to read.
+Explore knowledge groups by clicking folder nodes to expand, or click any article node to read.
+
+There are articles in Spanish or English
