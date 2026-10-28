@@ -1,10 +1,30 @@
-const {EleventyRenderPlugin} = require("@11ty/eleventy");
+const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const dotenv = require('dotenv');
 dotenv.config();
 
-module.exports = function(eleventyConfig){
+const { compileGraph } = require('./packages/strata-graph/src/index');
+
+module.exports = function (eleventyConfig) {
+    // Compile strata-graph blog data before each build
+    eleventyConfig.on('eleventy.before', async () => {
+        try {
+            compileGraph({
+                input: 'src/content/blog',
+                output: 'src/assets/data/blog-graph.json'
+            });
+        } catch (err) {
+            console.error('[strata-graph] Error during compile:', err);
+        }
+    });
+
+    eleventyConfig.watchIgnores.add("src/assets/data/blog-graph.json");
+    eleventyConfig.addWatchTarget("src/content/blog/");
     eleventyConfig.addPassthroughCopy("src/assets");
-    
+    eleventyConfig.addPassthroughCopy({
+        "node_modules/strata-graph/dist/strata-graph.js": "assets/strata-graph/strata-graph.js",
+        "node_modules/strata-graph/dist/strata-graph.css": "assets/strata-graph/strata-graph.css"
+    });
+
     eleventyConfig.addPlugin(EleventyRenderPlugin);
 
     eleventyConfig.addFilter("getYear", (dateString) => {
@@ -12,8 +32,14 @@ module.exports = function(eleventyConfig){
         return date.getFullYear();
     });
 
+    /**Map project type to a color.*/
+    const PROJECT_TYPE_COLORS = { "vr-ar": "teal", "vr": "teal", "tool": "sage", "web": "gold" };
+    eleventyConfig.addFilter("projectColor", (projectType) => {
+        return PROJECT_TYPE_COLORS[String(projectType || "").toLowerCase()] || "";
+    });
+
     return {
-        dir:{
+        dir: {
             input: 'src',
             includes: '_includes',
             output: process.env.SITE_DIR,

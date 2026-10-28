@@ -1,61 +1,97 @@
 :root {
-    /* Palette from image */
-    --beige-bg: #EAEBD7;
-    /* Approximate beige from screenshot */
-    --text-dark: #1A1A1A;
-    /* Near black */
-    --text-gray: #4A4A4A;
-    --accent-gray: #D0D0D0;
-    /* For dividers/lines */
+    /* ==========================================================================
+       VINTAGE RETRO PALETTE (Proposal v1 - Terracotta & Ochre)
+       Inspired by vintage risograph, screenprint & offset printing publications.
+       ========================================================================== */
+    
+    /* Canvas & Base */
+    --color-canvas: #F5EFEB;          /* Warm aged oatmeal parchment */
+    --color-surface-card: #FAF7F0;    /* Light clean card fill */
+    --color-surface-pulp: #E8E2D5;    /* Aged newsprint pulp */
+    --color-bg: var(--color-canvas);
+    --beige-bg: var(--color-canvas);
 
-    --base-white: #ffffff;
-    --base-black: #000000;
-    --bg-color: #d8d7c1;
-    --text-color: #1a1a1a;
-    --accent-green: #8ca68e;
-    --accent-blue: #8ea8b5;
+    /* Inks & Text */
+    --color-ink-primary: #1E1E1C;     /* Deep espresso charcoal ink */
+    --color-ink-muted: #5C5A55;       /* Muted typewriter text */
+    --color-ink-faint: #8E8C85;       /* Subtle stamps & annotations */
+    --color-text-primary: var(--color-ink-primary);
+    --color-text-secondary: var(--color-ink-primary);
+    --color-text-tertiary: var(--color-ink-muted);
+    --text-dark: var(--color-ink-primary);
+    --text-gray: var(--color-ink-muted);
 
-    /*Text*/
-    --color-text-primary: var(--text-dark);
-    --color-text-secondary: var(--text-dark);
-    --color-text-tertiary: var(--text-gray);
-    --color-text-dark: var(--base-black);
-    --color-text-light: var(--base-white);
+    /* Primary Accent (Warm) */
+    --color-primary: #D25A38;         /* Terracotta rust / burnt sienna */
+    --color-primary-hover: #B84728;   /* Darker terracotta */
+    --color-primary-light: #F7EAE5;   /* Warm terracotta tint */
+    --color-primary-translucent: rgba(210, 90, 56, 0.15);
 
-    /*Links*/
-    --color-link-default: var(--text-dark);
-    --color-link-hover: var(--text-gray);
-    --color-link-active: var(--base-black);
-    --color-link-visited: var(--text-dark);
+    /* Golden Accent */
+    --color-accent-gold: #E5A93C;      /* Aged golden ochre / mustard */
+    --color-accent-gold-dark: #C68E28;
+    --color-accent-gold-light: #FBF4E4;
+    --color-accent-gold-translucent: rgba(229, 169, 60, 0.25);
 
-    /*Border*/
-    --color-border-primary: var(--text-dark);
-    --color-border-secondary: var(--accent-gray);
+    /* Cool Accents */
+    --color-accent-teal: #3D7068;      /* Faded denim / vintage teal */
+    --color-accent-teal-dark: #2A4E48;
+    --color-accent-teal-translucent: rgba(61, 112, 104, 0.2);
 
-    /*Colors*/
-    --color-surface-primary: var(--beige-bg);
-    --color-surface-secondary: var(--beige-bg);
-    --color-surface-tertiary: #D8D9C5;
-    /* Slightly darker beige for accents if needed */
-    --color-surface-dark: var(--text-dark);
-    --color-surface-primary-translucent: #EAEBD79f;
+    --color-accent-sage: #8FA89B;      /* Retro celadon / sage green */
+    --color-accent-sage-dark: #6C8578;
+    --color-accent-sage-light: #EEF3F0;
 
-    /*BG*/
-    --color-bg: var(--beige-bg);
+    --accent-blue: var(--color-accent-teal);
+    --accent-green: var(--color-accent-sage);
 
-    /*Shadows*/
-    --color-shadow: rgba(0, 0, 0, 0.1);
-    --shadow-small: 2px 2px 5px var(--color-shadow);
+    /* Grid Lines (Technical drafting graph paper) */
+    --color-grid-lines: #D5DED6;
+    --color-grid-lines-subtle: #E2E8E3;
+
+    /* Borders */
+    --color-border-primary: var(--color-ink-primary);
+    --color-border-secondary: var(--color-surface-pulp);
+    --color-border-dashed: rgba(30, 30, 28, 0.45);
+
+    /* Shadows & Tape */
+    --color-shadow: rgba(30, 30, 28, 0.12);
+    --shadow-retro: 3px 3px 0 var(--color-ink-primary);
+    --shadow-retro-small: 2px 2px 0 var(--color-ink-primary);
+    --shadow-retro-hover: 4px 4px 0 var(--color-ink-primary);
+    --color-tape: rgba(234, 219, 182, 0.92);
+    --color-tape-border: rgba(180, 160, 125, 0.6);
+
+    /* Surface Mappings */
+    --color-surface-primary: var(--color-surface-card);
+    --color-surface-secondary: var(--color-surface-pulp);
+    --color-surface-tertiary: var(--color-primary-light);
 }
 
 .bg-primary {
-    background-color: var(--color-surface-primary);
+    background-color: var(--color-primary) !important;
+    color: #FFFFFF !important;
 }
 
 .bg-secondary {
-    background-color: var(--color-surface-secondary);
+    background-color: var(--color-accent-gold) !important;
+    color: var(--color-ink-primary) !important;
 }
 
-.bg-tertiary {
-    background-color: var(--color-surface-tertiary);
+.bg-teal {
+    background-color: var(--color-accent-teal) !important;
+    color: #FFFFFF !important;
+}
+
+.bg-sage {
+    background-color: var(--color-accent-sage) !important;
+    color: var(--color-ink-primary) !important;
+}
+
+.bg-card {
+    background-color: var(--color-surface-card) !important;
+}
+
+.bg-pulp {
+    background-color: var(--color-surface-pulp) !important;
 }

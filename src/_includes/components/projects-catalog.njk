@@ -4,9 +4,9 @@
         <div class="projects__index">01 / SELECTED WORKS & REPOSITORY</div>
         <h1 class="projects__title">PROJECT ARCHIVE</h1>
         <p class="projects__subtitle">
-            A curated collection of spatial computing (VR/AR) simulations, procedural tools, interactive web applications, and developer experiments.
+            A curated collection of spatial computing (VR/AR) simulations, procedural tools, interactive web
+            applications, and developer experiments.
         </p>
-        <div class="projects__header-divider"></div>
     </header>
 
     <!-- Command & Filter Bar -->
@@ -18,23 +18,24 @@
             </div>
             <div class="filter-group">
                 <button class="button filter-btn active" data-filter="ALL" aria-pressed="true">
-                    ALL <span class="filter-badge" data-count-for="ALL">{{ projects.length }}</span>
+                    ALL <span class="tag pill filter-badge" data-count-for="ALL">{{ projects.length }}</span>
                 </button>
                 <button class="button filter-btn" data-filter="VR-AR" aria-pressed="false">
-                    VR-AR <span class="filter-badge" data-count-for="VR-AR">3</span>
+                    VR-AR <span class="tag pill teal filter-badge" data-count-for="VR-AR">3</span>
                 </button>
                 <button class="button filter-btn" data-filter="WEB" aria-pressed="false">
-                    WEB <span class="filter-badge" data-count-for="WEB">5</span>
+                    WEB <span class="tag pill gold filter-badge" data-count-for="WEB">5</span>
                 </button>
                 <button class="button filter-btn" data-filter="TOOL" aria-pressed="false">
-                    TOOL <span class="filter-badge" data-count-for="TOOL">1</span>
+                    TOOL <span class="tag pill sage filter-badge" data-count-for="TOOL">1</span>
                 </button>
             </div>
         </div>
 
         <div class="projects__status-strip">
             <span class="status-indicator-dot"></span>
-            <span class="status-text" id="projectCountDisplay">SHOWING {{ projects.length }} / {{ projects.length }} PROJECTS</span>
+            <span class="status-text" id="projectCountDisplay">SHOWING {{ projects.length }} / {{ projects.length }}
+                PROJECTS</span>
         </div>
     </div>
 
@@ -42,25 +43,35 @@
     <section class="projects__section" aria-label="Project cards catalog">
         <div class="projects-grid" id="projectsGrid">
             {% for project in projects %}
-            <article class="project-card" data-category="{{ project.projectType | upper }}" data-id="{{ project.id }}">
+            <article class="card project-card" data-category="{{ project.projectType | upper }}"
+                data-id="{{ project.id }}">
                 <!-- Card Architectural Topbar / Metadata Strip -->
                 <div class="card-meta-bar">
                     <span class="card-meta-id">PRJ-0{{ loop.index }}</span>
                     {% if project.projectType %}
-                    <span class="project-type-badge type-{{ project.projectType | lower }}">{{ project.projectType }}</span>
+                    <span class="tag pill project-type-badge {{ project.projectType | projectColor }}">{{
+                        project.projectType
+                        }}</span>
                     {% endif %}
                 </div>
 
-                <!-- Media Frame with 16:9 Aspect Ratio -->
-                <div class="project-image-frame">
-                    <img src="{{ project.image }}" alt="{{ project.title }} thumbnail" class="project-thumbnail" loading="lazy"/>
-                    {% if project.trailer %}
-                    <div class="video-indicator-badge" title="Demo video available">
-                        <span class="play-icon">&#9654;</span> DEMO VIDEO
+                <!-- Media Frame with 16:9 Aspect Ratio & Corner Tape -->
+                <div class="project-image-frame corner-tape">
+                    <span class="corner-tape-strip tape-tl" aria-hidden="true"></span>
+                    <span class="corner-tape-strip tape-tr" aria-hidden="true"></span>
+                    <span class="corner-tape-strip tape-bl" aria-hidden="true"></span>
+                    <span class="corner-tape-strip tape-br" aria-hidden="true"></span>
+                    <div class="image-crop-box">
+                        <img src="{{ project.image }}" alt="{{ project.title }} thumbnail" class="project-thumbnail"
+                            loading="lazy" />
+                        {% if project.trailer %}
+                        <div class="video-indicator-badge" title="Demo video available">
+                            <span class="play-icon">&#9654;</span> DEMO VIDEO
+                        </div>
+                        {% endif %}
                     </div>
-                    {% endif %}
                 </div>
-                
+
                 <!-- Card Body -->
                 <div class="card-body">
                     <div class="project-card-header">
@@ -85,7 +96,7 @@
                         </div>
                         {% endif %}
                     </div>
-                    
+
                     <!-- Description -->
                     <div class="project-description">
                         <p>{{ project.description }}</p>
@@ -93,16 +104,19 @@
 
                     <!-- Action Footer with Tactile CTAs -->
                     <div class="project-actions">
-                        <a class="action-btn action-primary open-dossier-trigger" href="/projects/{{ project.id }}/" data-project-id="{{ project.id }}">
+                        <a class="action-btn action-primary open-dossier-trigger" href="/projects/{{ project.id }}/"
+                            data-project-id="{{ project.id }}">
                             MORE <span class="btn-arrow">&rarr;</span>
                         </a>
                         {% if project.linkCode %}
-                        <a class="action-btn action-secondary" href="{{ project.linkCode }}" target="_blank" rel="noopener noreferrer">
+                        <a class="action-btn action-secondary" href="{{ project.linkCode }}" target="_blank"
+                            rel="noopener noreferrer">
                             CODE <span class="btn-arrow">&nearr;</span>
                         </a>
                         {% endif %}
                         {% if project.live %}
-                        <a class="action-btn action-accent" href="{{ project.live }}" target="_blank" rel="noopener noreferrer">
+                        <a class="action-btn action-accent" href="{{ project.live }}" target="_blank"
+                            rel="noopener noreferrer">
                             LIVE <span class="btn-arrow">&nearr;</span>
                         </a>
                         {% endif %}

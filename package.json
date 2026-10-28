@@ -6,14 +6,23 @@
   "scripts": {
     "start": "npx eleventy --serve",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "eleventy"
+    "build": "eleventy",
+    "sync:blog": "node scripts/sync-obsidian.js",
+    "sync:blog:dry": "node scripts/sync-obsidian.js --dry-run",
+    "sync:blog:clean": "node scripts/sync-obsidian.js --prune",
+    "publish:blog": "node scripts/publish-blog.js"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^2.0.1",
     "dotenv": "^16.4.5",
-    "markdown-it": "^14.1.0"
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.1.0",
+    "strata-graph": "*"
   }
 }

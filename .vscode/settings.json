@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    "*.njk": "nunjucks"
+  },
+  "[nunjucks]": {
+    "editor.formatOnSave": false
+  },
+  "[html]": {
+    "editor.formatOnSave": false
+  }
+}

@@ -1,86 +1,111 @@
 ---
 layout: "layouts/base"
 title: "Resume"
+permalink: false # Hidden until a later version; remove this line to republish
 cssFiles: ["/assets/css/resume.css"]
 ---
-<header class="text-center">
-    <h1>{{title}}</h1>
-</header>
-<div class="card">
-    <article class="resume__page">
-        <section class="resume__section">
-            <h2 class="resume__section__header">Experience</h2>
+<article class="resume__page">
+
+    <!-- ARCHIVAL DOSSIER HEADER -->
+    <header class="dossier-header">
+        <div class="dossier-header-text">
+            <h1 class="dossier-title">CURRICULUM VITAE // DOSSIER NO. 88</h1>
+            <p class="dossier-bio">
+                Elaine Serrano is an XR Developer &amp; Web Creative specializing in spatial computing systems, interactive 3D, and editorial digital architectures. Blending technical engineering with expressive visual aesthetics to craft memorable digital environments.
+            </p>
+        </div>
+
+        <div class="dossier-stamp-wrapper">
+            <div class="official-teal-stamp" title="Verified Record">
+                <div>VERIFIED RECORD</div>
+                <span>★ ARCHIVE 2026 ★</span>
+            </div>
+            <div class="registration-mark"><span></span></div>
+        </div>
+    </header>
+
+    <!-- SECTION 01: PROFESSIONAL EXPERIENCE -->
+    <section class="resume-section">
+        <h2 class="section-tag">01 // PROFESSIONAL EXPERIENCE</h2>
+
+        <div class="timeline-wrapper">
             {% for experience in work_experience %}
-            <div key={{experience.id}} class="experience">
-                <div class="experience__details">
-                    <div class="flex-group gap-s">
-                        <p class="position">{{experience.position}}</p>
-                        <span>|</span>
-                        <p class="company">{{experience.company}}</p>
-                    </div>
-                    <div class="year">{{experience.start_date | getYear }}</div>
+            <div class="timeline-entry">
+                <div class="timeline-dot" aria-hidden="true"></div>
+
+                <div class="timeline-header">
+                    <span class="timeline-date-badge">{{ experience.start_date | getYear }} &mdash; PRESENT</span>
+                    <h3 class="timeline-role-title">{{ experience.position }}</h3>
+                    <span class="timeline-company">@ {{ experience.company }}</span>
                 </div>
-                <ul class="experience__description">
+
+                <ul class="timeline-bullets">
                     {% for description in experience.description %}
-                    <li>{{description}}</li>
+                    <li>{{ description }}</li>
                     {% endfor %}
                 </ul>
             </div>
             {% endfor %}
+        </div>
+    </section>
 
-            <p class="margin-top-l">
-                For more details, visit my <span><a href="https://www.linkedin.com/in/elaine-serrano-echeverria/" target="_blank">LinkedIn profile</a></span>
-            </p>    
-        </section>
+    <!-- SECTION 02: SKILLS & TECHNICAL SPECIMENS -->
+    <section class="resume-section">
+        <h2 class="section-tag">02 // TECHNICAL SPECIMENS &amp; COMPETENCIES</h2>
 
-        <section class="resume__section">
-            <h2 class="resume__section__header">Skills</h2>
-            <div class="grid-columns-auto gap-s">
-                {% for skillgroup in skills %}
-                <div class="card bg-primary">
-                    <p class="card-title">{{skillgroup.name}}</p>
-                    <div class="card-content">
-                        <ul class="tag-group">
-                            {% for skill in skillgroup.skillList %}
-                            <li class="tag">{{skill}}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    
-                </div> 
-                {% endfor %}
-            </div>
-                
-            
-        </section>
-
-        <section class="resume__section">
-            <h2 class="resume__section__header">Education</h2>
-            <div>
-                {% for item in education %}
-                <div class="education__details">
-                    <div>
-                        <div class="education__school">{{item.school}}</div>
-                        <div class="education__career">{{item.career}}</div>
-                    </div>
-                    <div class="education__date">
-                        <p>
-                            {{item.start_date | getYear }}
-                            <span>|</span>
-                            {{item.end_date | getYear}}
-                        </p>
-                    </div>
-                </div>
-                    
-                <ul class="education__description">
-                    {% for description in item.description %}
-                    <li>{{description}}</li>
+        <div class="resume-skills-grid">
+            {% for skillgroup in skills %}
+            <div class="resume-skill-card graph-paper">
+                <span class="pill {% if loop.index == 1 %}pill{% elif loop.index == 2 %}teal{% else %}gold{% endif %}">
+                    {{ skillgroup.name }}
+                </span>
+                <ul class="tag-group">
+                    {% for skill in skillgroup.skillList %}
+                    <li class="tag">{{ skill }}</li>
                     {% endfor %}
                 </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- SECTION 03: EDUCATION & CREDENTIALS -->
+    <section class="resume-section">
+        <h2 class="section-tag">03 // EDUCATION &amp; CREDENTIALS</h2>
+
+        <div class="education-certificate-card">
+            <div class="certificate-inner graph-paper-fine">
+                {% for item in education %}
+                <div class="education-item">
+                    <div class="education-header-line">
+                        <h3 class="education-degree">{{ item.career }}</h3>
+                        <span class="education-dates">{{ item.start_date | getYear }} &mdash; {{ item.end_date | getYear }}</span>
+                    </div>
+                    <div class="education-school">{{ item.school }}</div>
+                    
+                    <ul class="timeline-bullets" style="margin-top: 0.5rem;">
+                        {% for description in item.description %}
+                        <li>{{ description }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
                 {% endfor %}
             </div>
-        </section>
+        </div>
+    </section>
 
-    </article>
-</div>
+    <!-- RESUME ACTION CTA BAR -->
+    <div class="resume-actions-bar">
+        <div>
+            <a class="button button-l" href="https://www.linkedin.com/in/elaine-serrano-echeverria/" target="_blank" rel="noopener">
+                DOWNLOAD PDF DOSSIER &darr;
+            </a>
+        </div>
+        <div>
+            <span style="font-family: var(--font-family-mono); font-size: 0.82rem; color: var(--color-ink-muted);">
+                ARCHIVE VERIFICATION CODE: #ES-RES-2026
+            </span>
+        </div>
+    </div>
 
+</article>

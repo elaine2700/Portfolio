@@ -1,40 +1,282 @@
-.resume__page{
-    max-width: 75rem;
-    margin-left: auto;
-    margin-right: auto;
+/* ==========================================================================
+   RESUME DOSSIER (Proposal v1 - Archival Portfolio Curriculum Vitae)
+   ========================================================================== */
+
+.resume__page {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 3rem;
 }
 
-.resume__section{
-    padding: var(--spacing);
-}
-
-.experience__details{
-    margin-top: var(--spacing);
+/* ARCHIVAL DOSSIER HEADER */
+.dossier-header {
     display: flex;
-    gap: var(--spacing-s);
-    font-weight: bold;
-    font-size: var(--fs-4);
-    align-items: center;
     justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--color-ink-primary);
 }
-    .experience__details .position, .experience__details .company{
-        color: var(--color-text-primary);
+
+.dossier-header-text {
+    max-width: 720px;
+}
+
+.dossier-title {
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    letter-spacing: 0.03em;
+    color: var(--color-ink-primary);
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.dossier-bio {
+    font-family: var(--font-family-mono);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-ink-muted);
+    margin: 0;
+}
+
+.dossier-stamp-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+}
+
+.official-teal-stamp {
+    border: 2.5px solid var(--color-accent-teal);
+    color: var(--color-accent-teal);
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    font-family: var(--font-family-display);
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transform: rotate(-4deg);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.15;
+    mix-blend-mode: multiply;
+}
+
+.official-teal-stamp span {
+    font-family: var(--font-family-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+}
+
+/* RESUME SECTIONS */
+.resume-section {
+    margin-bottom: 4rem;
+}
+
+/* SECTION 01: TIMELINE OF EXPERIENCE */
+.timeline-wrapper {
+    position: relative;
+    padding-left: 2rem;
+    margin-top: 1.5rem;
+}
+
+/* Vertical Perforated Dashed Timeline */
+.timeline-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    bottom: 20px;
+    left: 8px;
+    width: 2px;
+    border-left: 2px dashed var(--color-ink-primary);
+}
+
+.timeline-entry {
+    position: relative;
+    margin-bottom: 2.75rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -2rem;
+    top: 5px;
+    width: 18px;
+    height: 18px;
+    background-color: var(--color-canvas);
+    border: 2px solid var(--color-ink-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-dot::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+}
+
+.timeline-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+}
+
+.timeline-date-badge {
+    background-color: var(--color-accent-gold);
+    color: var(--color-ink-primary);
+    font-family: var(--font-family-mono);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.75rem;
+    border: 1.5px solid var(--color-ink-primary);
+    box-shadow: 2px 2px 0 var(--color-ink-primary);
+}
+
+.timeline-role-title {
+    font-family: var(--font-family-display);
+    font-size: 1.45rem;
+    letter-spacing: 0.04em;
+    color: var(--color-ink-primary);
+    margin: 0;
+}
+
+.timeline-company {
+    font-family: var(--font-family-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-transform: uppercase;
+}
+
+.timeline-bullets {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.75rem 0 0 0;
+    font-family: var(--font-family-mono);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--color-ink-primary);
+}
+
+.timeline-bullets li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-bullets li::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-size: 0.85rem;
+}
+
+/* SECTION 02: SKILLS SPECIMENS */
+.resume-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+    margin-top: 1.5rem;
+}
+
+.resume-skill-card {
+    background-color: var(--color-surface-card);
+    border: 1.5px solid var(--color-ink-primary);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-retro-small);
+}
+
+.resume-skill-card .pill {
+    margin-bottom: 1rem;
+}
+
+/* SECTION 03: EDUCATION CERTIFICATE BOX */
+.education-certificate-card {
+    background-color: var(--color-surface-card);
+    border: 3px double var(--color-ink-primary);
+    padding: 2rem;
+    position: relative;
+    box-shadow: var(--shadow-retro-small);
+    margin-top: 1.5rem;
+}
+
+.certificate-inner {
+    border: 1px dashed var(--color-border-dashed);
+    padding: 1.75rem;
+}
+
+.education-item {
+    margin-bottom: 1.75rem;
+}
+
+.education-item:last-child {
+    margin-bottom: 0;
+}
+
+.education-header-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+.education-degree {
+    font-family: var(--font-family-display);
+    font-size: 1.35rem;
+    color: var(--color-ink-primary);
+    letter-spacing: 0.03em;
+}
+
+.education-dates {
+    font-family: var(--font-family-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-accent-teal);
+}
+
+.education-school {
+    font-family: var(--font-family-mono);
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--color-ink-primary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+/* RESUME ACTION CTA BAR */
+.resume-actions-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-top: 2.5rem;
+    border-top: 2px dashed var(--color-border-dashed);
+    margin-top: 3rem;
+}
+
+@media (max-width: 900px) {
+    .resume-skills-grid {
+        grid-template-columns: 1fr;
     }
 
-.experience__description{
-    margin-top: var(--spacing-s);
-    color: var(--color-text-secondary);
-}
+    .dossier-header {
+        flex-direction: column;
+    }
 
-.education__details{
-    margin-top: var(--spacing);
-    display: flex;
-    gap: var(--spacing-s);
-    font-weight: bold;
-    font-size: var(--fs-4);
-    align-items: flex-start;
-    justify-content: space-between;
-}
-.education__description{
-    color: var(--color-text-secondary);
+    .dossier-stamp-wrapper {
+        align-items: flex-start;
+    }
 }

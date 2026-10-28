@@ -1,745 +1,961 @@
 /* ==========================================================================
-   HOME PAGE STYLESHEET (DESIGN.md - Retro-Technical Monospace Editorial)
+   HOME PAGE (Proposal v1 - Retro Editorial Zine & Tactile Collage)
    ========================================================================== */
 
 .home__page {
-    width: 100%;
-    margin-bottom: 5rem;
+    position: relative;
 }
 
-/* --------------------------------------------------------------------------
-   HERO SECTION & STAGE
-   -------------------------------------------------------------------------- */
+/* HERO SECTION */
 .home_hero {
-    margin-bottom: 4rem;
-}
-
-.hero-stage-grid {
     display: grid;
-    grid-template-columns: 1.2fr 0.9fr;
-    gap: 3.5rem;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3rem;
     align-items: center;
-    margin-bottom: 3.5rem;
+    margin-bottom: 4.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1.5px dashed var(--color-border-dashed);
 }
 
-.hero-intro-column {
-    display: flex;
-    flex-direction: column;
+.hero-text-side {
+    max-width: 650px;
 }
 
-/* System Status Indicator */
-.hero-sys-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-size: 0.75rem;
-    font-weight: bold;
-    font-family: var(--font-family-default);
-    color: var(--accent-blue);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 1.25rem;
-}
-
-.status-pulse-dot {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: var(--accent-green);
-    box-shadow: 0 0 0 rgba(140, 166, 142, 0.4);
-    animation: statusPulse 2s infinite;
-}
-
-@keyframes statusPulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(140, 166, 142, 0.7);
-    }
-
-    70% {
-        box-shadow: 0 0 0 8px rgba(140, 166, 142, 0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 rgba(140, 166, 142, 0);
-    }
-}
-
-/* Massive Display Title */
 .hero-title {
-    font-size: clamp(3rem, 5vw, 4.8rem);
-    line-height: 1.05;
-    margin-bottom: 1.5rem;
-    color: var(--text-dark);
-    font-family: var(--font-family-headers);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
+    font-size: clamp(3rem, 5.5vw, 4.75rem);
+    line-height: 0.95;
+    margin-bottom: 1.75rem;
+    color: var(--color-ink-primary);
+    font-weight: 700;
 }
 
-/* Role Badges Taxonomy */
-.hero-role-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
+.hero-subtitle {
+    font-family: var(--font-family-mono);
+    font-size: 2.2rem;
+    color: var(--color-ink-muted);
+    margin-bottom: 1.75rem;
 }
 
-.hero-role-pill {
-    font-family: var(--font-family-default);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    padding: 0.3rem 0.65rem;
-    border: 1px solid var(--text-dark);
-    background-color: transparent;
-    color: var(--text-dark);
-    text-transform: uppercase;
-    transition: all 0.2s ease;
+.hero-paragraph {
+    font-family: var(--font-family-mono);
+    font-size: 1rem;
 }
 
-.hero-role-pill:hover {
-    background-color: var(--accent-blue);
-    border-color: var(--accent-blue);
-    color: var(--base-black);
-}
-
-/* Hero Description Copy */
-.hero-description {
-    max-width: 580px;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    margin-bottom: 2.5rem;
-    color: var(--text-gray);
-    font-family: var(--font-family-default);
-}
-
-/* Hero Action CTAs */
 .hero-cta-group {
     display: flex;
-    align-items: center;
     gap: 1rem;
     flex-wrap: wrap;
 }
 
-.hero-cta-group .action-btn {
-    background: var(--text-dark);
-    color: var(--beige-bg);
-    border: 1px solid var(--text-dark);
-    padding: 0.65rem 1.4rem;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    transition: all 0.2s ease;
-}
-
-.hero-cta-group .action-btn:hover {
-    background: var(--beige-bg);
-    color: var(--text-dark);
-}
-
-.hero-cta-group .button.secondary {
-    background: var(--color-surface-tertiary);
-    color: var(--text-dark);
-    border: 1px solid var(--text-dark);
-    padding: 0.65rem 1.4rem;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    transition: all 0.2s ease;
-}
-
-.hero-cta-group .button.secondary:hover {
-    background: var(--accent-blue);
-    border-color: var(--accent-blue);
-    color: var(--base-black);
-}
-
-/* --------------------------------------------------------------------------
-   AVATAR GREETING CARD (Right Column)
-   -------------------------------------------------------------------------- */
-.hero-avatar-column {
+/* HERO TACTILE COLLAGE (Proposal 3: Digital Collage) */
+.hero-collage-side {
+    position: relative;
+    min-height: 460px;
+    padding: 1rem 0;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
-.avatar-hero-card {
+.collage-container {
     position: relative;
     width: 100%;
-    max-width: 420px;
-    padding: 1.5rem 1.25rem 1.25rem;
-    background-color: rgba(216, 217, 197, 0.45);
-    border: 1px solid var(--text-dark);
-    box-shadow: 4px 4px 0 var(--text-dark);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    max-width: 480px;
+    height: 420px;
+}
+
+/* Layer 1: Realistic Torn Paper Assets (Terracotta Rust & Golden Ochre) */
+.collage-torn-paper {
+    position: absolute;
+    display: block;
     user-select: none;
-    cursor: pointer;
+    pointer-events: none;
+    filter: drop-shadow(3px 3px 0 var(--color-ink-primary));
+}
+
+.collage-torn-paper.paper-rust {
+    top: 12px;
+    right: 22px;
+    width: 285px;
+    height: auto;
+    max-height: 380px;
+    object-fit: contain;
+    transform: rotate(2deg);
+    z-index: 1;
+}
+
+.collage-torn-paper.paper-ochre {
+    top: 38px;
+    right: 8px;
+    width: 255px;
+    height: auto;
+    max-height: 350px;
+    object-fit: contain;
+    transform: rotate(5.5deg);
+    z-index: 1;
+}
+
+/* Layer 2: Centerpiece Artwork Plate (Glowing Spatial Wireframe Floating Island) */
+.collage-artwork-plate {
+    position: absolute;
+    top: 80px;
+    right: 60px;
+    width: 200px;
+    transform: rotate(3deg);
+    z-index: 2;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.avatar-hero-card:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 var(--text-dark);
+.collage-polaroid {
+    background-color: #FAF7F0;
+    border: 1.5px solid var(--color-ink-primary);
+    padding: 8px 8px 10px 8px;
 }
 
-/* Corner Marks (+) */
-.corner-mark {
+.collage-polaroid:hover {
+    transform: rotate(0deg) translate(-2px, -2px);
+    box-shadow: var(--shadow-retro-hover);
+}
+
+/* Layer 3: Polaroid Avatar Card with Vintage Newspaper Halftone Overlay (Upper-Left) */
+.collage-polaroid-card {
     position: absolute;
-    font-family: var(--font-family-headers);
-    font-size: 1rem;
-    font-weight: bold;
-    color: var(--text-dark);
-    line-height: 1;
-    pointer-events: none;
+    top: 10px;
+    left: 10px;
+    width: 195px;
+    box-shadow: var(--shadow-retro);
+
+    box-sizing: border-box;
+    transform: rotate(-4.5deg);
+    z-index: 4;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.corner-mark.top-left {
-    top: 4px;
-    left: 6px;
-}
-
-.corner-mark.top-right {
-    top: 4px;
-    right: 6px;
-}
-
-.corner-mark.bottom-left {
-    bottom: 4px;
-    left: 6px;
-}
-
-.corner-mark.bottom-right {
-    bottom: 4px;
-    right: 6px;
-}
-
-/* Card HUD Header */
-.avatar-card-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: var(--font-family-default);
-    font-size: 0.7rem;
-    color: var(--text-gray);
-    letter-spacing: 0.08em;
-    border-bottom: 1px dashed var(--accent-blue);
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.avatar-sys-id {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-weight: 700;
-    color: var(--text-dark);
-}
-
-.avatar-tech-coord {
-    color: var(--accent-blue);
-    font-weight: 700;
-}
-
-/* Interactive Speech Bubble */
-.avatar-speech-bubble {
-    position: relative;
-    width: 94%;
-    background: var(--beige-bg);
-    border: 1.5px solid var(--text-dark);
-    padding: 0.85rem 1rem;
-    margin-bottom: 1rem;
-    box-shadow: 2px 2px 0 var(--text-dark);
-    cursor: default;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.avatar-speech-bubble:hover {
-    background: #F2F3E5;
-    transform: translateY(-2px);
-}
-
-.speech-bubble-tag {
-    font-family: var(--font-family-default);
-    font-size: 0.65rem;
-    font-weight: 800;
-    color: var(--accent-blue);
-    letter-spacing: 0.08em;
-    margin-bottom: 0.35rem;
-}
-
-.speech-bubble-content {
-    font-family: var(--font-family-headers);
-    font-size: 0.95rem;
-    font-weight: 800;
-    color: var(--text-dark);
-    line-height: 1.35;
-    letter-spacing: 0.02em;
-    min-height: 2.7rem;
-    display: flex;
-    align-items: center;
-}
-
-.greeting-message {
-    transition: opacity 0.18s ease;
-}
-
-.blinking-cursor {
-    display: inline-block;
-    font-weight: 800;
-    color: var(--accent-green);
-    animation: blinkCursor 1s infinite;
-    margin-left: 2px;
-}
-
-@keyframes blinkCursor {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-    }
-}
-
-.speech-bubble-hint {
-    font-family: var(--font-family-default);
-    font-size: 0.65rem;
-    color: var(--text-gray);
-    letter-spacing: 0.05em;
-    margin-top: 0.4rem;
-    text-align: right;
-}
-
-/* Speech Bubble Tail */
-.speech-bubble-tail {
+/* Top tape strip*/
+.tape-strip {
     position: absolute;
-    bottom: -10px;
-    left: 45px;
-    width: 0;
-    height: 0;
-    border-left: 9px solid transparent;
-    border-right: 9px solid transparent;
-    border-top: 10px solid var(--text-dark);
+    background: linear-gradient(135deg,
+            rgba(246, 235, 206, 0.95) 0%,
+            rgba(230, 214, 175, 0.9) 100%);
+    border: 0.5px solid var(--color-tape-border);
+    box-shadow: 0 1px 3px rgba(30, 30, 28, 0.15);
+    z-index: 10;
 }
 
-.speech-bubble-tail::after {
-    content: '';
-    position: absolute;
-    top: -12px;
-    left: -7px;
-    width: 0;
-    height: 0;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-top: 8px solid var(--beige-bg);
-    transition: border-top-color 0.2s ease;
-}
-
-.avatar-speech-bubble:hover .speech-bubble-tail::after {
-    border-top-color: #F2F3E5;
-}
-
-/* Avatar Image & Animation Container */
-.avatar-svg-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5rem 0;
-}
-
-.avatar-greeting-img {
-    width: 100%;
-    max-width: 320px;
-    height: auto;
-    aspect-ratio: 1100 / 1260;
-    display: block;
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
-    transition: transform 0.3s ease;
-}
-
-.avatar-hero-card:hover .avatar-greeting-img {
-    transform: scale(1.02);
-}
-
-/* Card Footer */
-.avatar-card-footer {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px dashed var(--accent-blue);
-    padding-top: 0.75rem;
-    margin-top: 0.5rem;
-}
-
-.avatar-status-text {
-    font-family: var(--font-family-default);
-    font-size: 0.68rem;
-    color: var(--text-gray);
-    letter-spacing: 0.05em;
-}
-
-.avatar-action-pill {
-    background: var(--text-dark);
-    color: var(--beige-bg);
-    border: none;
-    padding: 0.25rem 0.65rem;
-    font-family: var(--font-family-default);
-    font-size: 0.7rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.avatar-action-pill:hover,
-.avatar-action-pill.active {
-    background: var(--accent-blue);
-    color: var(--base-black);
-}
-
-/* --------------------------------------------------------------------------
-   ARCHITECTURAL DIVIDER
-   -------------------------------------------------------------------------- */
-.hero-divider-wrapper {
-    position: relative;
-    width: 100%;
-    margin-top: 2rem;
-    margin-bottom: 4rem;
-}
-
-.hero-divider {
-    height: 1px;
-    background-color: var(--accent-blue);
-    width: 100%;
-}
-
-.hero-divider-meta {
-    position: absolute;
-    right: 0;
+.tape-polaroid-top {
     top: -9px;
-    background-color: var(--beige-bg);
-    padding: 0 0.75rem;
-    font-family: var(--font-family-default);
-    font-size: 0.7rem;
-    color: var(--accent-blue);
-    font-weight: 700;
-    letter-spacing: 0.1em;
+    left: 50%;
+    transform: translateX(-50%) rotate(1.5deg);
+    width: 58px;
+    height: 16px;
 }
 
-/* --------------------------------------------------------------------------
-   CONTENT GRID (01/ SKILLS + 02/ SELECTED WORKS)
-   -------------------------------------------------------------------------- */
-.home-content-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 4.5rem;
-}
-
-/* Section Header Shared */
-.section-title-wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    border-bottom: 1px solid var(--accent-blue);
-    padding-bottom: 0.6rem;
-    margin-bottom: 2.25rem;
-}
-
-.section-title {
-    font-family: var(--font-family-headers);
-    font-size: 1.1rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    color: var(--text-dark);
-    margin: 0;
-}
-
-.section-badge {
-    font-family: var(--font-family-default);
-    font-size: 0.7rem;
-    color: var(--text-gray);
-    letter-spacing: 0.08em;
-}
-
-/* --------------------------------------------------------------------------
-   01/ SKILLS SECTION
-   -------------------------------------------------------------------------- */
-.skills-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.skill-category-card {
-    border: 1px solid var(--accent-gray);
-    background: rgba(255, 255, 255, 0.25);
-    padding: 1.25rem;
-    transition: border-color 0.2s ease, background 0.2s ease;
-}
-
-.skill-category-card:hover {
-    border-color: var(--text-dark);
-    background: rgba(255, 255, 255, 0.4);
-}
-
-.skill-cat-header {
-    display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.cat-num {
-    font-family: var(--font-family-default);
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--accent-green);
-}
-
-.skill-cat-header h3 {
-    font-size: 0.85rem;
-    font-family: var(--font-family-headers);
-    font-weight: 800;
-    color: var(--text-dark);
-    letter-spacing: 0.05em;
-    margin: 0;
-}
-
-.skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-}
-
-.skill-tags span {
-    border: 1px solid var(--text-dark);
-    padding: 0.25rem 0.55rem;
-    font-size: 0.75rem;
-    font-family: var(--font-family-default);
-    background: transparent;
-    color: var(--text-dark);
-    transition: all 0.18s ease;
-    cursor: default;
-}
-
-.skill-tags span:hover {
-    background: var(--text-dark);
-    color: var(--beige-bg);
-    transform: translateY(-1px);
-}
-
-/* --------------------------------------------------------------------------
-   02/ SELECTED WORKS SECTION
-   -------------------------------------------------------------------------- */
-.selected-works-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.work-item-card {
-    display: flex;
-    gap: 2rem;
-    align-items: flex-start;
-    padding: 1.25rem;
-    border: 1px solid transparent;
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.22s ease;
-}
-
-.work-item-card:hover {
-    border-color: var(--text-dark);
-    background: rgba(216, 217, 197, 0.35);
-    box-shadow: 4px 4px 0 var(--text-dark);
-    transform: translate(-2px, -2px);
-}
-
-.work-image-container {
-    position: relative;
-    flex: 0 0 210px;
-    width: 210px;
-    overflow: hidden;
-    border: 1px solid var(--text-dark);
-}
-
-.work-image-container img {
+.polaroid-photo-frame {
     width: 100%;
-    height: auto;
-    display: block;
-    aspect-ratio: 16/9;
+    height: 190px;
+    border: 1px solid var(--color-ink-primary);
+    overflow: hidden;
+    background-color: #E8E2D5;
+}
+
+.polaroid-img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    transition: transform 0.35s ease;
+    display: block;
+    transition: transform 0.25s ease;
 }
 
-.work-item-card:hover .work-image-container img {
-    transform: scale(1.05);
+.polaroid-img.avatar {
+    width: 70%;
+    transform: translateX(25%) translateY(10%);
+    height: auto;
 }
 
-.work-index-badge {
-    position: absolute;
-    top: 6px;
-    left: 6px;
-    background: var(--text-dark);
-    color: var(--beige-bg);
-    font-family: var(--font-family-default);
-    font-size: 0.65rem;
+.collage-polaroid-card:hover .polaroid-avatar-img {
+    transform: scale(1.03);
+}
+
+.polaroid-caption {
+    margin-top: 6px;
+    padding-top: 4px;
+    border-top: 1px dashed var(--color-border-dashed);
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.polaroid-name {
+    font-family: var(--font-family-display);
+    font-size: 0.85rem;
+    line-height: 1.1;
+    letter-spacing: 0.05em;
+    color: var(--color-ink-primary);
     font-weight: 700;
-    padding: 0.15rem 0.4rem;
-    line-height: 1;
 }
 
-.work-info {
-    flex: 1;
-}
-
-.work-title-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5rem;
-}
-
-.work-title {
-    font-size: 1.25rem;
-    font-weight: 800;
-    font-family: var(--font-family-headers);
-    color: var(--text-dark);
-    margin: 0;
-    letter-spacing: 0.02em;
-}
-
-.work-nav-arrow {
-    font-size: 1.1rem;
-    color: var(--text-dark);
-    transition: transform 0.2s ease;
-}
-
-.work-item-card:hover .work-nav-arrow {
-    transform: translate(3px, -3px);
-}
-
-.work-meta-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.45rem;
-    margin-bottom: 0.85rem;
-}
-
-.work-meta-row .tag {
-    background: var(--accent-green);
-    color: #FFFFFF;
-    font-size: 0.7rem;
-    padding: 0.15rem 0.5rem;
-    font-family: var(--font-family-default);
+.polaroid-role {
+    font-family: var(--font-family-mono);
+    font-size: 0.52rem;
+    letter-spacing: 0.06em;
+    color: var(--color-primary);
+    text-transform: uppercase;
     font-weight: 600;
 }
 
-.work-tech {
+/* Layer 4: Taped Typewriter Note Card (Lower-Right) */
+.collage-note-card {
+    position: absolute;
+    bottom: 20px;
+    right: 12px;
+    width: 235px;
+    background-color: var(--color-surface-card);
+    border: 1.5px solid var(--color-ink-primary);
+    padding: 0.95rem 1rem 0.75rem 1rem;
+    box-sizing: border-box;
+    box-shadow: var(--shadow-retro);
+    transform: rotate(-1.5deg);
+    z-index: 5;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.collage-note-card:hover {
+    transform: rotate(0deg) translate(-2px, -2px);
+    box-shadow: var(--shadow-retro-hover);
+}
+
+.tape-note-top {
+    top: -9px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-1deg);
+    width: 54px;
+    height: 16px;
+}
+
+.note-quote {
+    font-family: var(--font-family-mono);
+    font-size: 0.72rem;
+    line-height: 1.45;
+    color: var(--color-ink-primary);
+    margin: 0.2rem 0 0 0;
+}
+
+.note-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.6rem;
+    padding-top: 0.4rem;
+    border-top: 1px dashed var(--color-border-dashed);
+}
+
+/* Layer 5: Retro 8-bit Pixel Cursor */
+.collage-pixel-cursor {
+    position: absolute;
+    right: 0px;
+    top: 55%;
+    z-index: 6;
+    filter: drop-shadow(2px 2px 0 var(--color-ink-primary));
+    pointer-events: none;
+}
+
+@keyframes floatCursor {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-5px) rotate(3deg);
+    }
+}
+
+/* ==========================================================================
+   SECTION 01: SKILLS & SPECIMENS (3 Modular Graph-Paper Cards)
+   ========================================================================== */
+.skills-section {
+    margin-bottom: 5rem;
+}
+
+.skills-specimens-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+}
+
+.skills-specimen-card {
+    background-color: var(--color-surface-card);
+    border: 1.5px dashed var(--color-border-dashed);
+    padding: 1.5rem;
+    position: relative;
+    box-shadow: 2px 2px 0 rgba(30, 30, 28, 0.06);
+    transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.skills-specimen-card:hover {
+    border-color: var(--color-ink-primary);
+    transform: translateY(-2px);
+}
+
+.specimen-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: var(--border-width-thin) solid var(--color-grid-lines);
+}
+
+.specimen-num {
+    font-family: var(--font-family-mono);
     font-size: 0.75rem;
-    color: var(--text-gray);
-    font-family: var(--font-family-default);
-    background: rgba(0, 0, 0, 0.05);
-    padding: 0.15rem 0.45rem;
-    border: 1px solid var(--accent-gray);
+    color: var(--color-ink-muted);
 }
 
-.work-tech.lang {
-    border-color: var(--accent-blue);
-    color: var(--text-dark);
-}
-
-.work-description {
-    font-size: 0.92rem;
-    line-height: 1.5;
-    color: var(--text-gray);
+.specimen-title {
+    font-family: var(--font-family-display);
+    font-size: 1.15rem;
     margin-bottom: 0.85rem;
-    max-width: 540px;
-}
-
-.work-dossier-link {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-family: var(--font-family-default);
-    font-weight: 700;
-    color: var(--text-dark);
     letter-spacing: 0.05em;
-    border-bottom: 1px solid var(--text-dark);
-    padding-bottom: 1px;
+    color: var(--color-ink-primary);
 }
 
-.works-archive-cta {
-    margin-top: 3.5rem;
-    text-align: right;
+/* ==========================================================================
+   SECTION 02: SELECTED WORKS (Exhibition Catalog Plates)
+   ========================================================================== */
+.works-section {
+    margin-bottom: 4rem;
 }
 
-.works-archive-cta .action-btn {
-    background: var(--text-dark);
-    color: var(--beige-bg);
-    border: 1px solid var(--text-dark);
-    padding: 0.75rem 1.6rem;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-decoration: none;
-    transition: all 0.2s ease;
+.catalog-plates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
 }
 
-.works-archive-cta .action-btn:hover {
-    background: var(--accent-blue);
-    border-color: var(--accent-blue);
-    color: var(--beige-bg);
+.card .plate-image-container {
+    width: 100%;
+    aspect-ratio: 16/10;
+    overflow: visible !important;
+    position: relative;
+    margin-bottom: 1.15rem;
 }
+
+.card .plate-image-container .image-crop-box {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: #111110;
+    border: none;
+}
+
+.card .plate-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: contrast(105%) brightness(95%);
+}
+
+.card:hover .plate-image-container img {
+    transform: scale(1.03);
+    filter: contrast(115%);
+}
+
+.card .plate-title {
+    font-family: var(--font-family-display);
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.04em;
+    color: var(--color-ink-primary);
+}
+
+.card .plate-description {
+    font-family: var(--font-family-mono);
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--color-ink-muted);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.card .plate-actions {
+    display: flex;
+    gap: 0.65rem;
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px dashed var(--color-border-dashed);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .home_hero {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .skills-specimens-grid,
+    .catalog-plates-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .collage-container {
+        transform: scale(0.85);
+        transform-origin: center top;
+        margin: 0 auto;
+    }
+
+    .hero-collage-side {
+        min-height: 330px;
+    }
+
+    .skills-specimens-grid,
+    .catalog-plates-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   SCROLL & LOAD ANIMATIONS (ScrollAnimator Integration)
+   ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   RESPONSIVE BREAKPOINTS (DESIGN.md Section 4)
+   A. HERO SECTION ANIMATIONS (Immediate at load via data-animation-type="start" or .animate-on-start)
    -------------------------------------------------------------------------- */
-@media (max-width: 1024px) {
-    .hero-stage-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
+
+/* 1. Hero Title: from left to right, opacity 0 to 100 */
+[data-animation-type="start"] .hero-title,
+.animate-on-start .hero-title,
+.hero-section.is-visible .hero-title {
+    animation: heroTitleSlideIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0s both;
+}
+
+@keyframes heroTitleSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-40px);
     }
 
-    .hero-avatar-column {
-        order: -1;
-    }
-
-    .avatar-hero-card {
-        max-width: 380px;
-    }
-
-    .home-content-grid {
-        grid-template-columns: 1fr;
-        gap: 3.5rem;
+    100% {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.8rem;
+/* 2. Hero Subtitle: + 1s after hero-title, from left to right, opacity 0 to 100 */
+[data-animation-type="start"] .hero-subtitle,
+.animate-on-start .hero-subtitle,
+.hero-section.is-visible .hero-subtitle {
+    animation: heroSubtitleSlideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+@keyframes heroSubtitleSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-35px);
     }
 
-    .work-item-card {
-        flex-direction: column;
-        gap: 1.25rem;
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Hero Paragraph: smooth fade in */
+[data-animation-type="start"] .hero-paragraph,
+.animate-on-start .hero-paragraph,
+.hero-section.is-visible .hero-paragraph {
+    animation: heroParagraphFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+@keyframes heroParagraphFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
     }
 
-    .work-image-container {
-        width: 100%;
-        flex: auto;
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 3. Hero CTA Buttons: + 1s after hero-subtitle (at 2s), slight bounce & small stretch */
+[data-animation-type="start"] .hero-cta-group .button,
+.animate-on-start .hero-cta-group .button,
+.hero-section.is-visible .hero-cta-group .button {
+    animation: buttonBounceStretch cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    animation-duration: 0.85s;
+}
+
+[data-animation-type="start"] .hero-cta-group .button:nth-child(1),
+.animate-on-start .hero-cta-group .button:nth-child(1),
+.hero-section.is-visible .hero-cta-group .button:nth-child(1) {
+    animation-delay: 0.6s;
+}
+
+[data-animation-type="start"] .hero-cta-group .button:nth-child(2),
+.animate-on-start .hero-cta-group .button:nth-child(2),
+.hero-section.is-visible .hero-cta-group .button:nth-child(2) {
+    animation-delay: 0.75s;
+}
+
+[data-animation-type="start"] .hero-cta-group .button:nth-child(3),
+.animate-on-start .hero-cta-group .button:nth-child(3),
+.hero-section.is-visible .hero-cta-group .button:nth-child(3) {
+    animation-delay: 2.4s;
+}
+
+@keyframes buttonBounceStretch {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.65, 0.65);
     }
 
-    .works-archive-cta {
-        text-align: left;
+    50% {
+        opacity: 1;
+        transform: translateY(-4px) scale(1.14, 0.88);
+    }
+
+    75% {
+        transform: translateY(2px) scale(0.94, 1.06);
+    }
+
+    90% {
+        transform: translateY(-1px) scale(1.02, 0.98);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1, 1);
+    }
+}
+
+/* Preserve interactive button hover after bounce */
+[data-animation-type="start"] .hero-cta-group .button:hover,
+.animate-on-start .hero-cta-group .button:hover,
+.hero-section.is-visible .hero-cta-group .button:hover {
+    transform: translate(-1px, -1px) !important;
+}
+
+[data-animation-type="start"] .hero-cta-group .button:active,
+.animate-on-start .hero-cta-group .button:active,
+.hero-section.is-visible .hero-cta-group .button:active {
+    transform: translate(1px, 1px) !important;
+}
+
+/* 4. Hero Collage Side: each collage block inside collage-container with rotation bounce */
+[data-animation-type="start"] .collage-torn-paper.paper-rust,
+.animate-on-start .collage-torn-paper.paper-rust,
+.hero-section.is-visible .collage-torn-paper.paper-rust {
+    --base-rot: 2deg;
+    animation: collageRotationBounce 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+}
+
+[data-animation-type="start"] .collage-torn-paper.paper-ochre,
+.animate-on-start .collage-torn-paper.paper-ochre,
+.hero-section.is-visible .collage-torn-paper.paper-ochre {
+    --base-rot: 5.5deg;
+    animation: collageRotationBounce 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
+}
+
+[data-animation-type="start"] .collage-artwork-plate,
+.animate-on-start .collage-artwork-plate,
+.hero-section.is-visible .collage-artwork-plate {
+    --base-rot: 3deg;
+    animation: collageRotationBounce 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) 0.65s both;
+}
+
+[data-animation-type="start"] .collage-polaroid-card,
+.animate-on-start .collage-polaroid-card,
+.hero-section.is-visible .collage-polaroid-card {
+    --base-rot: -4.5deg;
+    animation: collageRotationBounce 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) 0.9s both;
+}
+
+[data-animation-type="start"] .collage-note-card,
+.animate-on-start .collage-note-card,
+.hero-section.is-visible .collage-note-card {
+    --base-rot: -1.5deg;
+    animation: collageRotationBounce 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) 1.15s both;
+}
+
+[data-animation-type="start"] .collage-pixel-cursor,
+.animate-on-start .collage-pixel-cursor,
+.hero-section.is-visible .collage-pixel-cursor {
+    animation: collageRotationBounce 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) 1.4s both,
+        floatCursor 3.5s ease-in-out 2.05s infinite;
+}
+
+@keyframes collageRotationBounce {
+    0% {
+        opacity: 0;
+        transform: scale(0.4) rotate(calc(var(--base-rot, 0deg) - 15deg));
+    }
+
+    55% {
+        opacity: 1;
+        transform: scale(1.08) rotate(calc(var(--base-rot, 0deg) + 6deg));
+    }
+
+    75% {
+        transform: scale(0.96) rotate(calc(var(--base-rot, 0deg) - 2deg));
+    }
+
+    90% {
+        transform: scale(1.02) rotate(calc(var(--base-rot, 0deg) + 1deg));
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(var(--base-rot, 0deg));
+    }
+}
+
+/* Preserve collage card hovers */
+[data-animation-type="start"] .collage-polaroid:hover,
+.animate-on-start .collage-polaroid:hover,
+.hero-section.is-visible .collage-polaroid:hover,
+[data-animation-type="start"] .collage-note-card:hover,
+.animate-on-start .collage-note-card:hover,
+.hero-section.is-visible .collage-note-card:hover {
+    transform: rotate(0deg) translate(-2px, -2px) !important;
+    box-shadow: var(--shadow-retro-hover) !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   B. SKILL SECTION ANIMATIONS
+   -------------------------------------------------------------------------- */
+/* Section Tag */
+.skills-section:not(.is-visible) .section-tag {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.skills-section.is-visible .section-tag {
+    animation: sectionTagSlide 1s cubic-bezier(0.16, 1, 0.3, 1) 0s both;
+}
+
+@keyframes sectionTagSlide {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    65% {
+        transform: translateX(20px);
+    }
+
+    80% {
+        transform: translate(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Initial states: card scale 80%, all tags hidden (opacity 0) */
+.skills-section:not(.is-visible) .skills-specimen-card {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.skills-section .skills-specimen-card .tag,
+.skills-section .skills-specimen-card .specimen-title {
+    opacity: 0;
+}
+
+/* Card staggered appearance: small delay after the other */
+.skills-section.is-visible .skills-specimen-card {
+    animation: skillCardPop 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) var(--card-delay, 0s) both;
+}
+
+.skills-section.is-visible .skills-specimen-card:nth-child(1) {
+    --card-delay: 0.1s;
+}
+
+.skills-section.is-visible .skills-specimen-card:nth-child(2) {
+    --card-delay: 0.35s;
+}
+
+.skills-section.is-visible .skills-specimen-card:nth-child(3) {
+    --card-delay: 0.6s;
+}
+
+/* Card starts scale 80%, then 120%, then settles to 100% */
+@keyframes skillCardPop {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    55% {
+        transform: scale(1.2);
+    }
+
+    80% {
+        transform: scale(0.97);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* When the size is 120% (~55% into 0.75s = 0.41s), the tags go from opacity 0 to 100% */
+.skills-section.is-visible .skills-specimen-card .tag,
+.skills-section.is-visible .skills-specimen-card .specimen-title {
+    animation: skillTagsReveal 0.35s ease calc(var(--card-delay, 0s) + 0.41s) both;
+}
+
+@keyframes skillTagsReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(3px) scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Preserve card hover after animation */
+.skills-section.is-visible .skills-specimen-card:hover {
+    border-color: var(--color-ink-primary);
+    transform: translateY(-2px) !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   C. SELECTED WORKS SECTION ANIMATIONS (Exhibition Archive Stamping)
+   -------------------------------------------------------------------------- */
+/* Section Tag */
+.works-section:not(.is-visible) .section-tag {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.works-section.is-visible .section-tag {
+    animation: sectionTagSlide 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0s both;
+}
+
+/* Catalog Plates Cards: Staggered archival reveal from below */
+.works-section:not(.is-visible) .catalog-plates-grid .card {
+    opacity: 0;
+    transform: translateY(40px) scale(0.97);
+}
+
+.works-section.is-visible .catalog-plates-grid .card {
+    animation: catalogCardRise 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--card-delay, 0s) both;
+}
+
+.works-section.is-visible .catalog-plates-grid .card:nth-child(1) {
+    --card-delay: 0.1s;
+}
+
+.works-section.is-visible .catalog-plates-grid .card:nth-child(2) {
+    --card-delay: 0.28s;
+}
+
+.works-section.is-visible .catalog-plates-grid .card:nth-child(3) {
+    --card-delay: 0.46s;
+}
+
+@keyframes catalogCardRise {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.97);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(-4px) scale(1.01);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Corner Tape Strips: Stamp down to tape the photographic specimen plate into the card */
+.works-section:not(.is-visible) .corner-tape-strip {
+    opacity: 0;
+}
+
+.works-section.is-visible .corner-tape-strip {
+    animation: tapeStamp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) calc(var(--card-delay, 0s) + 0.35s) both;
+}
+
+.works-section.is-visible .corner-tape-strip.tape-tl {
+    --tape-rot: -38deg;
+}
+
+.works-section.is-visible .corner-tape-strip.tape-tr {
+    --tape-rot: 38deg;
+}
+
+.works-section.is-visible .corner-tape-strip.tape-bl {
+    --tape-rot: 38deg;
+}
+
+.works-section.is-visible .corner-tape-strip.tape-br {
+    --tape-rot: -38deg;
+}
+
+@keyframes tapeStamp {
+    0% {
+        opacity: 0;
+        transform: rotate(var(--tape-rot, 0deg)) scale(1.6);
+    }
+
+    60% {
+        opacity: 0.95;
+        transform: rotate(var(--tape-rot, 0deg)) scale(0.92);
+    }
+
+    100% {
+        opacity: 0.95;
+        transform: rotate(var(--tape-rot, 0deg)) scale(1);
+    }
+}
+
+/* Image plate subtle focus settling */
+.works-section:not(.is-visible) .image-crop-box img {
+    transform: scale(1.08);
+}
+
+.works-section.is-visible .image-crop-box img {
+    animation: imagePlateSettle 0.6s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--card-delay, 0s) + 0.2s) both;
+}
+
+@keyframes imagePlateSettle {
+    0% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Bottom Archive CTA Button */
+.works-section:not(.is-visible) .works-cta-container {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.works-section.is-visible .works-cta-container {
+    animation: worksCtaSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.75s;
+}
+
+@keyframes worksCtaSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Preserve card hovers */
+.works-section.is-visible .catalog-plates-grid .card:hover {
+    transform: translate(-2px, -2px) !important;
+    box-shadow: var(--shadow-retro-hover) !important;
+}
+
+.works-section.is-visible .catalog-plates-grid .card:hover .plate-image-container img {
+    transform: scale(1.03) !important;
+    filter: contrast(115%) !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   D. ACCESSIBILITY: REDUCED MOTION SUPPORT
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+
+    .animate-on-start .hero-title,
+    .animate-on-start .hero-subtitle,
+    .animate-on-start .hero-paragraph,
+    .animate-on-start .hero-cta-group .button,
+    .animate-on-start .collage-torn-paper,
+    .animate-on-start .collage-polaroid,
+    .animate-on-start .collage-note-card,
+    .animate-on-start .collage-pixel-cursor,
+    .animate-on-scroll .hero-title,
+    .animate-on-scroll .hero-subtitle,
+    .animate-on-scroll .hero-paragraph,
+    .animate-on-scroll .hero-cta-group .button,
+    .animate-on-scroll .collage-torn-paper,
+    .animate-on-scroll .collage-polaroid,
+    .animate-on-scroll .collage-note-card,
+    .animate-on-scroll .collage-pixel-cursor,
+    .animate-on-scroll .skills-specimen-card,
+    .animate-on-scroll .skills-specimen-card .tag,
+    .animate-on-scroll .catalog-plates-grid .card,
+    .animate-on-scroll .corner-tape-strip,
+    .animate-on-scroll .image-crop-box img,
+    .animate-on-scroll .works-cta-container,
+    .animate-on-scroll .section-tag {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .collage-torn-paper.paper-rust {
+        transform: rotate(2deg) !important;
+    }
+
+    .collage-torn-paper.paper-ochre {
+        transform: rotate(5.5deg) !important;
+    }
+
+    .collage-artwork-plate {
+        transform: rotate(3deg) !important;
+    }
+
+    .collage-polaroid-card {
+        transform: rotate(-4.5deg) !important;
+    }
+
+    .collage-note-card {
+        transform: rotate(-1.5deg) !important;
+    }
+
+    .corner-tape-strip.tape-tl {
+        transform: rotate(-38deg) !important;
+    }
+
+    .corner-tape-strip.tape-tr {
+        transform: rotate(38deg) !important;
+    }
+
+    .corner-tape-strip.tape-bl {
+        transform: rotate(38deg) !important;
+    }
+
+    .corner-tape-strip.tape-br {
+        transform: rotate(-38deg) !important;
     }
 }

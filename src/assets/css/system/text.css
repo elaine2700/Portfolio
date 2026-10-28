@@ -1,56 +1,166 @@
 :root {
-    --font-family-default: "JetBrains Mono", monospace;
-    /* Monospace/Typewriter look */
-    --font-family-headers: "JetBrains Mono", monospace;
-    /* Blocky look, or generic fallback */
-    --fs-1: 0.75rem;
-    --fs-2: 0.875rem;
-    --fs-3: 1rem;
-    --fs-4: 1.25rem;
-    --fs-5: 1.5rem;
-    --fs-6: 2rem;
+    --font-family-display: "Oswald", "Impact", "Arial Black", sans-serif;
+    --font-family-mono: "JetBrains Mono", "Courier New", monospace;
+    --font-family-serif: "Playfair Display", "Georgia", serif;
+
+    /* Defaults */
+    --font-family-default: var(--font-family-mono);
+    --font-family-headers: var(--font-family-display);
+
+    --fs-xs: 0.72rem;
+    --fs-s: 0.82rem;
+    --fs-m: 0.95rem;
+    --fs-l: 1.15rem;
+    --fs-xl: 1.4rem;
+    --fs-xxl: 2rem;
+    --fs-hero: clamp(2.75rem, 6vw, 5rem);
 }
 
-/*Headers*/
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: var(--font-family-headers);
-    font-weight: 800;
-    color: var(--color-text-primary);
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-display);
+    font-weight: 700;
+    color: var(--color-ink-primary);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+    margin: 0;
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
 }
 
 h2 {
-    font-size: 1.8rem;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
 }
 
 h3 {
-    font-size: 1.6rem;
+    font-size: clamp(1.2rem, 2.2vw, 1.7rem);
 }
 
 h4 {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
 }
 
 h5 {
-    font-size: 1.2rem;
-}
-
-h6 {
     font-size: 1.1rem;
 }
 
+h6 {
+    font-size: 0.95rem;
+}
 
-/*Text Alignment*/
+/* Body & Paragraphs */
+p {
+    margin: 0 0 1rem 0;
+    line-height: 1.6;
+    color: var(--color-ink-primary);
+}
+
+/* Monospace Utilities */
+.font-mono {
+    font-family: var(--font-family-mono);
+}
+
+.font-display {
+    font-family: var(--font-family-display);
+}
+
+.font-serif {
+    font-family: var(--font-family-serif);
+}
+
+/* Drop Cap for Editorial Deep-Dives */
+.drop-cap::first-letter {
+    font-family: var(--font-family-serif);
+    font-size: 3.8rem;
+    line-height: 0.85;
+    float: left;
+    margin: 0.1em 0.15em 0 0;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* Editorial Pull Quote */
+.editorial-quote {
+    font-family: var(--font-family-serif);
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.5;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-top: 1.5px dashed var(--color-border-dashed);
+    border-bottom: 1.5px dashed var(--color-border-dashed);
+    color: var(--color-ink-primary);
+    position: relative;
+    background-color: rgba(229, 169, 60, 0.08);
+}
+
+.editorial-quote::before {
+    content: "“";
+    font-size: 3rem;
+    position: absolute;
+    top: -0.2rem;
+    left: 0.3rem;
+    color: var(--color-accent-gold);
+    line-height: 1;
+}
+
+/* Asterisk Starburst */
+.asterisk-star {
+    font-family: var(--font-family-display);
+    color: var(--color-accent-sage);
+    font-size: 1.6em;
+    vertical-align: middle;
+    margin-left: 0.2em;
+    display: inline-block;
+    line-height: 0.5;
+}
+
+.asterisk-star.terracotta {
+    color: var(--color-primary);
+}
+
+.asterisk-star.gold {
+    color: var(--color-accent-gold);
+}
+
+/* Typewriter Caption */
+.typewriter-caption {
+    font-family: var(--font-family-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    margin-top: 0.5rem;
+    display: block;
+}
+
+/* Section Title Tag */
+.section-tag {
+    font-family: var(--font-family-display);
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-tag::after {
+    content: "";
+    flex: 1;
+    height: 1.5px;
+    background: repeating-linear-gradient(90deg, var(--color-ink-primary) 0, var(--color-ink-primary) 6px, transparent 6px, transparent 12px);
+}
+
 .text-center {
     text-align: center;
+}
+
+.text-right {
+    text-align: right;
 }
