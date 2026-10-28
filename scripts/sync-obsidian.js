@@ -91,6 +91,9 @@ function walkDirectory(dir, fileList = [], baseDir = dir) {
     // Skip hidden files and obsidian system folders (.obsidian, .trash, etc.)
     if (entry.name.startsWith('.')) continue;
 
+    // Skip folders that start with '_' (e.g. _drafts, _templates)
+    if (entry.isDirectory() && entry.name.startsWith('_')) continue;
+
     const fullPath = path.join(dir, entry.name);
     const relativePath = path.relative(baseDir, fullPath);
 
@@ -110,17 +113,59 @@ function walkDirectory(dir, fileList = [], baseDir = dir) {
 }
 
 /**
+ * Normalizes YAML frontmatter to prevent parser errors from Obsidian-style wikilinks
+ * (e.g. unquoted `thumbnail: ![[image.png]]` or `thumbnail: [[image.png]]`)
+ */
+function sanitizeObsidianFrontmatter(content) {
+  return content.replace(/^---(\r?\n[\s\S]*?\r?\n)---/, (match, fm) => {
+    // Quote unquoted wikilinks in frontmatter like:
+    // thumbnail: ![[image.png]] or thumbnail: [[image.png]]
+    const sanitizedFm = fm.replace(/^([ \t]*[\w-]+:\s*)(!\[\[.*?\]\]|\[\[.*?\]\])(\s*)$/gm, '$1"$2"$3');
+    return `---${sanitizedFm}---`;
+  });
+}
+
+/**
+ * Cleans an image reference or wikilink string into a clean asset path or filename.
+ * Handles formats like:
+ *   - ![[image.png]]
+ *   - "![[image.png]]"
+ *   - ![[assets/image.png|alt text]]
+ *   - [[image.png]]
+ *   - "image.png"
+ *   - /assets/image.png
+ */
+function cleanImageRef(imageRef) {
+  if (!imageRef) return '';
+  if (Array.isArray(imageRef)) {
+    const flat = imageRef.flat(Infinity);
+    imageRef = flat.find(item => typeof item === 'string' && item.trim().length > 0) || '';
+  }
+  if (typeof imageRef !== 'string') return '';
+  let clean = imageRef.trim();
+  // Strip outer quotes
+  clean = clean.replace(/^['"]|['"]$/g, '').trim();
+  // Strip wikilink embed and bracket markers: ![[...]] or [[...]] or leading !
+  clean = clean.replace(/^!?\[\[/, '').replace(/\]\]$/, '').replace(/^!/, '').trim();
+  // Strip alias or dimensions e.g. |alt or |300
+  clean = clean.split('|')[0].trim();
+  // Strip fragments and query parameters
+  clean = clean.split('#')[0].split('?')[0].trim();
+  // Strip outer quotes again if any were inside brackets
+  clean = clean.replace(/^['"]|['"]$/g, '').trim();
+  return clean;
+}
+
+/**
  * Searches for an asset file in candidate locations
+ * Prioritizes the assets folder as assets are stored in the assets directory
  */
 function findAssetFile(imageFileName, noteDir, allSourceFiles, vaultPath) {
-  if (!imageFileName) return null;
+  const clean = cleanImageRef(imageFileName);
+  if (!clean) return null;
 
-  // Clean raw reference (strip quotes, wikilink brackets, query strings, hashes)
-  let clean = imageFileName.trim().replace(/^['"]|['"]$/g, '');
-  clean = clean.replace(/^\[\[/, '').replace(/\]\]$/, '').trim();
-  clean = clean.split('#')[0].split('?')[0];
-
-  const cleanName = path.basename(clean).toLowerCase();
+  const cleanBase = path.basename(clean);
+  const cleanName = cleanBase.toLowerCase();
   const noLeadingSlash = clean.replace(/^[\\\/]+/, '');
 
   // 1. Direct path relative to sourceDir (e.g. sourceDir + "assets/thumb-root.svg")
@@ -135,38 +180,55 @@ function findAssetFile(imageFileName, noteDir, allSourceFiles, vaultPath) {
     return directInNote;
   }
 
-  // 3. In sourceDir's common subfolders (assets/, attachments/, images/, etc.)
+  // 3. Search across allSourceFiles scanned in sourceDir (prioritize assets/ folder)
+  if (allSourceFiles && allSourceFiles.length > 0) {
+    // 3a. In assets/ folder with case-insensitive match (returns exact filesystem path)
+    const inAssetsFolder = allSourceFiles.find(f => {
+      if (f.name.toLowerCase() !== cleanName) return false;
+      const rel = f.relativePath.toLowerCase();
+      return rel.startsWith('assets/') || rel.includes('/assets/');
+    });
+    if (inAssetsFolder) {
+      return inAssetsFolder.fullPath;
+    }
+
+    // 3b. Anywhere in sourceDir
+    const anywhereInSource = allSourceFiles.find(f => f.name.toLowerCase() === cleanName);
+    if (anywhereInSource) {
+      return anywhereInSource.fullPath;
+    }
+  }
+
+  // 4. In sourceDir's common subfolders (assets/, attachments/, images/, etc.)
   for (const sub of ['assets', 'attachments', 'images', '_attachments']) {
-    const candidate = path.join(sourceDir, sub, cleanName);
+    const candidateExact = path.join(sourceDir, sub, cleanBase);
+    if (fs.existsSync(candidateExact) && fs.statSync(candidateExact).isFile()) {
+      return candidateExact;
+    }
+    const candidateLower = path.join(sourceDir, sub, cleanName);
+    if (fs.existsSync(candidateLower) && fs.statSync(candidateLower).isFile()) {
+      return candidateLower;
+    }
+  }
+
+  // 5. In note's common subfolders (assets/, attachments/, images/, etc.)
+  for (const sub of ['assets', 'attachments', 'images']) {
+    const candidate = path.join(noteDir, sub, cleanBase);
     if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) {
       return candidate;
     }
   }
 
-  // 4. In note's common subfolders (assets/, attachments/, images/, etc.)
-  for (const sub of ['assets', 'attachments', 'images', '_attachments']) {
-    const candidate = path.join(noteDir, sub, cleanName);
-    if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) {
-      return candidate;
-    }
-  }
-
-  // 5. In sourceDir root by base name
-  const inSourceRoot = path.join(sourceDir, cleanName);
+  // 6. In sourceDir root by base name
+  const inSourceRoot = path.join(sourceDir, cleanBase);
   if (fs.existsSync(inSourceRoot) && fs.statSync(inSourceRoot).isFile()) {
     return inSourceRoot;
-  }
-
-  // 6. Search across allSourceFiles scanned in sourceDir
-  const matched = allSourceFiles.find(f => f.name.toLowerCase() === cleanName);
-  if (matched) {
-    return matched.fullPath;
   }
 
   // 7. Check in vault root attachments if vaultPath is set
   if (vaultPath) {
     for (const sub of ['assets', 'attachments', 'images', 'Attachments', 'Assets', '']) {
-      const candidate = path.join(vaultPath, sub, cleanName);
+      const candidate = path.join(vaultPath, sub, cleanBase);
       if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) {
         return candidate;
       }
@@ -174,7 +236,7 @@ function findAssetFile(imageFileName, noteDir, allSourceFiles, vaultPath) {
   }
 
   // 8. Fallback: check if the asset already exists in TARGET_ASSETS_DIR
-  const inTargetAssets = path.join(TARGET_ASSETS_DIR, cleanName);
+  const inTargetAssets = path.join(TARGET_ASSETS_DIR, cleanBase);
   if (fs.existsSync(inTargetAssets) && fs.statSync(inTargetAssets).isFile()) {
     return inTargetAssets;
   }
@@ -260,6 +322,7 @@ async function syncObsidianBlog() {
     if (f.ext !== '.md') return false;
     const parts = f.relativePath.split('/');
     for (let i = 0; i < parts.length - 1; i++) {
+      if (parts[i].startsWith('_')) return false;
       if (ASSET_FOLDER_NAMES.has(parts[i].toLowerCase())) return false;
     }
     return true;
@@ -277,7 +340,8 @@ async function syncObsidianBlog() {
     const rawContent = fs.readFileSync(file.fullPath, 'utf8');
     let parsed;
     try {
-      parsed = matter(rawContent);
+      const sanitizedContent = sanitizeObsidianFrontmatter(rawContent);
+      parsed = matter(sanitizedContent);
     } catch (err) {
       warnings.push(`Could not parse frontmatter in ${file.relativePath}: ${err.message}`);
       continue;
@@ -363,8 +427,8 @@ async function syncObsidianBlog() {
 
     // Helper: process and copy an image reference
     function processImageRef(imageRef, altText = '') {
-      let cleanRef = imageRef.split('|')[0].trim();
-      cleanRef = cleanRef.replace(/^['"]|['"]$/g, '').replace(/^\[\[/, '').replace(/\]\]$/, '').trim();
+      const cleanRef = cleanImageRef(imageRef);
+      if (!cleanRef) return null;
 
       const assetPath = findAssetFile(cleanRef, noteDir, allSourceFiles, VAULT_PATH);
 
@@ -431,8 +495,9 @@ async function syncObsidianBlog() {
       // Handle header fragments if any
       const [targetNoteName, header] = targetNoteRaw.split('#');
       const lookupKey = (targetNoteName || '').toLowerCase().trim();
+      const baseKey = path.basename(targetNoteRaw || '').toLowerCase().trim();
 
-      const target = noteIndex.get(lookupKey);
+      const target = noteIndex.get(lookupKey) || noteIndex.get(baseKey);
       if (target) {
         const displayText = alias || target.title || targetNoteName;
         const targetHref = `#${target.articleId}`;
@@ -446,19 +511,20 @@ async function syncObsidianBlog() {
       }
     });
 
-    // D. Transform Frontmatter Thumbnail / Image fields if present
+    // D. Transform Frontmatter Thumbnail / Image fields if present (e.g. string wikilink ![[image.png]])
     const updatedData = { ...note.data };
     for (const field of ['thumbnail', 'image', 'heroImage']) {
-      if (updatedData[field] && typeof updatedData[field] === 'string') {
-        let rawThumb = updatedData[field].trim();
-        rawThumb = rawThumb.replace(/^['"]|['"]$/g, '').replace(/^\[\[/, '').replace(/\]\]$/, '').trim();
+      if (updatedData[field]) {
+        const cleanThumb = cleanImageRef(updatedData[field]);
+        if (!cleanThumb) continue;
 
         // Skip external URLs or paths already formatted as /assets/images/blog/
-        if (rawThumb.startsWith('http://') || rawThumb.startsWith('https://') || rawThumb.startsWith('/assets/images/blog/')) {
+        if (cleanThumb.startsWith('http://') || cleanThumb.startsWith('https://') || cleanThumb.startsWith('/assets/images/blog/')) {
+          updatedData[field] = cleanThumb;
           continue;
         }
 
-        const res = processImageRef(rawThumb, note.title);
+        const res = processImageRef(cleanThumb, note.title);
         if (res) {
           updatedData[field] = res.publicWebPath;
         }
